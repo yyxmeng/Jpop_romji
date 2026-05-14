@@ -1,0 +1,175 @@
+/* ═══════════════════════════════════════
+   shared.css — 所有頁面共用的變數與基礎樣式
+   home.html / index.html / tools/lyrics_transfer.html
+   ═══════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500&family=Noto+Sans+JP:wght@300;400;500&display=swap');
+
+/* ── 全域設計 Token ── */
+:root{
+  /* 背景層次 */
+  --bg:          #0f0f13;
+  --bg2:         #16161d;
+  --bg3:         #1e1e28;
+
+  /* 框線 */
+  --border:      #2a2a38;
+  --border2:     #3a3a50;
+
+  /* 文字層次 */
+  --text:        #e8e6f0;
+  --text2:       #9994b8;
+  --text3:       #5a5878;
+
+  /* 主色調 */
+  --accent:      #9b7fe8;
+  --accent2:     #c4a8ff;
+
+  /* 字型 */
+  --font-jp:     'Noto Serif JP', serif;
+  --font-ui:     'Noto Sans JP', sans-serif;
+
+  /* 圓角 */
+  --radius:      10px;
+  --radius-sm:   6px;
+
+  /* 過渡 */
+  --transition:  0.18s ease;
+}
+
+/* ── Reset ── */
+*, *::before, *::after{ box-sizing: border-box; margin: 0; padding: 0; }
+html{ scroll-behavior: smooth; }
+
+body{
+  font-family: var(--font-ui);
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── 捲動條 ── */
+::-webkit-scrollbar{ width: 5px; }
+::-webkit-scrollbar-track{ background: var(--bg); }
+::-webkit-scrollbar-thumb{ background: var(--border2); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover{ background: var(--accent); }
+
+/* ── 共用 Toggle 開關 ── */
+.toggle-wrap{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--text2);
+  flex-shrink: 0;
+}
+.toggle{
+  position: relative;
+  width: 40px;
+  height: 22px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.toggle input{ opacity:0; width:0; height:0; position:absolute; }
+.slider{
+  position: absolute;
+  inset: 0;
+  background: var(--border2);
+  border-radius: 22px;
+  transition: var(--transition);
+}
+.slider:before{
+  content: "";
+  position: absolute;
+  height: 16px; width: 16px;
+  left: 3px; bottom: 3px;
+  background: var(--text2);
+  border-radius: 50%;
+  transition: var(--transition);
+}
+input:checked + .slider{ background: var(--accent); }
+input:checked + .slider:before{
+  transform: translateX(18px);
+  background: #fff;
+}
+
+/* ── 共用 Topbar ── */
+.topbar{
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(15,15,19,0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 1.5rem;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.topbar-left{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.topbar-home{
+  font-size: 18px;
+  text-decoration: none;
+  opacity: 0.6;
+  transition: var(--transition);
+  line-height: 1;
+}
+.topbar-home:hover{ opacity: 1; }
+.topbar-title{
+  font-family: var(--font-jp);
+  font-size: 15px;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  color: var(--accent2);
+  white-space: nowrap;
+}
+
+/* ── 共用按鈕 ── */
+.btn-primary{
+  padding: 8px 18px;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-family: var(--font-ui);
+  cursor: pointer;
+  transition: var(--transition);
+}
+.btn-primary:hover{ background: var(--accent2); color: var(--bg); }
+
+.btn-sec{
+  padding: 8px 16px;
+  background: var(--bg2);
+  color: var(--text2);
+  border: 1px solid var(--border2);
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-family: var(--font-ui);
+  cursor: pointer;
+  transition: var(--transition);
+}
+.btn-sec:hover{ border-color: var(--accent); color: var(--accent2); }
+
+/* ── 共用 Label ── */
+.section-label{
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: var(--text3);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+/* ── 手機響應 ── */
+@media(max-width: 600px){
+  .topbar{ padding: 0 1rem; }
+}

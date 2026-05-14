@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>日文歌詞本</title>
+<link rel="stylesheet" href="shared.css">
+<style>
+/* ── 歌詞本專用變數（覆蓋或補充 shared.css）── */
+:root{
+  --verse-bg:    #13131a;
+  --chorus-bg:   #1a1428;
+  --bridge-bg:   #0f1a20;
+  --outro-bg:    #1a0f1a;
+  --rt-color:    #6b6488;
+  --section-color:#4a4468;
+  --font-jp:     'Noto Serif JP', serif;
+  --font-ui:     'Noto Sans JP', sans-serif;
+  --radius:      10px;
+  --radius-sm:   6px;
+  --transition:  0.18s ease;
+}
+
+*{ box-sizing:border-box; margin:0; padding:0; }
+html{ scroll-behavior:smooth; }
+
+body{
+  font-family: var(--font-ui);
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+/* ── 頂部標題列 ── */
+.topbar{
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(15,15,19,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 1.5rem;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.topbar-title{
+  font-family: var(--font-jp);
+  font-size: 16px;
+  font-weight: 300;
+  letter-spacing: 0.12em;
+  color: var(--accent2);
+  white-space: nowrap;
+}
+.toggle-wrap{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--text2);
+  flex-shrink: 0;
+}
+.toggle{
+  position: relative;
+  width: 40px;
+  height: 22px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.toggle input{ opacity:0; width:0; height:0; position:absolute; }
+.slider{
+  position: absolute;
+  inset: 0;
+  background: var(--border2);
+  border-radius: 22px;
+  transition: var(--transition);
+}
+.slider:before{
+  content:"";
+  position: absolute;
+  height: 16px; width: 16px;
+  left: 3px; bottom: 3px;
+  background: var(--text2);
+  border-radius: 50%;
+  transition: var(--transition);
+}
+input:checked + .slider{ background: var(--accent); }
+input:checked + .slider:before{
+  transform: translateX(18px);
+  background: #fff;
+}
+
+/* ── 主容器 ── */
+.app{ max-width: 860px; margin: 0 auto; padding: 1.5rem 1rem 4rem; }
+
+/* ── 歌手分頁列 ── */
+.artist-section{ margin-bottom: 1.5rem; }
+.artist-section-label{
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: var(--text3);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.tabs{
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.tab{
+  padding: 7px 16px;
+  border: 1px solid var(--border2);
+  border-radius: 20px;
+  font-size: 13px;
+  font-family: var(--font-ui);
+  cursor: pointer;
+  background: var(--bg2);
+  color: var(--text2);
+  transition: var(--transition);
+  letter-spacing: 0.02em;
+}
+.tab:hover{ border-color: var(--accent); color: var(--accent2); background: var(--bg3); }
+.tab.active{
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+  font-weight: 500;
+}
+
+/* ── 歌曲列表 ── */
+.songs-section-label{
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: var(--text3);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.songs{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 8px;
+}
+.song{
+  padding: 12px 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  cursor: pointer;
+  background: var(--bg2);
+  transition: var(--transition);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+.song:hover{
+  border-color: var(--accent);
+  background: var(--bg3);
+  transform: translateY(-1px);
+}
+.song-title{ font-size: 14px; font-weight: 500; color: var(--text); }
+.song-artist{ font-size: 11px; color: var(--text3); margin-top: 2px; }
+.song-arrow{ color: var(--text3); font-size: 16px; flex-shrink: 0; }
+
+/* ── 歌詞頁面 ── */
+.lyric-view{ display: none; }
+.lyric-view.show{ display: block; }
+
+.back-btn{
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: 1px solid var(--border2);
+  border-radius: var(--radius-sm);
+  color: var(--text2);
+  font-size: 13px;
+  cursor: pointer;
+  padding: 7px 14px;
+  margin-bottom: 1.5rem;
+  transition: var(--transition);
+  font-family: var(--font-ui);
+}
+.back-btn:hover{ border-color: var(--accent); color: var(--accent2); }
+
+.lyric-header{
+  margin-bottom: 2rem;
+  padding-bottom: 1.2rem;
+  border-bottom: 1px solid var(--border);
+}
+.lyric-title{
+  font-family: var(--font-jp);
+  font-size: 24px;
+  font-weight: 300;
+  color: var(--text);
+  letter-spacing: 0.05em;
+}
+.lyric-artist{
+  font-size: 13px;
+  color: var(--text3);
+  margin-top: 6px;
+  letter-spacing: 0.05em;
+}
+
+/* ── 歌詞區塊 ── */
+.lyric-lines{ display: flex; flex-direction: column; gap: 0; }
+
+/* 段落容器 */
+.section-block{ margin-bottom: 6px; border-radius: var(--radius); overflow: hidden; }
+
+/* 段落標題列 */
+.section-header{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 14px;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--section-color);
+  border-bottom: 1px solid transparent;
+}
+.section-header .line{ flex: 1; height: 1px; background: var(--border); }
+
+/* 段落類型底色 */
+.section-block.verse   { background: var(--verse-bg);  border: 1px solid var(--border); }
+.section-block.chorus  { background: var(--chorus-bg); border: 1px solid #2d2048; }
+.section-block.bridge  { background: var(--bridge-bg); border: 1px solid #1a3040; }
+.section-block.outro   { background: var(--outro-bg);  border: 1px solid #2d1a2d; }
+.section-block.intro   { background: var(--verse-bg);  border: 1px solid var(--border); }
+
+/* 副歌標題特殊顏色 */
+.section-block.chorus .section-header{ color: #7b5cb8; }
+.section-block.bridge .section-header{ color: #4a7888; }
+.section-block.outro  .section-header{ color: #885888; }
+
+/* 歌詞行 */
+.lb{
+  padding: 6px 16px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+}
+.lb:last-child{ padding-bottom: 14px; }
+.lb:first-of-type{ padding-top: 10px; }
+
+/* 日文字體與尺寸 */
+.jp{
+  font-family: var(--font-jp);
+  font-size: 18px;
+  line-height: 3;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  color: var(--text);
+}
+ruby{ ruby-align: center; }
+rt{
+  font-size: 10px;
+  color: var(--rt-color);
+  line-height: 1.3;
+  font-family: var(--font-ui);
+  transition: opacity 0.15s, font-size 0.15s;
+}
+#lv-lines.hide-rt rt{ opacity: 0; font-size: 0; line-height: 0; }
+#lv-lines.hide-rt .jp{ line-height: 1.8; }
+
+/* ── 空白歌詞本提示 ── */
+.empty{
+  text-align: center;
+  padding: 3rem 1rem;
+  color: var(--text3);
+  font-size: 14px;
+}
+
+/* ── 捲動條 ── */
+::-webkit-scrollbar{ width: 6px; }
+::-webkit-scrollbar-track{ background: var(--bg); }
+::-webkit-scrollbar-thumb{ background: var(--border2); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover{ background: var(--accent); }
+
+/* ── 手機響應 ── */
+@media(max-width:600px){
+  .topbar{ padding: 0 1rem; }
+  .app{ padding: 1rem 0.75rem 3rem; }
+  .songs{ grid-template-columns: 1fr; }
+  .jp{ font-size: 17px; }
+  .lyric-title{ font-size: 20px; }
+}
+</style>
+</head>
+<body>
+
+<!-- 頂部列 -->
+<div class="topbar">
+  <div class="topbar-left">
+    <a class="topbar-home" href="home.html" title="首頁">🏠</a>
+    <div class="topbar-title">日文歌詞本</div>
+  </div>
+  <div class="toggle-wrap">
+    <span>假名</span>
+    <label class="toggle">
+      <input type="checkbox" id="rt-toggle" checked>
+      <span class="slider"></span>
+    </label>
+  </div>
+</div>
+
+<!-- 主內容 -->
+<div class="app">
+
+  <!-- 列表頁 -->
+  <div id="list-view">
+    <div class="artist-section">
+      <div class="artist-section-label">歌手</div>
+      <div class="tabs" id="tabs"></div>
+    </div>
+    <div>
+      <div class="songs-section-label">歌曲</div>
+      <div class="songs" id="songs"></div>
+    </div>
+  </div>
+
+  <!-- 歌詞頁 -->
+  <div class="lyric-view" id="lyric-view">
+    <button class="back-btn" onclick="showList()">← 返回列表</button>
+    <div class="lyric-header">
+      <div class="lyric-title" id="lv-title"></div>
+      <div class="lyric-artist" id="lv-artist"></div>
+    </div>
+    <div class="lyric-lines" id="lv-lines"></div>
+  </div>
+
+</div>
+
+<!-- ══════════════════════════════════════════
+     核心引擎（請勿修改）
+     ══════════════════════════════════════════ -->
+<script>
+// ── 工具函式 ──
+function r(b,f){ return f ? `<ruby>${b}<rt>${f}</rt></ruby>` : `<span>${b}</span>`; }
+
+// L() - 一行歌詞（無段落，直接加入當前 section）
+function L(p){
+  const jp = p.map(x => Array.isArray(x) ? r(x[0],x[1]) : r(x,'')).join('');
+  return `<div class="lb"><div class="jp">${jp}</div></div>`;
+}
+
+// S() - 段落分隔標記
+// 格式：S('verse')、S('chorus')、S('bridge')、S('outro')、S('intro')
+// 或帶標籤：S('chorus|サビ')、S('bridge|ブリッジ')、S('—') 表示無標題分隔
+function S(raw){
+  raw = raw.trim();
+  if(raw === '—' || raw === ''){
+    return `<!--SECTION:verse:-->`;
+  }
+  // 格式：'type|label' 或 'type' 或 '— label —' 舊格式
+  if(raw.includes('|')){
+    const [type, label] = raw.split('|').map(s=>s.trim());
+    return `<!--SECTION:${type}:${label}-->`;
+  }
+  // 舊格式相容：— サビ — 等
+  const label = raw.replace(/^—\s*/, '').replace(/\s*—$/, '').trim();
+  let type = 'verse';
+  const lc = label.toLowerCase();
+  if(lc.includes('サビ') || lc.includes('chorus')) type = 'chorus';
+  else if(lc.includes('ブリッジ') || lc.includes('bridge')) type = 'bridge';
+  else if(lc.includes('アウトロ') || lc.includes('outro') || lc.includes('ラスト')) type = 'outro';
+  else if(lc.includes('イントロ') || lc.includes('intro')) type = 'intro';
+  return `<!--SECTION:${type}:${label}-->`;
+}
+
+// ── 歌曲資料庫 ──
+let DB = {};
+let curArtist = null;
+let showRt = true;
+
+function addSong(artist, song){
+  if(!DB[artist]) DB[artist] = [];
+  DB[artist].push(song);
+}
+
+// ── 假名開關 ──
+function syncRt(val){
+  showRt = val;
+  document.getElementById('lv-lines').classList.toggle('hide-rt', !val);
+}
+document.getElementById('rt-toggle').addEventListener('change', e => syncRt(e.target.checked));
+
+// ── 渲染列表 ──
+function renderTabs(){
+  const artists = Object.keys(DB).sort();
+  document.getElementById('tabs').innerHTML = artists.map(a =>
+    `<div class="tab${a===curArtist?' active':''}" onclick="pickArtist('${CSS.escape(a)}')">${a}</div>`
+  ).join('');
+}
+function pickArtist(a){
+  curArtist = a;
+  renderTabs();
+  renderSongs();
+}
+function renderSongs(){
+  const songs = (DB[curArtist]||[]).slice().sort((a,b)=>a.sort.localeCompare(b.sort,'ja'));
+  const el = document.getElementById('songs');
+  if(!songs.length){ el.innerHTML = '<div class="empty">此歌手暫無歌曲</div>'; return; }
+  el.innerHTML = songs.map(s =>
+    `<div class="song" onclick="showLyric('${s.id}')">
+      <div>
+        <div class="song-title">${s.title}</div>
+        <div class="song-artist">${curArtist}</div>
+      </div>
+      <div class="song-arrow">›</div>
+    </div>`
+  ).join('');
+}
+
+// ── 顯示歌詞 ──
+function buildLyricHTML(rawLines){
+  // rawLines 是 L() 和 <!--SECTION:...--> 混合的字串陣列 join 後的結果
+  const html = rawLines;
+
+  // 解析 SECTION 標記，將歌詞包進對應的 section-block div
+  const sectionRe = /<!--SECTION:([^:]*):([^-]*)-->/g;
+  const parts = html.split(/(<!--SECTION:[^:]*:[^-]*-->)/);
+
+  let result = '';
+  let currentType = 'verse';
+  let currentLabel = '';
+  let currentContent = '';
+  let inSection = false;
+
+  function flushSection(){
+    if(!inSection && !currentContent.trim()) return;
+    const labelHTML = currentLabel
+      ? `<div class="line"></div><span>${currentLabel}</span><div class="line"></div>`
+      : `<div class="line"></div>`;
+    result += `<div class="section-block ${currentType}">
+  <div class="section-header">${labelHTML}</div>
+  ${currentContent}
+</div>`;
+    currentContent = '';
+  }
+
+  for(const part of parts){
+    const m = part.match(/<!--SECTION:([^:]*):(.*)-->/);
+    if(m){
+      flushSection();
+      inSection = true;
+      currentType = m[1].trim() || 'verse';
+      currentLabel = m[2].trim();
+    } else {
+      currentContent += part;
+    }
+  }
+  flushSection();
+  return result;
+}
+
+function showLyric(id){
+  const song = Object.values(DB).flat().find(s => s.id === id);
+  if(!song) return;
+  document.getElementById('lv-title').textContent = song.title;
+  document.getElementById('lv-artist').textContent = curArtist;
+  const el = document.getElementById('lv-lines');
+  const raw = song.lines().join('');
+  el.innerHTML = buildLyricHTML(raw);
+  el.classList.toggle('hide-rt', !showRt);
+  document.getElementById('list-view').style.display = 'none';
+  document.getElementById('lyric-view').classList.add('show');
+  window.scrollTo(0, 0);
+}
+function showList(){
+  document.getElementById('list-view').style.display = 'block';
+  document.getElementById('lyric-view').classList.remove('show');
+  window.scrollTo(0, 0);
+}
+
+// ── 初始化（所有 songs/*.js 載入後執行）──
+function init(){
+  const artists = Object.keys(DB).sort();
+  if(artists.length){ curArtist = artists[0]; renderTabs(); renderSongs(); }
+  else document.getElementById('songs').innerHTML = '<div class="empty">尚未載入任何歌曲</div>';
+}
+</script>
+
+<!-- ══════════════════════════════════════════
+     ★ 在這裡加入歌手 JS 檔
+     每新增一位歌手，加一行 <script src>
+     ══════════════════════════════════════════ -->
+<script src="songs/riria.js"></script>
+<script src="songs/aimer.js"></script>
+<script src="songs/luna.js"></script>
+<script src="songs/ave_mujica.js"></script>
+<script src="songs/back_number.js"></script>
+<script src="songs/tuki.js"></script>
+<script src="songs/zutomayo.js"></script>
+<script src="songs/nanaoakari.js"></script>
+<script src="songs/atarayo.js"></script>
+
+<!-- 所有歌手載入完後執行 init -->
+<script>init();</script>
+
+</body>
+</html>
