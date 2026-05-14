@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>歌詞轉換工具</title>
+<link rel="stylesheet" href="../shared.css">
+<style>
+.app{ max-width: 960px; margin: 0 auto; padding: 1.5rem 1rem 4rem; }
+
+/* ── meta 輸入列 ── */
+.meta{
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 1.2rem;
+}
+.meta-item{
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+  min-width: 150px;
+}
+.meta-item label{
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--text3);
+  text-transform: uppercase;
+}
+.meta-item input{
+  padding: 8px 12px;
+  border: 1px solid var(--border2);
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-family: var(--font-ui);
+  background: var(--bg2);
+  color: var(--text);
+  transition: var(--transition);
+  outline: none;
+}
+.meta-item input:focus{ border-color: var(--accent); }
+.meta-item input::placeholder{ color: var(--text3); }
+
+/* ── 段落標記說明 ── */
+.hint-box{
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 12px 16px;
+  margin-bottom: 1.2rem;
+  font-size: 12px;
+  color: var(--text2);
+  line-height: 1.9;
+}
+.hint-box strong{ color: var(--accent2); }
+.hint-box code{
+  background: var(--bg3);
+  border-radius: 3px;
+  padding: 1px 5px;
+  font-family: monospace;
+  font-size: 12px;
+  color: var(--accent2);
+}
+
+/* ── 雙欄面板 ── */
+.panels{
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.panel{
+  flex: 1;
+  min-width: 280px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.panel-label{
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  color: var(--text3);
+  text-transform: uppercase;
+}
+textarea{
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--border2);
+  border-radius: var(--radius);
+  font-size: 12px;
+  font-family: monospace;
+  line-height: 1.6;
+  resize: vertical;
+  background: var(--bg2);
+  color: var(--text);
+  outline: none;
+  transition: var(--transition);
+}
+textarea:focus{ border-color: var(--accent); }
+textarea.out{
+  background: var(--bg);
+  color: var(--text2);
+  cursor: text;
+}
+textarea::placeholder{ color: var(--text3); }
+
+/* ── 按鈕列 ── */
+.btns{
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* ── 通知 ── */
+.notice{
+  font-size: 12px;
+  line-height: 1.8;
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  margin-top: 12px;
+  display: none;
+}
+.notice.ok{
+  background: rgba(100,180,120,0.08);
+  border: 1px solid rgba(100,180,120,0.25);
+  color: #7dc49a;
+}
+.notice.warn{
+  background: rgba(220,100,80,0.08);
+  border: 1px solid rgba(220,100,80,0.25);
+  color: #e08878;
+}
+
+/* ── 手機 ── */
+@media(max-width:600px){
+  .app{ padding: 1rem 0.75rem 3rem; }
+  .panels{ flex-direction: column; }
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-left">
+    <a class="topbar-home" href="../home.html" title="首頁">🏠</a>
+    <div class="topbar-title">歌詞轉換工具</div>
+  </div>
+</div>
+
+<div class="app">
+
+  <!-- 說明 -->
+  <div class="hint-box">
+    <strong>使用方式：</strong>從 utaten 頁面按 F12 → Elements，找到 <code>class="hiragana"</code> 的 div，右鍵 → Copy outerHTML，貼入左欄。<br>
+    <strong>段落標記 S() 格式：</strong>
+    <code>S('—')</code> 主歌分隔 ／
+    <code>S('chorus|サビ')</code> 副歌 ／
+    <code>S('bridge|ブリッジ')</code> 橋段 ／
+    <code>S('outro|アウトロ')</code> 尾奏 ／
+    <code>S('intro|イントロ')</code> 前奏<br>
+    <strong>注意：</strong>輸出為初稿，請手動校對演唱讀音與段落標記。
+  </div>
+
+  <!-- 基本資訊 -->
+  <div class="meta">
+    <div class="meta-item">
+      <label>歌手名稱</label>
+      <input id="artist" placeholder="Aimer">
+    </div>
+    <div class="meta-item">
+      <label>歌曲名稱</label>
+      <input id="title" placeholder="グレースノート">
+    </div>
+    <div class="meta-item">
+      <label>排序首字 sort</label>
+      <input id="sort" placeholder="ぐ">
+    </div>
+    <div class="meta-item">
+      <label>唯一 ID</label>
+      <input id="sid" placeholder="ai-gracenote">
+    </div>
+  </div>
+
+  <!-- 雙欄 -->
+  <div class="panels">
+    <div class="panel">
+      <div class="panel-label">① 貼入 utaten HTML 原始碼</div>
+      <textarea id="inp" rows="22"
+        placeholder='貼入包含 class="hiragana" 的 div 區塊。
+
+範例：
+<div class="hiragana">
+  あぁ <span class="ruby"><span class="rb">私</span><span class="rt">わたし</span></span>を...
+</div>'></textarea>
+    </div>
+
+    <div class="panel">
+      <div class="panel-label">② 產出的 addSong() 程式碼</div>
+      <textarea id="out" class="out" rows="22" readonly
+        placeholder="解析結果將顯示在此…"></textarea>
+      <div class="btns">
+        <button class="btn-primary" onclick="doparse()">▶ 解析</button>
+        <button class="btn-sec" onclick="docopy()">複製輸出</button>
+        <button class="btn-sec" onclick="doclear()">清除</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="notice" id="notice"></div>
+
+</div>
+
+<script>
+// ── 核心解析函式 ──
+
+// 安全跳脫：只跳脫反斜線和反引號，確保輸出可直接用於 template literal
+function esc(s){
+  // 將所有「彎引號」或「全形引號」先統一換成安全字元，再跳脫反引號
+  return s
+    .replace(/[\u2018\u2019\u201A\u201B\u2032\u2035]/g, "'")  // 各種單引號 → 直單引號
+    .replace(/[\u201C\u201D\u201E\u201F\u2033\u2036]/g, '"')  // 各種雙引號 → 直雙引號
+    .replace(/\\/g, '\\\\')
+    .replace(/`/g, "'");  // ★ 關鍵：反引號直接換成直單引號，徹底避免 template literal 破損
+}
+
+function parseHTML(html){
+  const tmp = document.createElement('div');
+  tmp.innerHTML = html;
+  const hiraDiv = tmp.querySelector('.hiragana') || tmp;
+
+  const lines = [];
+  let cur = [];
+
+  function walk(node){
+    if(node.nodeType === 3){
+      const t = node.textContent;
+      if(t) cur.push({type:'plain', text: t});
+    } else if(node.nodeType === 1){
+      const tag = node.tagName.toLowerCase();
+      if(tag === 'br'){
+        lines.push(cur);
+        cur = [];
+      } else if(node.classList && node.classList.contains('ruby')){
+        const rb = node.querySelector('.rb');
+        const rt = node.querySelector('.rt');
+        if(rb && rt){
+          const base = rb.textContent.trim();
+          const furi = rt.textContent.trim();
+          if(base && furi) cur.push({type:'ruby', base, furi});
+          else if(base) cur.push({type:'plain', text: rb.textContent});
+        }
+      } else {
+        node.childNodes.forEach(walk);
+      }
+    }
+  }
+
+  hiraDiv.childNodes.forEach(walk);
+  if(cur.length > 0) lines.push(cur);
+  return lines;
+}
+
+function lineToCode(segs){
+  const cleaned = [];
+  for(const seg of segs){
+    if(seg.type === 'plain'){
+      const t = seg.text.replace(/\s+/g,' ');
+      if(t.trim() === '') continue;
+      cleaned.push({type:'plain', text: t});
+    } else {
+      cleaned.push(seg);
+    }
+  }
+  if(cleaned.length === 0) return null;
+
+  const parts = cleaned.map(seg => {
+    if(seg.type === 'ruby'){
+      return `[\`${esc(seg.base)}\`,\`${esc(seg.furi)}\`]`;
+    } else {
+      return `\`${esc(seg.text)}\``;
+    }
+  });
+
+  return `    L([${parts.join(',')}]),`;
+}
+
+function doparse(){
+  const html    = document.getElementById('inp').value.trim();
+  const artist  = document.getElementById('artist').value.trim() || 'ARTIST';
+  const title   = document.getElementById('title').value.trim()  || 'TITLE';
+  const sort    = document.getElementById('sort').value.trim()   || 'X';
+  const sid     = document.getElementById('sid').value.trim().replace(/[^a-zA-Z0-9_\-]/g,'_') || 'song-id';
+
+  if(!html){ showNotice('warn','請先貼入 HTML 原始碼'); return; }
+
+  let lines;
+  try { lines = parseHTML(html); }
+  catch(e){ showNotice('warn','解析失敗：' + e.message); return; }
+
+  const result = [];
+  for(const segs of lines){
+    const hasContent = segs.some(s => s.text?.trim() || s.base);
+    if(!hasContent){
+      result.push(`    S('—'),`);
+      continue;
+    }
+    const code = lineToCode(segs);
+    if(code) result.push(code);
+  }
+
+  if(result.length === 0){
+    showNotice('warn','未能解析出任何歌詞行，請確認貼入的是含 class="hiragana" 的 HTML 片段。');
+    return;
+  }
+
+  const out =
+`// ── ${artist} / ${title} ──
+addSong('${esc(artist)}', {
+  id: '${sid}', title: '${esc(title)}', sort: '${esc(sort)}',
+  lines(){return[
+${result.join('\n')}
+  ];}
+});`;
+
+  document.getElementById('out').value = out;
+  showNotice('ok',
+    `✅ 解析完成，共 ${result.length} 行。<br>
+     ⚠️ 請手動校對：演唱讀音（書面假名≠實際唱法）、段落標記（S('chorus|サビ') 等）、漢字假名配對。`);
+}
+
+function docopy(){
+  const v = document.getElementById('out').value;
+  if(!v){ showNotice('warn','尚無輸出，請先按「解析」'); return; }
+  navigator.clipboard.writeText(v).then(()=>{
+    showNotice('ok','✅ 已複製到剪貼簿！');
+  }).catch(()=>{
+    // fallback
+    document.getElementById('out').select();
+    document.execCommand('copy');
+    showNotice('ok','✅ 已複製！');
+  });
+}
+
+function doclear(){
+  document.getElementById('inp').value = '';
+  document.getElementById('out').value = '';
+  document.getElementById('notice').style.display = 'none';
+}
+
+function showNotice(type, msg){
+  const el = document.getElementById('notice');
+  el.className = 'notice ' + type;
+  el.innerHTML = msg;
+  el.style.display = 'block';
+}
+</script>
+</body>
+</html>
