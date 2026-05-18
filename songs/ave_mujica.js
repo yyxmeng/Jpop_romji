@@ -143,9 +143,10 @@ addSong('Ave Mujica', {
   ];}
 });
 
-// ── Ave Mujica / 素晴らしき世界 でも どこにもない場所 ──
+// ── Ave Mujica / 素晴らしき世界  ──
 addSong('Ave Mujica', {
-  id: 'am-subarshi', title: '素晴らしき世界 でも どこにもない場所', sort: '素',
+  id: 'am-subarshi', title: '素晴らしき世界', sort: '素',
+  yt: 'https://youtu.be/MyI6sKuV4kY?si=8oDm6aSgelMq69ai',
   lines(){return[
     L([[`失`,`うしな`],`えばいい たったひとつのひかり`,[`目指`,`めざ`],`すため`]),
     L([[`壊`,`こわ`],`せ `,[`壊`,`こわ`],`せと いつも`,[`叫`,`さけ`],`んでる `,[`牙`,`きば`],`を`,[`剥`,`む`],`く`,[`夜`,`よる`]]),
@@ -176,9 +177,9 @@ addSong('Ave Mujica', {
   ];}
 });
 
-// ── Ave Mujica / Imprisoned XII 歌詞 Ave Mujica ふりがな付 - うたてん ──
+// ── Ave Mujica / Imprisoned XII ──
 addSong('Ave Mujica', {
-  id: 'ave-imprisoned', title: 'Imprisoned XII 歌詞 Ave Mujica ふりがな付 - うたてん', sort: 'I',
+  id: 'ave-imprisoned', title: 'Imprisoned XII', sort: 'I',
   yt: 'https://youtu.be/0YNMV7xljD4?si=fMhUraEbnFgJJaNk',
   lines(){return[
     L([` ねじれた`,[`空`,`そら`],`を`,[`描`,`えが`],`いて`,[`思`,`おも`],`うの `,[`羽根`,`はね`],`のない`,[`君`,`きみ`],[`堕`,`お`],`ちればいい`]),
