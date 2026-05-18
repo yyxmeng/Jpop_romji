@@ -324,10 +324,39 @@ async function fetchAndFill(){
     return;
   }
 
-  // ── 解析歌手 / 歌名（從 <title>）──
-  const titleM = rawHTML.match(/<title[^>]*>([\s\S]*?)<\/title>/i);
+  // ── 優先解析 JSON‑LD schema（UtaTen MusicComposition）──
   let songTitle = '';
   let artistName = '';
+
+  const ldMatches = [...rawHTML.matchAll(/<script[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi)];
+
+  for(const m of ldMatches){
+    try{
+      const txt = m[1]
+        .replace(/&quot;/g,'"')
+        .replace(/&amp;/g,'&');
+
+      const data = JSON.parse(txt);
+
+      if(!songTitle && data?.name){
+        songTitle = data.name.trim();
+      }
+
+      const schemaArtist =
+        data?.recordedAs?.byArtist?.name ||
+        data?.recordedAs?.[0]?.byArtist?.name;
+
+      if(!artistName && schemaArtist){
+        artistName = schemaArtist.trim();
+      }
+
+      if(songTitle && artistName) break;
+    }catch(e){}
+  }
+
+  // ── 備援：從 <title> 解析 ──
+  if(!songTitle || !artistName){
+  const titleM = rawHTML.match(/<title[^>]*>([\s\S]*?)<\/title>/i);
   if(titleM){
     let t = titleM[1]
       .replace(/&amp;/g,'&').replace(/&lt;/g,'<')
@@ -342,6 +371,7 @@ async function fetchAndFill(){
       // 備用：去掉後綴
       songTitle = t.replace(/の歌詞.*/,'').replace(/\|.*/,'').trim();
     }
+  }
   }
 
   // ── 找出 hiragana div 的原始 HTML ──
@@ -548,9 +578,17 @@ function doparse(){
 
   let ytLine = '';
   if(ytRaw){
-    const vid = extractYtId(ytRaw);
-    if(vid) ytLine = `\n  yt: '${vid}',`;
-    else showNotice('warn','⚠️ 無法解析 YouTube 連結，yt 欄位略過。');
+    let ytValue = ytRaw.trim();
+
+    // iframe → 取 src
+    const srcM = ytValue.match(/src=["']([^"']+)["']/i);
+    if(srcM) ytValue = srcM[1];
+
+    if(ytValue){
+      ytLine = `\n  yt: '${esc(ytValue)}',`;
+    }else{
+      showNotice('warn','⚠️ 無法解析 YouTube 連結，yt 欄位略過。');
+    }
   }
 
   const out =
