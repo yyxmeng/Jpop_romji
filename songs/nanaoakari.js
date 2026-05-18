@@ -3,6 +3,7 @@
 // ── NANAOAKARI / ムリムリ進化論 ──
 addSong('NANAOAKARI', {
   id: 'nao-murimuri', title: 'ムリムリ進化論', sort: 'む',
+  yt: 'https://youtu.be/o4OsvOqHnZM?si=bNxIIvb6IYh6DLsh',
   lines(){return[
     L([`（ムリムリ！）ひとよひとよに`,[`人見知`,'ひとみし'],`り…`]),
     L([`（ムリムリ！）ふたり`,[`以上`,'いじょう'],`での`,[`立`,'た'],`ち`,[`回`,'まわ'],`り…！？`]),

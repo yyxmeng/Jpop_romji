@@ -3,6 +3,7 @@
 // ── Ave Mujica / Crucifix X ──
 addSong('Ave Mujica', {
   id: 'am-Crucifix_X', title: 'Crucifix X', sort: 'C',
+  yt: 'https://youtu.be/v-dKrhA6_i0?si=Z04FZ9LzearpiPv0',
   lines(){return[
     L([' あぁ ',['私','わたし'],'を',['辱','はずかし'],'めたあなたのメロディは いまだ',['猛','たけ'],'り',['狂','くる'],'う']),
     L([' のか']),
@@ -40,6 +41,7 @@ addSong('Ave Mujica', {
 // ── Ave Mujica / Angles ──
 addSong('Ave Mujica',{
   id:'am-angles', title:'Angles', sort:'A',
+  yt: 'https://youtu.be/MbVgSM7Hhso?si=ykdQqFCWp8h_X3Ua',
   lines(){return[
     L([[`訪`,'おとず'],`れたの　いま　`,[`連`,'つ'],`れ`,[`出`,'だ'],`すため`]),
     L([[`明日`,'あした'],`に`,[`落`,'お'],`とす　`,[`静寂`,'せいじゃく'],`と`,[`月明`,'つきあ'],`かり`]),
@@ -78,6 +80,7 @@ addSong('Ave Mujica',{
 // ── Ave Mujica / Mas?uerade Rhapsody Re?uest ──
 addSong('Ave Mujica', {
   id: 'am-mas', title: 'Mas?uerade Rhapsody Re?uest', sort: 'M',
+  yt: 'https://youtu.be/VLxM8q6PF4I?si=666zBvp4cuU2tc96',
   lines(){return[
     L([` なら もう`,[`汚`,`よご`],`れたっていい `,[`重`,`おも`],`い`,[`微睡`,`まどろ`],`みに`,[`身`,`み`],`を`,[`委`,`ゆだ`],`ねて`]),
     L([` Mas?uerade その`,[`仮面`,`かめん`],`の`,[`意味`,`いみ`],` don't be afraid `,[`私`,`わたし`],`は`,[`贈`,`おく`],`り`,[`物`,`もの`]]),
@@ -110,6 +113,7 @@ addSong('Ave Mujica', {
 // ── Ave Mujica / Ether ──
 addSong('Ave Mujica', {
   id: 'am-ether', title: 'Ether', sort: 'E',
+  yt: 'https://youtu.be/z6k7YIIZ6Hk?si=LvdeBHg7VThiKjuz',
   lines(){return[
     L([[`一葉`,`いちよう`],`の`,[`銀河系`,`ぎんがけい`]]),
     L([[`夢`,`ゆめ`],`を`,[`描`,`えが`],`く`]),
@@ -146,7 +150,7 @@ addSong('Ave Mujica', {
 // ── Ave Mujica / 素晴らしき世界 でも どこにもない場所  ──
 addSong('Ave Mujica', {
   id: 'am-subarshi', title: '素晴らしき世界 でも どこにもない場所', sort: '素',
-  yt: 'https://youtu.be/MyI6sKuV4kY?si=8oDm6aSgelMq69ai',
+  yt: 'https://youtu.be/MyI6sKuV4kY?si=qfZX7KBj3oGXGRzd',
   lines(){return[
     L([[`失`,`うしな`],`えばいい たったひとつのひかり`,[`目指`,`めざ`],`すため`]),
     L([[`壊`,`こわ`],`せ `,[`壊`,`こわ`],`せと いつも`,[`叫`,`さけ`],`んでる `,[`牙`,`きば`],`を`,[`剥`,`む`],`く`,[`夜`,`よる`]]),

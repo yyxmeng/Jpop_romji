@@ -3,6 +3,7 @@
 // ── back number / 冬と春 ──
 addSong('back number', {
   id: 'back_fuyu', title: '冬と春', sort: '冬',
+  yt: 'https://youtu.be/hu6y1ol9yUg?si=V3NeJubBFxdDlRLV',
   lines(){return[
     L([['私','わたし'],'を',['探','さが'],'していたのに']),
     L([['途中','とちゅう'],'でその',['子','こ'],'を',['見','み'],'つけたから']),

@@ -3,6 +3,7 @@
 // ── *Luna / Aria feat.ねんね ──
 addSong('*Luna', {
   id: 'luna-aria', title: 'Aria', sort: 'A',
+  yt: 'https://youtu.be/jKBXJXUeAeE?si=glTRUGmuhpYAZGXb',
   lines(){return[
     L([[`後悔`,'こうかい'],`はしてなかった`]),
     L([`あなたに`,[`少`,'すこ'],`しだけ　`,[`近`,'ちか'],`づけたような`]),

@@ -3,6 +3,7 @@
 // ── あたらよ / 朝凪 ──
 addSong('あたらよ', {
   id: 'ata-asanagi', title: '朝凪', sort: 'あ',
+  yt: 'https://youtu.be/nrPxKCdPgnM?si=QMvdWkJYqZb6H4-Z',
   lines(){return[
     L([['溶','と'],'けきってしまったキャンディのように']),
     L([['甘','あま'],'ったるい',['後味','あとあじ'],'ここに',['残','のこ'],'っている']),
