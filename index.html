@@ -107,27 +107,90 @@ input:checked + .slider:before{
 }
 .tabs{
   display: flex;
-  gap: 8px;
+  gap: 10px;
   flex-wrap: wrap;
 }
 .tab{
-  padding: 7px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+  padding: 10px 14px 8px;
   border: 1px solid var(--border2);
-  border-radius: 20px;
-  font-size: 13px;
+  border-radius: var(--radius);
+  font-size: 12px;
   font-family: var(--font-ui);
   cursor: pointer;
   background: var(--bg2);
   color: var(--text2);
   transition: var(--transition);
   letter-spacing: 0.02em;
+  min-width: 80px;
+  text-align: center;
 }
 .tab:hover{ border-color: var(--accent); color: var(--accent2); background: var(--bg3); }
 .tab.active{
-  background: var(--accent);
-  color: #fff;
+  background: var(--bg3);
+  color: var(--accent2);
   border-color: var(--accent);
   font-weight: 500;
+}
+.tab-img{
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--border2);
+  transition: var(--transition);
+  display: block;
+}
+.tab.active .tab-img,
+.tab:hover .tab-img{ border-color: var(--accent); }
+.tab-img-placeholder{
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--bg3);
+  border: 2px solid var(--border2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+}
+
+/* ── YouTube 播放器 ── */
+.yt-wrap{
+  margin-bottom: 1.5rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--bg2);
+}
+.yt-toggle{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+  cursor: pointer;
+  font-size: 13px;
+  color: var(--text2);
+  user-select: none;
+  transition: var(--transition);
+}
+.yt-toggle:hover{ color: var(--accent2); }
+.yt-toggle-left{ display: flex; align-items: center; gap: 8px; }
+.yt-icon{ font-size: 18px; }
+.yt-arrow{ font-size: 12px; transition: transform 0.2s; }
+.yt-arrow.open{ transform: rotate(180deg); }
+.yt-player{
+  display: none;
+}
+.yt-player.show{ display: block; }
+.yt-player iframe{
+  width: 100%;
+  height: 315px;
+  border: none;
+  display: block;
 }
 
 /* ── 歌曲列表 ── */
@@ -330,6 +393,17 @@ rt{
       <div class="lyric-title" id="lv-title"></div>
       <div class="lyric-artist" id="lv-artist"></div>
     </div>
+    <!-- YouTube 播放器（有 yt 欄位才顯示）-->
+    <div class="yt-wrap" id="lv-yt" style="display:none">
+      <div class="yt-toggle" onclick="toggleYt(this)">
+        <div class="yt-toggle-left">
+          <span class="yt-icon">▶</span>
+          <span>播放 MV／Official Audio</span>
+        </div>
+        <span class="yt-arrow">▼</span>
+      </div>
+      <div class="yt-player"></div>
+    </div>
     <div class="lyric-lines" id="lv-lines"></div>
   </div>
 
@@ -389,12 +463,42 @@ function syncRt(val){
 }
 document.getElementById('rt-toggle').addEventListener('change', e => syncRt(e.target.checked));
 
+// ── 歌手圖片對照表 ──
+// 格式：'歌手名稱': 'uploads/圖片檔名'
+// 若沒有圖片則顯示預設 emoji
+const ARTIST_IMG = {
+  'Aimer':        'uploads/aimer.jpeg',
+  'Ave Mujica':   'uploads/ave_mujica.webp',
+  'tuki.':        'uploads/tuki.webp',
+  'back number':  'uploads/back_number.webp',
+  'Riria':        'uploads/riria.jpg',
+  '*Luna':        'uploads/luna.webp',
+  'NANAOAKARI':   'uploads/nanaoakari.jpg',
+  'ZUTOMAYO':     'uploads/zutomayo.png',
+  'あたらよ':     'uploads/atarayo.webp',
+  '9LANA':     'uploads/atarayo.webp',
+};
+const ARTIST_EMOJI = {
+  'Aimer':'🎵','Ave Mujica':'🎻','tuki.':'🌙','back number':'🎸',
+  'Riria':'🌸','*Luna':'🌕','NANAOAKARI':'⭐','ZUTOMAYO':'🌀','あたらよ':'🌅',
+};
+
 // ── 渲染列表 ──
 function renderTabs(){
   const artists = Object.keys(DB).sort();
-  document.getElementById('tabs').innerHTML = artists.map(a =>
-    `<div class="tab${a===curArtist?' active':''}" onclick="pickArtist('${CSS.escape(a)}')">${a}</div>`
-  ).join('');
+  document.getElementById('tabs').innerHTML = artists.map(a => {
+    const imgSrc = ARTIST_IMG[a];
+    const emoji  = ARTIST_EMOJI[a] || '🎤';
+    const imgHTML = imgSrc
+      ? `<img class="tab-img" src="${imgSrc}" alt="${a}"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">`
+        + `<div class="tab-img-placeholder" style="display:none">${emoji}</div>`
+      : `<div class="tab-img-placeholder">${emoji}</div>`;
+    return `<div class="tab${a===curArtist?' active':''}" onclick="pickArtist('${CSS.escape(a)}')">
+      ${imgHTML}
+      <span>${a}</span>
+    </div>`;
+  }).join('');
 }
 function pickArtist(a){
   curArtist = a;
@@ -414,6 +518,43 @@ function renderSongs(){
       <div class="song-arrow">›</div>
     </div>`
   ).join('');
+}
+
+// ── YouTube 工具函式 ──
+function extractYtId(url){
+  if(!url) return null;
+  url = url.trim();
+  // youtu.be/XXXXXXXXXXX 格式（含 ?si= 等參數也能正確擷取）
+  const m1 = url.match(/youtu\.be\/([A-Za-z0-9_\-]{11})/);
+  if(m1) return m1[1];
+  // youtube.com/watch?v=XXXXXXXXXXX
+  const m2 = url.match(/[?&]v=([A-Za-z0-9_\-]{11})/);
+  if(m2) return m2[1];
+  // youtube.com/embed/XXXXXXXXXXX
+  const m3 = url.match(/\/embed\/([A-Za-z0-9_\-]{11})/);
+  if(m3) return m3[1];
+  // youtube.com/shorts/XXXXXXXXXXX
+  const m4 = url.match(/\/shorts\/([A-Za-z0-9_\-]{11})/);
+  if(m4) return m4[1];
+  return null;
+}
+function toggleYt(btn){
+  const wrap   = btn.closest('.yt-wrap');
+  const player = wrap.querySelector('.yt-player');
+  const arrow  = btn.querySelector('.yt-arrow');
+  const isOpen = player.classList.toggle('show');
+  arrow.classList.toggle('open', isOpen);
+  if(isOpen && !player.querySelector('iframe')){
+    const vid = player.dataset.vid;
+    // 用固定高度的 iframe，不依賴 padding-bottom 技巧
+    player.innerHTML =
+      `<iframe width="100%" height="315"
+        src="https://www.youtube.com/embed/${vid}?rel=0&modestbranding=1"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>`;
+  }
 }
 
 // ── 顯示歌詞 ──
@@ -463,10 +604,27 @@ function showLyric(id){
   if(!song) return;
   document.getElementById('lv-title').textContent = song.title;
   document.getElementById('lv-artist').textContent = curArtist;
+
+  // ── YouTube 播放器 ──
+  const ytWrap = document.getElementById('lv-yt');
+  const ytVid  = extractYtId(song.yt || '');
+  if(ytVid){
+    ytWrap.style.display = 'block';
+    const player = ytWrap.querySelector('.yt-player');
+    player.dataset.vid = ytVid;
+    player.classList.remove('show');
+    player.innerHTML = '';
+    ytWrap.querySelector('.yt-arrow').classList.remove('open');
+  } else {
+    ytWrap.style.display = 'none';
+  }
+
+  // ── 歌詞 ──
   const el = document.getElementById('lv-lines');
   const raw = song.lines().join('');
   el.innerHTML = buildLyricHTML(raw);
   el.classList.toggle('hide-rt', !showRt);
+
   document.getElementById('list-view').style.display = 'none';
   document.getElementById('lyric-view').classList.add('show');
   window.scrollTo(0, 0);
@@ -489,14 +647,14 @@ function init(){
      ★ 在這裡加入歌手 JS 檔
      每新增一位歌手，加一行 <script src>
      ══════════════════════════════════════════ -->
-<script src="songs/riria.js"></script>
 <script src="songs/aimer.js"></script>
-<script src="songs/luna.js"></script>
 <script src="songs/ave_mujica.js"></script>
-<script src="songs/back_number.js"></script>
 <script src="songs/tuki.js"></script>
-<script src="songs/zutomayo.js"></script>
+<script src="songs/back_number.js"></script>
+<script src="songs/9lana.js"></script>
+<script src="songs/luna.js"></script>
 <script src="songs/nanaoakari.js"></script>
+<script src="songs/zutomayo.js"></script>
 <script src="songs/atarayo.js"></script>
 
 <!-- 所有歌手載入完後執行 init -->
