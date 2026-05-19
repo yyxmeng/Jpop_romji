@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>歌詞轉換工具</title>
+<title>Lyrmeng 歌曲新增工具</title>
 <link rel="stylesheet" href="../shared.css">
 <style>
 .app{ max-width: 1000px; margin: 0 auto; padding: 1.5rem 1rem 4rem; }
@@ -178,6 +178,148 @@ textarea::placeholder{ color: var(--text3); }
   .panels{ flex-direction: column; }
   .url-row{ flex-direction: column; }
 }
+
+/* ── 暫存清單區 ── */
+.queue-section{
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  margin-top: 1.2rem;
+}
+.queue-header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.queue-title{
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--text3);
+  text-transform: uppercase;
+}
+.queue-count{
+  font-size: 11px;
+  color: var(--accent2);
+  background: rgba(155,127,232,0.15);
+  border-radius: 10px;
+  padding: 2px 8px;
+}
+.queue-list{
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 12px;
+  max-height: 220px;
+  overflow-y: auto;
+}
+.queue-empty{
+  font-size: 13px;
+  color: var(--text3);
+  text-align: center;
+  padding: 1rem 0;
+}
+.queue-item{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  gap: 8px;
+}
+.queue-item-name{
+  font-size: 13px;
+  color: var(--text);
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.queue-item-artist{
+  font-size: 11px;
+  color: var(--text3);
+}
+.queue-item-del{
+  background: none;
+  border: none;
+  color: var(--text3);
+  cursor: pointer;
+  font-size: 16px;
+  padding: 0 4px;
+  line-height: 1;
+  flex-shrink: 0;
+  transition: var(--transition);
+}
+.queue-item-del:hover{ color: #e08878; }
+
+/* ── GitHub 上傳區 ── */
+.github-section{
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  margin-top: 1rem;
+}
+.github-title{
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--text3);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.github-fields{
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+.github-fields input{
+  flex: 1;
+  min-width: 180px;
+  padding: 8px 12px;
+  border: 1px solid var(--border2);
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-family: var(--font-ui);
+  background: var(--bg);
+  color: var(--text);
+  outline: none;
+  transition: var(--transition);
+}
+.github-fields input:focus{ border-color: var(--accent); }
+.github-fields input::placeholder{ color: var(--text3); }
+.github-hint{
+  font-size: 11px;
+  color: var(--text3);
+  line-height: 1.7;
+  margin-bottom: 10px;
+}
+.github-hint a{ color: var(--accent2); text-decoration: none; }
+.github-hint a:hover{ text-decoration: underline; }
+.github-btns{ display: flex; gap: 8px; flex-wrap: wrap; }
+.upload-log{
+  margin-top: 10px;
+  font-size: 12px;
+  color: var(--text2);
+  line-height: 1.8;
+  max-height: 150px;
+  overflow-y: auto;
+  font-family: monospace;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 8px 10px;
+  display: none;
+}
+.log-ok{ color: #7dc49a; }
+.log-warn{ color: #e08878; }
+.log-info{ color: var(--text3); }
 </style>
 </head>
 <body>
@@ -185,7 +327,7 @@ textarea::placeholder{ color: var(--text3); }
 <div class="topbar">
   <div class="topbar-left">
     <a class="topbar-home" href="../home.html" title="首頁">🏠</a>
-    <div class="topbar-title">歌詞轉換工具</div>
+    <div class="topbar-title">歌詞新增工具</div>
   </div>
 </div>
 
@@ -193,7 +335,7 @@ textarea::placeholder{ color: var(--text3); }
 
   <!-- ① 網址區 -->
   <div class="url-section">
-    <div class="panel-label" style="margin-bottom:10px">① 貼入 view-source 網址，自動抓取並填入所有欄位</div>
+    <div class="panel-label" style="margin-bottom:10px">① 貼入 view-source 網址，按下自動填入會填入所有欄位</div>
     <div class="url-row">
       <input id="vsurl"
         placeholder="view-source:https://utaten.com/lyric/xxxxxx/">
@@ -202,8 +344,8 @@ textarea::placeholder{ color: var(--text3); }
     <div class="url-hint">
       <strong>如何取得 view-source 網址：</strong><br>
       1. 在瀏覽器開啟 utaten 歌曲頁面<br>
-      2. 在網址列最前面加上 <code>view-source:</code>，按 Enter<br>
-      3. 將整個網址（含 view-source: 前綴）複製貼入上方輸入框，按「自動填入」
+      2. Ctrl+U 或 右鍵 檢視網頁原始碼<br>
+      3. 將整個網址 複製貼入 上方輸入框，按「自動填入」
     </div>
   </div>
 
@@ -216,7 +358,7 @@ textarea::placeholder{ color: var(--text3); }
     <code>S('outro|アウトロ')</code> 尾奏 ／
     <code>S('intro|イントロ')</code> 前奏
     <hr>
-    ⚠️ 輸出為初稿，請務必手動校對<strong>演唱讀音</strong>（書面假名 ≠ 實際唱法）
+    ⚠️ 輸出為初稿，請務必手動校對<strong>演唱讀音</strong>（書面假名 與 實際唱法 可能略有誤差）
   </div>
 
   <!-- ② 欄位 -->
@@ -235,39 +377,86 @@ textarea::placeholder{ color: var(--text3); }
       <div class="field-note">自動取歌名第一個字元</div>
     </div>
     <div class="meta-item">
-      <label>唯一 ID</label>
+      <label>歌曲 ID</label>
       <input id="sid" placeholder="自動產生">
       <div class="field-note">可手動修改</div>
     </div>
     <div class="meta-item">
       <label>YouTube 連結（選填）</label>
       <input id="yt" placeholder="https://youtu.be/xxxxx">
-      <div class="field-note">支援 youtu.be、youtube.com 或完整 iframe</div>
+      <div class="field-note">在影片中選擇分享並複製分享之連結 貼到此處</div>
     </div>
   </div>
 
   <!-- ③ 雙欄解析 -->
   <div class="panels">
     <div class="panel">
-      <div class="panel-label">② 歌詞 HTML（自動填入，或手動貼入 class="hiragana" 區塊）</div>
+      <div class="panel-label">② 歌詞 HTML</div>
       <textarea id="inp" rows="22"
         placeholder='自動填入後會出現在這裡。
 也可手動貼入 class="hiragana" 的 div 區塊。'></textarea>
     </div>
 
     <div class="panel">
-      <div class="panel-label">③ 產出的 addSong() 程式碼</div>
+      <div class="panel-label">③ 將產出的 addSong() 按下加入暫存 </div>
       <textarea id="out" class="out" rows="22" readonly
         placeholder="解析結果將顯示在此…"></textarea>
       <div class="btns">
         <button class="btn-primary" onclick="doparse()">▶ 解析</button>
-        <button class="btn-sec" onclick="docopy()">複製輸出</button>
+        <button class="btn-primary" onclick="addToQueue()" style="background:var(--bg3);border:1px solid var(--accent);color:var(--accent2)">＋ 加入暫存</button>
+        <button class="btn-sec" onclick="docopy()">複製</button>
         <button class="btn-sec" onclick="doclear()">清除</button>
       </div>
     </div>
   </div>
 
   <div class="notice" id="notice"></div>
+
+  <!-- ④ 暫存清單 -->
+  <div class="queue-section">
+    <div class="queue-header">
+      <div class="queue-title">暫存清單</div>
+      <span class="queue-count" id="queue-count">0 首</span>
+    </div>
+    <div class="queue-list" id="queue-list">
+      <div class="queue-empty">尚無暫存歌曲。解析後按「＋ 加入暫存」。</div>
+    </div>
+    <div class="btns">
+      <button class="btn-sec" onclick="clearQueue()" style="color:#e08878;border-color:#e08878">清空清單</button>
+    </div>
+  </div>
+
+ <!-- ⑤ GitHub 批次上傳 -->
+<div class="github-section">
+  <div class="github-title">🚀 批次上傳到 GitHub</div>
+
+  <div class="github-hint">
+    上傳前請先確認所有暫存歌曲的段落標記與讀音已校對完畢。<br>
+    Token 不會被儲存，每次需重新輸入。
+    <a href="https://github.com/settings/tokens?type=beta" target="_blank">
+      Fine-grained Token 申請頁面 ↗
+    </a>
+  </div>
+
+  <div class="github-fields">
+    <input
+      id="gh-token"
+      type="password"
+      placeholder="GitHub Personal Access Token">
+  </div>
+
+  <div class="github-btns">
+    <button class="btn-primary" onclick="uploadToGitHub()">
+      ⬆ 一次上傳所有暫存
+    </button>
+
+    <button class="btn-sec"
+      onclick="document.getElementById('upload-log').style.display='none'">
+      收合 Log
+    </button>
+  </div>
+
+  <div class="upload-log" id="upload-log"></div>
 </div>
 
 <script>
@@ -635,6 +824,329 @@ function showNotice(type, msg){
   el.className = 'notice ' + type;
   el.innerHTML = msg;
   el.style.display = 'block';
+}
+
+// ═══════════════════════════════════
+// ⑦ Queue 系統
+// ═══════════════════════════════════
+
+let songQueue = [];
+
+function addToQueue(){
+
+  const code =
+    document.getElementById('out').value.trim();
+
+  if(!code){
+    showNotice(
+      'warn',
+      '請先解析歌曲'
+    );
+    return;
+  }
+
+  const artist =
+    document.getElementById('artist').value.trim();
+
+  const title =
+    document.getElementById('title').value.trim();
+
+  const sid =
+    document.getElementById('sid').value.trim();
+
+  songQueue.push({
+    artist,
+    title,
+    sid,
+    code
+  });
+  renderQueue();
+  showNotice(
+    'ok',
+    `已加入暫存：${title}`
+  );
+}
+
+function renderQueue(){
+  const list =
+    document.getElementById(
+      'queue-list'
+    );
+  const count =
+    document.getElementById(
+      'queue-count'
+    );
+  count.textContent =
+    `${songQueue.length} 首`;
+  if(!songQueue.length){
+    list.innerHTML=
+      `<div class="queue-empty">
+      尚無暫存歌曲
+      </div>`;
+    return;
+  }
+
+  list.innerHTML =
+    songQueue.map((s,i)=>`
+
+<div class="queue-item">
+
+<div>
+
+<div class="queue-item-name">
+${s.title}
+</div>
+
+<div class="queue-item-artist">
+${s.artist}
+</div>
+
+</div>
+
+<button
+class="queue-item-del"
+onclick="removeQueue(${i})">
+
+×
+
+</button>
+
+</div>
+`).join('');
+}
+
+function removeQueue(i){
+  songQueue.splice(i,1);
+  renderQueue();
+}
+
+function clearQueue(){
+  songQueue=[];
+  renderQueue();
+}
+
+
+// ═══════════════════════════════════
+// ⑧ slugify
+// ═══════════════════════════════════
+
+function slugifyArtist(str){
+
+  return str
+    .normalize('NFKD')
+    .replace(/[\u0300-\u036f]/g,'')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g,'_')
+    .replace(/^_+|_+$/g,'')
+
+  || 'unknown_artist';
+}
+
+
+// ═══════════════════════════════════
+// ⑨ GitHub API helpers
+// ═══════════════════════════════════
+
+const GH_OWNER='yyxmeng';
+
+const GH_REPO='Jpop_romji';
+
+
+async function ghFetch(
+  path,
+  token,
+  opts={}
+){
+
+  return fetch(
+
+`https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${path}`,
+
+{
+  ...opts,
+
+  headers:{
+    Authorization:
+      `Bearer ${token}`,
+
+    Accept:
+      'application/vnd.github+json',
+
+    ...(opts.headers||{})
+  }
+}
+
+);
+}
+
+async function getSHA(
+  path,
+  token
+){
+
+  const r=
+    await ghFetch(
+      path,
+      token
+    );
+
+  if(r.status===404)
+    return null;
+
+  if(!r.ok)
+    throw new Error(
+      `SHA失敗:${path}`
+    );
+
+  const j=
+    await r.json();
+
+  return j.sha;
+}
+
+
+
+// ═══════════════════════════════════
+// ⑩ Upload
+// ═══════════════════════════════════
+
+async function uploadToGitHub(){
+  const token =
+    document
+    .getElementById(
+      'gh-token'
+    )
+    .value
+    .trim();
+  if(!token){
+    showNotice(
+      'warn',
+      '請輸入Token'
+    );
+    return;
+  }
+  if(!songQueue.length){
+    showNotice(
+      'warn',
+      '暫存清單為空'
+    );
+    return;
+  }
+  const log=
+    document.getElementById(
+      'upload-log'
+    );
+  log.style.display='block';
+  log.innerHTML='';
+  function write(msg){
+    log.innerHTML+=
+      msg+'<br>';
+  }
+
+  try{
+    let manifest=[];
+    const manifestSHA =
+      await getSHA(
+        'songs/manifest.json',
+        token
+      );
+    if(manifestSHA){
+      const r=
+        await ghFetch(
+          'songs/manifest.json',
+          token
+        );
+      const j=
+        await r.json();
+      const txt=
+        atob(j.content);
+      manifest=
+        JSON.parse(txt)
+        .files||[];
+    }
+    for(const song of songQueue){
+      const folder=
+        slugifyArtist(
+          song.artist
+        );
+      const path=
+`songs/${folder}/${song.sid}.js`;
+      const sha=
+        await getSHA(
+          path,
+          token
+        );
+      await ghFetch(
+        path,
+        token,
+        {
+          method:'PUT',
+          body:JSON.stringify({
+            message:
+`add ${song.title}`,
+            content:
+              btoa(
+                unescape(
+                  encodeURIComponent(
+                    song.code
+                  )
+                )
+              ),
+            sha
+          })
+        }
+      );
+      if(
+        !manifest.includes(
+          path
+        )
+      ){
+        manifest.push(
+          path
+        );
+      }
+      write(
+`✅ ${song.title}`
+      );
+    }
+    const newManifest =
+JSON.stringify(
+{
+  files:manifest
+},
+null,2
+);
+    await ghFetch(
+'songs/manifest.json',
+token,
+{
+  method:'PUT',
+  body:JSON.stringify({
+    message:
+'update manifest',
+    content:
+      btoa(
+        unescape(
+          encodeURIComponent(
+            newManifest
+          )
+        )
+      ),
+    sha:manifestSHA
+  })
+}
+);
+    write(
+      '<span class="log-ok">全部完成</span>'
+    );
+  }
+  catch(e){
+    console.error(e);
+    log.innerHTML+=
+`<span class="log-warn">
+${e.message}
+</span>`;
+  }
 }
 </script>
 </body>
