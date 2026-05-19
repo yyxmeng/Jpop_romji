@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>日文歌詞本</title>
+<title>Lyrmeng 日文歌曲學習網</title>
 <link rel="stylesheet" href="shared.css">
 <style>
 /* ── 歌詞本專用變數（覆蓋或補充 shared.css）── */
@@ -344,6 +344,78 @@ rt{
 ::-webkit-scrollbar-thumb{ background: var(--border2); border-radius: 3px; }
 ::-webkit-scrollbar-thumb:hover{ background: var(--accent); }
 
+/* ── YouTube 置頂（滑動時固定在頂部）── */
+.yt-sticky{
+  position: sticky;
+  top: 56px; /* topbar 高度 */
+  z-index: 90;
+  background: var(--bg);
+  padding: 8px 0 4px;
+  margin-bottom: 0;
+}
+
+/* ── 懸浮按鈕群（右下角）── */
+.fab-group{
+  position: fixed;
+  right: 20px;
+  bottom: 24px;
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+.fab{
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  transition: var(--transition);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.4);
+}
+.fab-top{
+  background: var(--bg2);
+  color: var(--text2);
+  border: 1px solid var(--border2);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(8px);
+  transition: opacity 0.2s, transform 0.2s;
+}
+.fab-top.show{
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+.fab-top:hover{ border-color: var(--accent); color: var(--accent2); }
+
+/* 假名開關 FAB */
+.fab-rt{
+  background: var(--bg2);
+  color: var(--text2);
+  border: 1px solid var(--border2);
+  font-size: 11px;
+  font-family: var(--font-ui);
+  letter-spacing: 0.02em;
+  flex-direction: column;
+  gap: 2px;
+  width: 48px;
+  height: 48px;
+}
+.fab-rt:hover{ border-color: var(--accent); color: var(--accent2); }
+.fab-rt.rt-on{
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+.fab-rt-label{ font-size: 9px; line-height: 1; }
+.fab-rt-icon{ font-size: 13px; line-height: 1; }
+
 /* ── 手機響應 ── */
 @media(max-width:600px){
   .topbar{ padding: 0 1rem; }
@@ -351,6 +423,7 @@ rt{
   .songs{ grid-template-columns: 1fr; }
   .jp{ font-size: 17px; }
   .lyric-title{ font-size: 20px; }
+  .fab-group{ right: 14px; bottom: 16px; }
 }
 </style>
 </head>
@@ -360,14 +433,7 @@ rt{
 <div class="topbar">
   <div class="topbar-left">
     <a class="topbar-home" href="home.html" title="首頁">🏠</a>
-    <div class="topbar-title">日文歌詞本</div>
-  </div>
-  <div class="toggle-wrap">
-    <span>假名</span>
-    <label class="toggle">
-      <input type="checkbox" id="rt-toggle" checked>
-      <span class="slider"></span>
-    </label>
+    <div class="topbar-title">歌曲清單</div>
   </div>
 </div>
 
@@ -393,21 +459,38 @@ rt{
       <div class="lyric-title" id="lv-title"></div>
       <div class="lyric-artist" id="lv-artist"></div>
     </div>
-    <!-- YouTube 播放器（有 yt 欄位才顯示）-->
-    <div class="yt-wrap" id="lv-yt" style="display:none">
-      <div class="yt-toggle" onclick="toggleYt(this)">
-        <div class="yt-toggle-left">
-          <span class="yt-icon">▶</span>
-          <span>播放 MV／Official Audio</span>
+    <!-- YouTube 播放器（滑動時置頂）-->
+    <div class="yt-sticky" id="lv-yt" style="display:none">
+      <div class="yt-wrap">
+        <div class="yt-toggle" onclick="toggleYt(this)">
+          <div class="yt-toggle-left">
+            <span class="yt-icon">▶</span>
+            <span>播放 MV／Official Audio</span>
+          </div>
+          <span class="yt-arrow">▼</span>
         </div>
-        <span class="yt-arrow">▼</span>
+        <div class="yt-player"></div>
       </div>
-      <div class="yt-player"></div>
     </div>
     <div class="lyric-lines" id="lv-lines"></div>
   </div>
 
 </div>
+
+<!-- 懸浮按鈕群（右下角） -->
+<div class="fab-group" id="fab-group">
+  <!-- 回頂端（滾動後才顯示） -->
+  <button class="fab fab-top" id="fab-top" onclick="window.scrollTo({top:0,behavior:'smooth'})"
+    title="回到頂端">↑</button>
+  <!-- 假名開關 -->
+  <button class="fab fab-rt rt-on" id="fab-rt" onclick="toggleRtFab()" title="顯示／隱藏假名">
+    <span class="fab-rt-icon">あ</span>
+    <span class="fab-rt-label">假名</span>
+  </button>
+</div>
+
+<!-- 隱藏的 rt-toggle（保持 JS 相容） -->
+<input type="checkbox" id="rt-toggle" checked style="display:none">
 
 <!-- ══════════════════════════════════════════
      核心引擎（請勿修改）
@@ -456,12 +539,24 @@ function addSong(artist, song){
   DB[artist].push(song);
 }
 
-// ── 假名開關 ──
+// ── 假名開關（FAB 版本）──
 function syncRt(val){
   showRt = val;
   document.getElementById('lv-lines').classList.toggle('hide-rt', !val);
+  const fab = document.getElementById('fab-rt');
+  if(fab) fab.classList.toggle('rt-on', val);
+}
+function toggleRtFab(){
+  showRt = !showRt;
+  syncRt(showRt);
 }
 document.getElementById('rt-toggle').addEventListener('change', e => syncRt(e.target.checked));
+
+// ── 回頂端按鈕：滾動超過 300px 才顯示 ──
+window.addEventListener('scroll', () => {
+  const fabTop = document.getElementById('fab-top');
+  if(fabTop) fabTop.classList.toggle('show', window.scrollY > 300);
+}, { passive: true });
 
 // ── 歌手圖片對照表 ──
 // 格式：'歌手名稱': 'uploads/圖片檔名'
@@ -539,14 +634,12 @@ function extractYtId(url){
   return null;
 }
 function toggleYt(btn){
-  const wrap   = btn.closest('.yt-wrap');
-  const player = wrap.querySelector('.yt-player');
+  const player = btn.closest('.yt-wrap').querySelector('.yt-player');
   const arrow  = btn.querySelector('.yt-arrow');
   const isOpen = player.classList.toggle('show');
   arrow.classList.toggle('open', isOpen);
   if(isOpen && !player.querySelector('iframe')){
     const vid = player.dataset.vid;
-    // 用固定高度的 iframe，不依賴 padding-bottom 技巧
     player.innerHTML =
       `<iframe width="100%" height="315"
         src="https://www.youtube.com/embed/${vid}?rel=0&modestbranding=1"
@@ -606,17 +699,17 @@ function showLyric(id){
   document.getElementById('lv-artist').textContent = curArtist;
 
   // ── YouTube 播放器 ──
-  const ytWrap = document.getElementById('lv-yt');
-  const ytVid  = extractYtId(song.yt || '');
+  const ytSticky = document.getElementById('lv-yt');
+  const ytVid    = extractYtId(song.yt || '');
   if(ytVid){
-    ytWrap.style.display = 'block';
-    const player = ytWrap.querySelector('.yt-player');
+    ytSticky.style.display = 'block';
+    const player = ytSticky.querySelector('.yt-player');
     player.dataset.vid = ytVid;
     player.classList.remove('show');
     player.innerHTML = '';
-    ytWrap.querySelector('.yt-arrow').classList.remove('open');
+    ytSticky.querySelector('.yt-arrow').classList.remove('open');
   } else {
-    ytWrap.style.display = 'none';
+    ytSticky.style.display = 'none';
   }
 
   // ── 歌詞 ──
@@ -643,22 +736,76 @@ function init(){
 }
 </script>
 
-<!-- ══════════════════════════════════════════
-     ★ 在這裡加入歌手 JS 檔
-     每新增一位歌手，加一行 <script src>
-     ══════════════════════════════════════════ -->
-<script src="songs/aimer.js"></script>
-<script src="songs/ave_mujica.js"></script>
-<script src="songs/tuki.js"></script>
-<script src="songs/back_number.js"></script>
-<script src="songs/9lana.js"></script>
-<script src="songs/luna.js"></script>
-<script src="songs/nanaoakari.js"></script>
-<script src="songs/zutomayo.js"></script>
-<script src="songs/atarayo.js"></script>
+<!-- ════════════════════════════════════════
+     動態載入 songs/manifest.json
+     ════════════════════════════════════════ -->
+<script>
+async function loadSongs(){
+  try{
+    const res =
+      await fetch('songs/manifest.json');
+    if(!res.ok){
+      throw new Error(
+        `manifest 載入失敗 (${res.status})`
+      );
+    }
+	
+    const manifest =
+      await res.json();
+	  
+    const files =
+      manifest.files || [];
+	  
+    if(!files.length){
+      console.warn(
+        'manifest 無歌曲資料'
+      );
+      init();
+      return;
+    }
+	
+    await Promise.all(
+      files.map(src=>{
+        return new Promise(
+          (resolve,reject)=>{
+            const s =
+              document.createElement(
+                'script'
+              );
+            s.src = src;
+            s.onload = resolve;
+            s.onerror = ()=>{
+              console.error(
+                '歌曲載入失敗:',
+                src
+              );
+              resolve();
+            };
+            document.body
+              .appendChild(s);
+          }
+        );
+      })
+    );
+    init();
+  }
+  
+  catch(err){
 
-<!-- 所有歌手載入完後執行 init -->
-<script>init();</script>
+    console.error(
+      '載入歌曲失敗:',
+      err
+    );
+    document
+      .getElementById('songs')
+      .innerHTML =
+      `<div class="empty">
+        歌曲資料載入失敗
+      </div>`;
+  }
+}
+loadSongs();
+</script>
 
 </body>
 </html>
