@@ -1,6 +1,6 @@
 // ── Ave Mujica / 'S/' The Way ──
 addSong('Ave Mujica', {
-  id: 'ave-stheway', title: ''S/' The Way', sort: 'S',
+  id: 'ave-stheway', title: "S/' The Way", sort: 'S',
   yt: 'https://youtu.be/p6ptNdglySk?si=w0ZJFS3zHoFbW8z4',
   lines(){return[
     L([[`心`,`こころ`],`を`,[`乱`,`みだ`],`さないで ねぇ ロゼ`]),
