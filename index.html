@@ -753,8 +753,10 @@ async function loadSongs(){
     const manifest =
       await res.json();
 	  
-    const files =
-      manifest.files || [];
+	const files =
+	  manifest.files ||
+	  manifest.songs ||
+	  [];
 	  
     if(!files.length){
       console.warn(
