@@ -6,12 +6,14 @@
     "songs/25/25-sonoenonamaewa.js",
     "songs/ave_mujica/ave-symbolivea.js",
     "songs/ave_mujica/ave-stheway.js",
-	  "songs/zutomayo/ztmy-usojyanai.js",
-	  "songs/tuki/tuki-kotonoha.js",
-	  "songs/tuki/tuki-saiteikaiw.js",
-  	"songs/nanaoakari/nao-murimuri.js",
-	  "songs/luna/luna-aria.js",
-	  "songs/back_number/back_fuyutoharu.js",
-  	"songs/atarayo/ata-asanagi.js"
+    "songs/zutomayo/ztmy-usojyanai.js",
+    "songs/tuki/tuki-kotonoha.js",
+    "songs/tuki/tuki-saiteikaiw.js",
+    "songs/nanaoakari/nao-murimuri.js",
+    "songs/luna/luna-aria.js",
+    "songs/back_number/back_fuyutoharu.js",
+    "songs/atarayo/ata-asanagi.js",
+    "songs/25/25-kasatte.js",
+    "songs/25/25-bagu.js"
   ]
 }
