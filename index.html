@@ -589,7 +589,7 @@ function renderTabs(){
              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">`
         + `<div class="tab-img-placeholder" style="display:none">${emoji}</div>`
       : `<div class="tab-img-placeholder">${emoji}</div>`;
-    return `<div class="tab${a===curArtist?' active':''}" onclick="pickArtist('${CSS.escape(a)}')">
+    return `<div class="tab${a===curArtist?' active':''}" data-artist="${a.replace(/"/g,'&quot;')}" onclick="pickArtist(this.dataset.artist)">
       ${imgHTML}
       <span>${a}</span>
     </div>`;
@@ -605,7 +605,7 @@ function renderSongs(){
   const el = document.getElementById('songs');
   if(!songs.length){ el.innerHTML = '<div class="empty">此歌手暫無歌曲</div>'; return; }
   el.innerHTML = songs.map(s =>
-    `<div class="song" onclick="showLyric('${s.id}')">
+    `<div class="song" data-id="${s.id}" onclick="showLyric(this.dataset.id)">
       <div>
         <div class="song-title">${s.title}</div>
         <div class="song-artist">${curArtist}</div>
