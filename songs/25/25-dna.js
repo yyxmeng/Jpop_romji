@@ -1,6 +1,6 @@
 // ── 25時、ナイトコードで。 / D/N/A ──
-addSong('25時、ナイトコードで。', {
-  id: '25-dna', title: 'D/N/A', sort: 'D',
+addSong("25時、ナイトコードで。", {
+  id: '25-dna', title: "D/N/A", sort: 'D',
   yt: 'https://youtu.be/RyRfLSOewbU?si=oe0STJw6bPSsXNgL',
   lines(){return[
     L([[`小石`,`こいし`],`を`,[`高`,`たか`],`く`,[`高`,`たか`],`く `,[`積`,`つ`],`み`,[`上`,`あ`],`げては`]),
