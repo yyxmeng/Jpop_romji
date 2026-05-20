@@ -1,5 +1,5 @@
 // ── 25時、ナイトコードで。 / その絵の名前は ──
-addSong('25時、ナイトコードで。', {
+addSong("25時、ナイトコードで。", {
   id: '25-sonoenonamaewa', title: 'その絵の名前は', sort: 'そ',
   yt: 'https://youtu.be/5u52uGdTnHk?si=A95uMSXrmzIFRcGu',
   lines(){return[
