@@ -676,11 +676,12 @@ function extractYtId(input){
 // ═══════════════════════════════════
 function esc(s){
   if(!s) return '';
+  // 只跳脫在 template literal 中有特殊意義的字元
+  // 反斜線要最先處理，避免雙重跳脫
   return s
-    .replace(/[\u2018\u2019\u201A\u201B\u2032\u2035]/g,"'")
-    .replace(/[\u201C\u201D\u201E\u201F\u2033\u2036]/g,'"')
-    .replace(/\\/g,'\\\\')
-    .replace(/`/g,"'");
+    .replace(/\\/g, '\\\\')   // \ → \\
+    .replace(/`/g,  '\\`')    // ` → \`
+    .replace(/\$/g, '\\$');   // $ → \$ （避免 ${} 被插值）
 }
 
 function parseHTML(html){
@@ -768,22 +769,21 @@ function doparse(){
   let ytLine = '';
   if(ytRaw){
     let ytValue = ytRaw.trim();
-
-    // iframe → 取 src
     const srcM = ytValue.match(/src=["']([^"']+)["']/i);
     if(srcM) ytValue = srcM[1];
-
     if(ytValue){
-      ytLine = `\n  yt: '${esc(ytValue)}',`;
-    }else{
+      ytLine = `\n  yt: \`${esc(ytValue)}\`,`;
+    } else {
       showNotice('warn','⚠️ 無法解析 YouTube 連結，yt 欄位略過。');
     }
   }
 
+  // ── 輸出：所有字串值一律用 template literal 包裹 ──
+  // 這樣不論歌手名/歌名含有 ' " 等字元都不會斷裂
   const out =
 `// ── ${artist} / ${title} ──
-addSong('${esc(artist)}', {
-  id: '${sid}', title: '${esc(title)}', sort: '${esc(sort)}',${ytLine}
+addSong(\`${esc(artist)}\`, {
+  id: \`${sid}\`, title: \`${esc(title)}\`, sort: \`${esc(sort)}\`,${ytLine}
   lines(){return[
 ${result.join('\n')}
   ];}
