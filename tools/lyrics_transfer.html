@@ -1013,11 +1013,10 @@ async function getSHA(
 async function uploadToGitHub(){
   const token =
     document
-    .getElementById(
-      'gh-token'
-    )
-    .value
-    .trim();
+      .getElementById('gh-token')
+      .value
+      .trim();
+
   if(!token){
     showNotice(
       'warn',
@@ -1025,6 +1024,7 @@ async function uploadToGitHub(){
     );
     return;
   }
+
   if(!songQueue.length){
     showNotice(
       'warn',
@@ -1032,70 +1032,122 @@ async function uploadToGitHub(){
     );
     return;
   }
-  const log=
+
+  const log =
     document.getElementById(
       'upload-log'
     );
+
   log.style.display='block';
   log.innerHTML='';
+
   function write(msg){
-    log.innerHTML+=
-      msg+'<br>';
+    log.innerHTML += msg+'<br>';
   }
 
   try{
-    let manifest=[];
+    // ───── 讀取現有 manifest ─────
+
+    let manifest = [];
+
     const manifestSHA =
       await getSHA(
         'songs/manifest.json',
         token
       );
+
     if(manifestSHA){
-      const r=
+      const r =
         await ghFetch(
           'songs/manifest.json',
           token
         );
-      const j=
+
+      if(!r.ok){
+        throw new Error(
+          'manifest 讀取失敗'
+        );
+      }
+
+      const j =
         await r.json();
-      const txt=
-        atob(j.content);
-      manifest=
-        JSON.parse(txt)
-        .files||[];
+      const txt =
+        decodeURIComponent(
+          escape(
+            atob(j.content)
+          )
+        );
+
+      try{
+        const parsed =
+          JSON.parse(txt);
+        manifest =
+          Array.isArray(parsed.files)
+          ? parsed.files
+          : [];
+
+      }catch(e){
+
+        console.warn(
+          'manifest JSON 解析失敗，改用空清單'
+        );
+        manifest = [];
+      }
     }
+
+    // ───── 上傳歌曲 ─────
+
     for(const song of songQueue){
-      const folder=
+      const folder =
         slugifyArtist(
           song.artist
         );
-      const path=
+
+      const path =
 `songs/${folder}/${song.sid}.js`;
-      const sha=
+
+      const sha =
         await getSHA(
           path,
           token
         );
-      await ghFetch(
-        path,
-        token,
-        {
-          method:'PUT',
-          body:JSON.stringify({
-            message:
-`add ${song.title}`,
-            content:
-              btoa(
-                unescape(
-                  encodeURIComponent(
-                    song.code
+
+      const uploadRes =
+        await ghFetch(
+          path,
+          token,
+          {
+            method:'PUT',
+            body:JSON.stringify({
+              message:
+                `add ${song.title}`,
+
+              content:
+                btoa(
+                  unescape(
+                    encodeURIComponent(
+                      song.code
+                    )
                   )
-                )
-              ),
-            sha
-          })
-        }
-      );
+                ),
+              sha
+            })
+          }
+        );
+
+      if(!uploadRes.ok){
+
+        const err =
+          await uploadRes.json();
+
+        throw new Error(
+          `歌曲上傳失敗: ${song.title}<br>` +
+          (err.message||'unknown')
+        );
+      }
+
+      // 避免重複加入 manifest
+
       if(
         !manifest.includes(
           path
@@ -1105,44 +1157,68 @@ async function uploadToGitHub(){
           path
         );
       }
+
       write(
-`✅ ${song.title}`
+        `✅ ${song.title}`
       );
     }
+
+    // ───── 更新 manifest ─────
+
     const newManifest =
-JSON.stringify(
-{
-  files:manifest
-},
-null,2
-);
-    await ghFetch(
-'songs/manifest.json',
-token,
-{
-  method:'PUT',
-  body:JSON.stringify({
-    message:
-'update manifest',
-    content:
-      btoa(
-        unescape(
-          encodeURIComponent(
-            newManifest
-          )
-        )
-      ),
-    sha:manifestSHA
-  })
-}
-);
+      JSON.stringify(
+        {
+          files:[
+            ...new Set(
+              manifest
+            )
+          ]
+        },
+        null,
+        2
+      );
+
+    const manifestRes =
+      await ghFetch(
+        'songs/manifest.json',
+        token,
+        {
+          method:'PUT',
+          body:JSON.stringify({
+            message:
+              'update manifest',
+            content:
+              btoa(
+                unescape(
+                  encodeURIComponent(
+                    newManifest
+                  )
+                )
+              ),
+            sha:
+              manifestSHA
+          })
+        }
+      );
+
+    if(!manifestRes.ok){
+      const err =
+        await manifestRes.json();
+
+      throw new Error(
+        `manifest 更新失敗<br>` +
+        (err.message||'unknown')
+      );
+    }
+
     write(
       '<span class="log-ok">全部完成</span>'
     );
   }
+    
   catch(e){
     console.error(e);
-    log.innerHTML+=
+    log.innerHTML +=
 `<span class="log-warn">
 ${e.message}
 </span>`;
