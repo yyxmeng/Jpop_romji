@@ -2,152 +2,33 @@ const logEl =
 document.getElementById('log');
 
 function log(msg){
-    logEl.textContent += msg + '\n';
+
+    logEl.textContent +=
+        msg + '\n';
 }
 
 async function loadJSON(path){
-    const r = await fetch(path);
+
+    const r =
+        await fetch(path);
+
     return r.json();
 }
 
 function containsKanji(str){
+
     return /[\u4E00-\u9FFF]/.test(str);
 }
 
-function extractWords(songCode){
+function isKatakana(str){
 
-    const cards=[];
-
-    const lineRegex =
-/L\s*\(\s*\[(.*?)\]\s*\)/gs;
-
-    let lm;
-
-    while(
-        (lm=lineRegex.exec(songCode))
-    ){
-
-        const chunk =
-            lm[1];
-
-        const tokenRegex =
-/\[\s*`([^`]+)`\s*,\s*`([^`]+)`\s*\]|`([^`]+)`/g;
-
-        let tm;
-
-        let currentWord='';
-        let currentReading='';
-
-        function flush(){
-
-            if(!currentWord)
-                return;
-
-            cards.push({
-
-                key:
-`${currentWord}|${currentReading}`,
-
-                word:
-                    currentWord,
-
-                reading:
-                    currentReading,
-
-                type:'kanji'
-            });
-
-            currentWord='';
-            currentReading='';
-        }
-
-        while(
-            (tm=tokenRegex.exec(chunk))
-        ){
-
-            /*
-            ruby
-            */
-
-            if(tm[1]){
-
-                flush();
-
-                currentWord =
-                    tm[1];
-
-                currentReading =
-                    tm[2];
-            }
-
-            /*
-            普通字串
-            */
-
-            else{
-
-                const text =
-                    tm[3];
-
-                if(!text)
-                    continue;
-
-                /*
-                純假名 → 接續
-                */
-
-                if(
-/^[ぁ-んァ-ヶー\s]+$/
-                    .test(text)
-                ){
-
-                    currentWord +=
-                        text.trim();
-
-                    currentReading +=
-                        text.trim();
-                }
-
-                /*
-                英文/空白
-                */
-
-                else{
-
-                    flush();
-                }
-            }
-        }
-
-        flush();
-    }
-
-    /*
-    ===== 片假名 =====
-    */
-
-    const kataRegex =
-/[\u30A0-\u30FFー]{2,}/g;
-
-    const katakana =
-        songCode.match(
-            kataRegex
-        )||[];
-
-    for(const k of katakana){
-
-        cards.push({
-
-            key:k,
-
-            word:k,
-
-            type:'katakana'
-        });
-    }
-
-    return cards;
+    return /^[\u30A0-\u30FFー]+$/
+        .test(str);
 }
+
+/*
+解析歌曲JS → 抓L()
+*/
 
 function extractLyrics(code){
 
@@ -159,55 +40,92 @@ function extractLyrics(code){
     let m;
 
     while(
-        (m = regex.exec(code))
+        (m=regex.exec(code)
     ){
 
-        let chunk = m[1];
-
-        let txt='';
-
-        /*
-        先處理 ruby
-        [`漢字`,`讀音`] → 漢字
-        */
-
-        chunk =
-            chunk.replace(
-/\[\s*`([^`]+)`\s*,\s*`([^`]+)`\s*\]/g,
-                '$1'
-            );
-
-        /*
-        抓剩餘所有文字
-        */
-
-        const parts =
-            chunk.match(
-/`([^`]+)`|[\u4E00-\u9FFF々ヶ]+/g
-            ) || [];
-
-        for(const p of parts){
-
-            txt +=
-                p
-                .replace(/`/g,'');
-
-        }
-
-        txt =
-            txt
-            .replace(/\s+/g,' ')
-            .trim();
-
-        if(txt){
-
-            lines.push(txt);
-
-        }
-
+        lines.push(
+            m[1]
+        );
     }
 
     return lines;
+}
+
+/*
+真正單詞抽取
+*/
+
+function extractWords(line){
+
+    const result=[];
+
+    /*
+    ruby詞彙
+    */
+
+    const rubyRegex=
+/\[\s*`([^`]+)`\s*,\s*`([^`]+)`\s*\]/g;
+
+    let m;
+
+    while(
+        (m=rubyRegex.exec(line))
+    ){
+
+        let word=
+            m[1].trim();
+
+        let reading=
+            m[2].trim();
+
+        if(
+            !containsKanji(word)
+            &&
+            !isKatakana(word)
+        ){
+            continue;
+        }
+
+        result.push({
+
+            word,
+            reading,
+
+            type:
+                containsKanji(word)
+                ?'kanji'
+                :'katakana'
+        });
+    }
+
+    /*
+    純片假名補抓
+    */
+
+    const cleanLine =
+        line.replace(
+            rubyRegex,
+            ''
+        );
+
+    const katakana=
+        cleanLine.match(
+/[\u30A0-\u30FFー]{2,}/g
+        )||[];
+
+    for(const k of katakana){
+
+        result.push({
+
+            word:k,
+
+            reading:null,
+
+            type:'katakana'
+        });
+    }
+
+    return result;
 }
 
 async function generate(){
@@ -224,7 +142,9 @@ async function generate(){
 
     if(!songPath){
 
-        log('請輸入歌曲路徑');
+        log(
+'請輸入歌曲路徑'
+        );
 
         return;
     }
@@ -253,31 +173,57 @@ async function generate(){
 `歌詞行數:${lyrics.length}`
         );
 
-        let cards =
-            extractWords(
-                songCode
-            );
+        let cards=[];
 
-        /*
-        stopword 過濾
-        */
+        for(
+            const line
+            of lyrics
+        ){
 
-        cards =
-            cards.filter(
+            const words =
+                extractWords(
+                    line
+                );
 
-                c=>
+            for(
+                const item
+                of words
+            ){
 
-                !stopwords.includes(
-                    c.word
-                )
+                const word=
+                    item.word;
 
-            );
+                if(
+                    stopwords.includes(
+                        word
+                    )
+                ){
+                    continue;
+                }
+
+                cards.push({
+
+                    key:
+                        item.reading
+                        ?`${word}|${item.reading}`
+                        :word,
+
+                    word,
+
+                    reading:
+                        item.reading,
+
+                    type:
+                        item.type
+                });
+            }
+        }
 
         /*
         去重
         */
 
-        const unique =
+        cards=
             [...new Map(
 
                 cards.map(
@@ -290,23 +236,16 @@ async function generate(){
             ).values()];
 
         log(
-`生成字卡:${unique.length}`
+`生成字卡:${cards.length}`
         );
 
         log(
-
 JSON.stringify(
-
-    unique,
-
+    cards,
     null,
-
     2
-
 )
-
         );
-
     }
 
     catch(e){
@@ -319,4 +258,5 @@ JSON.stringify(
     }
 }
 
-window.generate = generate;
+window.generate =
+generate;
