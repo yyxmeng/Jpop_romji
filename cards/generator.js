@@ -29,7 +29,7 @@ function extractLyrics(code){
     const regex =
 /L\s*\(\s*\[(.*?)\]\s*\)/gs;
 
-    let lines = [];
+    let lines=[];
 
     let m;
 
@@ -39,7 +39,12 @@ function extractLyrics(code){
 
         let chunk = m[1];
 
-        let txt = '';
+        let txt='';
+
+        /*
+        先處理 ruby
+        [`漢字`,`讀音`] → 漢字
+        */
 
         chunk =
             chunk.replace(
@@ -47,15 +52,21 @@ function extractLyrics(code){
                 '$1'
             );
 
-        const plainRegex =
-/`([^`]+)`/g;
+        /*
+        抓剩餘所有文字
+        */
 
-        let p;
+        const parts =
+            chunk.match(
+/`([^`]+)`|[\u4E00-\u9FFF々ヶ]+/g
+            ) || [];
 
-        while(
-            (p = plainRegex.exec(chunk))
-        ){
-            txt += p[1];
+        for(const p of parts){
+
+            txt +=
+                p
+                .replace(/`/g,'');
+
         }
 
         txt =
@@ -64,8 +75,11 @@ function extractLyrics(code){
             .trim();
 
         if(txt){
+
             lines.push(txt);
+
         }
+
     }
 
     return lines;
