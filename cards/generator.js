@@ -19,39 +19,127 @@ function extractWords(songCode){
     const cards=[];
 
     /*
-    ===== 漢字 / ruby =====
-    [`漢字`,`讀音`]
+    抓所有 L([...])
     */
 
-    const rubyRegex =
-/\[\s*`([^`]+)`\s*,\s*`([^`]+)`\s*\]/g;
+    const lineRegex =
+/L\s*\(\s*\[(.*?)\]\s*\)/gs;
 
-    let m;
+    let lm;
 
     while(
-        (m= rubyRegex.exec(songCode))
+        (lm=lineRegex.exec(songCode))
     ){
 
-        const kanji =
-            m[1].trim();
+        const chunk =
+            lm[1];
 
-        const reading =
-            m[2].trim();
+        let currentWord='';
+        let currentReading='';
 
-        if(!kanji) continue;
+        /*
+        token:
+        [`漢字`,`讀音`]
+        或
+        `普通字串`
+        */
 
-        cards.push({
+        const tokenRegex =
+/\[\s*`([^`]+)`\s*,\s*`([^`]+)`\s*\]|`([^`]+)`/g;
 
-            key:
-`${kanji}|${reading}`,
+        let tm;
 
-            word:
-                kanji,
+        while(
+            (tm=tokenRegex.exec(chunk))
+        ){
 
-            reading,
+            /*
+            ruby
+            */
 
-            type:'kanji'
-        });
+            if(tm[1]){
+
+                currentWord +=
+                    tm[1];
+
+                currentReading +=
+                    tm[2];
+            }
+
+            /*
+            普通字串
+            */
+
+            else{
+
+                const text =
+                    tm[3]
+                    .trim();
+
+                if(!text) continue;
+
+                /*
+                接續假名
+                */
+
+                if(
+/^[ぁ-んァ-ヶー]+$/
+                    .test(text)
+                ){
+
+                    currentWord += text;
+                    currentReading += text;
+                }
+
+                /*
+                非假名 → 結束單詞
+                */
+
+                else{
+
+                    if(currentWord){
+
+                        cards.push({
+
+                            key:
+`${currentWord}|${currentReading}`,
+
+                            word:
+                                currentWord,
+
+                            reading:
+                                currentReading,
+
+                            type:'kanji'
+                        });
+
+                        currentWord='';
+                        currentReading='';
+                    }
+                }
+            }
+        }
+
+        /*
+        flush
+        */
+
+        if(currentWord){
+
+            cards.push({
+
+                key:
+`${currentWord}|${currentReading}`,
+
+                word:
+                    currentWord,
+
+                reading:
+                    currentReading,
+
+                type:'kanji'
+            });
+        }
     }
 
     /*
