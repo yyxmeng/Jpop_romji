@@ -14,54 +14,71 @@ function containsKanji(str){
     return /[\u4E00-\u9FFF]/.test(str);
 }
 
-function extractWords(text){
+function extractWords(songCode){
 
-    const found = new Set();
-
-    /*
-    漢字＋送り仮名
-    飛び立つ
-    差し出された
-    描ける
-    */
-
-    const kanjiWordRegex =
-/[\u4E00-\u9FFF々ヶ]+(?:[ぁ-んー]*)+/g;
+    const cards=[];
 
     /*
-    純漢字複合詞
-    人生
-    文化
-    大地
+    ===== 漢字 / ruby =====
+    [`漢字`,`讀音`]
     */
 
-    const pureKanjiRegex =
-/[\u4E00-\u9FFF々ヶ]{2,}/g;
+    const rubyRegex =
+/\[\s*`([^`]+)`\s*,\s*`([^`]+)`\s*\]/g;
+
+    let m;
+
+    while(
+        (m= rubyRegex.exec(songCode))
+    ){
+
+        const kanji =
+            m[1].trim();
+
+        const reading =
+            m[2].trim();
+
+        if(!kanji) continue;
+
+        cards.push({
+
+            key:
+`${kanji}|${reading}`,
+
+            word:
+                kanji,
+
+            reading,
+
+            type:'kanji'
+        });
+    }
 
     /*
-    片假名
+    ===== 片假名 =====
     */
 
-    const katakanaRegex =
+    const kataRegex =
 /[\u30A0-\u30FFー]{2,}/g;
 
-    [
-        kanjiWordRegex,
-        pureKanjiRegex,
-        katakanaRegex
-    ].forEach(regex=>{
+    const katakana =
+        songCode.match(
+            kataRegex
+        )||[];
 
-        const matches =
-            text.match(regex)
-            || [];
+    for(const k of katakana){
 
-        matches.forEach(
-            w=>found.add(w)
-        );
+        cards.push({
 
-    });
+            key:k,
 
-    return [...found];
+            word:k,
+
+            type:'katakana'
+        });
+    }
+
+    return cards;
 }
 
 function extractLyrics(code){
@@ -131,7 +148,9 @@ async function generate(){
 
     const songPath =
         document
-        .getElementById('songPath')
+        .getElementById(
+            'songPath'
+        )
         .value
         .trim();
 
@@ -146,86 +165,88 @@ async function generate(){
 
         const stopwords =
             await loadJSON(
-                'data/stopwords.json'
+'data/stopwords.json'
             );
 
         const songRes =
             await fetch(
-                '../' + songPath
+                '../'+songPath
             );
 
         const songCode =
             await songRes.text();
 
         const lyrics =
-            extractLyrics(songCode);
+            extractLyrics(
+                songCode
+            );
 
         log(
-            `歌詞行數:${lyrics.length}`
+`歌詞行數:${lyrics.length}`
         );
 
-        let cards = [];
+        let cards =
+            extractWords(
+                songCode
+            );
 
-        for(const line of lyrics){
-
-            const words =
-                extractWords(line);
-
-            for(const word of words){
-
-                if(
-                    stopwords.includes(word)
-                ){
-                    continue;
-                }
-
-                const type =
-                    containsKanji(word)
-                    ? 'kanji'
-                    : 'katakana';
-
-                cards.push({
-
-                    key:word,
-
-                    word,
-
-                    type,
-
-                    source:line
-                });
-            }
-        }
+        /*
+        stopword 過濾
+        */
 
         cards =
+            cards.filter(
+
+                c=>
+
+                !stopwords.includes(
+                    c.word
+                )
+
+            );
+
+        /*
+        去重
+        */
+
+        const unique =
             [...new Map(
+
                 cards.map(
                     c=>[
                         c.key,
                         c
                     ]
                 )
+
             ).values()];
 
         log(
-            `生成字卡:${cards.length}`
+`生成字卡:${unique.length}`
         );
 
         log(
-            JSON.stringify(
-                cards,
-                null,
-                2
-            )
+
+JSON.stringify(
+
+    unique,
+
+    null,
+
+    2
+
+)
+
         );
 
     }
+
     catch(e){
 
         console.error(e);
 
         log(
-            '失敗:' + e.message
+'失敗:'+e.message
         );
     }
 }
