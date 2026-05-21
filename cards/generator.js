@@ -2,7 +2,7 @@ const logEl =
 document.getElementById('log');
 
 function log(msg){
-    logEl.textContent += msg + '\n';
+    logEl.textContent += msg+'\n';
 }
 
 async function loadJSON(path){
@@ -15,7 +15,7 @@ async function loadJSON(path){
 function extractLyrics(code){
 
     const regex=
-        /L\s*\(\s*\[(.*?)\]\s*\)/gs;
+    /L\s*\(\s*\[(.*?)\]\s*\)/gs;
 
     const lines=[];
 
@@ -24,6 +24,7 @@ function extractLyrics(code){
     while((m=regex.exec(code))!==null){
 
         lines.push(m[1]);
+
     }
 
     return lines;
@@ -32,7 +33,6 @@ function extractLyrics(code){
 function rebuildLine(line){
 
     let surface='';
-
     let reading='';
 
     const tokenRegex=
@@ -46,26 +46,45 @@ function rebuildLine(line){
 
             surface+=m[1];
             reading+=m[2];
-        }
-        else{
+
+        }else{
 
             surface+=m[3];
             reading+=m[3];
+
         }
     }
 
     return{
 
         surface:
-            surface
-            .replace(/\s+/g,' ')
-            .trim(),
+        surface.replace(/\s+/g,' ').trim(),
 
         reading:
-            reading
-            .replace(/\s+/g,' ')
-            .trim()
+        reading.replace(/\s+/g,' ').trim()
+
     };
+}
+
+function katakanaToHiragana(text){
+
+    if(!text) return null;
+
+    return text.replace(
+
+        /[\u30A1-\u30F6]/g,
+
+        s=>
+        String.fromCharCode(
+            s.charCodeAt(0)-0x60
+        )
+    );
+}
+
+function hasKanji(str){
+
+    return /[\u4E00-\u9FFF]/.test(str);
+
 }
 
 function buildTokenizer(){
@@ -88,45 +107,16 @@ function buildTokenizer(){
                     if(err){
 
                         reject(err);
+
                         return;
                     }
 
                     resolve(tokenizer);
+
                 }
             );
         }
     );
-}
-
-function isEnglish(word){
-
-    return /^[a-zA-Z0-9\s'".,!?-]+$/.test(word);
-}
-
-function isJunk(word){
-
-    return [
-
-        '..',
-        '.',
-        "'",
-        '、',
-        '。',
-        'ー'
-
-    ].includes(word);
-}
-
-function splitBrokenWord(base){
-
-    const fixes={
-
-        'サフラン色':['サフラン','色'],
-        '緑赤土':['緑','赤土']
-
-    };
-
-    return fixes[base] || [base];
 }
 
 async function generate(){
@@ -134,64 +124,55 @@ async function generate(){
     logEl.textContent='';
 
     const songPath=
-        document
-        .getElementById(
-            'songPath'
-        )
-        .value
-        .trim();
+    document
+    .getElementById('songPath')
+    .value
+    .trim();
 
     if(!songPath){
 
         log('請輸入歌曲路徑');
+
         return;
     }
 
     try{
 
         const stopwords=
-            await loadJSON(
-                'data/stopwords.json'
-            );
+        await loadJSON(
+            'data/stopwords.json'
+        );
 
         const tokenizer=
-            await buildTokenizer();
+        await buildTokenizer();
 
         const songRes=
-            await fetch(
-                '../'+songPath
-            );
+        await fetch('../'+songPath);
 
         const songCode=
-            await songRes.text();
+        await songRes.text();
 
         const lyrics=
-            extractLyrics(songCode);
+        extractLyrics(songCode);
 
         log(
-            `歌詞行數:${lyrics.length}`
+`歌詞行數:${lyrics.length}`
         );
 
         const cards=
-            new Map();
+        new Map();
 
-        for(
-            const rawLine
-            of lyrics
-        ){
+        for(const rawLine of lyrics){
 
             const line=
-                rebuildLine(rawLine);
+            rebuildLine(rawLine);
 
             const tokens=
-                tokenizer.tokenize(
-                    line.surface
-                );
+            tokenizer.tokenize(
+                line.surface
+            );
 
-            for(
-                const t
-                of tokens
-            ){
+            for(const t of tokens){
 
                 if(
                     ![
@@ -203,123 +184,135 @@ async function generate(){
                     continue;
                 }
 
-                let base=
-                    (
-                        t.basic_form &&
-                        t.basic_form!=='*'
+                if(
+                    [
+                        '代名詞',
+                        '非自立',
+                        '接尾'
+                    ].includes(
+                        t.pos_detail_1
                     )
-                    ?t.basic_form
-                    :t.surface_form;
+                ){
+                    continue;
+                }
+
+                const base=
+                (
+                    t.basic_form &&
+                    t.basic_form!=='*'
+                )
+                ?t.basic_form
+                :t.surface_form;
 
                 if(
-                    !base ||
                     stopwords.includes(base)
                 ){
                     continue;
                 }
 
                 if(
-                    isEnglish(base)
+                    [
+                        'れる',
+                        'られる',
+                        'する',
+                        'いる',
+                        'ある',
+                        'なる',
+                        'どる'
+                    ].includes(base)
                 ){
                     continue;
                 }
+
+                let reading=
+                t.reading || null;
 
                 if(
-                    isJunk(base)
+                    reading &&
+                    hasKanji(base)
                 ){
-                    continue;
+
+                    reading=
+                    katakanaToHiragana(
+                        reading
+                    );
+
                 }
 
-                const fixedWords=
-                    splitBrokenWord(base);
+                const key=
+                `${base}|${reading}`;
 
-                for(
-                    const word
-                    of fixedWords
-                ){
+                if(!cards.has(key)){
 
-                    const key=
-`${word}|${t.reading||''}`;
+                    cards.set(
 
-                    if(
-                        !cards.has(key)
-                    ){
+                        key,
 
-                        cards.set(
+                        {
 
                             key,
 
-                            {
+                            word:base,
 
-                                key,
+                            reading,
 
-                                word,
+                            type:t.pos,
 
-                                reading:
-                                    t.reading
-                                    ||null,
+                            sources:[]
+                        }
+                    );
+                }
 
-                                type:
-                                    t.pos,
+                const card=
+                cards.get(key);
 
-                                sources:[]
-                            }
-                        );
-                    }
+                const sourceObj={
 
-                    const card=
-                        cards.get(key);
+                    surface:
+                    t.surface_form,
 
-                    const sourceObj={
+                    line:
+                    line.surface
+                };
 
-                        surface:
-                            t.surface_form,
+                const exists=
+                card.sources.some(
 
-                        line:
-                            line.surface
-                    };
+                    s=>
 
-                    const exists=
-                        card.sources.some(
+                    s.surface===
+                    sourceObj.surface
 
-                            s=>
+                    &&
 
-                            s.surface===
-                            sourceObj.surface
+                    s.line===
+                    sourceObj.line
+                );
 
-                            &&
+                if(!exists){
 
-                            s.line===
-                            sourceObj.line
-                        );
-
-                    if(
-                        !exists
-                    ){
-
-                        card.sources.push(
-                            sourceObj
-                        );
-                    }
+                    card.sources.push(
+                        sourceObj
+                    );
                 }
             }
         }
 
         const result=
-            [...cards.values()];
+        [...cards.values()];
 
         log(
-            `生成字卡:${result.length}`
+`生成字卡:${result.length}`
         );
 
         log(
-
             JSON.stringify(
                 result,
                 null,
                 2
             )
         );
+
     }
 
     catch(e){
