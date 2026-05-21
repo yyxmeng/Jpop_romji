@@ -2,32 +2,26 @@ const logEl =
 document.getElementById('log');
 
 function log(msg){
-
-    logEl.textContent +=
-        msg + '\n';
+    logEl.textContent += msg + '\n';
 }
 
 async function loadJSON(path){
 
-    const r =
-        await fetch(path);
+    const r=await fetch(path);
 
     return r.json();
 }
 
 function extractLyrics(code){
 
-    const regex =
+    const regex=
         /L\s*\(\s*\[(.*?)\]\s*\)/gs;
 
     const lines=[];
 
     let m;
 
-    while(
-        (m=regex.exec(code))
-        !== null
-    ){
+    while((m=regex.exec(code))!==null){
 
         lines.push(m[1]);
     }
@@ -46,17 +40,13 @@ function rebuildLine(line){
 
     let m;
 
-    while(
-        (m=tokenRegex.exec(line))
-        !== null
-    ){
+    while((m=tokenRegex.exec(line))!==null){
 
         if(m[1]){
 
             surface+=m[1];
             reading+=m[2];
         }
-
         else{
 
             surface+=m[3];
@@ -108,6 +98,37 @@ function buildTokenizer(){
     );
 }
 
+function isEnglish(word){
+
+    return /^[a-zA-Z0-9\s'".,!?-]+$/.test(word);
+}
+
+function isJunk(word){
+
+    return [
+
+        '..',
+        '.',
+        "'",
+        '、',
+        '。',
+        'ー'
+
+    ].includes(word);
+}
+
+function splitBrokenWord(base){
+
+    const fixes={
+
+        'サフラン色':['サフラン','色'],
+        '緑赤土':['緑','赤土']
+
+    };
+
+    return fixes[base] || [base];
+}
+
 async function generate(){
 
     logEl.textContent='';
@@ -145,12 +166,10 @@ async function generate(){
             await songRes.text();
 
         const lyrics=
-            extractLyrics(
-                songCode
-            );
+            extractLyrics(songCode);
 
         log(
-`歌詞行數:${lyrics.length}`
+            `歌詞行數:${lyrics.length}`
         );
 
         const cards=
@@ -162,89 +181,12 @@ async function generate(){
         ){
 
             const line=
-                rebuildLine(
-                    rawLine
-                );
+                rebuildLine(rawLine);
 
-            let rawTokens=
+            const tokens=
                 tokenizer.tokenize(
                     line.surface
                 );
-
-            // 合併連續名詞
-
-            const tokens=[];
-
-            for(
-                let i=0;
-                i<rawTokens.length;
-                i++
-            ){
-
-                let t=
-                    rawTokens[i];
-
-                if(
-
-                    t.pos==="名詞"
-
-                    &&
-
-                    rawTokens[i+1]
-
-                    &&
-
-                    rawTokens[i+1].pos==="名詞"
-
-                ){
-
-                    let merged=
-                        t.surface_form;
-
-                    let reading=
-                        t.reading||"";
-
-                    while(
-
-                        rawTokens[i+1]
-
-                        &&
-
-                        rawTokens[i+1].pos==="名詞"
-
-                    ){
-
-                        merged+=
-                            rawTokens[
-                                i+1
-                            ].surface_form;
-
-                        reading+=
-                            rawTokens[
-                                i+1
-                            ].reading||"";
-
-                        i++;
-                    }
-
-                    tokens.push({
-
-                        ...t,
-
-                        surface_form:
-                            merged,
-
-                        basic_form:
-                            merged,
-
-                        reading
-                    });
-
-                    continue;
-                }
-
-                tokens.push(t);
-            }
 
             for(
                 const t
@@ -252,152 +194,113 @@ async function generate(){
             ){
 
                 if(
-
                     ![
                         '名詞',
                         '動詞',
                         '形容詞'
-                    ].includes(
-                        t.pos
+                    ].includes(t.pos)
+                ){
+                    continue;
+                }
+
+                let base=
+                    (
+                        t.basic_form &&
+                        t.basic_form!=='*'
                     )
-
-                ){
-                    continue;
-                }
-
-                if(
-
-/^[a-zA-Z'.]+$/
-
-.test(
-
-t.surface_form
-
-)
-
-                ){
-
-                    continue;
-                }
-
-                const base=
-
-                    t.basic_form
-
-                    &&
-
-                    t.basic_form!=='*'
-
                     ?t.basic_form
-
                     :t.surface_form;
 
                 if(
-
-                    stopwords.includes(
-                        base
-                    )
-
+                    !base ||
+                    stopwords.includes(base)
                 ){
-
                     continue;
                 }
 
-                const blacklist=[
-
-                    'れる',
-                    'られる',
-                    'する',
-                    'いる',
-                    'ある',
-                    'なる',
-                    'どる'
-
-                ];
-
                 if(
-
-                    blacklist.includes(
-                        base
-                    )
-
+                    isEnglish(base)
                 ){
-
                     continue;
                 }
 
-                const reading=
-
-                    t.pronunciation
-                    ||
-
-                    t.reading
-                    ||
-
-                    null;
-
-                const key=
-                    `${base}|${reading}`;
-
                 if(
-                    !cards.has(key)
+                    isJunk(base)
+                ){
+                    continue;
+                }
+
+                const fixedWords=
+                    splitBrokenWord(base);
+
+                for(
+                    const word
+                    of fixedWords
                 ){
 
-                    cards.set(
+                    const key=
+`${word}|${t.reading||''}`;
 
-                        key,
+                    if(
+                        !cards.has(key)
+                    ){
 
-                        {
+                        cards.set(
 
                             key,
 
-                            word:base,
+                            {
 
-                            reading,
+                                key,
 
-                            type:t.pos,
+                                word,
 
-                            sources:[]
-                        }
-                    );
-                }
+                                reading:
+                                    t.reading
+                                    ||null,
 
-                const card=
-                    cards.get(key);
+                                type:
+                                    t.pos,
 
-                const sourceObj={
+                                sources:[]
+                            }
+                        );
+                    }
 
-                    surface:
-                        t.surface_form,
+                    const card=
+                        cards.get(key);
 
-                    line:
-                        line.surface
-                };
+                    const sourceObj={
 
-                const exists=
+                        surface:
+                            t.surface_form,
 
-                    card.sources.some(
+                        line:
+                            line.surface
+                    };
 
-                        s=>
+                    const exists=
+                        card.sources.some(
 
-                        s.surface===
+                            s=>
 
-                        sourceObj.surface
+                            s.surface===
+                            sourceObj.surface
 
-                        &&
+                            &&
 
-                        s.line===
+                            s.line===
+                            sourceObj.line
+                        );
 
-                        sourceObj.line
-                    );
+                    if(
+                        !exists
+                    ){
 
-                if(
-                    !exists
-                ){
-
-                    card.sources.push(
-                        sourceObj
-                    );
+                        card.sources.push(
+                            sourceObj
+                        );
+                    }
                 }
             }
         }
@@ -406,17 +309,16 @@ t.surface_form
             [...cards.values()];
 
         log(
-`生成字卡:${result.length}`
+            `生成字卡:${result.length}`
         );
 
         log(
 
-JSON.stringify(
-result,
-null,
-2
-)
-
+            JSON.stringify(
+                result,
+                null,
+                2
+            )
         );
     }
 
@@ -425,7 +327,7 @@ null,
         console.error(e);
 
         log(
-'失敗:'+e.message
+            '失敗:'+e.message
         );
     }
 }
