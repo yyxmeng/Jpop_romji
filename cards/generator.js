@@ -16,12 +16,52 @@ function containsKanji(str){
 
 function extractWords(text){
 
-    const tokens =
-        text.match(
-/[\u4E00-\u9FFF々ヶ]+|[\u30A0-\u30FFー]+/g
-        ) || [];
+    const found = new Set();
 
-    return [...new Set(tokens)];
+    /*
+    漢字＋送り仮名
+    飛び立つ
+    差し出された
+    描ける
+    */
+
+    const kanjiWordRegex =
+/[\u4E00-\u9FFF々ヶ]+(?:[ぁ-んー]*)+/g;
+
+    /*
+    純漢字複合詞
+    人生
+    文化
+    大地
+    */
+
+    const pureKanjiRegex =
+/[\u4E00-\u9FFF々ヶ]{2,}/g;
+
+    /*
+    片假名
+    */
+
+    const katakanaRegex =
+/[\u30A0-\u30FFー]{2,}/g;
+
+    [
+        kanjiWordRegex,
+        pureKanjiRegex,
+        katakanaRegex
+    ].forEach(regex=>{
+
+        const matches =
+            text.match(regex)
+            || [];
+
+        matches.forEach(
+            w=>found.add(w)
+        );
+
+    });
+
+    return [...found];
 }
 
 function extractLyrics(code){
