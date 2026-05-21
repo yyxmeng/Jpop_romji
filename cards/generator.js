@@ -15,6 +15,46 @@ async function loadJSON(path){
 
 }
 
+function downloadJSON(filename,data){
+
+    const blob=
+        new Blob(
+
+            [
+                JSON.stringify(
+                    data,
+                    null,
+                    2
+                )
+            ],
+
+            {
+                type:
+                'application/json'
+            }
+
+        );
+
+    const url=
+        URL.createObjectURL(
+            blob
+        );
+
+    const a=
+        document.createElement(
+            'a'
+        );
+
+    a.href=url;
+
+    a.download=filename;
+
+    a.click();
+
+    URL.revokeObjectURL(url);
+
+}
+
 function extractLyrics(code){
 
     const regex=
@@ -93,22 +133,29 @@ function buildTokenizer(){
             kuromoji
             .builder({
 
-                dicPath:'./dict'
+                dicPath:
+                './dict'
 
             })
 
             .build(
 
-                (err,tokenizer)=>{
+                (
+                    err,
+                    tokenizer
+                )=>{
 
                     if(err){
 
                         reject(err);
+
                         return;
 
                     }
 
-                    resolve(tokenizer);
+                    resolve(
+                        tokenizer
+                    );
 
                 }
 
@@ -122,7 +169,11 @@ function buildTokenizer(){
 
 function katakanaToHiragana(text){
 
-    if(!text) return null;
+    if(!text){
+
+        return null;
+
+    }
 
     return text.replace(
 
@@ -131,7 +182,10 @@ function katakanaToHiragana(text){
         s=>
 
         String.fromCharCode(
-            s.charCodeAt(0)-0x60
+
+            s.charCodeAt(0)
+            -0x60
+
         )
 
     );
@@ -140,7 +194,7 @@ function katakanaToHiragana(text){
 
 function isEnglish(word){
 
-    return /^[a-zA-Z0-9\s'".,!?\-_]+$/
+    return /^[a-zA-Z0-9\s'"!?.,\-_]+$/
         .test(word);
 
 }
@@ -150,14 +204,19 @@ async function generate(){
     logEl.textContent='';
 
     const songPath=
+
         document
-        .getElementById('songPath')
+        .getElementById(
+            'songPath'
+        )
         .value
         .trim();
 
     if(!songPath){
 
-        log('請輸入歌曲路徑');
+        log(
+            '請輸入歌曲路徑'
+        );
 
         return;
 
@@ -166,22 +225,27 @@ async function generate(){
     try{
 
         const stopwords=
+
             await loadJSON(
                 'data/stopwords.json'
             );
 
         const tokenizer=
+
             await buildTokenizer();
 
         const songRes=
+
             await fetch(
                 '../'+songPath
             );
 
         const songCode=
+
             await songRes.text();
 
         const lyrics=
+
             extractLyrics(
                 songCode
             );
@@ -193,15 +257,21 @@ async function generate(){
         const cards=
             new Map();
 
+        const pending=[];
+
         for(
             const rawLine
             of lyrics
         ){
 
             const line=
-                rebuildLine(rawLine);
+
+                rebuildLine(
+                    rawLine
+                );
 
             const tokens=
+
                 tokenizer.tokenize(
                     line.surface
                 );
@@ -212,11 +282,15 @@ async function generate(){
             ){
 
                 if(
+
                     ![
                         '名詞',
                         '動詞',
                         '形容詞'
-                    ].includes(t.pos)
+                    ].includes(
+                        t.pos
+                    )
+
                 ){
 
                     continue;
@@ -224,15 +298,27 @@ async function generate(){
                 }
 
                 const base=
+
                     (
-                        t.basic_form &&
+                        t.basic_form
+                        &&
                         t.basic_form!=='*'
                     )
-                    ?t.basic_form
-                    :t.surface_form;
+
+                    ?
+
+                    t.basic_form
+
+                    :
+
+                    t.surface_form;
 
                 if(
-                    stopwords.includes(base)
+
+                    stopwords.includes(
+                        base
+                    )
+
                 ){
 
                     continue;
@@ -249,25 +335,31 @@ async function generate(){
 
                 let reading=null;
 
-                if(t.reading){
+                if(
+                    t.reading
+                ){
 
                     if(
+
                         /^[ァ-ヶー]+$/
                         .test(
                             t.surface_form
                         )
+
                     ){
 
-                        reading=t.reading;
+                        reading=
+                            t.reading;
 
                     }
 
                     else{
 
                         reading=
-                        katakanaToHiragana(
-                            t.reading
-                        );
+
+                            katakanaToHiragana(
+                                t.reading
+                            );
 
                     }
 
@@ -277,7 +369,11 @@ async function generate(){
                     `${base}|${reading}`;
 
                 if(
-                    !cards.has(key)
+
+                    !cards.has(
+                        key
+                    )
+
                 ){
 
                     cards.set(
@@ -295,6 +391,7 @@ async function generate(){
                             type:t.pos,
 
                             sources:[]
+
                         }
 
                     );
@@ -302,7 +399,9 @@ async function generate(){
                 }
 
                 const card=
-                    cards.get(key);
+                    cards.get(
+                        key
+                    );
 
                 const sourceObj={
 
@@ -315,6 +414,7 @@ async function generate(){
                 };
 
                 const exists=
+
                     card.sources.some(
 
                         s=>
@@ -329,11 +429,36 @@ async function generate(){
 
                     );
 
-                if(!exists){
+                if(
+                    !exists
+                ){
 
                     card.sources.push(
                         sourceObj
                     );
+
+                }
+
+                if(
+
+                    base.length<=1
+                    ||
+                    base==='れる'
+                    ||
+                    base==='られる'
+                    ||
+                    base==='する'
+
+                ){
+
+                    pending.push({
+
+                        word:base,
+
+                        line:
+                        line.surface
+
+                    });
 
                 }
 
@@ -349,6 +474,14 @@ async function generate(){
         );
 
         log(
+            `pending:${pending.length}`
+        );
+
+        log(
+            '\n=== cards.json ===\n'
+        );
+
+        log(
 
             JSON.stringify(
                 result,
@@ -358,6 +491,34 @@ async function generate(){
 
         );
 
+        log(
+            '\n=== pending.json ===\n'
+        );
+
+        log(
+
+            JSON.stringify(
+                pending,
+                null,
+                2
+            )
+
+        );
+
+        downloadJSON(
+            'cards.json',
+            result
+        );
+
+        downloadJSON(
+            'pending.json',
+            pending
+        );
+
+        log(
+            '\n輸出完成'
+        );
+
     }
 
     catch(e){
@@ -365,11 +526,13 @@ async function generate(){
         console.error(e);
 
         log(
-            '失敗:'+e.message
+            '失敗: '
+            +e.message
         );
 
     }
 
 }
 
-window.generate=generate;
+window.generate=
+generate;
