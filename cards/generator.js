@@ -4,61 +4,20 @@ document.getElementById('log');
 function log(msg){
 
     logEl.textContent+=msg+'\n';
-
 }
 
 async function loadJSON(path){
 
-    const r=await fetch(path);
+    const r=
+    await fetch(path);
 
     return r.json();
-
-}
-
-function downloadJSON(filename,data){
-
-    const blob=
-        new Blob(
-
-            [
-                JSON.stringify(
-                    data,
-                    null,
-                    2
-                )
-            ],
-
-            {
-                type:
-                'application/json'
-            }
-
-        );
-
-    const url=
-        URL.createObjectURL(
-            blob
-        );
-
-    const a=
-        document.createElement(
-            'a'
-        );
-
-    a.href=url;
-
-    a.download=filename;
-
-    a.click();
-
-    URL.revokeObjectURL(url);
-
 }
 
 function extractLyrics(code){
 
     const regex=
-        /L\s*\(\s*\[(.*?)\]\s*\)/gs;
+    /L\s*\(\s*\[(.*?)\]\s*\)/gs;
 
     const lines=[];
 
@@ -70,16 +29,15 @@ function extractLyrics(code){
     ){
 
         lines.push(m[1]);
-
     }
 
     return lines;
-
 }
 
 function rebuildLine(line){
 
     let surface='';
+
     let reading='';
 
     const tokenRegex=
@@ -96,32 +54,43 @@ function rebuildLine(line){
 
             surface+=m[1];
             reading+=m[2];
-
         }
 
         else{
 
             surface+=m[3];
             reading+=m[3];
-
         }
-
     }
 
     return{
 
         surface:
-            surface
-            .replace(/\s+/g,' ')
-            .trim(),
+        surface
+        .replace(/\s+/g,' ')
+        .trim(),
 
         reading:
-            reading
-            .replace(/\s+/g,' ')
-            .trim()
-
+        reading
+        .replace(/\s+/g,' ')
+        .trim()
     };
+}
 
+function katakanaToHiragana(str){
+
+    if(!str)return null;
+
+    return str.replace(
+
+        /[\u30a1-\u30f6]/g,
+
+        s=>
+
+        String.fromCharCode(
+            s.charCodeAt(0)-0x60
+        )
+    );
 }
 
 function buildTokenizer(){
@@ -133,70 +102,73 @@ function buildTokenizer(){
             kuromoji
             .builder({
 
-                dicPath:
-                './dict'
+                dicPath:'./dict'
 
             })
 
             .build(
 
-                (
-                    err,
-                    tokenizer
-                )=>{
+                (err,tokenizer)=>{
 
                     if(err){
 
                         reject(err);
 
                         return;
-
                     }
 
                     resolve(
                         tokenizer
                     );
-
                 }
-
             );
-
         }
-
     );
-
 }
 
-function katakanaToHiragana(text){
+function downloadFile(
 
-    if(!text){
+    filename,
+    data
 
-        return null;
+){
 
-    }
+    const blob=
+    new Blob(
 
-    return text.replace(
+        [
+            JSON.stringify(
+                data,
+                null,
+                2
+            )
+        ],
 
-        /[\u30a1-\u30f6]/g,
-
-        s=>
-
-        String.fromCharCode(
-
-            s.charCodeAt(0)
-            -0x60
-
-        )
-
+        {
+            type:
+            'application/json'
+        }
     );
 
-}
+    const url=
+    URL.createObjectURL(
+        blob
+    );
 
-function isEnglish(word){
+    const a=
+    document
+    .createElement('a');
 
-    return /^[a-zA-Z0-9\s'"!?.,\-_]+$/
-        .test(word);
+    a.href=url;
 
+    a.download=
+    filename;
+
+    a.click();
+
+    URL.revokeObjectURL(
+        url
+    );
 }
 
 async function generate(){
@@ -205,59 +177,59 @@ async function generate(){
 
     const songPath=
 
-        document
-        .getElementById(
-            'songPath'
-        )
-        .value
-        .trim();
+    document
+    .getElementById(
+        'songPath'
+    )
+    .value
+    .trim();
 
     if(!songPath){
 
         log(
-            '請輸入歌曲路徑'
+'請輸入歌曲路徑'
         );
 
         return;
-
     }
 
     try{
 
         const stopwords=
+        await loadJSON(
+'data/stopwords.json'
+        );
 
-            await loadJSON(
-                'data/stopwords.json'
-            );
+        const dictionary=
+        await loadJSON(
+'data/dictionary.json'
+        );
 
         const tokenizer=
-
-            await buildTokenizer();
+        await buildTokenizer();
 
         const songRes=
-
-            await fetch(
-                '../'+songPath
-            );
+        await fetch(
+            '../'+songPath
+        );
 
         const songCode=
-
-            await songRes.text();
+        await songRes.text();
 
         const lyrics=
-
-            extractLyrics(
-                songCode
-            );
+        extractLyrics(
+            songCode
+        );
 
         log(
-            `歌詞行數:${lyrics.length}`
+`歌詞行數:${lyrics.length}`
         );
 
         const cards=
-            new Map();
+        new Map();
 
-        const pending=[];
+        const pending=
+        [];
 
         for(
             const rawLine
@@ -265,16 +237,14 @@ async function generate(){
         ){
 
             const line=
-
-                rebuildLine(
-                    rawLine
-                );
+            rebuildLine(
+                rawLine
+            );
 
             const tokens=
-
-                tokenizer.tokenize(
-                    line.surface
-                );
+            tokenizer.tokenize(
+                line.surface
+            );
 
             for(
                 const t
@@ -282,7 +252,6 @@ async function generate(){
             ){
 
                 if(
-
                     ![
                         '名詞',
                         '動詞',
@@ -290,90 +259,83 @@ async function generate(){
                     ].includes(
                         t.pos
                     )
-
                 ){
 
                     continue;
-
                 }
 
-                const base=
-
-                    (
-                        t.basic_form
-                        &&
-                        t.basic_form!=='*'
+                if(
+                    /^[a-zA-Z]+$/
+                    .test(
+                        t.surface_form
                     )
+                ){
 
-                    ?
+                    continue;
+                }
 
-                    t.basic_form
+                let base=
 
-                    :
+                t.basic_form &&
+                t.basic_form!=='*'
 
-                    t.surface_form;
+                ?t.basic_form
+                :t.surface_form;
 
                 if(
-
                     stopwords.includes(
                         base
                     )
-
                 ){
 
                     continue;
-
                 }
 
-                if(
-                    isEnglish(base)
-                ){
+                let reading=
 
-                    continue;
+                katakanaToHiragana(
 
-                }
-
-                let reading=null;
-
-                if(
                     t.reading
+                    ||
+                    t.surface_form
+
+                );
+
+                if(
+                    dictionary[
+                        base
+                    ]
                 ){
+
+                    const rule=
+                    dictionary[
+                        base
+                    ];
 
                     if(
+                        rule.word
+                    ){
 
-                        /^[ァ-ヶー]+$/
-                        .test(
-                            t.surface_form
-                        )
+                        base=
+                        rule.word;
+                    }
 
+                    if(
+                        rule.reading
                     ){
 
                         reading=
-                            t.reading;
-
+                        rule.reading;
                     }
-
-                    else{
-
-                        reading=
-
-                            katakanaToHiragana(
-                                t.reading
-                            );
-
-                    }
-
                 }
 
                 const key=
-                    `${base}|${reading}`;
+                `${base}|${reading}`;
 
                 if(
-
                     !cards.has(
                         key
                     )
-
                 ){
 
                     cards.set(
@@ -391,43 +353,38 @@ async function generate(){
                             type:t.pos,
 
                             sources:[]
-
                         }
-
                     );
-
                 }
 
                 const card=
-                    cards.get(
-                        key
-                    );
+                cards.get(
+                    key
+                );
 
                 const sourceObj={
 
                     surface:
-                        t.surface_form,
+                    t.surface_form,
 
                     line:
-                        line.surface
-
+                    line.surface
                 };
 
                 const exists=
 
-                    card.sources.some(
+                card.sources.some(
 
-                        s=>
+                    s=>
 
-                        s.surface===
-                        sourceObj.surface
+                    s.surface===
+                    sourceObj.surface
 
-                        &&
+                    &&
 
-                        s.line===
-                        sourceObj.line
-
-                    );
+                    s.line===
+                    sourceObj.line
+                );
 
                 if(
                     !exists
@@ -436,89 +393,73 @@ async function generate(){
                     card.sources.push(
                         sourceObj
                     );
-
                 }
 
                 if(
 
-                    base.length<=1
-                    ||
-                    base==='れる'
-                    ||
-                    base==='られる'
-                    ||
-                    base==='する'
+                    dictionary[
+                        base
+                    ]===undefined
 
+                    &&
+
+                    (
+                        /[ァ-ヶ]/.test(
+                            t.surface_form
+                        )
+
+                        ||
+
+                        /^[a-zA-Z]+$/.test(
+                            t.surface_form
+                        )
+                    )
                 ){
 
                     pending.push({
 
                         word:base,
 
-                        line:
-                        line.surface
-
+                        reading
                     });
-
                 }
-
             }
-
         }
 
         const result=
-            [...cards.values()];
+        [...cards.values()];
 
         log(
-            `生成字卡:${result.length}`
+`生成字卡:${result.length}`
         );
 
         log(
-            `pending:${pending.length}`
-        );
-
-        log(
-            '\n=== cards.json ===\n'
+`pending:${pending.length}`
         );
 
         log(
 
-            JSON.stringify(
-                result,
-                null,
-                2
-            )
+JSON.stringify(
+result,
+null,
+2
+)
 
         );
 
-        log(
-            '\n=== pending.json ===\n'
-        );
-
-        log(
-
-            JSON.stringify(
-                pending,
-                null,
-                2
-            )
-
-        );
-
-        downloadJSON(
+        downloadFile(
             'cards.json',
             result
         );
 
-        downloadJSON(
+        downloadFile(
             'pending.json',
             pending
         );
 
         log(
-            '\n輸出完成'
+'下載完成'
         );
-
     }
 
     catch(e){
@@ -526,12 +467,9 @@ async function generate(){
         console.error(e);
 
         log(
-            '失敗: '
-            +e.message
+'失敗:'+e.message
         );
-
     }
-
 }
 
 window.generate=
