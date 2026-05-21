@@ -2,7 +2,9 @@ const logEl =
 document.getElementById('log');
 
 function log(msg){
-    logEl.textContent += msg+'\n';
+
+    logEl.textContent+=msg+'\n';
+
 }
 
 async function loadJSON(path){
@@ -10,24 +12,29 @@ async function loadJSON(path){
     const r=await fetch(path);
 
     return r.json();
+
 }
 
 function extractLyrics(code){
 
     const regex=
-    /L\s*\(\s*\[(.*?)\]\s*\)/gs;
+        /L\s*\(\s*\[(.*?)\]\s*\)/gs;
 
     const lines=[];
 
     let m;
 
-    while((m=regex.exec(code))!==null){
+    while(
+        (m=regex.exec(code))
+        !==null
+    ){
 
         lines.push(m[1]);
 
     }
 
     return lines;
+
 }
 
 function rebuildLine(line){
@@ -40,50 +47,40 @@ function rebuildLine(line){
 
     let m;
 
-    while((m=tokenRegex.exec(line))!==null){
+    while(
+        (m=tokenRegex.exec(line))
+        !==null
+    ){
 
         if(m[1]){
 
             surface+=m[1];
             reading+=m[2];
 
-        }else{
+        }
+
+        else{
 
             surface+=m[3];
             reading+=m[3];
 
         }
+
     }
 
     return{
 
         surface:
-        surface.replace(/\s+/g,' ').trim(),
+            surface
+            .replace(/\s+/g,' ')
+            .trim(),
 
         reading:
-        reading.replace(/\s+/g,' ').trim()
+            reading
+            .replace(/\s+/g,' ')
+            .trim()
 
     };
-}
-
-function katakanaToHiragana(text){
-
-    if(!text) return null;
-
-    return text.replace(
-
-        /[\u30A1-\u30F6]/g,
-
-        s=>
-        String.fromCharCode(
-            s.charCodeAt(0)-0x60
-        )
-    );
-}
-
-function hasKanji(str){
-
-    return /[\u4E00-\u9FFF]/.test(str);
 
 }
 
@@ -107,16 +104,45 @@ function buildTokenizer(){
                     if(err){
 
                         reject(err);
-
                         return;
+
                     }
 
                     resolve(tokenizer);
 
                 }
+
             );
+
         }
+
     );
+
+}
+
+function katakanaToHiragana(text){
+
+    if(!text) return null;
+
+    return text.replace(
+
+        /[\u30a1-\u30f6]/g,
+
+        s=>
+
+        String.fromCharCode(
+            s.charCodeAt(0)-0x60
+        )
+
+    );
+
+}
+
+function isEnglish(word){
+
+    return /^[a-zA-Z0-9\s'".,!?\-_]+$/
+        .test(word);
+
 }
 
 async function generate(){
@@ -124,55 +150,66 @@ async function generate(){
     logEl.textContent='';
 
     const songPath=
-    document
-    .getElementById('songPath')
-    .value
-    .trim();
+        document
+        .getElementById('songPath')
+        .value
+        .trim();
 
     if(!songPath){
 
         log('請輸入歌曲路徑');
 
         return;
+
     }
 
     try{
 
         const stopwords=
-        await loadJSON(
-            'data/stopwords.json'
-        );
+            await loadJSON(
+                'data/stopwords.json'
+            );
 
         const tokenizer=
-        await buildTokenizer();
+            await buildTokenizer();
 
         const songRes=
-        await fetch('../'+songPath);
+            await fetch(
+                '../'+songPath
+            );
 
         const songCode=
-        await songRes.text();
+            await songRes.text();
 
         const lyrics=
-        extractLyrics(songCode);
+            extractLyrics(
+                songCode
+            );
 
         log(
-`歌詞行數:${lyrics.length}`
+            `歌詞行數:${lyrics.length}`
         );
 
         const cards=
-        new Map();
+            new Map();
 
-        for(const rawLine of lyrics){
+        for(
+            const rawLine
+            of lyrics
+        ){
 
             const line=
-            rebuildLine(rawLine);
+                rebuildLine(rawLine);
 
             const tokens=
-            tokenizer.tokenize(
-                line.surface
-            );
+                tokenizer.tokenize(
+                    line.surface
+                );
 
-            for(const t of tokens){
+            for(
+                const t
+                of tokens
+            ){
 
                 if(
                     ![
@@ -181,68 +218,67 @@ async function generate(){
                         '形容詞'
                     ].includes(t.pos)
                 ){
-                    continue;
-                }
 
-                if(
-                    [
-                        '代名詞',
-                        '非自立',
-                        '接尾'
-                    ].includes(
-                        t.pos_detail_1
-                    )
-                ){
                     continue;
+
                 }
 
                 const base=
-                (
-                    t.basic_form &&
-                    t.basic_form!=='*'
-                )
-                ?t.basic_form
-                :t.surface_form;
+                    (
+                        t.basic_form &&
+                        t.basic_form!=='*'
+                    )
+                    ?t.basic_form
+                    :t.surface_form;
 
                 if(
                     stopwords.includes(base)
                 ){
+
                     continue;
+
                 }
 
                 if(
-                    [
-                        'れる',
-                        'られる',
-                        'する',
-                        'いる',
-                        'ある',
-                        'なる',
-                        'どる'
-                    ].includes(base)
+                    isEnglish(base)
                 ){
+
                     continue;
+
                 }
 
-                let reading=
-                t.reading || null;
+                let reading=null;
 
-                if(
-                    reading &&
-                    hasKanji(base)
-                ){
+                if(t.reading){
 
-                    reading=
-                    katakanaToHiragana(
-                        reading
-                    );
+                    if(
+                        /^[ァ-ヶー]+$/
+                        .test(
+                            t.surface_form
+                        )
+                    ){
+
+                        reading=t.reading;
+
+                    }
+
+                    else{
+
+                        reading=
+                        katakanaToHiragana(
+                            t.reading
+                        );
+
+                    }
 
                 }
 
                 const key=
-                `${base}|${reading}`;
+                    `${base}|${reading}`;
 
-                if(!cards.has(key)){
+                if(
+                    !cards.has(key)
+                ){
 
                     cards.set(
 
@@ -260,57 +296,66 @@ async function generate(){
 
                             sources:[]
                         }
+
                     );
+
                 }
 
                 const card=
-                cards.get(key);
+                    cards.get(key);
 
                 const sourceObj={
 
                     surface:
-                    t.surface_form,
+                        t.surface_form,
 
                     line:
-                    line.surface
+                        line.surface
+
                 };
 
                 const exists=
-                card.sources.some(
+                    card.sources.some(
 
-                    s=>
+                        s=>
 
-                    s.surface===
-                    sourceObj.surface
+                        s.surface===
+                        sourceObj.surface
 
-                    &&
+                        &&
 
-                    s.line===
-                    sourceObj.line
-                );
+                        s.line===
+                        sourceObj.line
+
+                    );
 
                 if(!exists){
 
                     card.sources.push(
                         sourceObj
                     );
+
                 }
+
             }
+
         }
 
         const result=
-        [...cards.values()];
+            [...cards.values()];
 
         log(
-`生成字卡:${result.length}`
+            `生成字卡:${result.length}`
         );
 
         log(
+
             JSON.stringify(
                 result,
                 null,
                 2
             )
+
         );
 
     }
@@ -322,8 +367,9 @@ async function generate(){
         log(
             '失敗:'+e.message
         );
+
     }
+
 }
 
-window.generate=
-generate;
+window.generate=generate;
