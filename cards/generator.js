@@ -90,7 +90,7 @@ function buildTokenizer(){
             .builder({
 
 dicPath:
-'https://cdn.jsdelivr.net/npm/kuromoji@0.1.2/dict'
+'./dict'
 
             })
 
