@@ -4,36 +4,20 @@ document.getElementById('log');
 function log(msg){
 
     logEl.textContent +=
-        msg + '\n';
+        msg+'\n';
 }
 
 async function loadJSON(path){
 
-    const r =
+    const r=
         await fetch(path);
 
     return r.json();
 }
 
-function containsKanji(str){
-
-    return /[\u4E00-\u9FFF]/.test(str);
-}
-
-function isKatakana(str){
-
-    return /^[\u30A0-\u30FFー]+$/
-        .test(str);
-}
-
-/*
-解析歌曲JS
-抓 L([...])
-*/
-
 function extractLyrics(code){
 
-    const regex =
+    const regex=
         /L\s*\(\s*\[(.*?)\]\s*\)/gs;
 
     const lines=[];
@@ -41,7 +25,8 @@ function extractLyrics(code){
     let m;
 
     while(
-        (m=regex.exec(code)) !== null
+        (m=regex.exec(code))
+        !== null
     ){
 
         lines.push(
@@ -52,87 +37,88 @@ function extractLyrics(code){
     return lines;
 }
 
-/*
-抽取真正詞彙
-*/
+function rebuildLine(line){
 
-function extractWords(line){
+    let surface='';
 
-    const result=[];
+    let reading='';
 
-    const rubyRegex =
-        /\[\s*`([^`]+)`\s*,\s*`([^`]+)`\s*\]/g;
+    const tokenRegex=
+/\[\s*`([^`]+)`\s*,\s*`([^`]+)`\s*\]|`([^`]+)`/g;
 
     let m;
 
     while(
-        (m=rubyRegex.exec(line)) !== null
+        (m=tokenRegex.exec(line))
+        !== null
     ){
 
-        const word =
-            m[1].trim();
+        if(m[1]){
 
-        const reading =
-            m[2].trim();
-
-        if(
-            !containsKanji(word)
-            &&
-            !isKatakana(word)
-        ){
-            continue;
+            surface+=m[1];
+            reading+=m[2];
         }
 
-        result.push({
+        else{
 
-            word,
-            reading,
-
-            type:
-                containsKanji(word)
-                ? 'kanji'
-                : 'katakana'
-        });
+            surface+=m[3];
+            reading+=m[3];
+        }
     }
 
-    /*
-    補抓純片假名
-    */
+    return{
 
-    const cleanLine =
-        line.replace(
-            rubyRegex,
-            ''
-        );
+        surface:
+            surface
+            .replace(/\s+/g,' ')
+            .trim(),
 
-    const katakana =
-        cleanLine.match(
-            /[\u30A0-\u30FFー]{2,}/g
-        ) || [];
+        reading:
+            reading
+            .replace(/\s+/g,' ')
+            .trim()
+    };
+}
 
-    for(
-        const k
-        of katakana
-    ){
+function buildTokenizer(){
 
-        result.push({
+    return new Promise(
 
-            word:k,
+        (resolve,reject)=>{
 
-            reading:null,
+            kuromoji
+            .builder({
 
-            type:'katakana'
-        });
-    }
+dicPath:
+'https://cdn.jsdelivr.net/npm/kuromoji@0.1.2/dict'
 
-    return result;
+            })
+
+            .build(
+
+                (err,tokenizer)=>{
+
+                    if(err){
+
+                        reject(err);
+
+                        return;
+                    }
+
+                    resolve(
+                        tokenizer
+                    );
+                }
+            );
+        }
+    );
 }
 
 async function generate(){
 
     logEl.textContent='';
 
-    const songPath =
+    const songPath=
         document
         .getElementById(
             'songPath'
@@ -143,7 +129,7 @@ async function generate(){
     if(!songPath){
 
         log(
-            '請輸入歌曲路徑'
+'請輸入歌曲路徑'
         );
 
         return;
@@ -151,99 +137,165 @@ async function generate(){
 
     try{
 
-        const stopwords =
+        const stopwords=
             await loadJSON(
-                'data/stopwords.json'
+'data/stopwords.json'
             );
 
-        const songRes =
+        const tokenizer=
+            await buildTokenizer();
+
+        const songRes=
             await fetch(
                 '../'+songPath
             );
 
-        const songCode =
+        const songCode=
             await songRes.text();
 
-        const lyrics =
+        const lyrics=
             extractLyrics(
                 songCode
             );
 
         log(
-            `歌詞行數:${lyrics.length}`
+`歌詞行數:${lyrics.length}`
         );
 
-        let cards=[];
+        const cards=
+            new Map();
 
         for(
-            const line
+            const rawLine
             of lyrics
         ){
 
-            const words =
-                extractWords(
-                    line
+            const line=
+                rebuildLine(
+                    rawLine
+                );
+
+            const tokens=
+                tokenizer.tokenize(
+                    line.surface
                 );
 
             for(
-                const item
-                of words
+                const t
+                of tokens
             ){
 
                 if(
-                    stopwords.includes(
-                        item.word
+                    ![
+                        '名詞',
+                        '動詞',
+                        '形容詞'
+                    ].includes(
+                        t.pos
                     )
                 ){
                     continue;
                 }
 
-                cards.push({
+                const base=
+                    t.basic_form
+                    &&
+                    t.basic_form!=='*'
+                    ?t.basic_form
+                    :t.surface_form;
 
-                    key:
-                        item.reading
-                        ? `${item.word}|${item.reading}`
-                        : item.word,
+                if(
+                    stopwords.includes(
+                        base
+                    )
+                ){
+                    continue;
+                }
 
-                    word:
-                        item.word,
+                const reading=
+                    t.reading
+                    ?t.reading
+                        .toLowerCase()
+                    :null;
 
-                    reading:
-                        item.reading,
+                const key=
+                    `${base}|${reading}`;
 
-                    type:
-                        item.type
-                });
+                if(
+                    !cards.has(key)
+                ){
+
+                    cards.set(
+
+                        key,
+
+                        {
+
+                            key,
+
+                            word:base,
+
+                            reading,
+
+                            type:
+                                t.pos,
+
+                            sources:[]
+                        }
+                    );
+                }
+
+                const card=
+                    cards.get(key);
+
+                const sourceObj={
+
+                    surface:
+                        t.surface_form,
+
+                    line:
+                        line.surface
+                };
+
+                const exists=
+                    card.sources.some(
+
+                        s=>
+
+                        s.surface===
+                        sourceObj.surface
+
+                        &&
+
+                        s.line===
+                        sourceObj.line
+                    );
+
+                if(
+                    !exists
+                ){
+
+                    card.sources.push(
+                        sourceObj
+                    );
+                }
             }
         }
 
-        /*
-        去重
-        */
-
-        cards =
-            [...new Map(
-
-                cards.map(
-                    c=>[
-                        c.key,
-                        c
-                    ]
-                )
-
-            ).values()];
+        const result=
+            [...cards.values()];
 
         log(
-            `生成字卡:${cards.length}`
+`生成字卡:${result.length}`
         );
 
         log(
 
-            JSON.stringify(
-                cards,
-                null,
-                2
-            )
+JSON.stringify(
+result,
+null,
+2
+)
 
         );
     }
@@ -253,10 +305,10 @@ async function generate(){
         console.error(e);
 
         log(
-            '失敗:'+e.message
+'失敗:'+e.message
         );
     }
 }
 
-window.generate =
-    generate;
+window.generate=
+generate;
