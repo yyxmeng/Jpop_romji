@@ -18,10 +18,6 @@ function extractWords(songCode){
 
     const cards=[];
 
-    /*
-    抓所有 L([...])
-    */
-
     const lineRegex =
 /L\s*\(\s*\[(.*?)\]\s*\)/gs;
 
@@ -34,97 +30,18 @@ function extractWords(songCode){
         const chunk =
             lm[1];
 
-        let currentWord='';
-        let currentReading='';
-
-        /*
-        token:
-        [`漢字`,`讀音`]
-        或
-        `普通字串`
-        */
-
         const tokenRegex =
 /\[\s*`([^`]+)`\s*,\s*`([^`]+)`\s*\]|`([^`]+)`/g;
 
         let tm;
 
-        while(
-            (tm=tokenRegex.exec(chunk))
-        ){
+        let currentWord='';
+        let currentReading='';
 
-            /*
-            ruby
-            */
+        function flush(){
 
-            if(tm[1]){
-
-                currentWord +=
-                    tm[1];
-
-                currentReading +=
-                    tm[2];
-            }
-
-            /*
-            普通字串
-            */
-
-            else{
-
-                const text =
-                    tm[3]
-                    .trim();
-
-                if(!text) continue;
-
-                /*
-                接續假名
-                */
-
-                if(
-/^[ぁ-んァ-ヶー]+$/
-                    .test(text)
-                ){
-
-                    currentWord += text;
-                    currentReading += text;
-                }
-
-                /*
-                非假名 → 結束單詞
-                */
-
-                else{
-
-                    if(currentWord){
-
-                        cards.push({
-
-                            key:
-`${currentWord}|${currentReading}`,
-
-                            word:
-                                currentWord,
-
-                            reading:
-                                currentReading,
-
-                            type:'kanji'
-                        });
-
-                        currentWord='';
-                        currentReading='';
-                    }
-                }
-            }
-        }
-
-        /*
-        flush
-        */
-
-        if(currentWord){
+            if(!currentWord)
+                return;
 
             cards.push({
 
@@ -139,7 +56,70 @@ function extractWords(songCode){
 
                 type:'kanji'
             });
+
+            currentWord='';
+            currentReading='';
         }
+
+        while(
+            (tm=tokenRegex.exec(chunk))
+        ){
+
+            /*
+            ruby
+            */
+
+            if(tm[1]){
+
+                flush();
+
+                currentWord =
+                    tm[1];
+
+                currentReading =
+                    tm[2];
+            }
+
+            /*
+            普通字串
+            */
+
+            else{
+
+                const text =
+                    tm[3];
+
+                if(!text)
+                    continue;
+
+                /*
+                純假名 → 接續
+                */
+
+                if(
+/^[ぁ-んァ-ヶー\s]+$/
+                    .test(text)
+                ){
+
+                    currentWord +=
+                        text.trim();
+
+                    currentReading +=
+                        text.trim();
+                }
+
+                /*
+                英文/空白
+                */
+
+                else{
+
+                    flush();
+                }
+            }
+        }
+
+        flush();
     }
 
     /*
