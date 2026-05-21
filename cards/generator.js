@@ -27,20 +27,21 @@ function isKatakana(str){
 }
 
 /*
-解析歌曲JS → 抓L()
+解析歌曲JS
+抓 L([...])
 */
 
 function extractLyrics(code){
 
     const regex =
-/L\s*\(\s*\[(.*?)\]\s*\)/gs;
+        /L\s*\(\s*\[(.*?)\]\s*\)/gs;
 
-    let lines=[];
+    const lines=[];
 
     let m;
 
     while(
-        (m=regex.exec(code)
+        (m=regex.exec(code)) !== null
     ){
 
         lines.push(
@@ -52,30 +53,26 @@ function extractLyrics(code){
 }
 
 /*
-真正單詞抽取
+抽取真正詞彙
 */
 
 function extractWords(line){
 
     const result=[];
 
-    /*
-    ruby詞彙
-    */
-
-    const rubyRegex=
-/\[\s*`([^`]+)`\s*,\s*`([^`]+)`\s*\]/g;
+    const rubyRegex =
+        /\[\s*`([^`]+)`\s*,\s*`([^`]+)`\s*\]/g;
 
     let m;
 
     while(
-        (m=rubyRegex.exec(line))
+        (m=rubyRegex.exec(line)) !== null
     ){
 
-        let word=
+        const word =
             m[1].trim();
 
-        let reading=
+        const reading =
             m[2].trim();
 
         if(
@@ -93,13 +90,13 @@ function extractWords(line){
 
             type:
                 containsKanji(word)
-                ?'kanji'
-                :'katakana'
+                ? 'kanji'
+                : 'katakana'
         });
     }
 
     /*
-    純片假名補抓
+    補抓純片假名
     */
 
     const cleanLine =
@@ -108,12 +105,15 @@ function extractWords(line){
             ''
         );
 
-    const katakana=
+    const katakana =
         cleanLine.match(
-/[\u30A0-\u30FFー]{2,}/g
-        )||[];
+            /[\u30A0-\u30FFー]{2,}/g
+        ) || [];
 
-    for(const k of katakana){
+    for(
+        const k
+        of katakana
+    ){
 
         result.push({
 
@@ -143,7 +143,7 @@ async function generate(){
     if(!songPath){
 
         log(
-'請輸入歌曲路徑'
+            '請輸入歌曲路徑'
         );
 
         return;
@@ -153,7 +153,7 @@ async function generate(){
 
         const stopwords =
             await loadJSON(
-'data/stopwords.json'
+                'data/stopwords.json'
             );
 
         const songRes =
@@ -170,7 +170,7 @@ async function generate(){
             );
 
         log(
-`歌詞行數:${lyrics.length}`
+            `歌詞行數:${lyrics.length}`
         );
 
         let cards=[];
@@ -190,12 +190,9 @@ async function generate(){
                 of words
             ){
 
-                const word=
-                    item.word;
-
                 if(
                     stopwords.includes(
-                        word
+                        item.word
                     )
                 ){
                     continue;
@@ -205,10 +202,11 @@ async function generate(){
 
                     key:
                         item.reading
-                        ?`${word}|${item.reading}`
-                        :word,
+                        ? `${item.word}|${item.reading}`
+                        : item.word,
 
-                    word,
+                    word:
+                        item.word,
 
                     reading:
                         item.reading,
@@ -223,7 +221,7 @@ async function generate(){
         去重
         */
 
-        cards=
+        cards =
             [...new Map(
 
                 cards.map(
@@ -236,15 +234,17 @@ async function generate(){
             ).values()];
 
         log(
-`生成字卡:${cards.length}`
+            `生成字卡:${cards.length}`
         );
 
         log(
-JSON.stringify(
-    cards,
-    null,
-    2
-)
+
+            JSON.stringify(
+                cards,
+                null,
+                2
+            )
+
         );
     }
 
@@ -253,10 +253,10 @@ JSON.stringify(
         console.error(e);
 
         log(
-'失敗:'+e.message
+            '失敗:'+e.message
         );
     }
 }
 
 window.generate =
-generate;
+    generate;
