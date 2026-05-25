@@ -370,6 +370,16 @@ async function generate(){
                 :
                 t.surface_form;
 
+                let reading=
+                
+                katakanaToHiragana(
+                
+                    t.reading
+                    ||
+                    t.surface_form
+                
+                );
+                
                 const blocked=
                 
                 stopwords.some(
@@ -388,8 +398,6 @@ async function generate(){
                     continue;
                 }
                 
-                let reading=
-
                 katakanaToHiragana(
 
                     t.reading
