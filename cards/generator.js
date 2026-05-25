@@ -114,7 +114,7 @@ function buildTokenizer(){
             kuromoji
             .builder({
 
-                dicPath:'./dict'
+                dicPath:'../dict'
 
             })
 
@@ -182,22 +182,22 @@ async function generate(){
 
         const stopwords=
         await loadJSON(
-'../data/stopwords.json'
+'data/stopwords.json'
         )||[];
 
         const dictionary=
         await loadJSON(
-'../data/dictionary.json'
+'data/dictionary.json'
         )||{};
 
         const existingCards=
         await loadJSON(
-'../data/cards.json'
+'data/cards.json'
         )||[];
 
         const existingPending=
         await loadJSON(
-'../data/pending.json'
+'data/pending.json'
         )||[];
 
         const tokenizer=
@@ -205,7 +205,7 @@ async function generate(){
 
         const songRes=
         await fetch(
-            '../../'+songPath
+            songPath
         );
 
         const songCode=
@@ -423,12 +423,8 @@ async function generate(){
 
                     &&
 
-                    (
-
-                        /[ァ-ヶ]/.test(
-                            t.surface_form
-                        )
-
+                    /[ァ-ヶ]/.test(
+                        t.surface_form
                     )
 
                 ){
