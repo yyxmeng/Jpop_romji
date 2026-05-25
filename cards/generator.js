@@ -114,7 +114,7 @@ function buildTokenizer(){
             kuromoji
             .builder({
 
-                dicPath:'../dict'
+                dicPath:'dict'
 
             })
 
