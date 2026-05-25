@@ -506,6 +506,7 @@ async function generate(){
 
         log(
 
+            
 JSON.stringify(
 result,
 null,
@@ -524,6 +525,20 @@ null,
         );
     }
 }
+
+downloadFile(
+    'cards.json',
+    result
+);
+
+downloadFile(
+    'pending.json',
+    finalPending
+);
+
+log(
+'下載完成'
+);
 
 window.generate=
 generate;
