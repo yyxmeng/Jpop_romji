@@ -379,7 +379,11 @@ async function generate(){
 
                     continue;
                 }
-
+                
+                log(
+                `NEW pending: ${key}`
+                );
+        
                 pendingMap.set(
 
                     key,
@@ -409,10 +413,6 @@ async function generate(){
                 );
             }
         }
-        
-        log(
-        `NEW pending: ${key}`
-        );
         
         const pending=
         [...pendingMap.values()];
