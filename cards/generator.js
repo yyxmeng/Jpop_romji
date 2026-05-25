@@ -1,20 +1,21 @@
-function uniquePending(arr){
+// ===== 修正點 =====
+// 之前邏輯：
+// 「新字卡」只看 currentRun 內有沒有出現
+// 沒檢查「cards.json 原本存在但被刪掉」的情況
+//
+// 現在改成：
+// 1. stopwords過濾
+// 2. dictionary覆蓋
+// 3. 所有新token先建立 candidate
+// 4. 若 key 已存在 cards.json → 跳過
+// 5. 若 key 已存在 pending.json → 跳過
+// 6. 其餘全部進 pending
+//
+// 所以：
+// 你故意刪 cards 某張卡 → 重跑 → 會重新出現在 pending
 
-    const map=new Map();
 
-    for(const item of arr){
-
-        map.set(
-            item.key,
-            item
-        );
-    }
-
-    return [...map.values()];
-}
-
-const logEl=
-document.getElementById('log');
+const logEl=document.getElementById('log');
 
 function log(msg){
 
@@ -25,8 +26,7 @@ async function loadJSON(path){
 
     try{
 
-        const r=
-        await fetch(path);
+        const r=await fetch(path);
 
         if(!r.ok){
 
@@ -44,17 +44,13 @@ async function loadJSON(path){
 
 function extractLyrics(code){
 
-    const regex=
-    /L\s*\(\s*\[(.*?)\]\s*\)/gs;
+    const regex=/L\s*\(\s*\[(.*?)\]\s*\)/gs;
 
     const lines=[];
 
     let m;
 
-    while(
-        (m=regex.exec(code))
-        !==null
-    ){
+    while((m=regex.exec(code))!==null){
 
         lines.push(m[1]);
     }
@@ -65,6 +61,7 @@ function extractLyrics(code){
 function rebuildLine(line){
 
     let surface='';
+
     let reading='';
 
     const tokenRegex=
@@ -72,10 +69,7 @@ function rebuildLine(line){
 
     let m;
 
-    while(
-        (m=tokenRegex.exec(line))
-        !==null
-    ){
+    while((m=tokenRegex.exec(line))!==null){
 
         if(m[1]){
 
@@ -140,39 +134,15 @@ function buildTokenizer(){
                     if(err){
 
                         reject(err);
+
                         return;
                     }
 
-                    resolve(
-                        tokenizer
-                    );
+                    resolve(tokenizer);
                 }
             );
         }
     );
-}
-
-function mergeSource(target,source){
-
-    const exists=
-
-    target.sources.some(
-
-        s=>
-
-        s.surface===source.surface
-        &&
-        s.line===source.line
-    );
-
-    if(
-        !exists
-    ){
-
-        target.sources.push(
-            source
-        );
-    }
 }
 
 function downloadFile(
@@ -205,19 +175,15 @@ function downloadFile(
     );
 
     const a=
-    document
-    .createElement('a');
+    document.createElement('a');
 
     a.href=url;
 
-    a.download=
-    filename;
+    a.download=filename;
 
     a.click();
 
-    URL.revokeObjectURL(
-        url
-    );
+    URL.revokeObjectURL(url);
 }
 
 async function generate(){
@@ -235,9 +201,7 @@ async function generate(){
 
     if(!songPath){
 
-        log(
-'請輸入歌曲路徑'
-        );
+        log('請輸入歌曲路徑');
 
         return;
     }
@@ -246,22 +210,22 @@ async function generate(){
 
         const stopwords=
         await loadJSON(
-'./data/stopwords.json'
+            './cards/data/stopwords.json'
         );
 
         const dictionary=
         await loadJSON(
-'./data/dictionary.json'
+            './cards/data/dictionary.json'
         );
 
         const oldCards=
         await loadJSON(
-'./data/cards.json'
+            './cards/data/cards.json'
         );
 
         const oldPending=
         await loadJSON(
-'./data/pending.json'
+            './cards/data/pending.json'
         );
 
         const tokenizer=
@@ -269,61 +233,45 @@ async function generate(){
 
         const songRes=
         await fetch(
-'./'+songPath
+            './songs/'+songPath
         );
 
         const songCode=
         await songRes.text();
 
         const lyrics=
-        extractLyrics(
-            songCode
-        );
+        extractLyrics(songCode);
 
         log(
 `歌詞行數:${lyrics.length}`
         );
 
-        const cards=
+        const oldCardKeys=
+        new Set(
+            oldCards.map(
+                x=>x.key
+            )
+        );
+
+        const oldPendingKeys=
+        new Set(
+            oldPending.map(
+                x=>x.key
+            )
+        );
+
+        const pendingMap=
         new Map();
 
-        const pending=
-        new Map();
-
         for(
-            const c
-            of oldCards
-        ){
 
-            cards.set(
-                c.key,
-                c
-            );
-        }
-
-        for(
-            const p
-            of oldPending
-        ){
-
-            pending.set(
-                p.key,
-                p
-            );
-        }
-
-        let newCards=0;
-        let newPending=0;
-
-        for(
             const rawLine
             of lyrics
+
         ){
 
             const line=
-            rebuildLine(
-                rawLine
-            );
+            rebuildLine(rawLine);
 
             const tokens=
             tokenizer.tokenize(
@@ -331,28 +279,20 @@ async function generate(){
             );
 
             for(
+
                 const t
                 of tokens
+
             ){
 
                 if(
+
                     ![
                         '名詞',
                         '動詞',
                         '形容詞'
                     ].includes(
                         t.pos
-                    )
-                ){
-
-                    continue;
-                }
-
-                if(
-
-                    /^[a-zA-Z'.,]+$/
-                    .test(
-                        t.surface_form
                     )
 
                 ){
@@ -365,15 +305,11 @@ async function generate(){
                 t.basic_form &&
                 t.basic_form!=='*'
 
-                ?
-                t.basic_form
-                :
-                t.surface_form;
+                ?t.basic_form
+                :t.surface_form;
 
                 if(
-                    stopwords.includes(
-                        base
-                    )
+                    stopwords.includes(base)
                 ){
 
                     continue;
@@ -386,7 +322,6 @@ async function generate(){
                     t.reading
                     ||
                     t.surface_form
-
                 );
 
                 if(
@@ -416,44 +351,28 @@ async function generate(){
                 const key=
                 `${base}|${reading}`;
 
-                const sourceObj={
-
-                    surface:
-                    t.surface_form,
-
-                    line:
-                    line.surface
-                };
-
                 if(
-                    cards.has(
-                        key
-                    )
+                    oldCardKeys.has(key)
                 ){
-
-                    mergeSource(
-                        cards.get(key),
-                        sourceObj
-                    );
 
                     continue;
                 }
 
                 if(
-                    pending.has(
-                        key
-                    )
+                    oldPendingKeys.has(key)
                 ){
-
-                    mergeSource(
-                        pending.get(key),
-                        sourceObj
-                    );
 
                     continue;
                 }
 
-                pending.set(
+                if(
+                    pendingMap.has(key)
+                ){
+
+                    continue;
+                }
+
+                pendingMap.set(
 
                     key,
 
@@ -468,51 +387,50 @@ async function generate(){
                         type:t.pos,
 
                         sources:[
-                            sourceObj
+
+                            {
+
+                                surface:
+                                t.surface_form,
+
+                                line:
+                                line.surface
+                            }
                         ]
                     }
                 );
-
-                newPending++;
             }
         }
 
-        const result=
-        [...cards.values()];
+        const pending=
+        [...pendingMap.values()];
 
-        const finalPending=
-        uniquePending(
-            [...pending.values()]
+        log(
+`生成字卡:0`
         );
 
         log(
-`cards:${result.length}`
-        );
-
-        log(
-`pending:${finalPending.length}`
-        );
-
-        log(
-`新增cards:${newCards}`
-        );
-
-        log(
-`新增pending:${newPending}`
+`pending:${pending.length}`
         );
 
         log(
 'Phase3完成：合併/補建模式啟用'
         );
 
-        downloadFile(
-            'cards.json',
-            result
+        log(
+
+            JSON.stringify(
+                pending,
+                null,
+                2
+            )
         );
 
         downloadFile(
+
             'pending.json',
-            finalPending
+
+            pending
         );
 
         log(
@@ -530,5 +448,4 @@ async function generate(){
     }
 }
 
-window.generate=
-generate;
+window.generate=generate;
