@@ -4,16 +4,10 @@ function uniquePending(arr){
 
     for(const item of arr){
 
-        const key=
-        `${item.word}|${item.reading}`;
-
-        if(!map.has(key)){
-
-            map.set(
-                key,
-                item
-            );
-        }
+        map.set(
+            item.key,
+            item
+        );
     }
 
     return [...map.values()];
@@ -39,7 +33,7 @@ async function loadJSON(path){
             return [];
         }
 
-        return r.json();
+        return await r.json();
     }
 
     catch{
@@ -119,6 +113,7 @@ function katakanaToHiragana(str){
         /[\u30a1-\u30f6]/g,
 
         s=>
+
         String.fromCharCode(
             s.charCodeAt(0)-0x60
         )
@@ -134,8 +129,7 @@ function buildTokenizer(){
             kuromoji
             .builder({
 
-                dicPath:
-                '../dict'
+                dicPath:'./dict'
 
             })
 
@@ -156,6 +150,29 @@ function buildTokenizer(){
             );
         }
     );
+}
+
+function mergeSource(target,source){
+
+    const exists=
+
+    target.sources.some(
+
+        s=>
+
+        s.surface===source.surface
+        &&
+        s.line===source.line
+    );
+
+    if(
+        !exists
+    ){
+
+        target.sources.push(
+            source
+        );
+    }
 }
 
 function downloadFile(
@@ -192,7 +209,10 @@ function downloadFile(
     .createElement('a');
 
     a.href=url;
-    a.download=filename;
+
+    a.download=
+    filename;
+
     a.click();
 
     URL.revokeObjectURL(
@@ -226,22 +246,22 @@ async function generate(){
 
         const stopwords=
         await loadJSON(
-            '../data/stopwords.json'
+'./data/stopwords.json'
         );
 
         const dictionary=
         await loadJSON(
-            '../data/dictionary.json'
+'./data/dictionary.json'
         );
 
         const oldCards=
         await loadJSON(
-            '../data/cards.json'
+'./data/cards.json'
         );
 
         const oldPending=
         await loadJSON(
-            '../data/pending.json'
+'./data/pending.json'
         );
 
         const tokenizer=
@@ -249,7 +269,7 @@ async function generate(){
 
         const songRes=
         await fetch(
-            '../../'+songPath
+'./'+songPath
         );
 
         const songCode=
@@ -292,6 +312,9 @@ async function generate(){
             );
         }
 
+        let newCards=0;
+        let newPending=0;
+
         for(
             const rawLine
             of lyrics
@@ -326,10 +349,12 @@ async function generate(){
                 }
 
                 if(
+
                     /^[a-zA-Z'.,]+$/
                     .test(
                         t.surface_form
                     )
+
                 ){
 
                     continue;
@@ -346,17 +371,16 @@ async function generate(){
                 t.surface_form;
 
                 if(
-
                     stopwords.includes(
                         base
                     )
-
                 ){
 
                     continue;
                 }
 
                 let reading=
+
                 katakanaToHiragana(
 
                     t.reading
@@ -364,9 +388,6 @@ async function generate(){
                     t.surface_form
 
                 );
-
-                let override=
-                false;
 
                 if(
                     dictionary[base]
@@ -390,9 +411,6 @@ async function generate(){
                         reading=
                         rule.reading;
                     }
-
-                    override=
-                    true;
                 }
 
                 const key=
@@ -407,121 +425,55 @@ async function generate(){
                     line.surface
                 };
 
-                const cardObj={
-
-                    key,
-
-                    word:base,
-
-                    reading,
-
-                    type:t.pos,
-
-                    sources:[
-                        sourceObj
-                    ]
-                };
-
                 if(
-
-                    !override
-
+                    cards.has(
+                        key
+                    )
                 ){
 
-                    if(
-
-                        !pending.has(
-                            key
-                        )
-
-                    ){
-
-                        pending.set(
-                            key,
-                            cardObj
-                        );
-                    }
-
-                    else{
-
-                        const p=
-                        pending.get(
-                            key
-                        );
-
-                        const exists=
-
-                        p.sources.some(
-
-                            s=>
-
-                            s.surface===
-                            sourceObj.surface
-
-                            &&
-
-                            s.line===
-                            sourceObj.line
-                        );
-
-                        if(
-                            !exists
-                        ){
-
-                            p.sources.push(
-                                sourceObj
-                            );
-                        }
-                    }
+                    mergeSource(
+                        cards.get(key),
+                        sourceObj
+                    );
 
                     continue;
                 }
 
                 if(
-
-                    !cards.has(
+                    pending.has(
                         key
                     )
-
                 ){
 
-                    cards.set(
+                    mergeSource(
+                        pending.get(key),
+                        sourceObj
+                    );
+
+                    continue;
+                }
+
+                pending.set(
+
+                    key,
+
+                    {
+
                         key,
-                        cardObj
-                    );
-                }
 
-                else{
+                        word:base,
 
-                    const c=
-                    cards.get(
-                        key
-                    );
+                        reading,
 
-                    const exists=
+                        type:t.pos,
 
-                    c.sources.some(
-
-                        s=>
-
-                        s.surface===
-                        sourceObj.surface
-
-                        &&
-
-                        s.line===
-                        sourceObj.line
-                    );
-
-                    if(
-                        !exists
-                    ){
-
-                        c.sources.push(
+                        sources:[
                             sourceObj
-                        );
+                        ]
                     }
-                }
+                );
+
+                newPending++;
             }
         }
 
@@ -534,7 +486,7 @@ async function generate(){
         );
 
         log(
-`生成字卡:${result.length}`
+`cards:${result.length}`
         );
 
         log(
@@ -542,17 +494,15 @@ async function generate(){
         );
 
         log(
-'Phase3完成：合併/補建模式啟用'
+`新增cards:${newCards}`
         );
 
         log(
+`新增pending:${newPending}`
+        );
 
-            JSON.stringify(
-                result,
-                null,
-                2
-            )
-
+        log(
+'Phase3完成：合併/補建模式啟用'
         );
 
         downloadFile(
