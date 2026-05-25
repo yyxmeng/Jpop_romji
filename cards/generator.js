@@ -203,342 +203,115 @@ function uniquePending(list){
 
 async function generate(){
 
-    logEl.textContent='';
+const logEl=document.getElementById('log');
 
-    const songPath=
+logEl.textContent='';
 
-    document
-    .getElementById(
-        'songPath'
-    )
-    .value
-    .trim();
+const songPath=document.getElementById('songPath').value.trim();
 
-    if(!songPath){
+if(!songPath){log('請輸入歌曲路徑');return;}
 
-        log(
-'請輸入歌曲路徑'
-        );
+try{
 
-        return;
-    }
+const stopwords=await loadJSON('data/stopwords.json')||[];
+const dictionary=await loadJSON('data/dictionary.json')||{};
+const existingCards=await loadJSON('data/cards.json')||[];
+const existingPending=await loadJSON('data/pending.json')||[];
 
-    try{
+const tokenizer=await buildTokenizer();
 
-        const stopwords=
-        await loadJSON(
-'data/stopwords.json'
-        )||[];
+const songRes=await fetch('../'+songPath);
+const songCode=await songRes.text();
 
-        const dictionary=
-        await loadJSON(
-'data/dictionary.json'
-        )||{};
+const lyrics=extractLyrics(songCode);
 
-        const existingCards=
-        await loadJSON(
-'data/cards.json'
-        )||[];
+log(`歌詞行數:${lyrics.length}`);
 
-        const existingPending=
-        await loadJSON(
-'data/pending.json'
-        )||[];
+const cards=new Map();
 
-        const tokenizer=
-        await buildTokenizer();
-
-       const songRes=
-       await fetch(
-            '../'+songPath
-        );
-
-        const songCode=
-        await songRes.text();
-
-        const lyrics=
-        extractLyrics(
-            songCode
-        );
-
-        log(
-`歌詞行數:${lyrics.length}`
-        );
-
-        const cards=
-        new Map();
-
-        for(
-            const oldCard
-            of existingCards
-        ){
-
-            cards.set(
-                oldCard.key,
-                oldCard
-            );
-        }
-
-        const pending=[
-            ...existingPending
-        ];
-
-        for(
-            const rawLine
-            of lyrics
-        ){
-
-            const line=
-            rebuildLine(
-                rawLine
-            );
-
-            const tokens=
-            tokenizer.tokenize(
-                line.surface
-            );
-
-            for(
-                const t
-                of tokens
-            ){
-
-                if(
-                    ![
-                        '名詞',
-                        '動詞',
-                        '形容詞'
-                    ].includes(
-                        t.pos
-                    )
-                ){
-
-                    continue;
-                }
-
-                if(
-                    /^[a-zA-Z'.,!?-]+$/
-                    .test(
-                        t.surface_form
-                    )
-                ){
-
-                    continue;
-                }
-
-                if(
-                    /^[',.!?]+$/
-                    .test(
-                        t.surface_form
-                    )
-                ){
-
-                    continue;
-                }
-
-                let base=
-
-                t.basic_form &&
-                t.basic_form!=='*'
-
-                ?t.basic_form
-                :t.surface_form;
-
-                if(
-                    stopwords.includes(
-                        base
-                    )
-                ){
-
-                    continue;
-                }
-
-                let reading=
-
-                katakanaToHiragana(
-
-                    t.reading
-                    ||
-                    t.surface_form
-
-                );
-
-                const dictRule=
-
-                dictionary[base]
-
-                ||
-
-                dictionary[
-                    t.surface_form
-                ];
-
-                if(
-                    dictRule
-                ){
-
-                    if(
-                        dictRule.word
-                    ){
-
-                        base=
-                        dictRule.word;
-                    }
-
-                    if(
-                        dictRule.reading
-                    ){
-
-                        reading=
-                        katakanaToHiragana(
-                            dictRule.reading
-                        );
-                    }
-                }
-
-                const key=
-                `${base}|${reading}`;
-
-                if(
-                    !cards.has(
-                        key
-                    )
-                ){
-
-                    cards.set(
-
-                        key,
-
-                        {
-
-                            key,
-
-                            word:base,
-
-                            reading,
-
-                            type:t.pos,
-
-                            sources:[]
-                        }
-                    );
-                }
-
-                const card=
-                cards.get(
-                    key
-                );
-
-                const sourceObj={
-
-                    surface:
-                    t.surface_form,
-
-                    line:
-                    line.surface
-                };
-
-                const exists=
-
-                card.sources.some(
-
-                    s=>
-
-                    s.surface===
-                    sourceObj.surface
-
-                    &&
-
-                    s.line===
-                    sourceObj.line
-                );
-
-                if(
-                    !exists
-                ){
-
-                    card.sources.push(
-                        sourceObj
-                    );
-                }
-
-                if(
-
-                    !dictRule
-
-                    &&
-
-                    /[ァ-ヶ]/.test(
-                        t.surface_form
-                    )
-
-                ){
-
-                    pending.push({
-
-                        word:base,
-
-                        reading
-                    });
-                }
-            }
-        }
-
-        const result=
-        [...cards.values()];
-
-        const finalPending=
-        uniquePending(
-            pending
-        );
-
-        log(
-`生成字卡:${result.length}`
-        );
-
-        log(
-`pending:${finalPending.length}`
-        );
-
-        log(
-'Phase3完成：合併/補建模式啟用'
-        );
-
-        log(
-
-            
-JSON.stringify(
-result,
-null,
-2
-)
-
-        );
-    }
-
-    catch(e){
-
-        console.error(e);
-
-        log(
-'失敗:'+e.message
-        );
-    }
+for(const oldCard of existingCards){
+cards.set(oldCard.key,oldCard);
 }
 
-downloadFile(
-    'cards.json',
-    result
-);
+const pending=[...existingPending];
 
-downloadFile(
-    'pending.json',
-    finalPending
-);
+for(const rawLine of lyrics){
 
-log(
-'下載完成'
-);
+const line=rebuildLine(rawLine);
+const tokens=tokenizer.tokenize(line.surface);
 
-window.generate=
-generate;
+for(const t of tokens){
+
+if(!['名詞','動詞','形容詞'].includes(t.pos))continue;
+if(/^[a-zA-Z'.,!?-]+$/.test(t.surface_form))continue;
+if(/^[',.!?]+$/.test(t.surface_form))continue;
+
+let base=t.basic_form&&t.basic_form!=='*'?t.basic_form:t.surface_form;
+
+if(stopwords.includes(base))continue;
+
+let reading=katakanaToHiragana(t.reading||t.surface_form);
+
+const dictRule=dictionary[base]||dictionary[t.surface_form];
+
+if(dictRule){
+
+if(dictRule.word)base=dictRule.word;
+if(dictRule.reading)reading=katakanaToHiragana(dictRule.reading);
+
+}
+
+const key=`${base}|${reading}`;
+
+if(!cards.has(key)){
+
+cards.set(key,{
+key,
+word:base,
+reading,
+type:t.pos,
+sources:[]
+});
+
+}
+
+const card=cards.get(key);
+
+const sourceObj={surface:t.surface_form,line:line.surface};
+
+const exists=card.sources.some(s=>s.surface===sourceObj.surface&&s.line===sourceObj.line);
+
+if(!exists)card.sources.push(sourceObj);
+
+if(!dictRule&&/[ァ-ヶ]/.test(t.surface_form)){
+pending.push({word:base,reading});
+}
+
+}
+
+}
+
+const result=[...cards.values()];
+const finalPending=uniquePending(pending);
+
+log(`生成字卡:${result.length}`);
+log(`pending:${finalPending.length}`);
+log('Phase3完成：合併/補建模式啟用');
+
+log(JSON.stringify(result,null,2));
+
+downloadFile('cards.json',result);
+downloadFile('pending.json',finalPending);
+
+log('下載完成');
+
+}catch(e){
+
+console.error(e);
+log('失敗:'+e.message);
+
+}
+
+}
+
+window.generate=generate;
