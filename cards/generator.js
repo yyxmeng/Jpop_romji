@@ -354,14 +354,22 @@ async function generate(){
                 if(
                     oldCardKeys.has(key)
                 ){
-
+                
+                    log(
+                `SKIP cards: ${key}`
+                    );
+                
                     continue;
                 }
 
                 if(
                     oldPendingKeys.has(key)
                 ){
-
+                
+                    log(
+                `SKIP pending: ${key}`
+                    );
+                
                     continue;
                 }
 
@@ -401,7 +409,11 @@ async function generate(){
                 );
             }
         }
-
+        
+        log(
+        `NEW pending: ${key}`
+        );
+        
         const pending=
         [...pendingMap.values()];
 
