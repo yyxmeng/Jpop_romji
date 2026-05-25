@@ -1,4 +1,25 @@
-const logEl =
+function uniquePending(arr){
+
+    const map=new Map();
+
+    for(const item of arr){
+
+        const key=
+        `${item.word}|${item.reading}`;
+
+        if(!map.has(key)){
+
+            map.set(
+                key,
+                item
+            );
+        }
+    }
+
+    return [...map.values()];
+}
+
+const logEl=
 document.getElementById('log');
 
 function log(msg){
@@ -10,19 +31,20 @@ async function loadJSON(path){
 
     try{
 
-        const r=await fetch(path);
+        const r=
+        await fetch(path);
 
         if(!r.ok){
 
-            return null;
+            return [];
         }
 
-        return await r.json();
+        return r.json();
     }
 
     catch{
 
-        return null;
+        return [];
     }
 }
 
@@ -49,7 +71,6 @@ function extractLyrics(code){
 function rebuildLine(line){
 
     let surface='';
-
     let reading='';
 
     const tokenRegex=
@@ -98,7 +119,6 @@ function katakanaToHiragana(str){
         /[\u30a1-\u30f6]/g,
 
         s=>
-
         String.fromCharCode(
             s.charCodeAt(0)-0x60
         )
@@ -114,7 +134,8 @@ function buildTokenizer(){
             kuromoji
             .builder({
 
-                dicPath:'dict'
+                dicPath:
+                '../dict'
 
             })
 
@@ -125,7 +146,6 @@ function buildTokenizer(){
                     if(err){
 
                         reject(err);
-
                         return;
                     }
 
@@ -172,10 +192,7 @@ function downloadFile(
     .createElement('a');
 
     a.href=url;
-
-    a.download=
-    filename;
-
+    a.download=filename;
     a.click();
 
     URL.revokeObjectURL(
@@ -183,135 +200,385 @@ function downloadFile(
     );
 }
 
-function uniquePending(list){
-
-    const map=new Map();
-
-    for(const p of list){
-
-        const key=
-        `${p.word}|${p.reading}`;
-
-        if(!map.has(key)){
-
-            map.set(key,p);
-        }
-    }
-
-    return [...map.values()];
-}
-
 async function generate(){
 
-const logEl=document.getElementById('log');
+    logEl.textContent='';
 
-logEl.textContent='';
+    const songPath=
 
-const songPath=document.getElementById('songPath').value.trim();
+    document
+    .getElementById(
+        'songPath'
+    )
+    .value
+    .trim();
 
-if(!songPath){log('請輸入歌曲路徑');return;}
+    if(!songPath){
 
-try{
+        log(
+'請輸入歌曲路徑'
+        );
 
-const stopwords=await loadJSON('data/stopwords.json')||[];
-const dictionary=await loadJSON('data/dictionary.json')||{};
-const existingCards=await loadJSON('data/cards.json')||[];
-const existingPending=await loadJSON('data/pending.json')||[];
+        return;
+    }
 
-const tokenizer=await buildTokenizer();
+    try{
 
-const songRes=await fetch('../'+songPath);
-const songCode=await songRes.text();
+        const stopwords=
+        await loadJSON(
+            '../data/stopwords.json'
+        );
 
-const lyrics=extractLyrics(songCode);
+        const dictionary=
+        await loadJSON(
+            '../data/dictionary.json'
+        );
 
-log(`歌詞行數:${lyrics.length}`);
+        const oldCards=
+        await loadJSON(
+            '../data/cards.json'
+        );
 
-const cards=new Map();
+        const oldPending=
+        await loadJSON(
+            '../data/pending.json'
+        );
 
-for(const oldCard of existingCards){
-cards.set(oldCard.key,oldCard);
+        const tokenizer=
+        await buildTokenizer();
+
+        const songRes=
+        await fetch(
+            '../../'+songPath
+        );
+
+        const songCode=
+        await songRes.text();
+
+        const lyrics=
+        extractLyrics(
+            songCode
+        );
+
+        log(
+`歌詞行數:${lyrics.length}`
+        );
+
+        const cards=
+        new Map();
+
+        const pending=
+        new Map();
+
+        for(
+            const c
+            of oldCards
+        ){
+
+            cards.set(
+                c.key,
+                c
+            );
+        }
+
+        for(
+            const p
+            of oldPending
+        ){
+
+            pending.set(
+                p.key,
+                p
+            );
+        }
+
+        for(
+            const rawLine
+            of lyrics
+        ){
+
+            const line=
+            rebuildLine(
+                rawLine
+            );
+
+            const tokens=
+            tokenizer.tokenize(
+                line.surface
+            );
+
+            for(
+                const t
+                of tokens
+            ){
+
+                if(
+                    ![
+                        '名詞',
+                        '動詞',
+                        '形容詞'
+                    ].includes(
+                        t.pos
+                    )
+                ){
+
+                    continue;
+                }
+
+                if(
+                    /^[a-zA-Z'.,]+$/
+                    .test(
+                        t.surface_form
+                    )
+                ){
+
+                    continue;
+                }
+
+                let base=
+
+                t.basic_form &&
+                t.basic_form!=='*'
+
+                ?
+                t.basic_form
+                :
+                t.surface_form;
+
+                if(
+
+                    stopwords.includes(
+                        base
+                    )
+
+                ){
+
+                    continue;
+                }
+
+                let reading=
+                katakanaToHiragana(
+
+                    t.reading
+                    ||
+                    t.surface_form
+
+                );
+
+                let override=
+                false;
+
+                if(
+                    dictionary[base]
+                ){
+
+                    const rule=
+                    dictionary[base];
+
+                    if(
+                        rule.word
+                    ){
+
+                        base=
+                        rule.word;
+                    }
+
+                    if(
+                        rule.reading
+                    ){
+
+                        reading=
+                        rule.reading;
+                    }
+
+                    override=
+                    true;
+                }
+
+                const key=
+                `${base}|${reading}`;
+
+                const sourceObj={
+
+                    surface:
+                    t.surface_form,
+
+                    line:
+                    line.surface
+                };
+
+                const cardObj={
+
+                    key,
+
+                    word:base,
+
+                    reading,
+
+                    type:t.pos,
+
+                    sources:[
+                        sourceObj
+                    ]
+                };
+
+                if(
+
+                    !override
+
+                ){
+
+                    if(
+
+                        !pending.has(
+                            key
+                        )
+
+                    ){
+
+                        pending.set(
+                            key,
+                            cardObj
+                        );
+                    }
+
+                    else{
+
+                        const p=
+                        pending.get(
+                            key
+                        );
+
+                        const exists=
+
+                        p.sources.some(
+
+                            s=>
+
+                            s.surface===
+                            sourceObj.surface
+
+                            &&
+
+                            s.line===
+                            sourceObj.line
+                        );
+
+                        if(
+                            !exists
+                        ){
+
+                            p.sources.push(
+                                sourceObj
+                            );
+                        }
+                    }
+
+                    continue;
+                }
+
+                if(
+
+                    !cards.has(
+                        key
+                    )
+
+                ){
+
+                    cards.set(
+                        key,
+                        cardObj
+                    );
+                }
+
+                else{
+
+                    const c=
+                    cards.get(
+                        key
+                    );
+
+                    const exists=
+
+                    c.sources.some(
+
+                        s=>
+
+                        s.surface===
+                        sourceObj.surface
+
+                        &&
+
+                        s.line===
+                        sourceObj.line
+                    );
+
+                    if(
+                        !exists
+                    ){
+
+                        c.sources.push(
+                            sourceObj
+                        );
+                    }
+                }
+            }
+        }
+
+        const result=
+        [...cards.values()];
+
+        const finalPending=
+        uniquePending(
+            [...pending.values()]
+        );
+
+        log(
+`生成字卡:${result.length}`
+        );
+
+        log(
+`pending:${finalPending.length}`
+        );
+
+        log(
+'Phase3完成：合併/補建模式啟用'
+        );
+
+        log(
+
+            JSON.stringify(
+                result,
+                null,
+                2
+            )
+
+        );
+
+        downloadFile(
+            'cards.json',
+            result
+        );
+
+        downloadFile(
+            'pending.json',
+            finalPending
+        );
+
+        log(
+'下載完成'
+        );
+    }
+
+    catch(e){
+
+        console.error(e);
+
+        log(
+'失敗:'+e.message
+        );
+    }
 }
 
-const pending=[...existingPending];
-
-for(const rawLine of lyrics){
-
-const line=rebuildLine(rawLine);
-const tokens=tokenizer.tokenize(line.surface);
-
-for(const t of tokens){
-
-if(!['名詞','動詞','形容詞'].includes(t.pos))continue;
-if(/^[a-zA-Z'.,!?-]+$/.test(t.surface_form))continue;
-if(/^[',.!?]+$/.test(t.surface_form))continue;
-
-let base=t.basic_form&&t.basic_form!=='*'?t.basic_form:t.surface_form;
-
-if(stopwords.includes(base))continue;
-
-let reading=katakanaToHiragana(t.reading||t.surface_form);
-
-const dictRule=dictionary[base]||dictionary[t.surface_form];
-
-if(dictRule){
-
-if(dictRule.word)base=dictRule.word;
-if(dictRule.reading)reading=katakanaToHiragana(dictRule.reading);
-
-}
-
-const key=`${base}|${reading}`;
-
-if(!cards.has(key)){
-
-cards.set(key,{
-key,
-word:base,
-reading,
-type:t.pos,
-sources:[]
-});
-
-}
-
-const card=cards.get(key);
-
-const sourceObj={surface:t.surface_form,line:line.surface};
-
-const exists=card.sources.some(s=>s.surface===sourceObj.surface&&s.line===sourceObj.line);
-
-if(!exists)card.sources.push(sourceObj);
-
-if(!dictRule&&/[ァ-ヶ]/.test(t.surface_form)){
-pending.push({word:base,reading});
-}
-
-}
-
-}
-
-const result=[...cards.values()];
-const finalPending=uniquePending(pending);
-
-log(`生成字卡:${result.length}`);
-log(`pending:${finalPending.length}`);
-log('Phase3完成：合併/補建模式啟用');
-
-log(JSON.stringify(result,null,2));
-
-downloadFile('cards.json',result);
-downloadFile('pending.json',finalPending);
-
-log('下載完成');
-
-}catch(e){
-
-console.error(e);
-log('失敗:'+e.message);
-
-}
-
-}
-
-window.generate=generate;
+window.generate=
+generate;
