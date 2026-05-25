@@ -233,7 +233,7 @@ async function generate(){
 
         const songRes=
         await fetch(
-            'songs/'+songPath
+            '../'+songPath
         );
 
         const songCode=
