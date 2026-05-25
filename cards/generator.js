@@ -210,22 +210,22 @@ async function generate(){
 
         const stopwords=
         await loadJSON(
-            './cards/data/stopwords.json'
+            '../data/stopwords.json'
         );
-
+        
         const dictionary=
         await loadJSON(
-            './cards/data/dictionary.json'
+            '../data/dictionary.json'
         );
-
+        
         const oldCards=
         await loadJSON(
-            './cards/data/cards.json'
+            '../data/cards.json'
         );
-
+        
         const oldPending=
         await loadJSON(
-            './cards/data/pending.json'
+            '../data/pending.json'
         );
 
         const tokenizer=
