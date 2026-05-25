@@ -203,9 +203,9 @@ async function generate(){
         const tokenizer=
         await buildTokenizer();
 
-        const songRes=
-        await fetch(
-            songPath
+       const songRes=
+       await fetch(
+            '../'+songPath
         );
 
         const songCode=
