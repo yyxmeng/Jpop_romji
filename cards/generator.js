@@ -370,15 +370,24 @@ async function generate(){
                 :
                 t.surface_form;
 
-                if(
-                    stopwords.includes(
-                        base
-                    )
-                ){
-
+                const blocked=
+                
+                stopwords.some(
+                
+                    s=>
+                
+                    s.word===base
+                
+                    ||
+                
+                    s.key===`${base}|${reading}`
+                );
+                
+                if(blocked){
+                
                     continue;
                 }
-
+                
                 let reading=
 
                 katakanaToHiragana(
