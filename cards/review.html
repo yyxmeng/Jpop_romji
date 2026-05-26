@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+    name="viewport"
+    content="width=device-width,initial-scale=1">
+
+    <title>
+        Review維護頁
+    </title>
+
+    <link
+    rel="stylesheet"
+    href="../shared.css">
+
+    <style>
+
+        body{
+
+            padding:20px;
+        }
+
+        .toolbar{
+
+            display:flex;
+            gap:12px;
+            margin-bottom:20px;
+            flex-wrap:wrap;
+        }
+
+        .columns{
+
+            display:grid;
+            grid-template-columns:
+            repeat(
+                3,
+                1fr
+            );
+
+            gap:20px;
+        }
+
+        .panel{
+
+            border:1px solid #666;
+            border-radius:12px;
+            padding:16px;
+            min-height:600px;
+        }
+
+        .panel h2{
+
+            margin-top:0;
+        }
+
+        .actions{
+
+            display:flex;
+            flex-wrap:wrap;
+            gap:8px;
+            margin-bottom:14px;
+        }
+
+        .card{
+
+            border:1px solid #444;
+            border-radius:8px;
+            padding:10px;
+            margin-bottom:10px;
+        }
+
+        .meta{
+
+            font-size:.9em;
+            opacity:.7;
+            margin-top:6px;
+        }
+
+        .source{
+
+            font-size:.85em;
+            opacity:.8;
+            margin-top:4px;
+        }
+
+        button{
+
+            cursor:pointer;
+        }
+
+        @media(
+            max-width:1100px
+        ){
+
+            .columns{
+
+                grid-template-columns:
+                1fr;
+            }
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <h1>
+        Review維護頁
+    </h1>
+	
+	<div class="toolbar">
+
+	<input
+	id="githubToken"
+	type="password"
+	placeholder="GitHub Token">
+
+	<button
+	onclick="saveAll()">
+
+	保存全部
+
+	</button>
+
+	</div>
+	
+    <div class="toolbar">
+
+        <button
+        onclick="saveAll()">
+
+            保存全部
+        </button>
+
+    </div>
+
+    <div class="columns">
+
+        <section
+        class="panel">
+
+            <h2>
+
+                新字卡
+                (<span id="pendingCount">
+                    0
+                </span>)
+
+            </h2>
+
+            <div class="actions">
+
+                <button
+                onclick="selectAll('pending')">
+
+                    全選
+                </button>
+
+                <button
+                onclick="moveSelected(
+                    'pending',
+                    'cards'
+                )">
+
+                    → 已加入
+                </button>
+
+                <button
+                onclick="moveSelected(
+                    'pending',
+                    'stopwords'
+                )">
+
+                    → 不加入
+                </button>
+
+            </div>
+
+            <div
+            id="pendingList">
+
+            </div>
+
+        </section>
+
+        <section
+        class="panel">
+
+            <h2>
+
+                不加入
+                (<span id="stopwordsCount">
+                    0
+                </span>)
+
+            </h2>
+
+            <div class="actions">
+
+                <button
+                onclick="selectAll('stopwords')">
+
+                    全選
+                </button>
+
+                <button
+                onclick="moveSelected(
+                    'stopwords',
+                    'pending'
+                )">
+
+                    → 新字卡
+                </button>
+
+            </div>
+
+            <div
+            id="stopwordsList">
+
+            </div>
+
+        </section>
+
+        <section
+        class="panel">
+
+            <h2>
+
+                已加入
+                (<span id="cardsCount">
+                    0
+                </span>)
+
+            </h2>
+
+            <div class="actions">
+
+                <button
+                onclick="selectAll('cards')">
+
+                    全選
+                </button>
+
+                <button
+                onclick="moveSelected(
+                    'cards',
+                    'pending'
+                )">
+
+                    → 新字卡
+                </button>
+
+            </div>
+
+            <div
+            id="cardsList">
+
+            </div>
+
+        </section>
+
+    </div>
+
+    <script
+    src="review.js">
+
+    </script>
+
+</body>
+</html>
