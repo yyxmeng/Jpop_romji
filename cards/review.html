@@ -27,14 +27,21 @@
         .toolbar{
 
             display:flex;
+            flex-wrap:wrap;
             gap:12px;
             margin-bottom:20px;
-            flex-wrap:wrap;
+            align-items:center;
+        }
+
+        .toolbar input{
+
+            padding:8px;
         }
 
         .columns{
 
             display:grid;
+
             grid-template-columns:
             repeat(
                 3,
@@ -47,9 +54,12 @@
         .panel{
 
             border:1px solid #666;
+
             border-radius:12px;
+
             padding:16px;
-            min-height:600px;
+
+            min-height:650px;
         }
 
         .panel h2{
@@ -60,36 +70,61 @@
         .actions{
 
             display:flex;
+
             flex-wrap:wrap;
+
             gap:8px;
+
             margin-bottom:14px;
         }
 
         .card{
 
             border:1px solid #444;
+
             border-radius:8px;
+
             padding:10px;
+
             margin-bottom:10px;
         }
 
         .meta{
 
             font-size:.9em;
+
             opacity:.7;
+
             margin-top:6px;
         }
 
         .source{
 
             font-size:.85em;
+
             opacity:.8;
-            margin-top:4px;
+
+            margin-top:6px;
         }
 
         button{
 
             cursor:pointer;
+        }
+
+        #batchLog{
+
+            white-space:pre-wrap;
+
+            margin-top:16px;
+
+            border:1px solid #444;
+
+            border-radius:10px;
+
+            padding:12px;
+
+            min-height:80px;
         }
 
         @media(
@@ -112,30 +147,41 @@
     <h1>
         Review維護頁
     </h1>
-	
-	<div class="toolbar">
 
-	<input
-	id="githubToken"
-	type="password"
-	placeholder="GitHub Token">
-
-	<button
-	onclick="saveAll()">
-
-	保存全部
-
-	</button>
-
-	</div>
-	
     <div class="toolbar">
+
+        <input
+        id="githubToken"
+        type="password"
+        placeholder="GitHub Token">
 
         <button
         onclick="saveAll()">
 
             保存全部
+
         </button>
+
+    </div>
+
+    <div class="toolbar">
+
+        <input
+        id="batchFolder"
+        type="text"
+        placeholder="歌曲資料夾，例如：ave_mujica">
+
+        <button
+        onclick="batchGenerate()">
+
+            批次重新生成字卡
+
+        </button>
+
+    </div>
+
+    <div
+    id="batchLog">
 
     </div>
 
@@ -147,9 +193,14 @@
             <h2>
 
                 新字卡
-                (<span id="pendingCount">
+                (
+                <span
+                id="pendingCount">
+
                     0
-                </span>)
+
+                </span>
+                )
 
             </h2>
 
@@ -159,24 +210,29 @@
                 onclick="selectAll('pending')">
 
                     全選
+
                 </button>
 
                 <button
-                onclick="moveSelected(
+                onclick="
+                moveSelected(
                     'pending',
                     'cards'
                 )">
 
                     → 已加入
+
                 </button>
 
                 <button
-                onclick="moveSelected(
+                onclick="
+                moveSelected(
                     'pending',
                     'stopwords'
                 )">
 
                     → 不加入
+
                 </button>
 
             </div>
@@ -194,27 +250,38 @@
             <h2>
 
                 不加入
-                (<span id="stopwordsCount">
+                (
+                <span
+                id="stopwordsCount">
+
                     0
-                </span>)
+
+                </span>
+                )
 
             </h2>
 
             <div class="actions">
 
                 <button
-                onclick="selectAll('stopwords')">
+                onclick="
+                selectAll(
+                    'stopwords'
+                )">
 
                     全選
+
                 </button>
 
                 <button
-                onclick="moveSelected(
+                onclick="
+                moveSelected(
                     'stopwords',
                     'pending'
                 )">
 
                     → 新字卡
+
                 </button>
 
             </div>
@@ -232,27 +299,38 @@
             <h2>
 
                 已加入
-                (<span id="cardsCount">
+                (
+                <span
+                id="cardsCount">
+
                     0
-                </span>)
+
+                </span>
+                )
 
             </h2>
 
             <div class="actions">
 
                 <button
-                onclick="selectAll('cards')">
+                onclick="
+                selectAll(
+                    'cards'
+                )">
 
                     全選
+
                 </button>
 
                 <button
-                onclick="moveSelected(
+                onclick="
+                moveSelected(
                     'cards',
                     'pending'
                 )">
 
                     → 新字卡
+
                 </button>
 
             </div>
@@ -267,7 +345,12 @@
     </div>
 
     <script
-    src="review.js">
+    src="./kuromoji.js">
+
+    </script>
+
+    <script
+    src="./review.js">
 
     </script>
 
