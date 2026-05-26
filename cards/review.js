@@ -551,7 +551,7 @@ async function batchGenerate(){
     const dictionary=
 
     await loadJSON(
-'./data/dictionary.json'
+'data/dictionary.json'
     );
 
     const paths=
@@ -844,19 +844,19 @@ async function init(){
     pending=
 
     await loadJSON(
-'./data/pending.json'
+'data/pending.json'
     );
 
     cards=
 
     await loadJSON(
-'./data/cards.json'
+'data/cards.json'
     );
 
     stopwords=
 
     await loadJSON(
-'./data/stopwords.json'
+'data/stopwords.json'
     );
 
     render();
