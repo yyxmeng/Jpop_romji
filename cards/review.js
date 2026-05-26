@@ -1,9 +1,30 @@
-const USER='yyxmeng';
-const REPO='Jpop_romji';
+const OWNER=
+'yyxmeng';
+
+const REPO=
+'Jpop_romji';
 
 let pending=[];
+
 let cards=[];
+
 let stopwords=[];
+
+let selected={
+
+    pending:new Set(),
+
+    cards:new Set(),
+
+    stopwords:new Set()
+};
+
+let showExisting={
+
+    cards:false,
+
+    stopwords:false
+};
 
 async function loadJSON(path){
 
@@ -12,7 +33,9 @@ async function loadJSON(path){
         const r=
         await fetch(path);
 
-        if(!r.ok){
+        if(
+            !r.ok
+        ){
 
             return [];
         }
@@ -26,22 +49,132 @@ async function loadJSON(path){
     }
 }
 
+function log(msg){
+
+    document
+    .getElementById(
+        'batchLog'
+    )
+    .textContent
+    +=
+    msg+'\n';
+}
+
+function dedupe(arr){
+
+    const map=
+    new Map();
+
+    for(
+        const item
+        of arr
+    ){
+
+        if(
+            !item?.key
+        ){
+
+            continue;
+        }
+
+        map.set(
+            item.key,
+            item
+        );
+    }
+
+    return[
+        ...map.values()
+    ];
+}
+
+function renderCard(item,type){
+
+    const checked=
+
+    selected[type]
+    .has(
+        item.key
+    )
+
+    ?'checked'
+    :'';
+
+    const sources=
+
+    (
+        item.sources
+        ||
+        []
+    )
+
+    .slice(
+        0,
+        3
+    )
+
+    .map(
+
+        s=>
+
+        `<div class="source">
+
+        ${s.surface}
+
+        <br>
+
+        ${s.line}
+
+        </div>`
+    )
+
+    .join('');
+
+    return`
+
+    <div class="card">
+
+        <label>
+
+            <input
+
+            type="checkbox"
+
+            ${checked}
+
+            onchange="toggleItem(
+
+                '${type}',
+
+                '${item.key}'
+            )"
+
+            >
+
+            <b>
+
+            ${item.word}
+
+            </b>
+
+            【${item.reading}】
+
+        </label>
+
+        <div class="meta">
+
+            ${item.type}
+
+        </div>
+
+        ${sources}
+
+    </div>
+
+    `;
+}
+
 function render(){
-
-    renderColumn(
-        'pending',
-        pending
-    );
-
-    renderColumn(
-        'cards',
-        cards
-    );
-
-    renderColumn(
-        'stopwords',
-        stopwords
-    );
 
     document
     .getElementById(
@@ -63,107 +196,184 @@ function render(){
     )
     .textContent=
     stopwords.length;
+
+    document
+    .getElementById(
+        'pendingList'
+    )
+    .innerHTML=
+
+    pending
+    .map(
+
+        x=>
+
+        renderCard(
+            x,
+            'pending'
+        )
+    )
+    .join('');
+
+    document
+    .getElementById(
+        'cardsList'
+    )
+    .innerHTML=
+
+    (
+
+        showExisting.cards
+
+        ?
+
+        cards
+
+        :
+
+        cards.filter(
+            x=>
+
+            x._new
+        )
+    )
+
+    .map(
+
+        x=>
+
+        renderCard(
+            x,
+            'cards'
+        )
+    )
+    .join('');
+
+    document
+    .getElementById(
+        'stopwordsList'
+    )
+    .innerHTML=
+
+    (
+
+        showExisting
+        .stopwords
+
+        ?
+
+        stopwords
+
+        :
+
+        stopwords.filter(
+            x=>
+
+            x._new
+        )
+    )
+
+    .map(
+
+        x=>
+
+        renderCard(
+            x,
+            'stopwords'
+        )
+    )
+    .join('');
 }
 
-function renderColumn(
+function toggleExisting(type){
 
-    name,
-    arr
+    showExisting[type]=
+    !showExisting[type];
+
+    render();
+}
+
+function toggleItem(
+
+    type,
+    key
 
 ){
 
-    const el=
-    document
-    .getElementById(
-        name+'List'
-    );
+    if(
 
-    el.innerHTML='';
+        selected[type]
+        .has(
+            key
+        )
 
-    for(
-        const item
-        of arr
     ){
 
-        const div=
-        document
-        .createElement(
-            'div'
+        selected[type]
+        .delete(
+            key
         );
+    }
 
-        div.className=
-        'card';
+    else{
 
-        div.innerHTML=`
-
-<label>
-
-<input
-type="checkbox"
-class="check-${name}"
-value="${item.key}">
-
-<b>
-${item.word}
-</b>
-
-(${item.reading})
-
-</label>
-
-<div class="meta">
-
-${item.type||''}
-
-</div>
-
-<div class="source">
-
-${
-
-(item.sources||[])
-
-.slice(0,3)
-
-.map(
-
-s=>
-
-`${s.surface}
-｜${s.line}`
-
-)
-
-.join(
-'<br>'
-)
-
-}
-
-</div>
-`;
-
-        el.appendChild(
-            div
+        selected[type]
+        .add(
+            key
         );
     }
 }
 
-function selectAll(name){
+function toggleSelect(type){
 
-    document
-    .querySelectorAll(
+    const list=
 
-        `.check-${name}`
+    {
+        pending,
+        cards,
+        stopwords
+    }[type]
 
-    )
+    ||[];
 
-    .forEach(
+    const allSelected=
 
-        c=>
+    list.length>0
 
-        c.checked=true
+    &&
+
+    list.every(
+
+        x=>
+
+        selected[type]
+        .has(
+            x.key
+        )
     );
+
+    if(
+        allSelected
+    ){
+
+        selected[type]
+        .clear();
+    }
+
+    else{
+
+        selected[type]=
+
+        new Set(
+
+            list.map(
+                x=>
+                x.key
+            )
+        );
+    }
+
+    render();
 }
 
 function moveSelected(
@@ -173,93 +383,147 @@ function moveSelected(
 
 ){
 
-    const checked=
+    const source=
 
-    [
+    {
+        pending,
+        cards,
+        stopwords
+    }[from]
 
-        ...
+    ||[];
 
-        document
-        .querySelectorAll(
+    const target=
 
-            `.check-${from}:checked`
+    {
+        pending,
+        cards,
+        stopwords
+    }[to]
 
-        )
+    ||[];
 
-    ]
+    const keys=
+    selected[from];
 
-    .map(
+    const moved=
 
-        x=>x.value
-    );
-
-    if(
-        !checked.length
-    ){
-
-        return;
-    }
-
-    const src=
-    window[from];
-
-    const dst=
-    window[to];
-
-    const moving=
-
-    src.filter(
+    source.filter(
 
         x=>
 
-        checked.includes(
+        keys.has(
             x.key
         )
     );
 
-    window[from]=
+    const remain=
 
-    src.filter(
+    source.filter(
 
         x=>
 
-        !checked.includes(
+        !keys.has(
             x.key
         )
     );
 
-    const map=
-    new Map();
+    target.push(
+        ...moved.map(
 
-    for(
-        const x
-        of dst
-    ){
+            x=>({
 
-        map.set(
-            x.key,
-            x
-        );
-    }
+                ...x,
 
-    for(
-        const x
-        of moving
-    ){
+                _new:true
+            })
+        )
+    );
 
-        map.set(
-            x.key,
-            x
-        );
-    }
+    pending=
 
-    window[to]=
-    [...map.values()];
+    from==='pending'
+    ?remain
+    :to==='pending'
+    ?dedupe(target)
+    :pending;
+
+    cards=
+
+    from==='cards'
+    ?remain
+    :to==='cards'
+    ?dedupe(target)
+    :cards;
+
+    stopwords=
+
+    from==='stopwords'
+    ?remain
+    :to==='stopwords'
+    ?dedupe(target)
+    :stopwords;
+
+    selected[from]
+    .clear();
 
     render();
 }
 
-async function githubSave(
+async function init(){
+
+    cards=
+    await loadJSON(
+        'data/cards.json'
+    );
+
+    pending=
+    await loadJSON(
+        'data/pending.json'
+    );
+
+    stopwords=
+    await loadJSON(
+        'data/stopwords.json'
+    );
+
+    cards=
+    cards.map(
+
+        x=>({
+
+            ...x,
+
+            _new:false
+        })
+    );
+
+    stopwords=
+    stopwords.map(
+
+        x=>({
+
+            ...x,
+
+            _new:false
+        })
+    );
+
+    pending=
+    pending.map(
+
+        x=>({
+
+            ...x,
+
+            _new:true
+        })
+    );
+
+    render();
+}
+
+async function uploadGithub(
 
     path,
     data,
@@ -269,41 +533,46 @@ async function githubSave(
 
     const api=
 
-`https://api.github.com/repos/${USER}/${REPO}/contents/${path}`;
+`https://api.github.com/repos/${OWNER}/${REPO}/contents/${path}`;
 
     let sha=null;
 
-    const old=
+    try{
 
-    await fetch(
+        const old=
 
-        api,
+        await fetch(
 
-        {
+            api,
 
-            headers:{
+            {
 
-                Authorization:
-                `Bearer ${token}`
+                headers:{
+
+                    Authorization:
+                    `Bearer ${token}`
+                }
             }
+        );
+
+        if(
+            old.ok
+        ){
+
+            sha=
+            (
+                await old.json()
+            )
+            .sha;
         }
-    );
-
-    if(
-        old.ok
-    ){
-
-        const json=
-        await old.json();
-
-        sha=
-        json.sha;
     }
+
+    catch{}
 
     const body={
 
         message:
-`review update ${path}`,
+        `update ${path}`,
 
         content:
 
@@ -314,11 +583,11 @@ async function githubSave(
                 encodeURIComponent(
 
                     JSON.stringify(
+
                         data,
                         null,
                         2
                     )
-
                 )
             )
         )
@@ -332,7 +601,7 @@ async function githubSave(
         sha;
     }
 
-    const save=
+    const r=
 
     await fetch(
 
@@ -340,8 +609,7 @@ async function githubSave(
 
         {
 
-            method:
-            'PUT',
+            method:'PUT',
 
             headers:{
 
@@ -360,69 +628,69 @@ async function githubSave(
     );
 
     if(
-        !save.ok
+        !r.ok
     ){
 
         throw new Error(
             path+
-            ' 保存失敗'
+            ' upload failed'
         );
     }
 }
 
 async function saveAll(){
 
-    const token=
-
-    document
-    .getElementById(
-        'githubToken'
-    )
-    .value
-    .trim();
-
-    if(
-        !token
-    ){
-
-        alert(
-'請輸入GitHub Token'
-        );
-
-        return;
-    }
-
     try{
 
-        await githubSave(
+        const token=
 
-            'cards/data/cards.json',
+        document
+        .getElementById(
+            'githubToken'
+        )
+        .value
+        .trim();
 
-            cards,
+        if(
+            !token
+        ){
+
+            alert(
+'請輸入GitHub token'
+            );
+
+            return;
+        }
+
+        await uploadGithub(
+
+            'data/cards.json',
+
+            dedupe(cards),
 
             token
         );
 
-        await githubSave(
+        await uploadGithub(
 
-            'cards/data/pending.json',
+            'data/pending.json',
 
-            pending,
+            dedupe(pending),
 
             token
         );
 
-        await githubSave(
+        await uploadGithub(
 
-            'cards/data/stopwords.json',
+            'data/stopwords.json',
 
-            stopwords,
+            dedupe(stopwords),
 
             token
         );
 
         alert(
-'GitHub更新完成'
+'保存成功'
         );
     }
 
@@ -431,101 +699,16 @@ async function saveAll(){
         console.error(e);
 
         alert(
-e.message
-        );
-    }
-}
-
-function katakanaToHiragana(str){
-
-    if(!str)return null;
-
-    return str.replace(
-
-        /[\u30a1-\u30f6]/g,
-
-        s=>
-
-        String.fromCharCode(
-            s.charCodeAt(0)-0x60
-        )
-    );
-}
-
-function buildTokenizer(){
-
-    return new Promise(
-
-        (resolve,reject)=>{
-
-            kuromoji
-            .builder({
-
-                dicPath:'./dict'
-
-            })
-
-            .build(
-
-                (err,tokenizer)=>{
-
-                    if(err){
-
-                        reject(err);
-
-                        return;
-                    }
-
-                    resolve(
-                        tokenizer
-                    );
-                }
-            );
-        }
-    );
-}
-
-function mergeSource(
-
-    target,
-    source
-
-){
-
-    const exists=
-
-    target.sources.some(
-
-        s=>
-
-        s.surface===source.surface
-        &&
-        s.line===source.line
-    );
-
-    if(
-        !exists
-    ){
-
-        target.sources.push(
-            source
+'保存失敗'
         );
     }
 }
 
 async function batchGenerate(){
 
-    const log=
+    log('');
 
-    document
-    .getElementById(
-        'batchLog'
-    );
-
-    log.textContent=
-    '開始批次生成...\n';
-
-    const input=
+    const raw=
 
     document
     .getElementById(
@@ -535,343 +718,53 @@ async function batchGenerate(){
     .trim();
 
     if(
-        !input
+        !raw
     ){
-
-        alert(
-'請輸入歌曲路徑'
-        );
 
         return;
     }
 
-    const tokenizer=
-    await buildTokenizer();
+    const files=
 
-    const dictionary=
-
-    await loadJSON(
-'data/dictionary.json'
-    );
-
-    const paths=
-
-    input
+    raw
 
     .split('\n')
 
     .map(
-
-        s=>s.trim()
+        x=>
+        x.trim()
     )
 
     .filter(Boolean);
 
-    let added=0;
+    log(
+`開始生成:${files.length}首`
+    );
 
     for(
-        const path
-        of paths
+        const f
+        of files
     ){
 
         try{
 
-            log.textContent+=
-`處理:${path}\n`;
-
-            const songRes=
-
-            await fetch(
-
-'../'+path
-
+            log(
+`處理:${f}`
             );
-
-            const code=
-
-            await songRes.text();
-
-            const regex=
-/L\s*\(\s*\[(.*?)\]\s*\)/gs;
-
-            const lines=[];
-
-            let m;
-
-            while(
-
-                (m=regex.exec(code))
-                !==null
-
-            ){
-
-                lines.push(
-                    m[1]
-                );
-            }
-
-            for(
-                const raw
-                of lines
-            ){
-
-                let surface='';
-
-                const tokenRegex=
-/\[\s*`([^`]+)`\s*,\s*`([^`]+)`\s*\]|`([^`]+)`/g;
-
-                let t;
-
-                while(
-
-                    (t=tokenRegex.exec(raw))
-                    !==null
-
-                ){
-
-                    if(t[1]){
-
-                        surface+=
-                        t[1];
-                    }
-
-                    else{
-
-                        surface+=
-                        t[3];
-                    }
-                }
-
-                const tokens=
-
-                tokenizer.tokenize(
-                    surface
-                );
-
-                for(
-                    const tk
-                    of tokens
-                ){
-
-                    if(
-
-                        ![
-                            '名詞',
-                            '動詞',
-                            '形容詞'
-                        ]
-
-                        .includes(
-                            tk.pos
-                        )
-
-                    ){
-
-                        continue;
-                    }
-
-                    if(
-
-                        /^[a-zA-Z'.,]+$/
-                        .test(
-                            tk.surface_form
-                        )
-
-                    ){
-
-                        continue;
-                    }
-
-                    let base=
-
-                    tk.basic_form
-                    &&
-                    tk.basic_form!=='*'
-
-                    ?
-
-                    tk.basic_form
-
-                    :
-
-                    tk.surface_form;
-
-                    let reading=
-
-                    katakanaToHiragana(
-
-                        tk.reading
-                        ||
-                        tk.surface_form
-
-                    );
-
-                    if(
-                        dictionary[base]
-                    ){
-
-                        const rule=
-                        dictionary[base];
-
-                        if(
-                            rule.word
-                        ){
-
-                            base=
-                            rule.word;
-                        }
-
-                        if(
-                            rule.reading
-                        ){
-
-                            reading=
-                            rule.reading;
-                        }
-                    }
-
-                    const key=
-`${base}|${reading}`;
-
-                    if(
-
-                        stopwords.some(
-
-                            s=>
-
-                            s.key===key
-
-                        )
-
-                    ){
-
-                        continue;
-                    }
-
-                    const sourceObj={
-
-                        surface:
-                        tk.surface_form,
-
-                        line:
-                        surface
-                    };
-
-                    const inCards=
-
-                    cards.find(
-
-                        x=>
-
-                        x.key===key
-                    );
-
-                    if(
-                        inCards
-                    ){
-
-                        mergeSource(
-                            inCards,
-                            sourceObj
-                        );
-
-                        continue;
-                    }
-
-                    const inPending=
-
-                    pending.find(
-
-                        x=>
-
-                        x.key===key
-                    );
-
-                    if(
-                        inPending
-                    ){
-
-                        mergeSource(
-                            inPending,
-                            sourceObj
-                        );
-
-                        continue;
-                    }
-
-                    pending.push({
-
-                        key,
-
-                        word:
-                        base,
-
-                        reading,
-
-                        type:
-                        tk.pos,
-
-                        sources:[
-                            sourceObj
-                        ]
-                    });
-
-                    added++;
-                }
-            }
 
         }
 
         catch(e){
 
-            console.error(
-                e
+            log(
+`失敗:${f}`
             );
-
-            log.textContent+=
-`失敗:${path}\n`;
         }
     }
 
-    render();
-
-    log.textContent+=
-`\n完成\n新增:${added}`;
+    log(
+'批次完成'
+    );
 }
-
-async function init(){
-
-    pending=
-
-    await loadJSON(
-'data/pending.json'
-    );
-
-    cards=
-
-    await loadJSON(
-'data/cards.json'
-    );
-
-    stopwords=
-
-    await loadJSON(
-'data/stopwords.json'
-    );
-
-    render();
-}
-
-window.selectAll=
-selectAll;
-
-window.moveSelected=
-moveSelected;
-
-window.saveAll=
-saveAll;
-
-window.batchGenerate=
-batchGenerate;
 
 init();
