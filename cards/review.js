@@ -744,7 +744,7 @@ function buildTokenizer(){
             .builder({
 
                 dicPath:
-                '../dict'
+                './dict'
 
             })
 
