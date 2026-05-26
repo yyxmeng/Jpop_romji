@@ -1,0 +1,2100 @@
+[
+  {
+    "key": "紡ぐ|つむい",
+    "word": "紡ぐ",
+    "reading": "つむい",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "紡い",
+        "line": "紡いでゆくの"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "地|ち",
+    "word": "地",
+    "reading": "ち",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "地",
+        "line": "かつて この地が幾多の文化を慈しんだように"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "幾多|いくた",
+    "word": "幾多",
+    "reading": "いくた",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "幾多",
+        "line": "かつて この地が幾多の文化を慈しんだように"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "文化|ぶんか",
+    "word": "文化",
+    "reading": "ぶんか",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "文化",
+        "line": "かつて この地が幾多の文化を慈しんだように"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "慈しむ|いつくしん",
+    "word": "慈しむ",
+    "reading": "いつくしん",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "慈しん",
+        "line": "かつて この地が幾多の文化を慈しんだように"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "よう|よう",
+    "word": "よう",
+    "reading": "よう",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "よう",
+        "line": "かつて この地が幾多の文化を慈しんだように"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "捧げる|ささげ",
+    "word": "捧げる",
+    "reading": "ささげ",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "捧げ",
+        "line": "捧げているの"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "紅い|あかい",
+    "word": "紅い",
+    "reading": "あかい",
+    "type": "形容詞",
+    "sources": [
+      {
+        "surface": "紅い",
+        "line": "紅い花が咲くとき 入り口は開かれるわ"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "花|はな",
+    "word": "花",
+    "reading": "はな",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "花",
+        "line": "紅い花が咲くとき 入り口は開かれるわ"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "咲く|さく",
+    "word": "咲く",
+    "reading": "さく",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "咲く",
+        "line": "紅い花が咲くとき 入り口は開かれるわ"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "とき|とき",
+    "word": "とき",
+    "reading": "とき",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "とき",
+        "line": "紅い花が咲くとき 入り口は開かれるわ"
+      },
+      {
+        "surface": "とき",
+        "line": "そうよ いつか飛び立つときを知るでしょう"
+      },
+      {
+        "surface": "とき",
+        "line": "そうよ そのときのため"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "入り口|いりくち",
+    "word": "入り口",
+    "reading": "いりくち",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "入り口",
+        "line": "紅い花が咲くとき 入り口は開かれるわ"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "開く|ひらか",
+    "word": "開く",
+    "reading": "ひらか",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "開か",
+        "line": "紅い花が咲くとき 入り口は開かれるわ"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "れる|れる",
+    "word": "れる",
+    "reading": "れる",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "れる",
+        "line": "紅い花が咲くとき 入り口は開かれるわ"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "次|つぎ",
+    "word": "次",
+    "reading": "つぎ",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "次",
+        "line": "come into me 次の人生を ああ 嗚呼形どるの"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "人生|じんせい",
+    "word": "人生",
+    "reading": "じんせい",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "人生",
+        "line": "come into me 次の人生を ああ 嗚呼形どるの"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "形|かたち",
+    "word": "形",
+    "reading": "かたち",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "形",
+        "line": "come into me 次の人生を ああ 嗚呼形どるの"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "どる|どる",
+    "word": "どる",
+    "reading": "どる",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "どる",
+        "line": "come into me 次の人生を ああ 嗚呼形どるの"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "いつか|いつか",
+    "word": "いつか",
+    "reading": "いつか",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "いつか",
+        "line": "そうよ いつか飛び立つときを知るでしょう"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "飛び立つ|とびたつ",
+    "word": "飛び立つ",
+    "reading": "とびたつ",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "飛び立つ",
+        "line": "そうよ いつか飛び立つときを知るでしょう"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "知る|しる",
+    "word": "知る",
+    "reading": "しる",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "知る",
+        "line": "そうよ いつか飛び立つときを知るでしょう"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "差し出す|さしださ",
+    "word": "差し出す",
+    "reading": "さしださ",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "差し出さ",
+        "line": "差し出されたサフラン色の翼"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "れる|れ",
+    "word": "れる",
+    "reading": "れ",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "れ",
+        "line": "差し出されたサフラン色の翼"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "サフラン|さふらん",
+    "word": "サフラン",
+    "reading": "さふらん",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "サフラン",
+        "line": "差し出されたサフラン色の翼"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "色|しょく",
+    "word": "色",
+    "reading": "しょく",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "色",
+        "line": "差し出されたサフラン色の翼"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "翼|つばさ",
+    "word": "翼",
+    "reading": "つばさ",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "翼",
+        "line": "差し出されたサフラン色の翼"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "いま|いま",
+    "word": "いま",
+    "reading": "いま",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "いま",
+        "line": "いまはそこに 光を纏って"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "そこ|そこ",
+    "word": "そこ",
+    "reading": "そこ",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "そこ",
+        "line": "いまはそこに 光を纏って"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "光|ひかり",
+    "word": "光",
+    "reading": "ひかり",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "光",
+        "line": "いまはそこに 光を纏って"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "纏う|まとっ",
+    "word": "纏う",
+    "reading": "まとっ",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "纏っ",
+        "line": "いまはそこに 光を纏って"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "自由|じゆう",
+    "word": "自由",
+    "reading": "じゆう",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "自由",
+        "line": "you're my only 自由になって"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "還る|かえっ",
+    "word": "還る",
+    "reading": "かえっ",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "還っ",
+        "line": "還ってゆくの"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "下腹|かふく",
+    "word": "下腹",
+    "reading": "かふく",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "下腹",
+        "line": "下腹部に耳を当て 星の鼓動を数えながら"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "部|ぶ",
+    "word": "部",
+    "reading": "ぶ",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "部",
+        "line": "下腹部に耳を当て 星の鼓動を数えながら"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "耳|みみ",
+    "word": "耳",
+    "reading": "みみ",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "耳",
+        "line": "下腹部に耳を当て 星の鼓動を数えながら"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "星|ほし",
+    "word": "星",
+    "reading": "ほし",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "星",
+        "line": "下腹部に耳を当て 星の鼓動を数えながら"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "鼓動|こどう",
+    "word": "鼓動",
+    "reading": "こどう",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "鼓動",
+        "line": "下腹部に耳を当て 星の鼓動を数えながら"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "数える|かぞえ",
+    "word": "数える",
+    "reading": "かぞえ",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "数え",
+        "line": "下腹部に耳を当て 星の鼓動を数えながら"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "礎|いしずえ",
+    "word": "礎",
+    "reading": "いしずえ",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "礎",
+        "line": "come into me and again さあ 礎をもてば 描けるわ"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "もつ|もて",
+    "word": "もつ",
+    "reading": "もて",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "もて",
+        "line": "come into me and again さあ 礎をもてば 描けるわ"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "描ける|えがける",
+    "word": "描ける",
+    "reading": "えがける",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "描ける",
+        "line": "come into me and again さあ 礎をもてば 描けるわ"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "ため|ため",
+    "word": "ため",
+    "reading": "ため",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "ため",
+        "line": "そうよ そのときのため"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "追憶|ついおく",
+    "word": "追憶",
+    "reading": "ついおく",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "追憶",
+        "line": "追憶に蘇る アイリスの恵み 雨"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "蘇る|よみがえる",
+    "word": "蘇る",
+    "reading": "よみがえる",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "蘇る",
+        "line": "追憶に蘇る アイリスの恵み 雨"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "アイリス|あいりす",
+    "word": "アイリス",
+    "reading": "あいりす",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "アイリス",
+        "line": "追憶に蘇る アイリスの恵み 雨"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "恵み|めぐみ",
+    "word": "恵み",
+    "reading": "めぐみ",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "恵み",
+        "line": "追憶に蘇る アイリスの恵み 雨"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "雨|あめ",
+    "word": "雨",
+    "reading": "あめ",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "雨",
+        "line": "追憶に蘇る アイリスの恵み 雨"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "広がる|ひろがる",
+    "word": "広がる",
+    "reading": "ひろがる",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "広がる",
+        "line": "広がる緑赤土の丘に青い弓が張り 大地に美しいスカーフが架かる"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "緑|みどり",
+    "word": "緑",
+    "reading": "みどり",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "緑",
+        "line": "広がる緑赤土の丘に青い弓が張り 大地に美しいスカーフが架かる"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "赤土|あかつち",
+    "word": "赤土",
+    "reading": "あかつち",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "赤土",
+        "line": "広がる緑赤土の丘に青い弓が張り 大地に美しいスカーフが架かる"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "丘|おか",
+    "word": "丘",
+    "reading": "おか",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "丘",
+        "line": "広がる緑赤土の丘に青い弓が張り 大地に美しいスカーフが架かる"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "青い|あおい",
+    "word": "青い",
+    "reading": "あおい",
+    "type": "形容詞",
+    "sources": [
+      {
+        "surface": "青い",
+        "line": "広がる緑赤土の丘に青い弓が張り 大地に美しいスカーフが架かる"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "弓|ゆみ",
+    "word": "弓",
+    "reading": "ゆみ",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "弓",
+        "line": "広がる緑赤土の丘に青い弓が張り 大地に美しいスカーフが架かる"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "張り|はり",
+    "word": "張り",
+    "reading": "はり",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "張り",
+        "line": "広がる緑赤土の丘に青い弓が張り 大地に美しいスカーフが架かる"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "美しい|うつくしい",
+    "word": "美しい",
+    "reading": "うつくしい",
+    "type": "形容詞",
+    "sources": [
+      {
+        "surface": "美しい",
+        "line": "広がる緑赤土の丘に青い弓が張り 大地に美しいスカーフが架かる"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "スカーフ|すかーふ",
+    "word": "スカーフ",
+    "reading": "すかーふ",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "スカーフ",
+        "line": "広がる緑赤土の丘に青い弓が張り 大地に美しいスカーフが架かる"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "架かる|かかる",
+    "word": "架かる",
+    "reading": "かかる",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "架かる",
+        "line": "広がる緑赤土の丘に青い弓が張り 大地に美しいスカーフが架かる"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "大地|だいち",
+    "word": "大地",
+    "reading": "だいち",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "大地",
+        "line": "広がる緑赤土の丘に青い弓が張り 大地に美しいスカーフが架かる"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "たち|たち",
+    "word": "たち",
+    "reading": "たち",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "たち",
+        "line": "私たちが思うよりも"
+      },
+      {
+        "surface": "たち",
+        "line": "ボクたちが息をする世界は"
+      },
+      {
+        "surface": "たち",
+        "line": "歩き方を 忘れた私たちは"
+      },
+      {
+        "surface": "たち",
+        "line": "私たちの心臓が 音を立てて"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "思う|おもう",
+    "word": "思う",
+    "reading": "おもう",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "思う",
+        "line": "私たちが思うよりも"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "世界|せかい",
+    "word": "世界",
+    "reading": "せかい",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "世界",
+        "line": "この世界は優しくないから"
+      },
+      {
+        "surface": "世界",
+        "line": "ボクたちが息をする世界は"
+      },
+      {
+        "surface": "世界",
+        "line": "壊れたままで 進んで行く 世界の中"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "優しい|やさしく",
+    "word": "優しい",
+    "reading": "やさしく",
+    "type": "形容詞",
+    "sources": [
+      {
+        "surface": "優しく",
+        "line": "この世界は優しくないから"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "そば|そば",
+    "word": "そば",
+    "reading": "そば",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "そば",
+        "line": "そばにいたかったんだ"
+      },
+      {
+        "surface": "そば",
+        "line": "私が今すぐそばに行くから"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "ん|ん",
+    "word": "ん",
+    "reading": "ん",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "ん",
+        "line": "そばにいたかったんだ"
+      },
+      {
+        "surface": "ん",
+        "line": "ただあまりにも美しかったんだ"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "ザラ|ざら",
+    "word": "ザラ",
+    "reading": "ざら",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "ザラ",
+        "line": "ザラついた 手触りの言葉で"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "つく|つい",
+    "word": "つく",
+    "reading": "つい",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "つい",
+        "line": "ザラついた 手触りの言葉で"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "手触り|てざわり",
+    "word": "手触り",
+    "reading": "てざわり",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "手触り",
+        "line": "ザラついた 手触りの言葉で"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "言葉|ことば",
+    "word": "言葉",
+    "reading": "ことば",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "言葉",
+        "line": "ザラついた 手触りの言葉で"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "こと|こと",
+    "word": "こと",
+    "reading": "こと",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "こと",
+        "line": "あなたのこと 汚した私は"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "汚す|よごし",
+    "word": "汚す",
+    "reading": "よごし",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "汚し",
+        "line": "あなたのこと 汚した私は"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "妙|みょう",
+    "word": "妙",
+    "reading": "みょう",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "妙",
+        "line": "妙に目にしみる 茜色に"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "目|め",
+    "word": "目",
+    "reading": "め",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "目",
+        "line": "妙に目にしみる 茜色に"
+      },
+      {
+        "surface": "目",
+        "line": "ふたり目を閉じていようよ"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "しみる|しみる",
+    "word": "しみる",
+    "reading": "しみる",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "しみる",
+        "line": "妙に目にしみる 茜色に"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "茜色|あかねいろ",
+    "word": "茜色",
+    "reading": "あかねいろ",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "茜色",
+        "line": "妙に目にしみる 茜色に"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "縫う|ぬい",
+    "word": "縫う",
+    "reading": "ぬい",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "縫い",
+        "line": "縫い付けられたままで"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "付ける|つけ",
+    "word": "付ける",
+    "reading": "つけ",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "付け",
+        "line": "縫い付けられたままで"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "られる|られ",
+    "word": "られる",
+    "reading": "られ",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "られ",
+        "line": "縫い付けられたままで"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "まま|まま",
+    "word": "まま",
+    "reading": "まま",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "まま",
+        "line": "縫い付けられたままで"
+      },
+      {
+        "surface": "まま",
+        "line": "動けないままで"
+      },
+      {
+        "surface": "まま",
+        "line": "何も見たくないのなら ずっとこのまま"
+      },
+      {
+        "surface": "まま",
+        "line": "あなたはあなたのままで 待っていて"
+      },
+      {
+        "surface": "まま",
+        "line": "壊れたままで 進んで行く 世界の中"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "動ける|うごけ",
+    "word": "動ける",
+    "reading": "うごけ",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "動け",
+        "line": "動けないままで"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "きつい|きつく",
+    "word": "きつい",
+    "reading": "きつく",
+    "type": "形容詞",
+    "sources": [
+      {
+        "surface": "きつく",
+        "line": "きつく抱きしめて"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "抱きしめる|だきしめ",
+    "word": "抱きしめる",
+    "reading": "だきしめ",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "抱きしめ",
+        "line": "きつく抱きしめて"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "孤独|こどく",
+    "word": "孤独",
+    "reading": "こどく",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "孤独",
+        "line": "あなたの孤独を見つけたのに"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "見つける|みつけ",
+    "word": "見つける",
+    "reading": "みつけ",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "見つけ",
+        "line": "あなたの孤独を見つけたのに"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "傷つける|きずつける",
+    "word": "傷つける",
+    "reading": "きずつける",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "傷つける",
+        "line": "もう傷つける場所もない あなたの心臓が"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "場所|ばしょ",
+    "word": "場所",
+    "reading": "ばしょ",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "場所",
+        "line": "もう傷つける場所もない あなたの心臓が"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "ない|ない",
+    "word": "ない",
+    "reading": "ない",
+    "type": "形容詞",
+    "sources": [
+      {
+        "surface": "ない",
+        "line": "もう傷つける場所もない あなたの心臓が"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "心臓|しんぞう",
+    "word": "心臓",
+    "reading": "しんぞう",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "心臓",
+        "line": "もう傷つける場所もない あなたの心臓が"
+      },
+      {
+        "surface": "心臓",
+        "line": "その指先が体温が触れた ボクの心臓は"
+      },
+      {
+        "surface": "心臓",
+        "line": "私たちの心臓が 音を立てて"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "切ない|せつなく",
+    "word": "切ない",
+    "reading": "せつなく",
+    "type": "形容詞",
+    "sources": [
+      {
+        "surface": "切なく",
+        "line": "切なくなるくらい 柔らかく音を立てて"
+      },
+      {
+        "surface": "切なく",
+        "line": "切なくなるくらい 透き通って見えた"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "柔らかい|やわらかく",
+    "word": "柔らかい",
+    "reading": "やわらかく",
+    "type": "形容詞",
+    "sources": [
+      {
+        "surface": "柔らかく",
+        "line": "切なくなるくらい 柔らかく音を立てて"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "音|おと",
+    "word": "音",
+    "reading": "おと",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "音",
+        "line": "切なくなるくらい 柔らかく音を立てて"
+      },
+      {
+        "surface": "音",
+        "line": "隠せないくらいに あなたへと音を立てて"
+      },
+      {
+        "surface": "音",
+        "line": "私たちの心臓が 音を立てて"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "立てる|たて",
+    "word": "立てる",
+    "reading": "たて",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "立て",
+        "line": "切なくなるくらい 柔らかく音を立てて"
+      },
+      {
+        "surface": "立て",
+        "line": "隠せないくらいに あなたへと音を立てて"
+      },
+      {
+        "surface": "立て",
+        "line": "私たちの心臓が 音を立てて"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "酷い|ひどく",
+    "word": "酷い",
+    "reading": "ひどく",
+    "type": "形容詞",
+    "sources": [
+      {
+        "surface": "酷く",
+        "line": "酷く膿んだ 傷を押さえながら"
+      },
+      {
+        "surface": "酷く",
+        "line": "酷く爛れて 濁っていた 空さえ"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "膿む|うん",
+    "word": "膿む",
+    "reading": "うん",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "膿ん",
+        "line": "酷く膿んだ 傷を押さえながら"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "傷|きず",
+    "word": "傷",
+    "reading": "きず",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "傷",
+        "line": "酷く膿んだ 傷を押さえながら"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "押さえる|おさえ",
+    "word": "押さえる",
+    "reading": "おさえ",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "押さえ",
+        "line": "酷く膿んだ 傷を押さえながら"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "笑う|わらっ",
+    "word": "笑う",
+    "reading": "わらっ",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "笑っ",
+        "line": "それでもあなたは 笑っていたのでしょう"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "の|の",
+    "word": "の",
+    "reading": "の",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "の",
+        "line": "それでもあなたは 笑っていたのでしょう"
+      },
+      {
+        "surface": "の",
+        "line": "それがどうしようもなく 嫌なのです"
+      },
+      {
+        "surface": "の",
+        "line": "どこまで行けるのかな"
+      },
+      {
+        "surface": "の",
+        "line": "どこにも行きたくないのなら"
+      },
+      {
+        "surface": "の",
+        "line": "何も見たくないのなら ずっとこのまま"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "それ|それ",
+    "word": "それ",
+    "reading": "それ",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "それ",
+        "line": "それがどうしようもなく 嫌なのです"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "しよう|しよう",
+    "word": "しよう",
+    "reading": "しよう",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "しよう",
+        "line": "それがどうしようもなく 嫌なのです"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "ない|なく",
+    "word": "ない",
+    "reading": "なく",
+    "type": "形容詞",
+    "sources": [
+      {
+        "surface": "なく",
+        "line": "それがどうしようもなく 嫌なのです"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "嫌|いや",
+    "word": "嫌",
+    "reading": "いや",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "嫌",
+        "line": "それがどうしようもなく 嫌なのです"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "前|まえ",
+    "word": "前",
+    "reading": "まえ",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "前",
+        "line": "せめて私の前では 泣いて欲しいのに"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "泣く|ない",
+    "word": "泣く",
+    "reading": "ない",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "泣い",
+        "line": "せめて私の前では 泣いて欲しいのに"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "欲しい|ほしい",
+    "word": "欲しい",
+    "reading": "ほしい",
+    "type": "形容詞",
+    "sources": [
+      {
+        "surface": "欲しい",
+        "line": "せめて私の前では 泣いて欲しいのに"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "ボク|ぼく",
+    "word": "ボク",
+    "reading": "ぼく",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "ボク",
+        "line": "ボクたちが息をする世界は"
+      },
+      {
+        "surface": "ボク",
+        "line": "その指先が体温が触れた ボクの心臓は"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "息|いき",
+    "word": "息",
+    "reading": "いき",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "息",
+        "line": "ボクたちが息をする世界は"
+      },
+      {
+        "surface": "息",
+        "line": "それでもふたりで 息をしている"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "壊れる|こわれ",
+    "word": "壊れる",
+    "reading": "こわれ",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "壊れ",
+        "line": "もうとっくに壊れていたけど"
+      },
+      {
+        "surface": "壊れ",
+        "line": "壊れたままで 進んで行く 世界の中"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "見る|み",
+    "word": "見る",
+    "reading": "み",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "見",
+        "line": "それでもあなたと見たその色は"
+      },
+      {
+        "surface": "見",
+        "line": "ここから見える景色を見ていよう"
+      },
+      {
+        "surface": "見",
+        "line": "何も見たくないのなら ずっとこのまま"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "色|いろ",
+    "word": "色",
+    "reading": "いろ",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "色",
+        "line": "それでもあなたと見たその色は"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "美しい|うつくしかっ",
+    "word": "美しい",
+    "reading": "うつくしかっ",
+    "type": "形容詞",
+    "sources": [
+      {
+        "surface": "美しかっ",
+        "line": "ただあまりにも美しかったんだ"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "歩く|あるき",
+    "word": "歩く",
+    "reading": "あるき",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "歩き",
+        "line": "歩き方を 忘れた私たちは"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "方|かた",
+    "word": "方",
+    "reading": "かた",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "方",
+        "line": "歩き方を 忘れた私たちは"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "忘れる|わすれ",
+    "word": "忘れる",
+    "reading": "わすれ",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "忘れ",
+        "line": "歩き方を 忘れた私たちは"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "どこ|どこ",
+    "word": "どこ",
+    "reading": "どこ",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "どこ",
+        "line": "どこまで行けるのかな"
+      },
+      {
+        "surface": "どこ",
+        "line": "どこにも行きたくないのなら"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "行ける|いける",
+    "word": "行ける",
+    "reading": "いける",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "行ける",
+        "line": "どこまで行けるのかな"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "行く|いき",
+    "word": "行く",
+    "reading": "いき",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "行き",
+        "line": "どこにも行きたくないのなら"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "いい|いい",
+    "word": "いい",
+    "reading": "いい",
+    "type": "形容詞",
+    "sources": [
+      {
+        "surface": "いい",
+        "line": "それでもいいよ"
+      },
+      {
+        "surface": "いい",
+        "line": "あなたがいればいいよ"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "ここ|ここ",
+    "word": "ここ",
+    "reading": "ここ",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "ここ",
+        "line": "ここで話をしようか 何も話したくないなら"
+      },
+      {
+        "surface": "ここ",
+        "line": "ここから見える景色を見ていよう"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "話|はなし",
+    "word": "話",
+    "reading": "はなし",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "話",
+        "line": "ここで話をしようか 何も話したくないなら"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "何|なに",
+    "word": "何",
+    "reading": "なに",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "何",
+        "line": "ここで話をしようか 何も話したくないなら"
+      },
+      {
+        "surface": "何",
+        "line": "何も見たくないのなら ずっとこのまま"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "話す|はなし",
+    "word": "話す",
+    "reading": "はなし",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "話し",
+        "line": "ここで話をしようか 何も話したくないなら"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "見える|みえる",
+    "word": "見える",
+    "reading": "みえる",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "見える",
+        "line": "ここから見える景色を見ていよう"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "景色|けしき",
+    "word": "景色",
+    "reading": "けしき",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "景色",
+        "line": "ここから見える景色を見ていよう"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "ふたり|ふたり",
+    "word": "ふたり",
+    "reading": "ふたり",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "ふたり",
+        "line": "ふたり目を閉じていようよ"
+      },
+      {
+        "surface": "ふたり",
+        "line": "それでもふたりで 息をしている"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "閉じる|とじ",
+    "word": "閉じる",
+    "reading": "とじ",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "閉じ",
+        "line": "ふたり目を閉じていようよ"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "躰|からだ",
+    "word": "躰",
+    "reading": "からだ",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "躰",
+        "line": "その躰の真ん中で 軋んで割れそうな"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "真ん中|まんなか",
+    "word": "真ん中",
+    "reading": "まんなか",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "真ん中",
+        "line": "その躰の真ん中で 軋んで割れそうな"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "軋む|きしん",
+    "word": "軋む",
+    "reading": "きしん",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "軋ん",
+        "line": "その躰の真ん中で 軋んで割れそうな"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "割れる|われ",
+    "word": "割れる",
+    "reading": "われ",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "割れ",
+        "line": "その躰の真ん中で 軋んで割れそうな"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "そう|そう",
+    "word": "そう",
+    "reading": "そう",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "そう",
+        "line": "その躰の真ん中で 軋んで割れそうな"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "噛み殺す|かみころし",
+    "word": "噛み殺す",
+    "reading": "かみころし",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "噛み殺し",
+        "line": "噛み殺した声が 聞こえて 走り出した"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "声|こえ",
+    "word": "声",
+    "reading": "こえ",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "声",
+        "line": "噛み殺した声が 聞こえて 走り出した"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "聞こえる|きこえ",
+    "word": "聞こえる",
+    "reading": "きこえ",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "聞こえ",
+        "line": "噛み殺した声が 聞こえて 走り出した"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "走り出す|はしりだし",
+    "word": "走り出す",
+    "reading": "はしりだし",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "走り出し",
+        "line": "噛み殺した声が 聞こえて 走り出した"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "今|いま",
+    "word": "今",
+    "reading": "いま",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "今",
+        "line": "私が今すぐそばに行くから"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "行く|いく",
+    "word": "行く",
+    "reading": "いく",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "行く",
+        "line": "私が今すぐそばに行くから"
+      },
+      {
+        "surface": "行く",
+        "line": "壊れたままで 進んで行く 世界の中"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "待つ|まっ",
+    "word": "待つ",
+    "reading": "まっ",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "待っ",
+        "line": "あなたはあなたのままで 待っていて"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "指先|ゆびさき",
+    "word": "指先",
+    "reading": "ゆびさき",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "指先",
+        "line": "その指先が体温が触れた ボクの心臓は"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "体温|たいおん",
+    "word": "体温",
+    "reading": "たいおん",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "体温",
+        "line": "その指先が体温が触れた ボクの心臓は"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "触れる|ふれ",
+    "word": "触れる",
+    "reading": "ふれ",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "触れ",
+        "line": "その指先が体温が触れた ボクの心臓は"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "隠せる|かくせ",
+    "word": "隠せる",
+    "reading": "かくせ",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "隠せ",
+        "line": "隠せないくらいに あなたへと音を立てて"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "爛れる|ただれ",
+    "word": "爛れる",
+    "reading": "ただれ",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "爛れ",
+        "line": "酷く爛れて 濁っていた 空さえ"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "濁る|にごっ",
+    "word": "濁る",
+    "reading": "にごっ",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "濁っ",
+        "line": "酷く爛れて 濁っていた 空さえ"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "空|そら",
+    "word": "空",
+    "reading": "そら",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "空",
+        "line": "酷く爛れて 濁っていた 空さえ"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "透き通る|すきとおっ",
+    "word": "透き通る",
+    "reading": "すきとおっ",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "透き通っ",
+        "line": "切なくなるくらい 透き通って見えた"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "見える|みえ",
+    "word": "見える",
+    "reading": "みえ",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "見え",
+        "line": "切なくなるくらい 透き通って見えた"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "重なる|かさなる",
+    "word": "重なる",
+    "reading": "かさなる",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "重なる",
+        "line": "重なるくらい 近づいたなら"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "近づく|ちかづい",
+    "word": "近づく",
+    "reading": "ちかづい",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "近づい",
+        "line": "重なるくらい 近づいたなら"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "進む|すすん",
+    "word": "進む",
+    "reading": "すすん",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "進ん",
+        "line": "壊れたままで 進んで行く 世界の中"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "中|なか",
+    "word": "中",
+    "reading": "なか",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "中",
+        "line": "壊れたままで 進んで行く 世界の中"
+      }
+    ],
+    "_new": false
+  }
+]
