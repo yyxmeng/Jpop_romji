@@ -684,7 +684,7 @@ async function saveAll(){
         );
 
         await uploadGithub(
-            'data/cards.json',
+            'cards/data/cards.json',
             cards,
             token
         );
@@ -694,7 +694,7 @@ async function saveAll(){
         );
 
         await uploadGithub(
-            'data/pending.json',
+            'cards/data/pending.json',
             pending,
             token
         );
@@ -704,7 +704,7 @@ async function saveAll(){
         );
 
         await uploadGithub(
-            'data/stopwords.json',
+            'cards/data/stopwords.json',
             stopwords,
             token
         );
@@ -726,6 +726,55 @@ async function saveAll(){
 e.message
         );
     }
+}
+
+function buildTokenizer(){
+
+    return new Promise(
+
+        (
+
+            resolve,
+            reject
+
+        )=>{
+
+            kuromoji
+
+            .builder({
+
+                dicPath:
+                '../dict'
+
+            })
+
+            .build(
+
+                (
+
+                    err,
+                    tokenizer
+
+                )=>{
+
+                    if(
+                        err
+                    ){
+
+                        reject(
+                            err
+                        );
+
+                        return;
+                    }
+
+                    resolve(
+                        tokenizer
+                    );
+                }
+            );
+        }
+    );
 }
 
 async function batchGenerate(){
