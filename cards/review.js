@@ -537,60 +537,74 @@ async function uploadGithub(
 
     let sha=null;
 
-    try{
+    const getRes=
+
+    await fetch(
+
+        api,
+
+        {
+
+            headers:{
+
+                Authorization:
+                `Bearer ${token}`,
+
+                Accept:
+                'application/vnd.github+json'
+            }
+        }
+    );
+
+    if(
+        getRes.ok
+    ){
 
         const old=
+        await getRes.json();
 
-        await fetch(
-
-            api,
-
-            {
-
-                headers:{
-
-                    Authorization:
-                    `Bearer ${token}`
-                }
-            }
-        );
-
-        if(
-            old.ok
-        ){
-
-            sha=
-            (
-                await old.json()
-            )
-            .sha;
-        }
+        sha=
+        old.sha;
     }
 
-    catch{}
+    const json=
+
+    JSON.stringify(
+        data,
+        null,
+        2
+    );
+
+    const content=
+
+    btoa(
+
+        new TextEncoder()
+
+        .encode(json)
+
+        .reduce(
+
+            (
+                s,
+                b
+            )=>
+
+            s+
+            String.fromCharCode(
+                b
+            ),
+
+            ''
+        )
+    );
 
     const body={
 
         message:
         `update ${path}`,
 
-        content:
-
-        btoa(
-
-            unescape(
-
-                encodeURIComponent(
-
-                    JSON.stringify(
-
-                        data,
-                        null,
-                        2
-                    )
-                )
-            )
-        )
+        content
     };
 
     if(
@@ -601,7 +615,7 @@ async function uploadGithub(
         sha;
     }
 
-    const r=
+    const putRes=
 
     await fetch(
 
@@ -616,6 +630,9 @@ async function uploadGithub(
                 Authorization:
                 `Bearer ${token}`,
 
+                Accept:
+                'application/vnd.github+json',
+
                 'Content-Type':
                 'application/json'
             },
@@ -628,12 +645,14 @@ async function uploadGithub(
     );
 
     if(
-        !r.ok
+        !putRes.ok
     ){
 
+        const err=
+        await putRes.text();
+
         throw new Error(
-            path+
-            ' upload failed'
+            err
         );
     }
 }
@@ -742,14 +761,45 @@ async function batchGenerate(){
     );
 
     for(
-        const f
+        const songPath
         of files
     ){
 
         try{
 
             log(
-`處理:${f}`
+`讀取:${songPath}`
+            );
+
+            const songRes=
+
+            await fetch(
+                '../'+songPath
+            );
+
+            if(
+                !songRes.ok
+            ){
+
+                throw new Error(
+                    '歌曲不存在'
+                );
+            }
+
+            const songCode=
+            await songRes.text();
+
+            const match=
+
+            songCode.match(
+
+                /L\s*\(\s*\[(.*?)\]\s*\)/gs
+
+            )||[];
+
+            log(
+
+`${songPath} -> ${match.length}行`
             );
 
         }
@@ -757,7 +807,8 @@ async function batchGenerate(){
         catch(e){
 
             log(
-`失敗:${f}`
+
+`${songPath}失敗:${e.message}`
             );
         }
     }
