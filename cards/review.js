@@ -7,10 +7,23 @@ let stopwords=[];
 
 async function loadJSON(path){
 
-    const r=
-    await fetch(path);
+    try{
 
-    return await r.json();
+        const r=
+        await fetch(path);
+
+        if(!r.ok){
+
+            return [];
+        }
+
+        return await r.json();
+    }
+
+    catch{
+
+        return [];
+    }
 }
 
 function render(){
@@ -260,7 +273,7 @@ async function githubSave(
 
     let sha=null;
 
-    const get=
+    const old=
 
     await fetch(
 
@@ -277,15 +290,14 @@ async function githubSave(
     );
 
     if(
-        get.ok
+        old.ok
     ){
 
-        const old=
-
-        await get.json();
+        const json=
+        await old.json();
 
         sha=
-        old.sha;
+        json.sha;
     }
 
     const body={
@@ -316,7 +328,8 @@ async function githubSave(
         sha
     ){
 
-        body.sha=sha;
+        body.sha=
+        sha;
     }
 
     const save=
@@ -327,7 +340,8 @@ async function githubSave(
 
         {
 
-            method:'PUT',
+            method:
+            'PUT',
 
             headers:{
 
@@ -350,7 +364,8 @@ async function githubSave(
     ){
 
         throw new Error(
-            path+' 保存失敗'
+            path+
+            ' 保存失敗'
         );
     }
 }
@@ -421,30 +436,431 @@ e.message
     }
 }
 
+function katakanaToHiragana(str){
+
+    if(!str)return null;
+
+    return str.replace(
+
+        /[\u30a1-\u30f6]/g,
+
+        s=>
+
+        String.fromCharCode(
+            s.charCodeAt(0)-0x60
+        )
+    );
+}
+
+function buildTokenizer(){
+
+    return new Promise(
+
+        (resolve,reject)=>{
+
+            kuromoji
+            .builder({
+
+                dicPath:'./dict'
+
+            })
+
+            .build(
+
+                (err,tokenizer)=>{
+
+                    if(err){
+
+                        reject(err);
+
+                        return;
+                    }
+
+                    resolve(
+                        tokenizer
+                    );
+                }
+            );
+        }
+    );
+}
+
+function mergeSource(
+
+    target,
+    source
+
+){
+
+    const exists=
+
+    target.sources.some(
+
+        s=>
+
+        s.surface===source.surface
+        &&
+        s.line===source.line
+    );
+
+    if(
+        !exists
+    ){
+
+        target.sources.push(
+            source
+        );
+    }
+}
+
+async function batchGenerate(){
+
+    const log=
+
+    document
+    .getElementById(
+        'batchLog'
+    );
+
+    log.textContent=
+    '開始批次生成...\n';
+
+    const input=
+
+    document
+    .getElementById(
+        'batchFolder'
+    )
+    .value
+    .trim();
+
+    if(
+        !input
+    ){
+
+        alert(
+'請輸入歌曲路徑'
+        );
+
+        return;
+    }
+
+    const tokenizer=
+    await buildTokenizer();
+
+    const dictionary=
+
+    await loadJSON(
+'./data/dictionary.json'
+    );
+
+    const paths=
+
+    input
+
+    .split('\n')
+
+    .map(
+
+        s=>s.trim()
+    )
+
+    .filter(Boolean);
+
+    let added=0;
+
+    for(
+        const path
+        of paths
+    ){
+
+        try{
+
+            log.textContent+=
+`處理:${path}\n`;
+
+            const songRes=
+
+            await fetch(
+
+'../'+path
+
+            );
+
+            const code=
+
+            await songRes.text();
+
+            const regex=
+/L\s*\(\s*\[(.*?)\]\s*\)/gs;
+
+            const lines=[];
+
+            let m;
+
+            while(
+
+                (m=regex.exec(code))
+                !==null
+
+            ){
+
+                lines.push(
+                    m[1]
+                );
+            }
+
+            for(
+                const raw
+                of lines
+            ){
+
+                let surface='';
+
+                const tokenRegex=
+/\[\s*`([^`]+)`\s*,\s*`([^`]+)`\s*\]|`([^`]+)`/g;
+
+                let t;
+
+                while(
+
+                    (t=tokenRegex.exec(raw))
+                    !==null
+
+                ){
+
+                    if(t[1]){
+
+                        surface+=
+                        t[1];
+                    }
+
+                    else{
+
+                        surface+=
+                        t[3];
+                    }
+                }
+
+                const tokens=
+
+                tokenizer.tokenize(
+                    surface
+                );
+
+                for(
+                    const tk
+                    of tokens
+                ){
+
+                    if(
+
+                        ![
+                            '名詞',
+                            '動詞',
+                            '形容詞'
+                        ]
+
+                        .includes(
+                            tk.pos
+                        )
+
+                    ){
+
+                        continue;
+                    }
+
+                    if(
+
+                        /^[a-zA-Z'.,]+$/
+                        .test(
+                            tk.surface_form
+                        )
+
+                    ){
+
+                        continue;
+                    }
+
+                    let base=
+
+                    tk.basic_form
+                    &&
+                    tk.basic_form!=='*'
+
+                    ?
+
+                    tk.basic_form
+
+                    :
+
+                    tk.surface_form;
+
+                    let reading=
+
+                    katakanaToHiragana(
+
+                        tk.reading
+                        ||
+                        tk.surface_form
+
+                    );
+
+                    if(
+                        dictionary[base]
+                    ){
+
+                        const rule=
+                        dictionary[base];
+
+                        if(
+                            rule.word
+                        ){
+
+                            base=
+                            rule.word;
+                        }
+
+                        if(
+                            rule.reading
+                        ){
+
+                            reading=
+                            rule.reading;
+                        }
+                    }
+
+                    const key=
+`${base}|${reading}`;
+
+                    if(
+
+                        stopwords.some(
+
+                            s=>
+
+                            s.key===key
+
+                        )
+
+                    ){
+
+                        continue;
+                    }
+
+                    const sourceObj={
+
+                        surface:
+                        tk.surface_form,
+
+                        line:
+                        surface
+                    };
+
+                    const inCards=
+
+                    cards.find(
+
+                        x=>
+
+                        x.key===key
+                    );
+
+                    if(
+                        inCards
+                    ){
+
+                        mergeSource(
+                            inCards,
+                            sourceObj
+                        );
+
+                        continue;
+                    }
+
+                    const inPending=
+
+                    pending.find(
+
+                        x=>
+
+                        x.key===key
+                    );
+
+                    if(
+                        inPending
+                    ){
+
+                        mergeSource(
+                            inPending,
+                            sourceObj
+                        );
+
+                        continue;
+                    }
+
+                    pending.push({
+
+                        key,
+
+                        word:
+                        base,
+
+                        reading,
+
+                        type:
+                        tk.pos,
+
+                        sources:[
+                            sourceObj
+                        ]
+                    });
+
+                    added++;
+                }
+            }
+
+        }
+
+        catch(e){
+
+            console.error(
+                e
+            );
+
+            log.textContent+=
+`失敗:${path}\n`;
+        }
+    }
+
+    render();
+
+    log.textContent+=
+`\n完成\n新增:${added}`;
+}
+
 async function init(){
 
     pending=
 
     await loadJSON(
-'../data/pending.json'
+'./data/pending.json'
     );
 
     cards=
 
     await loadJSON(
-'../data/cards.json'
+'./data/cards.json'
     );
 
     stopwords=
 
     await loadJSON(
-'../data/stopwords.json'
+'./data/stopwords.json'
     );
 
     render();
 }
-
-init();
 
 window.selectAll=
 selectAll;
@@ -454,3 +870,8 @@ moveSelected;
 
 window.saveAll=
 saveAll;
+
+window.batchGenerate=
+batchGenerate;
+
+init();
