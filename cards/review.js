@@ -670,9 +670,7 @@ async function saveAll(){
         .value
         .trim();
 
-        if(
-            !token
-        ){
+        if(!token){
 
             alert(
 '請輸入GitHub token'
@@ -681,35 +679,42 @@ async function saveAll(){
             return;
         }
 
-        await uploadGithub(
+        console.log(
+'開始上傳'
+        );
 
+        await uploadGithub(
             'data/cards.json',
-
-            dedupe(cards),
-
+            cards,
             token
         );
 
-        await uploadGithub(
+        console.log(
+'cards完成'
+        );
 
+        await uploadGithub(
             'data/pending.json',
-
-            dedupe(pending),
-
+            pending,
             token
         );
 
+        console.log(
+'pending完成'
+        );
+
         await uploadGithub(
-
             'data/stopwords.json',
-
-            dedupe(stopwords),
-
+            stopwords,
             token
+        );
+
+        console.log(
+'stopwords完成'
         );
 
         alert(
-'保存成功'
+'GitHub更新成功'
         );
     }
 
@@ -718,7 +723,7 @@ async function saveAll(){
         console.error(e);
 
         alert(
-'保存失敗'
+e.message
         );
     }
 }
@@ -736,9 +741,7 @@ async function batchGenerate(){
     .value
     .trim();
 
-    if(
-        !raw
-    ){
+    if(!raw){
 
         return;
     }
@@ -746,19 +749,27 @@ async function batchGenerate(){
     const files=
 
     raw
-
     .split('\n')
-
     .map(
-        x=>
-        x.trim()
+        s=>
+        s.trim()
     )
-
     .filter(Boolean);
 
-    log(
-`開始生成:${files.length}首`
+    const stopwords=
+    await loadJSON(
+        'data/stopwords.json'
     );
+
+    const dictionary=
+    await loadJSON(
+        'data/dictionary.json'
+    );
+
+    const tokenizer=
+    await buildTokenizer();
+
+    let added=0;
 
     for(
         const songPath
@@ -768,7 +779,7 @@ async function batchGenerate(){
         try{
 
             log(
-`讀取:${songPath}`
+`處理:${songPath}`
             );
 
             const songRes=
@@ -777,44 +788,192 @@ async function batchGenerate(){
                 '../'+songPath
             );
 
-            if(
-                !songRes.ok
-            ){
-
-                throw new Error(
-                    '歌曲不存在'
-                );
-            }
-
             const songCode=
             await songRes.text();
 
-            const match=
-
-            songCode.match(
-
-                /L\s*\(\s*\[(.*?)\]\s*\)/gs
-
-            )||[];
-
-            log(
-
-`${songPath} -> ${match.length}行`
+            const lyrics=
+            extractLyrics(
+                songCode
             );
 
+            for(
+                const rawLine
+                of lyrics
+            ){
+
+                const line=
+                rebuildLine(
+                    rawLine
+                );
+
+                const tokens=
+
+                tokenizer.tokenize(
+                    line.surface
+                );
+
+                for(
+                    const t
+                    of tokens
+                ){
+
+                    if(
+
+                        ![
+                            '名詞',
+                            '動詞',
+                            '形容詞'
+                        ]
+
+                        .includes(
+                            t.pos
+                        )
+
+                    ){
+
+                        continue;
+                    }
+
+                    let base=
+
+                    t.basic_form &&
+                    t.basic_form!=='*'
+
+                    ?
+
+                    t.basic_form
+
+                    :
+
+                    t.surface_form;
+
+                    let reading=
+
+                    katakanaToHiragana(
+
+                        t.reading
+                        ||
+                        t.surface_form
+                    );
+
+                    if(
+                        dictionary[
+                            base
+                        ]
+                    ){
+
+                        const d=
+                        dictionary[
+                            base
+                        ];
+
+                        if(
+                            d.word
+                        ){
+
+                            base=
+                            d.word;
+                        }
+
+                        if(
+                            d.reading
+                        ){
+
+                            reading=
+                            d.reading;
+                        }
+                    }
+
+                    const key=
+                    `${base}|${reading}`;
+
+                    const blocked=
+
+                    stopwords.some(
+
+                        s=>
+
+                        s.key===key
+                    );
+
+                    if(
+                        blocked
+                    ){
+
+                        continue;
+                    }
+
+                    const existsCards=
+
+                    cards.some(
+
+                        x=>
+
+                        x.key===key
+                    );
+
+                    const existsPending=
+
+                    pending.some(
+
+                        x=>
+
+                        x.key===key
+                    );
+
+                    if(
+
+                        existsCards
+                        ||
+                        existsPending
+
+                    ){
+
+                        continue;
+                    }
+
+                    pending.push({
+
+                        key,
+
+                        word:base,
+
+                        reading,
+
+                        type:t.pos,
+
+                        sources:[
+
+                            {
+
+                                surface:
+                                t.surface_form,
+
+                                line:
+                                line.surface
+                            }
+                        ],
+
+                        _new:true
+                    });
+
+                    added++;
+                }
+            }
         }
 
         catch(e){
 
             log(
-
 `${songPath}失敗:${e.message}`
             );
         }
     }
 
+    render();
+
     log(
-'批次完成'
+`完成 新增${added}張`
     );
 }
 
