@@ -1,6 +1,6 @@
 [
   {
-    "translation": "",
+    "translation": "縫補",
     "origin": "",
     "key": "紡ぐ|つむい",
     "word": "紡ぐ",
@@ -18,16 +18,16 @@
     "_new": false
   },
   {
-    "translation": "",
+    "translation": "大地",
     "origin": "",
-    "key": "紡ぐ|つむい",
-    "word": "紡ぐ",
-    "reading": "つむい",
-    "type": "動詞",
+    "key": "地|ち",
+    "word": "地",
+    "reading": "ち",
+    "type": "名詞",
     "sources": [
       {
-        "surface": "紡い",
-        "line": "紡いでゆくの",
+        "surface": "地",
+        "line": "かつて この地が幾多の文化を慈しんだように",
         "id":"tuki-saiteikaiw",
         "artist":"tuki",
         "name":"歌曲1-2",
@@ -36,16 +36,16 @@
     "_new": false
   },
   {
-    "translation": "",
+    "translation": "舉起",
     "origin": "",
-    "key": "紡ぐ|つむい",
-    "word": "紡ぐ",
-    "reading": "つむい",
+    "key": "捧げる|ささげ",
+    "word": "捧げる",
+    "reading": "ささげ",
     "type": "動詞",
     "sources": [
       {
-        "surface": "紡い",
-        "line": "紡いでゆくの",
+        "surface": "捧げ",
+        "line": "捧げているの",
         "id":"ave-angles",
         "artist":"Ave Mujica",
         "name":"歌曲2-1",
@@ -54,16 +54,16 @@
     "_new": false
   },
   {
-    "translation": "",
-    "origin": "",
-    "key": "紡ぐ|つむい",
-    "word": "紡ぐ",
-    "reading": "つむい",
-    "type": "動詞",
+    "translation": "番紅花",
+    "origin": "Saffron",
+    "key": "サフラン|サフラン",
+    "word": "サフラン",
+    "reading": "サフラン",
+    "type": "名詞",
     "sources": [
       {
-        "surface": "紡い",
-        "line": "紡いでゆくの",
+        "surface": "サフラン",
+        "line": "差し出されたサフラン色の翼",
         "id":"ave-stheway",
         "artist":"Ave Mujica",
         "name":"歌曲2-2",
