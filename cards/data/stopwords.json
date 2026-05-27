@@ -1,5 +1,7 @@
 [
   {
+    "translation": "",
+    "origin": "",
     "key": "ゆく|ゆく",
     "word": "ゆく",
     "reading": "ゆく",
@@ -17,6 +19,8 @@
     "_new": false
   },
   {
+    "translation": "",
+    "origin": "",
     "key": "私|わたし",
     "word": "私",
     "reading": "わたし",
@@ -51,9 +55,11 @@
         "line": "私たちの心臓が 音を立てて"
       }
     ],
-    "_new": true
+    "_new": false
   },
   {
+    "translation": "",
+    "origin": "",
     "key": "あなた|あなた",
     "word": "あなた",
     "reading": "あなた",
@@ -96,9 +102,11 @@
         "line": "隠せないくらいに あなたへと音を立てて"
       }
     ],
-    "_new": true
+    "_new": false
   },
   {
+    "translation": "",
+    "origin": "",
     "key": "いる|い",
     "word": "いる",
     "reading": "い",
@@ -125,9 +133,11 @@
         "line": "酷く爛れて 濁っていた 空さえ"
       }
     ],
-    "_new": true
+    "_new": false
   },
   {
+    "translation": "",
+    "origin": "",
     "key": "なる|なっ",
     "word": "なる",
     "reading": "なっ",
@@ -138,9 +148,11 @@
         "line": "くしゃくしゃになった"
       }
     ],
-    "_new": true
+    "_new": false
   },
   {
+    "translation": "",
+    "origin": "",
     "key": "なる|なる",
     "word": "なる",
     "reading": "なる",
@@ -155,9 +167,11 @@
         "line": "切なくなるくらい 透き通って見えた"
       }
     ],
-    "_new": true
+    "_new": false
   },
   {
+    "translation": "",
+    "origin": "",
     "key": "する|する",
     "word": "する",
     "reading": "する",
@@ -168,9 +182,11 @@
         "line": "ボクたちが息をする世界は"
       }
     ],
-    "_new": true
+    "_new": false
   },
   {
+    "translation": "",
+    "origin": "",
     "key": "する|しよ",
     "word": "する",
     "reading": "しよ",
@@ -181,9 +197,11 @@
         "line": "ここで話をしようか 何も話したくないなら"
       }
     ],
-    "_new": true
+    "_new": false
   },
   {
+    "translation": "",
+    "origin": "",
     "key": "いる|いよ",
     "word": "いる",
     "reading": "いよ",
@@ -198,9 +216,11 @@
         "line": "ふたり目を閉じていようよ"
       }
     ],
-    "_new": true
+    "_new": false
   },
   {
+    "translation": "",
+    "origin": "",
     "key": "いる|いれ",
     "word": "いる",
     "reading": "いれ",
@@ -211,9 +231,11 @@
         "line": "あなたがいればいいよ"
       }
     ],
-    "_new": true
+    "_new": false
   },
   {
+    "translation": "",
+    "origin": "",
     "key": "する|し",
     "word": "する",
     "reading": "し",
@@ -224,9 +246,11 @@
         "line": "それでもふたりで 息をしている"
       }
     ],
-    "_new": true
+    "_new": false
   },
   {
+    "translation": "",
+    "origin": "",
     "key": "いる|いる",
     "word": "いる",
     "reading": "いる",
@@ -235,6 +259,21 @@
       {
         "surface": "いる",
         "line": "それでもふたりで 息をしている"
+      }
+    ],
+    "_new": false
+  },
+  {
+    "key": "?|?",
+    "word": "?",
+    "reading": "?",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "?",
+        "line": "生きにくさですら慣れる練習?"
       }
     ],
     "_new": true
