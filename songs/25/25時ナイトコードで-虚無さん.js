@@ -1,6 +1,6 @@
 // ── 25時、ナイトコードで。 / 虚無さん ──
 addSong("25時、ナイトコードで。", {
-  id: '25-kyomusan', title: '虚無さん', sort: '虚',
+  id: '25時ナイトコードで-虚無さん', title: '虚無さん', sort: '虚',
   yt: 'https://youtu.be/LWHwJMGP9Rw?si=qhuqbBtgMI2eQE08',
   lines(){return[
     L([[`虚無`,`きょむ`],`っぽいなんかもうだめみたい`]),
