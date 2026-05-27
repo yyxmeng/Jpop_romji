@@ -1,6 +1,6 @@
 // ── 25時、ナイトコードで。 / バグ ──
 addSong(`25時、ナイトコードで。`, {
-  id: `25-bagu`, title: `バグ`, sort: `バ`,
+  id: `25時ナイトコードで-バグ`, title: `バグ`, sort: `バ`,
   yt: `https://youtu.be/2Ii7UBMxWVw?si=GiDvcLSkldh4y-z2`,
   lines(){return[
     L([[`迷子`,`まいご`],[`迷子`,`まいご`],[`真`,`ま`],`っ`,[`只中`,`ただなか`],` さあ`]),
