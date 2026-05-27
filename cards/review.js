@@ -646,29 +646,35 @@ async function batchGenerate(){
                         continue;
                     }
 
+                    const surface=
+                    t.surface_form;
+                    
                     let base=
-
+                    
                     t.basic_form
                     &&
                     t.basic_form!=='*'
-
+                    
                     ?
-
+                    
                     t.basic_form
-
+                    
                     :
-
-                    t.surface_form;
-
+                    
+                    surface;
+                    
+                    /*
+                       reading維持 surface讀音
+                       不強制改成原型讀音
+                    */
+                    
                     let reading=
-
+                    
                     katakanaToHiragana(
-
                         t.reading
                         ||
-                        t.surface_form
+                        surface
                     );
-
                     let translation='';
                     let origin='';
 
@@ -752,14 +758,30 @@ async function batchGenerate(){
                         origin,
 
                         type:t.pos,
-
+                        
                         sources:[{
-
+                        
                             surface:
                             t.surface_form,
-
+                        
                             line:
-                            line.surface
+                            line.surface,
+                        
+                            id:
+                            songPath
+                            .split('/')
+                            .pop()
+                            .replace('.js',''),
+                        
+                            artist:
+                            songPath
+                            .split('/')[1],
+                        
+                            name:
+                            songPath
+                            .split('/')
+                            .pop()
+                            .replace('.js','')
                         }],
 
                         _new:true
@@ -801,54 +823,60 @@ async function init(){
         'data/stopwords.json'
     );
 
-    cards=
+cards=
 
-    cards.map(
+cards.map(
 
-        x=>({
+    x=>({
 
-            translation:'',
+        ...x,
 
-            origin:'',
+        translation:
+        x.translation||'',
 
-            ...x,
+        origin:
+        x.origin||'',
 
-            _new:false
-        })
-    );
+        _new:false
+    })
+);
+    
+pending=
 
-    pending=
+pending.map(
 
-    pending.map(
+    x=>({
 
-        x=>({
+        ...x,
 
-            translation:'',
+        translation:
+        x.translation||'',
 
-            origin:'',
+        origin:
+        x.origin||'',
 
-            ...x,
+        _new:true
+    })
+);
 
-            _new:true
-        })
-    );
+stopwords=
 
-    stopwords=
+stopwords.map(
 
-    stopwords.map(
+    x=>({
 
-        x=>({
+        ...x,
 
-            translation:'',
+        translation:
+        x.translation||'',
 
-            origin:'',
+        origin:
+        x.origin||'',
 
-            ...x,
-
-            _new:false
-        })
-    );
-
+        _new:false
+    })
+);
+    
     render();
 }
 
