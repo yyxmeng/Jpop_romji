@@ -781,6 +781,49 @@ function buildTokenizer(){
     );
 }
 
+function rebuildLine(line){
+
+    let surface='';
+    let reading='';
+
+    const tokenRegex=
+/\[\s*`([^`]+)`\s*,\s*`([^`]+)`\s*\]|`([^`]+)`/g;
+
+    let m;
+
+    while(
+        (m=tokenRegex.exec(line))
+        !==null
+    ){
+
+        if(m[1]){
+
+            surface+=m[1];
+            reading+=m[2];
+        }
+
+        else{
+
+            surface+=m[3];
+            reading+=m[3];
+        }
+    }
+
+    return{
+
+        surface:
+        surface
+        .replace(/\s+/g,' ')
+        .trim(),
+
+        reading:
+        reading
+        .replace(/\s+/g,' ')
+        .trim()
+    };
+}
+
+
 async function batchGenerate(){
 
     log('');
