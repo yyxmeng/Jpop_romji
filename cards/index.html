@@ -307,13 +307,6 @@ class="word"
 </div>
 
 <div
-id="reading"
-class="reading"
->
-—
-</div>
-
-<div
 id="meta"
 class="meta"
 >
@@ -472,7 +465,6 @@ function pickSong(){
 function renderCard(){
 
   if(!cards.length){
-
     return;
   }
 
@@ -487,14 +479,6 @@ function renderCard(){
   buildDisplaySource(card);
 
   const frontSources=
-
-  params.has('song')
-
-  ?
-
-  sourcePool.slice(0,3)
-
-  :
 
   randomPick(
     sourcePool,
@@ -511,40 +495,35 @@ function renderCard(){
   const frontHtml=
 
   frontSources
+
   .map(
 
     s=>
 
     `${s.artist} — ${s.title}`
+
   )
 
   .join('<br>');
 
+  const line=
+
+  sourcePool[0]?.line
+
+  ||
+
+  '';
+
+
+
+  // ===== 正面 =====
+
   qs('word')
   .textContent=
-  card.word||'';
 
-  qs('reading')
-  .textContent=
-  card.reading||'';
+  card.word
 
-  qs('translation')
-  .textContent=
-
-  card.translation
   ||
-  '（未填寫翻譯）';
-
-  qs('origin')
-  .textContent=
-
-  card.origin
-
-  ?
-
-  `(${card.origin})`
-
-  :
 
   '';
 
@@ -556,12 +535,61 @@ ${card.type}
 
 <br><br>
 
-${sourcePool[0]?.line||''}
+${line}
 
 <br><br>
 
 ${frontHtml}
 `;
+
+
+
+  // ===== 背面 =====
+
+  qs('translation')
+  .innerHTML=
+
+`
+<div class="word">
+
+${card.word||''}
+
+</div>
+
+<div class="reading">
+
+${card.reading||''}
+
+</div>
+
+<div>
+
+${card.translation||'（未填寫翻譯）'}
+
+</div>
+
+${
+card.origin
+
+?
+
+`
+
+<div class="origin">
+
+(${card.origin})
+
+</div>
+
+`
+
+:
+
+''
+}
+`;
+
+
 
   qs('backSource')
   .innerHTML=
@@ -571,26 +599,33 @@ ${frontHtml}
   ?
 
 `
+
 ${backSource.line}
 
 <br><br>
 
 ${backSource.artist}
+
 —
 
 ${backSource.title}
+
 `
 
   :
 
   '';
 
+
+
   qs('progressNow')
   .textContent=
+
   current+1;
 
   qs('progressTotal')
   .textContent=
+
   cards.length;
 }
   
