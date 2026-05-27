@@ -457,7 +457,7 @@ function pickSong(){
 
   const name=
   prompt(
-    '輸入歌曲ID'
+    '輸入歌名'
   );
 
   if(!name){
@@ -466,7 +466,7 @@ function pickSong(){
   }
 
   location.href=
-  `index.html?song=${encodeURIComponent(name)}`;
+  `index.html?title=${encodeURIComponent(name)}`;
 }
 
 function renderCard(){
@@ -515,7 +515,7 @@ function renderCard(){
 
     s=>
 
-    `${s.artist} — ${s.name}`
+    `${s.artist} — ${s.title}`
   )
 
   .join('<br>');
@@ -578,7 +578,7 @@ ${backSource.line}
 ${backSource.artist}
 —
 
-${backSource.name}
+${backSource.title}
 `
 
   :
