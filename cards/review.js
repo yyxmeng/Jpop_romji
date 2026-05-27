@@ -1111,6 +1111,10 @@ async function batchGenerate(){
                     line.surface
                 );
 
+                log(
+                `${line.surface} -> ${tokens.length}`
+                );
+
                 for(
                     const t
                     of tokens
