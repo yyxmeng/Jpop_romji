@@ -1,6 +1,6 @@
 // ── 25時、ナイトコードで。 / 余花にみとれて ──
 addSong("25時、ナイトコードで。", {
-  id: '25-yokanimitorete', title: '余花にみとれて', sort: '余',
+  id: '25時ナイトコードで-余花にみとれて', title: '余花にみとれて', sort: '余',
   yt: 'https://youtu.be/agbpbVVA78U?si=IS5fnoWOtXzXFzj8',
   lines(){return[
     L([[`私`,`わたし`],`たちが`,[`思`,`おも`],`うよりも`]),
