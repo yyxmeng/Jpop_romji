@@ -823,6 +823,22 @@ function rebuildLine(line){
     };
 }
 
+function katakanaToHiragana(str){
+
+    if(!str)return null;
+
+    return str.replace(
+
+        /[\u30a1-\u30f6]/g,
+
+        s=>
+
+        String.fromCharCode(
+            s.charCodeAt(0)-0x60
+        )
+    );
+}
+
 
 async function batchGenerate(){
 
