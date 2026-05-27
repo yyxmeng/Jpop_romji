@@ -167,6 +167,50 @@ function renderCard(item,type){
 
         </div>
 
+        <div class="translateBox">
+
+        <input
+        
+        class="translation"
+        
+        placeholder="中文翻譯"
+        
+        value="${
+        item.translation
+        ||''
+        }"
+        
+        onchange="
+        
+        item.translation=
+        this.value
+        
+        "
+        
+        >
+        
+        <input
+        
+        class="origin"
+        
+        placeholder="原詞"
+        
+        value="${
+        item.origin
+        ||''
+        }"
+        
+        onchange="
+        
+        item.origin=
+        this.value
+        
+        "
+        
+        >
+        
+        </div>
+
         ${sources}
 
     </div>
@@ -839,10 +883,153 @@ function katakanaToHiragana(str){
     );
 }
 
+async function translateWord(
+
+    text,
+
+    token
+
+){
+
+    if(
+        !text
+    ){
+
+        return{
+
+            translation:'',
+
+            origin:''
+        };
+    }
+
+    try{
+
+        const res=
+
+        await fetch(
+
+`https://api.apify.com/v2/acts/yyxmeng~lyrics-translator/run-sync-get-dataset-items?token=${token}`,
+
+            {
+
+                method:'POST',
+
+                headers:{
+
+                    'Content-Type':
+                    'application/json'
+                },
+
+                body:
+
+                JSON.stringify({
+
+                    text,
+
+                    sourceLanguage:'ja',
+
+                    targetLanguage:'zh-TW'
+                })
+            }
+        );
+
+        if(
+            !res.ok
+        ){
+
+            throw new Error(
+                await res.text()
+            );
+        }
+
+        const data=
+        await res.json();
+
+        const result=
+
+        Array.isArray(
+            data
+        )
+
+        ?
+
+        data[0]
+
+        :
+
+        data;
+
+        const translation=
+
+        result
+        ?.translatedText
+        ||
+
+        '';
+
+        const isKatakana=
+
+        /^[ァ-ヶー]+$/
+        .test(text);
+
+        return{
+
+            translation,
+
+            origin:
+
+            isKatakana
+
+            ?
+
+            text
+
+            :
+
+            ''
+        };
+    }
+
+    catch(e){
+
+        console.error(
+            'translate失敗',
+            e
+        );
+
+        return{
+
+            translation:'',
+
+            origin:''
+        };
+    }
+}
 
 async function batchGenerate(){
 
     log('');
+
+    const apiToken=
+
+    document
+    .getElementById(
+        'translateToken'
+    )
+    .value
+    .trim();
+
+    if(
+        !apiToken
+    ){
+
+        alert(
+'請輸入Apify Token'
+        );
+
+        return;
+    }
 
     const raw=
 
@@ -968,11 +1155,52 @@ async function batchGenerate(){
                         t.surface_form
                     );
 
+                    let translation='';
+                    let origin='';
+                    
                     if(
                         dictionary[
                             base
                         ]
                     ){
+                    
+                        const d=
+                        dictionary[
+                            base
+                        ];
+                    
+                        if(
+                            d.word
+                        ){
+                    
+                            base=
+                            d.word;
+                        }
+                    
+                        if(
+                            d.reading
+                        ){
+                    
+                            reading=
+                            d.reading;
+                        }
+                    
+                        if(
+                            d.translation
+                        ){
+                    
+                            translation=
+                            d.translation;
+                        }
+                    
+                        if(
+                            d.origin
+                        ){
+                    
+                            origin=
+                            d.origin;
+                        }
+                    }{
 
                         const d=
                         dictionary[
@@ -1044,28 +1272,61 @@ async function batchGenerate(){
                         continue;
                     }
 
+                    log(
+`翻譯:${base}`
+                    );
+
+                    let translated={
+                    
+                        translation,
+                    
+                        origin
+                    };
+                    
+                    if(
+                        !translation
+                    ){
+                    
+                        translated=
+                    
+                        await translateWord(
+                    
+                            base,
+                    
+                            apiToken
+                        );
+                    }
+
                     pending.push({
-
+                    
                         key,
-
+                    
                         word:base,
-
+                    
                         reading,
-
+                    
+                        translation:
+                        translated.translation
+                        ||'',
+                    
+                        origin:
+                        translated.origin
+                        ||'',
+                    
                         type:t.pos,
-
+                    
                         sources:[
-
+                    
                             {
-
+                    
                                 surface:
                                 t.surface_form,
-
+                    
                                 line:
                                 line.surface
                             }
                         ],
-
+                    
                         _new:true
                     });
 
