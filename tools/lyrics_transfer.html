@@ -775,7 +775,7 @@ function doparse(){
   const artist = document.getElementById('artist').value.trim() || 'ARTIST';
   const title  = document.getElementById('title').value.trim()  || 'TITLE';
   const sort   = document.getElementById('sort').value.trim()   || title.charAt(0) || 'X';
-  const sid    = document.getElementById('sid').value.trim().replace(/[^a-zA-Z0-9_\-]/g,'_') || 'song-id';
+  const sid    = document.getElementById('sid').value.trim() || 'song-id';
   const ytRaw  = document.getElementById('yt').value.trim();
 
   if(!html){ showNotice('warn','請先填入歌詞 HTML（按「自動填入」或手動貼入）'); return; }
@@ -967,7 +967,12 @@ function slugifyArtist(str){
 
     .normalize('NFKC')
 
-    .replace(/[　\s]+/g,'_')
+    .replace(/[　\s]+/g,'')
+
+    .replace(
+      /[、。・]/g,
+      ''
+    )
 
     .replace(
       /[^\p{Letter}\p{Number}_-]/gu,
