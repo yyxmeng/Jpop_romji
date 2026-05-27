@@ -65,72 +65,39 @@ function isKatakana(word){
 function renderCard(item,type){
 
     const checked=
-
-    selected[type]
-    .has(item.key)
-
-    ?
-
-    'checked'
-
-    :
-
-    '';
-
-    const list={
-        pending,
-        cards,
-        stopwords
-    }[type];
+    selected[type].has(item.key)
+    ?'checked'
+    :'';
 
     const sources=
-
     (item.sources||[])
-
     .slice(0,3)
-
     .map(s=>`
 
         <div class="source">
-
             ${s.surface}
-
             <br>
-
             ${s.line}
-
         </div>
 
     `)
-
     .join('');
 
-    const originBox=
-
-    isKatakana(item.word)
+    const originBox=isKatakana(item.word)
 
     ?
 
     `
 
     <input
-
     class="origin"
-
     placeholder="原詞"
-
     value="${item.origin||''}"
-
     onchange="
-
     ${type}.find(
-
         x=>x.key==='${item.key}'
-
     ).origin=this.value
-
     "
-
     >
 
     `
@@ -146,61 +113,37 @@ function renderCard(item,type){
         <label>
 
             <input
-
             type="checkbox"
-
             ${checked}
 
-            onchange="
-
-            toggleItem(
-
+            onchange="toggleItem(
                 '${type}',
-
                 '${item.key}'
-
-            )
-
-            "
-
+            )"
             >
 
-            <b>
-
-            ${item.word}
-
-            </b>
+            <b>${item.word}</b>
 
             【${item.reading}】
 
         </label>
 
         <div class="meta">
-
             ${item.type}
-
         </div>
 
         <div class="translateBox">
 
             <input
-
             class="translation"
-
             placeholder="中文翻譯"
-
             value="${item.translation||''}"
 
             onchange="
-
             ${type}.find(
-
                 x=>x.key==='${item.key}'
-
             ).translation=this.value
-
             "
-
             >
 
             ${originBox}
@@ -233,14 +176,7 @@ function render(){
     .innerHTML=
 
     pending
-    .map(
-
-        x=>renderCard(
-            x,
-            'pending'
-        )
-
-    )
+    .map(x=>renderCard(x,'pending'))
     .join('');
 
     document
@@ -248,30 +184,12 @@ function render(){
     .innerHTML=
 
     (
-
         showExisting.cards
-
-        ?
-
-        cards
-
-        :
-
-        cards.filter(
-            x=>x._new
-        )
-
+        ?cards
+        :cards.filter(x=>x._new)
     )
 
-    .map(
-
-        x=>renderCard(
-            x,
-            'cards'
-        )
-
-    )
-
+    .map(x=>renderCard(x,'cards'))
     .join('');
 
     document
@@ -279,31 +197,371 @@ function render(){
     .innerHTML=
 
     (
-
         showExisting.stopwords
-
-        ?
-
-        stopwords
-
-        :
-
-        stopwords.filter(
-            x=>x._new
-        )
-
+        ?stopwords
+        :stopwords.filter(x=>x._new)
     )
 
-    .map(
-
-        x=>renderCard(
-            x,
-            'stopwords'
-        )
-
-    )
-
+    .map(x=>renderCard(x,'stopwords'))
     .join('');
+}
+
+function toggleExisting(type){
+
+    showExisting[type]=!showExisting[type];
+
+    render();
+}
+
+function toggleItem(type,key){
+
+    if(selected[type].has(key)){
+
+        selected[type].delete(key);
+
+    }else{
+
+        selected[type].add(key);
+    }
+}
+
+function toggleSelect(type){
+
+    const list={
+        pending,
+        cards,
+        stopwords
+    }[type]||[];
+
+    const allSelected=
+
+    list.length>0
+
+    &&
+
+    list.every(
+        x=>selected[type].has(x.key)
+    );
+
+    if(allSelected){
+
+        selected[type].clear();
+
+    }else{
+
+        selected[type]=new Set(
+            list.map(x=>x.key)
+        );
+    }
+
+    render();
+}
+
+function moveSelected(from,to){
+
+    const source={
+        pending,
+        cards,
+        stopwords
+    }[from]||[];
+
+    const target={
+        pending,
+        cards,
+        stopwords
+    }[to]||[];
+
+    const keys=selected[from];
+
+    const moved=
+    source.filter(
+        x=>keys.has(x.key)
+    );
+
+    const remain=
+    source.filter(
+        x=>!keys.has(x.key)
+    );
+
+    target.push(
+
+        ...moved.map(x=>({
+
+            ...x,
+
+            _new:true
+        }))
+    );
+
+    pending=
+    from==='pending'
+    ?remain
+    :to==='pending'
+    ?dedupe(target)
+    :pending;
+
+    cards=
+    from==='cards'
+    ?remain
+    :to==='cards'
+    ?dedupe(target)
+    :cards;
+
+    stopwords=
+    from==='stopwords'
+    ?remain
+    :to==='stopwords'
+    ?dedupe(target)
+    :stopwords;
+
+    selected[from].clear();
+
+    render();
+}
+
+async function uploadGithub(path,data,token){
+
+    const api=
+`https://api.github.com/repos/${OWNER}/${REPO}/contents/${path}`;
+
+    let sha=null;
+
+    const getRes=
+
+    await fetch(api,{
+
+        headers:{
+
+            Authorization:
+            `Bearer ${token}`,
+
+            Accept:
+            'application/vnd.github+json'
+        }
+    });
+
+    if(getRes.ok){
+
+        const old=
+        await getRes.json();
+
+        sha=old.sha;
+    }
+
+    const json=
+    JSON.stringify(data,null,2);
+
+    const content=
+
+    btoa(
+
+        new TextEncoder()
+        .encode(json)
+
+        .reduce(
+
+            (s,b)=>
+
+            s+
+            String.fromCharCode(b),
+
+            ''
+        )
+    );
+
+    const body={
+
+        message:`update ${path}`,
+
+        content
+    };
+
+    if(sha){
+        body.sha=sha;
+    }
+
+    const putRes=
+
+    await fetch(api,{
+
+        method:'PUT',
+
+        headers:{
+
+            Authorization:
+            `Bearer ${token}`,
+
+            Accept:
+            'application/vnd.github+json',
+
+            'Content-Type':
+            'application/json'
+        },
+
+        body:
+        JSON.stringify(body)
+    });
+
+    if(!putRes.ok){
+
+        throw new Error(
+            await putRes.text()
+        );
+    }
+}
+
+async function saveAll(){
+
+    try{
+
+        const token=
+
+        document
+        .getElementById('githubToken')
+        .value
+        .trim();
+
+        if(!token){
+
+            alert('請輸入GitHub token');
+            return;
+        }
+
+        await uploadGithub(
+            'cards/data/cards.json',
+            cards,
+            token
+        );
+
+        await uploadGithub(
+            'cards/data/pending.json',
+            pending,
+            token
+        );
+
+        await uploadGithub(
+            'cards/data/stopwords.json',
+            stopwords,
+            token
+        );
+
+        alert('GitHub更新成功');
+
+    }catch(e){
+
+        console.error(e);
+
+        alert(e.message);
+    }
+}
+
+function extractLyrics(code){
+
+    const regex=
+    /L\s*\(\s*\[(.*?)\]\s*\)/gs;
+
+    const lines=[];
+
+    let m;
+
+    while(
+        (m=regex.exec(code))
+        !==null
+    ){
+
+        lines.push(m[1]);
+    }
+
+    return lines;
+}
+
+function buildTokenizer(){
+
+    return new Promise(
+
+        (resolve,reject)=>{
+
+            kuromoji
+            .builder({
+
+                dicPath:'./dict'
+
+            })
+
+            .build(
+
+                (err,tokenizer)=>{
+
+                    if(err){
+
+                        reject(err);
+                        return;
+                    }
+
+                    resolve(tokenizer);
+                }
+            );
+        }
+    );
+}
+
+function rebuildLine(line){
+
+    let surface='';
+    let reading='';
+
+    const tokenRegex=
+/\[\s*`([^`]+)`\s*,\s*`([^`]+)`\s*\]|`([^`]+)`/g;
+
+    let m;
+
+    while(
+        (m=tokenRegex.exec(line))
+        !==null
+    ){
+
+        if(m[1]){
+
+            surface+=m[1];
+            reading+=m[2];
+
+        }else{
+
+            surface+=m[3];
+            reading+=m[3];
+        }
+    }
+
+    return{
+
+        surface:
+        surface
+        .replace(/\s+/g,' ')
+        .trim(),
+
+        reading:
+        reading
+        .replace(/\s+/g,' ')
+        .trim()
+    };
+}
+
+function katakanaToHiragana(str){
+
+    if(!str){
+        return null;
+    }
+
+    return str.replace(
+
+        /[\u30a1-\u30f6]/g,
+
+        s=>
+
+        String.fromCharCode(
+            s.charCodeAt(0)-0x60
+        )
+    );
 }
 
 async function batchGenerate(){
@@ -311,6 +569,7 @@ async function batchGenerate(){
     log('');
 
     const raw=
+
     document
     .getElementById('batchFolder')
     .value
@@ -349,13 +608,17 @@ async function batchGenerate(){
             log(`處理:${songPath}`);
 
             const songRes=
-            await fetch('../'+songPath);
+            await fetch(
+                '../'+songPath
+            );
 
             const songCode=
             await songRes.text();
 
             const lyrics=
-            extractLyrics(songCode);
+            extractLyrics(
+                songCode
+            );
 
             for(const rawLine of lyrics){
 
@@ -370,12 +633,15 @@ async function batchGenerate(){
                 for(const t of tokens){
 
                     if(
+
                         ![
                             '名詞',
                             '動詞',
                             '形容詞'
                         ]
+
                         .includes(t.pos)
+
                     ){
                         continue;
                     }
@@ -398,11 +664,9 @@ async function batchGenerate(){
 
                     katakanaToHiragana(
 
-                        t.pronunciation
-                        ||
                         t.reading
                         ||
-                        base
+                        t.surface_form
                     );
 
                     let translation='';
@@ -430,88 +694,49 @@ async function batchGenerate(){
                         }
                     }
 
-                    if(
-                        isKatakana(base)
-                        &&
-                        !origin
-                    ){
-                        origin=base;
-                    }
-
                     const key=
                     `${base}|${reading}`;
 
                     const blocked=
 
                     stopwordData.some(
-                        s=>s.key===key
+
+                        s=>
+
+                        s.key===key
                     );
 
                     if(blocked){
                         continue;
                     }
 
-                    const sourceInfo={
+                    const exists=
 
-                        surface:
-                        t.surface_form,
-
-                        line:
-                        line.surface,
-
-                        id:
-                        songPath
-                        .split('/')
-                        .pop()
-                        ?.replace('.js',''),
-
-                        artist:
-                        songPath
-                        .split('/')[1]
-                        ||'',
-
-                        name:
-                        songPath
-                        .split('/')
-                        .pop()
-                        ?.replace('.js','')
-                        ||''
-                    };
-
-                    let target=
-
-                    cards.find(
+                    cards.some(
                         x=>x.key===key
                     )
 
                     ||
 
-                    pending.find(
+                    pending.some(
                         x=>x.key===key
                     );
 
-                    if(target){
-
-                        const existsSource=
-
-                        (target.sources||[])
-                        .some(
-
-                            s=>
-
-                            s.line===
-                            sourceInfo.line
-
-                        );
-
-                        if(!existsSource){
-
-                            target.sources.push(
-                                sourceInfo
-                            );
-                        }
-
+                    if(exists){
                         continue;
+                    }
+
+                    if(
+
+                        isKatakana(base)
+
+                        &&
+
+                        !origin
+
+                    ){
+
+                        origin=base;
                     }
 
                     pending.push({
@@ -528,9 +753,14 @@ async function batchGenerate(){
 
                         type:t.pos,
 
-                        sources:[
-                            sourceInfo
-                        ],
+                        sources:[{
+
+                            surface:
+                            t.surface_form,
+
+                            line:
+                            line.surface
+                        }],
 
                         _new:true
                     });
@@ -583,9 +813,6 @@ async function init(){
 
             ...x,
 
-            sources:
-            x.sources||[],
-
             _new:false
         })
     );
@@ -601,9 +828,6 @@ async function init(){
             origin:'',
 
             ...x,
-
-            sources:
-            x.sources||[],
 
             _new:true
         })
