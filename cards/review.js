@@ -728,6 +728,27 @@ e.message
     }
 }
 
+function extractLyrics(code){
+
+    const regex=
+    /L\s*\(\s*\[(.*?)\]\s*\)/gs;
+
+    const lines=[];
+
+    let m;
+
+    while(
+        (m=regex.exec(code))
+        !==null
+    ){
+
+        lines.push(m[1]);
+    }
+
+    return lines;
+}
+
+
 function buildTokenizer(){
 
     return new Promise(
