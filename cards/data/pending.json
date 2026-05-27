@@ -1,1 +1,2357 @@
-[]
+[
+  {
+    "key": "満員|まんいん",
+    "word": "満員",
+    "reading": "まんいん",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "満員",
+        "line": "満員電車触んなって"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "電車|でんしゃ",
+    "word": "電車",
+    "reading": "でんしゃ",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "電車",
+        "line": "満員電車触んなって"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "触る|さわん",
+    "word": "触る",
+    "reading": "さわん",
+    "translation": "",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "触ん",
+        "line": "満員電車触んなって"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "きしょい|きしょ",
+    "word": "きしょい",
+    "reading": "きしょ",
+    "translation": "",
+    "origin": "",
+    "type": "形容詞",
+    "sources": [
+      {
+        "surface": "きしょ",
+        "line": "きしょすぎな 意味わからんおっさん"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "すぎる|すぎ",
+    "word": "すぎる",
+    "reading": "すぎ",
+    "translation": "",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "すぎ",
+        "line": "きしょすぎな 意味わからんおっさん"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "意味|いみ",
+    "word": "意味",
+    "reading": "いみ",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "意味",
+        "line": "きしょすぎな 意味わからんおっさん"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "わかる|わから",
+    "word": "わかる",
+    "reading": "わから",
+    "translation": "",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "わから",
+        "line": "きしょすぎな 意味わからんおっさん"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "おっさん|おっさん",
+    "word": "おっさん",
+    "reading": "おっさん",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "おっさん",
+        "line": "きしょすぎな 意味わからんおっさん"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "制服|せいふく",
+    "word": "制服",
+    "reading": "せいふく",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "制服",
+        "line": "制服スカート 寒さ我慢"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "スカート|すかーと",
+    "word": "スカート",
+    "reading": "すかーと",
+    "translation": "",
+    "origin": "スカート",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "スカート",
+        "line": "制服スカート 寒さ我慢"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "寒い|さむ",
+    "word": "寒い",
+    "reading": "さむ",
+    "translation": "",
+    "origin": "",
+    "type": "形容詞",
+    "sources": [
+      {
+        "surface": "寒",
+        "line": "制服スカート 寒さ我慢"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "さ|さ",
+    "word": "さ",
+    "reading": "さ",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "さ",
+        "line": "制服スカート 寒さ我慢"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "我慢|がまん",
+    "word": "我慢",
+    "reading": "がまん",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "我慢",
+        "line": "制服スカート 寒さ我慢"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "生きる|いき",
+    "word": "生きる",
+    "reading": "いき",
+    "translation": "",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "生き",
+        "line": "生きにくさですら慣れる練習?"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "にくい|にく",
+    "word": "にくい",
+    "reading": "にく",
+    "translation": "",
+    "origin": "",
+    "type": "形容詞",
+    "sources": [
+      {
+        "surface": "にく",
+        "line": "生きにくさですら慣れる練習?"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "慣れる|なれる",
+    "word": "慣れる",
+    "reading": "なれる",
+    "translation": "",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "慣れる",
+        "line": "生きにくさですら慣れる練習?"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "練習|れんしゅう",
+    "word": "練習",
+    "reading": "れんしゅう",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "練習",
+        "line": "生きにくさですら慣れる練習?"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "アガる|あがら",
+    "word": "アガる",
+    "reading": "あがら",
+    "translation": "",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "アガら",
+        "line": "アガらないね 終わってんね"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "終わる|おわっ",
+    "word": "終わる",
+    "reading": "おわっ",
+    "translation": "",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "終わっ",
+        "line": "アガらないね 終わってんね"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "てる|てん",
+    "word": "てる",
+    "reading": "てん",
+    "translation": "",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "てん",
+        "line": "アガらないね 終わってんね"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "給料|きゅうりょう",
+    "word": "給料",
+    "reading": "きゅうりょう",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "給料",
+        "line": "給料バイトよりちょいマシ?"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "バイト|ばいと",
+    "word": "バイト",
+    "reading": "ばいと",
+    "translation": "",
+    "origin": "バイト",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "バイト",
+        "line": "給料バイトよりちょいマシ?"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "マシ|まし",
+    "word": "マシ",
+    "reading": "まし",
+    "translation": "",
+    "origin": "マシ",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "マシ",
+        "line": "給料バイトよりちょいマシ?"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "人手|ひとで",
+    "word": "人手",
+    "reading": "ひとで",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "人手",
+        "line": "人手が欲しい 少子化だし"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "少子化|しょうしか",
+    "word": "少子化",
+    "reading": "しょうしか",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "少子化",
+        "line": "人手が欲しい 少子化だし"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "育てる|そだてる",
+    "word": "育てる",
+    "reading": "そだてる",
+    "translation": "",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "育てる",
+        "line": "育てる未来見えんのこっち"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "未来|みらい",
+    "word": "未来",
+    "reading": "みらい",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "未来",
+        "line": "育てる未来見えんのこっち"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "見え|みえ",
+    "word": "見え",
+    "reading": "みえ",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "見え",
+        "line": "育てる未来見えんのこっち"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "こっち|こっち",
+    "word": "こっち",
+    "reading": "こっち",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "こっち",
+        "line": "育てる未来見えんのこっち"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "日々|ひび",
+    "word": "日々",
+    "reading": "ひび",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "日々",
+        "line": "日々日々困惑"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "困惑|こんわく",
+    "word": "困惑",
+    "reading": "こんわく",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "困惑",
+        "line": "日々日々困惑"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "矛盾|むじゅん",
+    "word": "矛盾",
+    "reading": "むじゅん",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "矛盾",
+        "line": "矛盾に不純に横着"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "不純|ふじゅん",
+    "word": "不純",
+    "reading": "ふじゅん",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "不純",
+        "line": "矛盾に不純に横着"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "横着|おうちゃく",
+    "word": "横着",
+    "reading": "おうちゃく",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "横着",
+        "line": "矛盾に不純に横着"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "不正|ふせい",
+    "word": "不正",
+    "reading": "ふせい",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "不正",
+        "line": "不正に税金 めにめに"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "税金|ぜいきん",
+    "word": "税金",
+    "reading": "ぜいきん",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "税金",
+        "line": "不正に税金 めにめに"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "め|め",
+    "word": "め",
+    "reading": "め",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "め",
+        "line": "不正に税金 めにめに"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "夢見る|ゆめみろ",
+    "word": "夢見る",
+    "reading": "ゆめみろ",
+    "translation": "",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "夢見ろ",
+        "line": "夢見ろって?現実はバグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "現実|げんじつ",
+    "word": "現実",
+    "reading": "げんじつ",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "現実",
+        "line": "夢見ろって?現実はバグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "バグ|ばぐ",
+    "word": "バグ",
+    "reading": "ばぐ",
+    "translation": "",
+    "origin": "バグ",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "バグ",
+        "line": "夢見ろって?現実はバグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "推す|おし",
+    "word": "推す",
+    "reading": "おし",
+    "translation": "",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "推し",
+        "line": "推しのライブ いつも当たらんのエグい"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "ライブ|らいぶ",
+    "word": "ライブ",
+    "reading": "らいぶ",
+    "translation": "",
+    "origin": "ライブ",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "ライブ",
+        "line": "推しのライブ いつも当たらんのエグい"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "当たる|あたら",
+    "word": "当たる",
+    "reading": "あたら",
+    "translation": "",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "当たら",
+        "line": "推しのライブ いつも当たらんのエグい"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "エグ|えぐ",
+    "word": "エグ",
+    "reading": "えぐ",
+    "translation": "",
+    "origin": "エグ",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "エグ",
+        "line": "推しのライブ いつも当たらんのエグい"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "gimme|gimme",
+    "word": "gimme",
+    "reading": "gimme",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "gimme",
+        "line": "gimme gimme 当落 BeRealで報告"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "当落|とうらく",
+    "word": "当落",
+    "reading": "とうらく",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "当落",
+        "line": "gimme gimme 当落 BeRealで報告"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "BeReal|BeReal",
+    "word": "BeReal",
+    "reading": "BeReal",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "BeReal",
+        "line": "gimme gimme 当落 BeRealで報告"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "報告|ほうこく",
+    "word": "報告",
+    "reading": "ほうこく",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "報告",
+        "line": "gimme gimme 当落 BeRealで報告"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "Wi|Wi",
+    "word": "Wi",
+    "reading": "Wi",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "Wi",
+        "line": "Wi-Fiあっても心の中圏外"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "-|-",
+    "word": "-",
+    "reading": "-",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "-",
+        "line": "Wi-Fiあっても心の中圏外"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "Fi|Fi",
+    "word": "Fi",
+    "reading": "Fi",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "Fi",
+        "line": "Wi-Fiあっても心の中圏外"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "ある|あっ",
+    "word": "ある",
+    "reading": "あっ",
+    "translation": "",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "あっ",
+        "line": "Wi-Fiあっても心の中圏外"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "心|こころ",
+    "word": "心",
+    "reading": "こころ",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "心",
+        "line": "Wi-Fiあっても心の中圏外"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "圏外|けんがい",
+    "word": "圏外",
+    "reading": "けんがい",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "圏外",
+        "line": "Wi-Fiあっても心の中圏外"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "笑顔|えがお",
+    "word": "笑顔",
+    "reading": "えがお",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "笑顔",
+        "line": "笑顔の下ではずっと不在通知"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "下|した",
+    "word": "下",
+    "reading": "した",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "下",
+        "line": "笑顔の下ではずっと不在通知"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "不在|ふざい",
+    "word": "不在",
+    "reading": "ふざい",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "不在",
+        "line": "笑顔の下ではずっと不在通知"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "通知|つうち",
+    "word": "通知",
+    "reading": "つうち",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "通知",
+        "line": "笑顔の下ではずっと不在通知"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "ざい|ざい",
+    "word": "ざい",
+    "reading": "ざい",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "ざい",
+        "line": "うざい 無理"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "無理|むり",
+    "word": "無理",
+    "reading": "むり",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "無理",
+        "line": "うざい 無理"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "歪|いびつ",
+    "word": "歪",
+    "reading": "いびつ",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "歪",
+        "line": "歪な世界だ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "将来|しょうらい",
+    "word": "将来",
+    "reading": "しょうらい",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "将来",
+        "line": "将来いつかはママになってみたい"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "ママ|まま",
+    "word": "ママ",
+    "reading": "まま",
+    "translation": "",
+    "origin": "ママ",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "ママ",
+        "line": "将来いつかはママになってみたい"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "みる|み",
+    "word": "みる",
+    "reading": "み",
+    "translation": "",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "み",
+        "line": "将来いつかはママになってみたい"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "思う|おもっ",
+    "word": "思う",
+    "reading": "おもっ",
+    "translation": "",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "思っ",
+        "line": "とかなんとか思ってたっけ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "てる|て",
+    "word": "てる",
+    "reading": "て",
+    "translation": "",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "て",
+        "line": "とかなんとか思ってたっけ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "アプデ|あぷで",
+    "word": "アプデ",
+    "reading": "あぷで",
+    "translation": "",
+    "origin": "アプデ",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "アプデ",
+        "line": "アプデ待ちの世の中"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "待ち|まち",
+    "word": "待ち",
+    "reading": "まち",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "待ち",
+        "line": "アプデ待ちの世の中"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "世の中|よのなか",
+    "word": "世の中",
+    "reading": "よのなか",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "世の中",
+        "line": "アプデ待ちの世の中"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "最低|さいてい",
+    "word": "最低",
+    "reading": "さいてい",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "最低",
+        "line": "最低界隈最低界隈"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "界隈|かいわい",
+    "word": "界隈",
+    "reading": "かいわい",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "界隈",
+        "line": "最低界隈最低界隈"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "あい|あい",
+    "word": "あい",
+    "reading": "あい",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "あい",
+        "line": "あいどんのー本当"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "どん|どん",
+    "word": "どん",
+    "reading": "どん",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "どん",
+        "line": "あいどんのー本当"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "ー|ー",
+    "word": "ー",
+    "reading": "ー",
+    "translation": "",
+    "origin": "ー",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "ー",
+        "line": "あいどんのー本当"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "本当|ほんとう",
+    "word": "本当",
+    "reading": "ほんとう",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "本当",
+        "line": "あいどんのー本当"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "奥歯|おくば",
+    "word": "奥歯",
+    "reading": "おくば",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "奥歯",
+        "line": "奥歯がたがた言わしたろかい"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "言わす|いわし",
+    "word": "言わす",
+    "reading": "いわし",
+    "translation": "",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "言わし",
+        "line": "奥歯がたがた言わしたろかい"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "夢|ゆめ",
+    "word": "夢",
+    "reading": "ゆめ",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "夢",
+        "line": "夢は何? ラブみラブみ 『奪われない事』"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "ラブ|らぶ",
+    "word": "ラブ",
+    "reading": "らぶ",
+    "translation": "",
+    "origin": "ラブ",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "ラブ",
+        "line": "夢は何? ラブみラブみ 『奪われない事』"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "奪う|うばわ",
+    "word": "奪う",
+    "reading": "うばわ",
+    "translation": "",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "奪わ",
+        "line": "夢は何? ラブみラブみ 『奪われない事』"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "事|こと",
+    "word": "事",
+    "reading": "こと",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "事",
+        "line": "夢は何? ラブみラブみ 『奪われない事』"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "テステス|てすてす",
+    "word": "テステス",
+    "reading": "てすてす",
+    "translation": "",
+    "origin": "テステス",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "テステス",
+        "line": "テステス マイクテスト 私絶対的に 私です"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "マイク|まいく",
+    "word": "マイク",
+    "reading": "まいく",
+    "translation": "",
+    "origin": "マイク",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "マイク",
+        "line": "テステス マイクテスト 私絶対的に 私です"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "テスト|てすと",
+    "word": "テスト",
+    "reading": "てすと",
+    "translation": "",
+    "origin": "テスト",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "テスト",
+        "line": "テステス マイクテスト 私絶対的に 私です"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "絶対|ぜったい",
+    "word": "絶対",
+    "reading": "ぜったい",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "絶対",
+        "line": "テステス マイクテスト 私絶対的に 私です"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "的|てき",
+    "word": "的",
+    "reading": "てき",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "的",
+        "line": "テステス マイクテスト 私絶対的に 私です"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "SNS|SNS",
+    "word": "SNS",
+    "reading": "SNS",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "SNS",
+        "line": "SNSでレス"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "レス|れす",
+    "word": "レス",
+    "reading": "れす",
+    "translation": "",
+    "origin": "レス",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "レス",
+        "line": "SNSでレス"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "誰|だれ",
+    "word": "誰",
+    "reading": "だれ",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "誰",
+        "line": "誰のせいでもないのは嘘です"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "せい|せい",
+    "word": "せい",
+    "reading": "せい",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "せい",
+        "line": "誰のせいでもないのは嘘です"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "嘘|うそ",
+    "word": "嘘",
+    "reading": "うそ",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "嘘",
+        "line": "誰のせいでもないのは嘘です"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "する|さ",
+    "word": "する",
+    "reading": "さ",
+    "translation": "",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "さ",
+        "line": "さささ最低界隈です"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "さす|ささ",
+    "word": "さす",
+    "reading": "ささ",
+    "translation": "",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "ささ",
+        "line": "さささ最低界隈です"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "小遣い|こづかい",
+    "word": "小遣い",
+    "reading": "こづかい",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "小遣い",
+        "line": "お小遣いじゃ足りないんです"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "足りる|たり",
+    "word": "足りる",
+    "reading": "たり",
+    "translation": "",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "足り",
+        "line": "お小遣いじゃ足りないんです"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "もつ|もっ",
+    "word": "もつ",
+    "reading": "もっ",
+    "translation": "",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "もっ",
+        "line": "でもって何もかも高い問題"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "高い|たかい",
+    "word": "高い",
+    "reading": "たかい",
+    "translation": "",
+    "origin": "",
+    "type": "形容詞",
+    "sources": [
+      {
+        "surface": "高い",
+        "line": "でもって何もかも高い問題"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "問題|もんだい",
+    "word": "問題",
+    "reading": "もんだい",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "問題",
+        "line": "でもって何もかも高い問題"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "不測|ふそく",
+    "word": "不測",
+    "reading": "ふそく",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "不測",
+        "line": "不測の事態流行ってんね"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "事態|じたい",
+    "word": "事態",
+    "reading": "じたい",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "事態",
+        "line": "不測の事態流行ってんね"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "流行る|はやっ",
+    "word": "流行る",
+    "reading": "はやっ",
+    "translation": "",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "流行っ",
+        "line": "不測の事態流行ってんね"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "バズ|ばず",
+    "word": "バズ",
+    "reading": "ばず",
+    "translation": "",
+    "origin": "バズ",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "バズ",
+        "line": "なんかそれすらも バズなコンテンツ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "コンテンツ|こんてんつ",
+    "word": "コンテンツ",
+    "reading": "こんてんつ",
+    "translation": "",
+    "origin": "コンテンツ",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "コンテンツ",
+        "line": "なんかそれすらも バズなコンテンツ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "流行る|はやり",
+    "word": "流行る",
+    "reading": "はやり",
+    "translation": "",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "流行り",
+        "line": "流行り現実逃避将来は苦渋の選択"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "逃避|とうひ",
+    "word": "逃避",
+    "reading": "とうひ",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "逃避",
+        "line": "流行り現実逃避将来は苦渋の選択"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "苦渋|くじゅう",
+    "word": "苦渋",
+    "reading": "くじゅう",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "苦渋",
+        "line": "流行り現実逃避将来は苦渋の選択"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "選択|せんたく",
+    "word": "選択",
+    "reading": "せんたく",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "選択",
+        "line": "流行り現実逃避将来は苦渋の選択"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "勉学|べんがく",
+    "word": "勉学",
+    "reading": "べんがく",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "勉学",
+        "line": "勉学励んで めにめに"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "励む|はげん",
+    "word": "励む",
+    "reading": "はげん",
+    "translation": "",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "励ん",
+        "line": "勉学励んで めにめに"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "払う|はらえ",
+    "word": "払う",
+    "reading": "はらえ",
+    "translation": "",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "払え",
+        "line": "払えって現実はバグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "今日|きょう",
+    "word": "今日",
+    "reading": "きょう",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "今日",
+        "line": "今日のメイク まつげ上がらんのエグい"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "メイク|めいく",
+    "word": "メイク",
+    "reading": "めいく",
+    "translation": "",
+    "origin": "メイク",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "メイク",
+        "line": "今日のメイク まつげ上がらんのエグい"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "まつげ|まつげ",
+    "word": "まつげ",
+    "reading": "まつげ",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "まつげ",
+        "line": "今日のメイク まつげ上がらんのエグい"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "上|じょう",
+    "word": "上",
+    "reading": "じょう",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "上",
+        "line": "今日のメイク まつげ上がらんのエグい"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "らん|らん",
+    "word": "らん",
+    "reading": "らん",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "らん",
+        "line": "今日のメイク まつげ上がらんのエグい"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "模索|もさく",
+    "word": "模索",
+    "reading": "もさく",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "模索",
+        "line": "日々日々模索"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "唯一|ゆいいつ",
+    "word": "唯一",
+    "reading": "ゆいいつ",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "唯一",
+        "line": "唯一無二 かわいい"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "無二|むに",
+    "word": "無二",
+    "reading": "むに",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "無二",
+        "line": "唯一無二 かわいい"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "かわいい|かわいい",
+    "word": "かわいい",
+    "reading": "かわいい",
+    "translation": "",
+    "origin": "",
+    "type": "形容詞",
+    "sources": [
+      {
+        "surface": "かわいい",
+        "line": "唯一無二 かわいい"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "結局|けっきょく",
+    "word": "結局",
+    "reading": "けっきょく",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "結局",
+        "line": "結局もうどうかわかんないよ経済"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "わかる|わかん",
+    "word": "わかる",
+    "reading": "わかん",
+    "translation": "",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "わかん",
+        "line": "結局もうどうかわかんないよ経済"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "経済|けいざい",
+    "word": "経済",
+    "reading": "けいざい",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "経済",
+        "line": "結局もうどうかわかんないよ経済"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "学ぶ|まなん",
+    "word": "学ぶ",
+    "reading": "まなん",
+    "translation": "",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "学ん",
+        "line": "学んで良かった免罪符って"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "良い|よかっ",
+    "word": "良い",
+    "reading": "よかっ",
+    "translation": "",
+    "origin": "",
+    "type": "形容詞",
+    "sources": [
+      {
+        "surface": "良かっ",
+        "line": "学んで良かった免罪符って"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "免罪|めんざい",
+    "word": "免罪",
+    "reading": "めんざい",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "免罪",
+        "line": "学んで良かった免罪符って"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "符|ふ",
+    "word": "符",
+    "reading": "ふ",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "符",
+        "line": "学んで良かった免罪符って"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "売れる|うれ",
+    "word": "売れる",
+    "reading": "うれ",
+    "translation": "",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "売れ",
+        "line": "売れんだって高値で捌け"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "高値|たかね",
+    "word": "高値",
+    "reading": "たかね",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "高値",
+        "line": "売れんだって高値で捌け"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "捌け|はけ",
+    "word": "捌け",
+    "reading": "はけ",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "捌け",
+        "line": "売れんだって高値で捌け"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "富豪|ふごう",
+    "word": "富豪",
+    "reading": "ふごう",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "富豪",
+        "line": "将来いつか富豪になってみたい"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "これ|これ",
+    "word": "これ",
+    "reading": "これ",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "これ",
+        "line": "これに生産性など皆無です"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "生産|せいさん",
+    "word": "生産",
+    "reading": "せいさん",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "生産",
+        "line": "これに生産性など皆無です"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "性|せい",
+    "word": "性",
+    "reading": "せい",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "性",
+        "line": "これに生産性など皆無です"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "皆無|かいむ",
+    "word": "皆無",
+    "reading": "かいむ",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "皆無",
+        "line": "これに生産性など皆無です"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "感情|かんじょう",
+    "word": "感情",
+    "reading": "かんじょう",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "感情",
+        "line": "感情はプラスチック"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "プラスチック|ぷらすちっく",
+    "word": "プラスチック",
+    "reading": "ぷらすちっく",
+    "translation": "",
+    "origin": "プラスチック",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "プラスチック",
+        "line": "感情はプラスチック"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "体内|たいない",
+    "word": "体内",
+    "reading": "たいない",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "体内",
+        "line": "体内漂って溜まっていきます"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "漂う|ただよっ",
+    "word": "漂う",
+    "reading": "ただよっ",
+    "translation": "",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "漂っ",
+        "line": "体内漂って溜まっていきます"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "溜まる|たまっ",
+    "word": "溜まる",
+    "reading": "たまっ",
+    "translation": "",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "溜まっ",
+        "line": "体内漂って溜まっていきます"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "いく|いき",
+    "word": "いく",
+    "reading": "いき",
+    "translation": "",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "いき",
+        "line": "体内漂って溜まっていきます"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "気分|きぶん",
+    "word": "気分",
+    "reading": "きぶん",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "気分",
+        "line": "最低な気分なら最低でいい"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "黙る|だまっ",
+    "word": "黙る",
+    "reading": "だまっ",
+    "translation": "",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "黙っ",
+        "line": "黙っている方が不健康です"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "方|ほう",
+    "word": "方",
+    "reading": "ほう",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "方",
+        "line": "黙っている方が不健康です"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "不健康|ふけんこう",
+    "word": "不健康",
+    "reading": "ふけんこう",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "不健康",
+        "line": "黙っている方が不健康です"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "言う|いい",
+    "word": "言う",
+    "reading": "いい",
+    "translation": "",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "言い",
+        "line": "言いたいことは全部言って"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "全部|ぜんぶ",
+    "word": "全部",
+    "reading": "ぜんぶ",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "全部",
+        "line": "言いたいことは全部言って"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "言う|いっ",
+    "word": "言う",
+    "reading": "いっ",
+    "translation": "",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "言っ",
+        "line": "言いたいことは全部言って"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "出来る|できる",
+    "word": "出来る",
+    "reading": "できる",
+    "translation": "",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "出来る",
+        "line": "出来る事あれば全部やって"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "ある|あれ",
+    "word": "ある",
+    "reading": "あれ",
+    "translation": "",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "あれ",
+        "line": "出来る事あれば全部やって"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "やる|やっ",
+    "word": "やる",
+    "reading": "やっ",
+    "translation": "",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "やっ",
+        "line": "出来る事あれば全部やって"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "独り|ひとり",
+    "word": "独り",
+    "reading": "ひとり",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "独り",
+        "line": "独り独りがそうやって"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "繋がる|つながっ",
+    "word": "繋がる",
+    "reading": "つながっ",
+    "translation": "",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "繋がっ",
+        "line": "繋がって歌え"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "歌う|うたえ",
+    "word": "歌う",
+    "reading": "うたえ",
+    "translation": "",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "歌え",
+        "line": "繋がって歌え"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "此処|ここ",
+    "word": "此処",
+    "reading": "ここ",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "此処",
+        "line": "此処に居る 此処に居る"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "居る|いる",
+    "word": "居る",
+    "reading": "いる",
+    "translation": "",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "居る",
+        "line": "此処に居る 此処に居る"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "物言う|ものゆわ",
+    "word": "物言う",
+    "reading": "ものゆわ",
+    "translation": "",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "物言わ",
+        "line": "物言わぬ屍じゃないわ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "屍|かばね",
+    "word": "屍",
+    "reading": "かばね",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "屍",
+        "line": "物言わぬ屍じゃないわ"
+      }
+    ],
+    "_new": true
+  }
+]
