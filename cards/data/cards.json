@@ -10,9 +10,9 @@
       {
         "surface": "紡い",
         "line": "紡いでゆくの",
-        "id":"tuki-saiteikaiw",
-        "artist":"tuki",
-        "name":"歌曲1-1"
+        "id": "tuki-saiteikaiw",
+        "artist": "tuki",
+        "name": "歌曲1-1"
       }
     ],
     "_new": false
@@ -28,9 +28,9 @@
       {
         "surface": "地",
         "line": "かつて この地が幾多の文化を慈しんだように",
-        "id":"tuki-saiteikaiw",
-        "artist":"tuki",
-        "name":"歌曲1-2"
+        "id": "tuki-saiteikaiw",
+        "artist": "tuki",
+        "name": "歌曲1-2"
       }
     ],
     "_new": false
@@ -46,9 +46,9 @@
       {
         "surface": "捧げ",
         "line": "捧げているの",
-        "id":"ave-angles",
-        "artist":"Ave Mujica",
-        "name":"歌曲2-1"
+        "id": "ave-angles",
+        "artist": "Ave Mujica",
+        "name": "歌曲2-1"
       }
     ],
     "_new": false
@@ -64,11 +64,29 @@
       {
         "surface": "サフラン",
         "line": "差し出されたサフラン色の翼",
-        "id":"ave-stheway",
-        "artist":"Ave Mujica",
-        "name":"歌曲2-2"
+        "id": "ave-stheway",
+        "artist": "Ave Mujica",
+        "name": "歌曲2-2"
       }
     ],
     "_new": false
+  },
+  {
+    "key": "体|からだ",
+    "word": "体",
+    "reading": "からだ",
+    "translation": "身體",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "体",
+        "line": "何者にも成れない体と",
+        "id": "25-sonoenonamaewa",
+        "artist": "25",
+        "name": "25-sonoenonamaewa"
+      }
+    ],
+    "_new": true
   }
 ]
