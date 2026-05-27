@@ -70,19 +70,31 @@ function renderCard(item,type){
     :'';
 
     const sources=
+    
     (item.sources||[])
+    
     .slice(0,3)
+    
     .map(s=>`
-
-        <div class="source">
-            ${s.surface}
-            <br>
-            ${s.line}
-        </div>
-
+    
+    <div class="source">
+    
+    ${s.line}
+    
+    <br>
+    
+    ${s.artist}
+    
+    -
+    
+    ${s.title}
+    
+    </div>
+    
     `)
+    
     .join('');
-
+    
     const originBox=isKatakana(item.word)
 
     ?
@@ -123,9 +135,6 @@ function renderCard(item,type){
             >
 
             <b>${item.word}</b>
-
-            【${item.reading}】
-
         </label>
 
         <div class="meta">
