@@ -732,39 +732,22 @@ function buildTokenizer(){
 
     return new Promise(
 
-        (
-
-            resolve,
-            reject
-
-        )=>{
+        (resolve,reject)=>{
 
             kuromoji
-
             .builder({
 
-                dicPath:
-                './dict'
+                dicPath:'./dict'
 
             })
 
             .build(
 
-                (
+                (err,tokenizer)=>{
 
-                    err,
-                    tokenizer
+                    if(err){
 
-                )=>{
-
-                    if(
-                        err
-                    ){
-
-                        reject(
-                            err
-                        );
-
+                        reject(err);
                         return;
                     }
 
