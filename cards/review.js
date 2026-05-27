@@ -1158,16 +1158,14 @@ async function batchGenerate(){
                     let translation='';
                     let origin='';
                     
-                    if(
-                        dictionary[
-                            base
-                        ]
-                    ){
+                    const d=
+                    dictionary[
+                        base
+                    ];
                     
-                        const d=
-                        dictionary[
-                            base
-                        ];
+                    if(
+                        d
+                    ){
                     
                         if(
                             d.word
@@ -1199,28 +1197,6 @@ async function batchGenerate(){
                     
                             origin=
                             d.origin;
-                        }
-                    }{
-
-                        const d=
-                        dictionary[
-                            base
-                        ];
-
-                        if(
-                            d.word
-                        ){
-
-                            base=
-                            d.word;
-                        }
-
-                        if(
-                            d.reading
-                        ){
-
-                            reading=
-                            d.reading;
                         }
                     }
 
