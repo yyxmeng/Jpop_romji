@@ -1,6 +1,6 @@
 // ── 25時、ナイトコードで。 / 飾って ──
 addSong(`25時、ナイトコードで。`, {
-  id: `25-kasatte`, title: `飾って`, sort: `飾`,
+  id: `25時ナイトコードで-飾って`, title: `飾って`, sort: `飾`,
   yt: `https://youtu.be/ab3ku_Zv7Jo?si=-AJfLiYWpDVgbnqa`,
   lines(){return[
     L([[`戸惑`,`とまど`],`ったり`,[`止`,`と`],`まったり`]),
