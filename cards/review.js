@@ -458,7 +458,7 @@ async function saveAll(){
 function extractLyrics(code){
 
     const regex=
-    /addSong\("(.+?)"/;
+    /L\s*\(\s*\[(.*?)\]\s*\)/gs;
 
     const lines=[];
 
