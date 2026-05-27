@@ -646,6 +646,8 @@ async function batchGenerate(){
             const songCode=
             await songRes.text();
 
+            const meta = extractSongMeta(songCode);
+
             const lyrics=
             extractLyrics(
                 songCode
@@ -798,21 +800,14 @@ async function batchGenerate(){
                             line:
                             line.surface,
                         
-                            id:
-                            songPath
-                            .split('/')
-                            .pop()
-                            .replace('.js',''),
-                        
                             artist:
-                            songPath
-                            .split('/')[1],
+                            meta.artist,
                         
-                            name:
-                            songPath
-                            .split('/')
-                            .pop()
-                            .replace('.js','')
+                            title:
+                            meta.title,
+                        
+                            songId:
+                            meta.id
                         }],
 
                         _new:true
