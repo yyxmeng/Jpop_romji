@@ -338,6 +338,12 @@ id="origin"
 class="origin"
 >
 </div>
+  
+<div
+id="backSource"
+class="meta"
+>
+</div>
 
 </div>
 
@@ -467,12 +473,6 @@ function renderCard(){
 
   if(!cards.length){
 
-    qs('word').textContent='無資料';
-    qs('reading').textContent='';
-    qs('translation').textContent='';
-    qs('origin').textContent='';
-    qs('meta').textContent='';
-
     return;
   }
 
@@ -483,16 +483,60 @@ function renderCard(){
   .classList
   .remove('flipped');
 
-  qs('word').textContent=
+  const sourcePool=
+  buildDisplaySource(card);
+
+  const frontSources=
+
+  params.has('song')
+
+  ?
+
+  sourcePool.slice(0,3)
+
+  :
+
+  randomPick(
+    sourcePool,
+    3
+  );
+
+  const backSource=
+
+  randomPick(
+    sourcePool,
+    1
+  )[0];
+
+  const frontHtml=
+
+  frontSources
+  .map(
+
+    s=>
+
+    `${s.artist} — ${s.name}`
+  )
+
+  .join('<br>');
+
+  qs('word')
+  .textContent=
   card.word||'';
 
-  qs('reading').textContent=
+  qs('reading')
+  .textContent=
   card.reading||'';
 
-  qs('translation').textContent=
-  card.translation||'（未填寫翻譯）';
+  qs('translation')
+  .textContent=
 
-  qs('origin').textContent=
+  card.translation
+  ||
+  '（未填寫翻譯）';
+
+  qs('origin')
+  .textContent=
 
   card.origin
 
@@ -504,8 +548,42 @@ function renderCard(){
 
   '';
 
-  qs('meta').textContent=
-  card.type||'';
+  qs('meta')
+  .innerHTML=
+
+`
+${card.type}
+
+<br><br>
+
+${sourcePool[0]?.line||''}
+
+<br><br>
+
+${frontHtml}
+`;
+
+  qs('backSource')
+  .innerHTML=
+
+  backSource
+
+  ?
+
+`
+${backSource.line}
+
+<br><br>
+
+${backSource.artist}
+—
+
+${backSource.name}
+`
+
+  :
+
+  '';
 
   qs('progressNow')
   .textContent=
@@ -515,7 +593,7 @@ function renderCard(){
   .textContent=
   cards.length;
 }
-
+  
 function flipCard(){
 
   qs('flashcard')
@@ -879,6 +957,66 @@ async function init(){
 
 init();
 
+</script>
+
+<script>
+function randomPick(arr,count){
+
+  if(!arr?.length){
+
+    return [];
+  }
+
+  const copy=[...arr];
+
+  copy.sort(
+
+    ()=>Math.random()-0.5
+  );
+
+  return copy.slice(0,count);
+}
+</script>
+
+<script>
+function buildDisplaySource(card){
+
+  const mode=
+  params.get('mode');
+
+  const artist=
+  params.get('artist');
+
+  const song=
+  params.get('song');
+
+  let list=
+  card.sources||[];
+
+  if(song){
+
+    list=
+    list.filter(
+
+      s=>
+
+      s.id===song
+    );
+  }
+
+  else if(artist){
+
+    list=
+    list.filter(
+
+      s=>
+
+      s.artist===artist
+    );
+  }
+
+  return list;
+}
 </script>
 
 </body>
