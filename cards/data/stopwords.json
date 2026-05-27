@@ -1,1 +1,38 @@
-[]
+[
+  {
+    "key": "何者|なにもの",
+    "word": "何者",
+    "reading": "なにもの",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "何者",
+        "line": "何者にも成れない体と",
+        "id": "25-sonoenonamaewa",
+        "artist": "25",
+        "name": "25-sonoenonamaewa"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "成れる|なれ",
+    "word": "成れる",
+    "reading": "なれ",
+    "translation": "",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "成れ",
+        "line": "何者にも成れない体と",
+        "id": "25-sonoenonamaewa",
+        "artist": "25",
+        "name": "25-sonoenonamaewa"
+      }
+    ],
+    "_new": true
+  }
+]
