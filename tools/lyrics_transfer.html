@@ -623,29 +623,60 @@ function onTitleInput(){
 }
 
 function autoGenId(){
-  const artist = document.getElementById('artist').value.trim();
-  const title  = document.getElementById('title').value.trim();
-  if(!artist && !title) return;
 
-  // 歌手：取英文字母前3碼
-  let aSlug = artist.replace(/[^a-zA-Z]/g,'').slice(0,3).toLowerCase();
+  const artist=
+    document
+    .getElementById('artist')
+    .value
+    .trim();
+
+  const title=
+    document
+    .getElementById('title')
+    .value
+    .trim();
+
+  if(!artist&&!title){
+    return;
+  }
+
+  function slugJP(str){
+
+    return str
+
+      .normalize('NFKC')
+
+      .replace(/[　\s]+/g,'-')
+
+      .replace(
+        /[^\p{Letter}\p{Number}\-]/gu,
+        ''
+      )
+
+      .toLowerCase();
+  }
+
+  let aSlug=
+    slugJP(artist)
+    .slice(0,10);
+
+  let tSlug=
+    slugJP(title)
+    .slice(0,20);
+
   if(!aSlug){
-    aSlug = [...artist].slice(0,2)
-      .map(c => c.codePointAt(0).toString(16).padStart(4,'0'))
-      .join('').slice(0,4);
+    aSlug='artist';
   }
 
-  // 歌名：取英文+數字前10碼
-  let tSlug = title.replace(/[^a-zA-Z0-9]/g,'').slice(0,10).toLowerCase();
   if(!tSlug){
-    tSlug = [...title].slice(0,3)
-      .map(c => c.codePointAt(0).toString(16).padStart(4,'0'))
-      .join('').slice(0,8);
+    tSlug='song';
   }
 
-  const id = ((aSlug||'x') + '-' + (tSlug||'song'))
-    .replace(/[^a-z0-9\-]/g,'').replace(/-+/g,'-');
-  document.getElementById('sid').value = id;
+  document
+  .getElementById('sid')
+  .value=
+
+  `${aSlug}-${tSlug}`;
 }
 
 // ═══════════════════════════════════
