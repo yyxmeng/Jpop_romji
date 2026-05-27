@@ -458,7 +458,7 @@ async function saveAll(){
 function extractLyrics(code){
 
     const regex=
-    /L\s*\(\s*\[(.*?)\]\s*\)/gs;
+    /addSong\("(.+?)"/;
 
     const lines=[];
 
@@ -473,6 +473,37 @@ function extractLyrics(code){
     }
 
     return lines;
+}
+
+function extractSongMeta(code){
+
+    const artistMatch=
+
+    code.match(
+        /addSong\s*\(\s*[`"']([\s\S]*?)[`"']\s*,/
+    );
+
+    const idMatch=
+    code.match(
+        /\bid\s*:\s*[`"']([\s\S]*?)[`"']/
+    );
+
+    const titleMatch=
+    code.match(
+        /\btitle\s*:\s*[`"']([\s\S]*?)[`"']/
+    );
+
+    return{
+
+        artist:
+        artistMatch?.[1]||'',
+
+        id:
+        idMatch?.[1]||'',
+
+        title:
+        titleMatch?.[1]||''
+    };
 }
 
 function buildTokenizer(){
