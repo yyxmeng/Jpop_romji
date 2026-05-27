@@ -88,5 +88,23 @@
       }
     ],
     "_new": false
+  },
+  {
+    "key": "小石|こいし",
+    "word": "小石",
+    "reading": "こいし",
+    "translation": "石頭",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "小石",
+        "line": "小石を高く高く 積み上げては",
+        "artist": "25時、ナイトコードで。",
+        "title": "D/N/A",
+        "songId": "25時ナイトコードで-dna"
+      }
+    ],
+    "_new": true
   }
 ]
