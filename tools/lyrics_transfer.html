@@ -964,13 +964,21 @@ function clearQueue(){
 function slugifyArtist(str){
 
   return str
-    .normalize('NFKD')
-    .replace(/[\u0300-\u036f]/g,'')
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g,'_')
-    .replace(/^_+|_+$/g,'')
 
-  || 'unknown_artist';
+    .normalize('NFKC')
+
+    .replace(/[　\s]+/g,'_')
+
+    .replace(
+      /[^\p{Letter}\p{Number}_-]/gu,
+      ''
+    )
+
+    .toLowerCase()
+
+  ||
+
+  'unknown_artist';
 }
 
 
