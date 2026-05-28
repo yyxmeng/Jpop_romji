@@ -1,6 +1,6 @@
 // ── Ave Mujica / Symbol IV : Earth ──
 addSong('Ave Mujica', {
-  id: 'ave-symbolivea', title: 'Symbol IV : Earth', sort: 'S',
+  id: 'ave-mujica-SymbolIVEarth', title: 'Symbol IV : Earth', sort: 'S',
   yt: 'https://youtu.be/WqQPM0dZpXc?si=gD_wK-eSGn-JTT_J',
   lines(){return[
     L([[`紡`,`つむ`],`いでゆくの`]),
