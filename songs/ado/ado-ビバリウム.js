@@ -1,6 +1,6 @@
 // ── Ado / ビバリウム ──
 addSong(`Ado`, {
-  id: `ado-vivarian`, title: `ビバリウム`, sort: `ビ`,
+  id: `ado-ビバリウム`, title: `ビバリウム`, sort: `ビ`,
   yt: `https://youtu.be/YvYii6dluM8?si=VVrfkJqq6MsKV0vb`,
   lines(){return[
     L([` あれからどれくらい`,[`経`,`た`],`ったことだろう`]),
