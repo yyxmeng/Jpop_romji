@@ -758,22 +758,63 @@ async function batchGenerate(){
                         continue;
                     }
 
-                    const exists=
-
-                    cards.some(
+                    const sourceData={
+                    
+                        surface:
+                        t.surface_form,
+                    
+                        line:
+                        line.surface,
+                    
+                        artist:
+                        meta.artist,
+                    
+                        title:
+                        meta.title,
+                    
+                        songId:
+                        meta.id
+                    };
+                    
+                    const existing=
+                    
+                    pending.find(
                         x=>x.key===key
                     )
-
+                    
                     ||
-
-                    pending.some(
+                    
+                    cards.find(
                         x=>x.key===key
                     );
-
-                    if(exists){
+                    
+                    if(existing){
+                    
+                        existing.sources=
+                        existing.sources||[];
+                    
+                        const duplicated=
+                    
+                        existing.sources.some(
+                    
+                            s=>
+                    
+                            s.songId===sourceData.songId
+                    
+                            &&
+                    
+                            s.line===sourceData.line
+                        );
+                    
+                        if(!duplicated){
+                    
+                            existing.sources.push(
+                                sourceData
+                            );
+                        }
+                    
                         continue;
                     }
-
                     if(
 
                         isKatakana(base)
@@ -801,23 +842,7 @@ async function batchGenerate(){
 
                         type:t.pos,
                         
-                        sources:[{
-                        
-                            surface:
-                            t.surface_form,
-                        
-                            line:
-                            line.surface,
-                        
-                            artist:
-                            meta.artist,
-                        
-                            title:
-                            meta.title,
-                        
-                            songId:
-                            meta.id
-                        }],
+                        sources:[sourceData],
 
                         _new:true
                     });
