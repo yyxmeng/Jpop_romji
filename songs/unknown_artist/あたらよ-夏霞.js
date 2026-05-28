@@ -1,6 +1,6 @@
 // ── あたらよ / 夏霞 ──
 addSong(`あたらよ`, {
-  id: `ata-590f971e`, title: `夏霞`, sort: `夏`,
+  id: `あたらよ-夏霞`, title: `夏霞`, sort: `夏`,
   yt: `https://youtu.be/hcXcJAmzmAc?si=wxiIYTTv7Uxj2NJH`,
   lines(){return[
     L([[`空`,`そら`],`の`,[`青`,`あお`],`さに`,[`目`,`め`],`を`,[`奪`,`うば`],`われて`]),
