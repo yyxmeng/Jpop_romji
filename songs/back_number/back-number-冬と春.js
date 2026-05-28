@@ -1,6 +1,6 @@
 // ── back number / 冬と春 ──
 addSong('back number', {
-  id: 'back_fuyutoharu', title: '冬と春', sort: '冬',
+  id: 'back-number-冬と春', title: '冬と春', sort: '冬',
   yt: 'https://youtu.be/hu6y1ol9yUg?si=V3NeJubBFxdDlRLV',
   lines(){return[
     L([['私','わたし'],'を',['探','さが'],'していたのに']),
