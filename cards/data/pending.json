@@ -1,1 +1,1370 @@
-[]
+[
+  {
+    "key": "戸惑う|とまどっ",
+    "word": "戸惑う",
+    "reading": "とまどっ",
+    "translation": "",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "戸惑っ",
+        "line": "戸惑ったり止まったり",
+        "artist": "25時、ナイトコードで。",
+        "title": "飾って",
+        "songId": "25時ナイトコードで-飾って"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "止まる|とまっ",
+    "word": "止まる",
+    "reading": "とまっ",
+    "translation": "",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "止まっ",
+        "line": "戸惑ったり止まったり",
+        "artist": "25時、ナイトコードで。",
+        "title": "飾って",
+        "songId": "25時ナイトコードで-飾って"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "置く|おい",
+    "word": "置く",
+    "reading": "おい",
+    "translation": "",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "置い",
+        "line": "置いてけぼりの僕だから",
+        "artist": "25時、ナイトコードで。",
+        "title": "飾って",
+        "songId": "25時ナイトコードで-飾って"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "ぼる|ぼり",
+    "word": "ぼる",
+    "reading": "ぼり",
+    "translation": "",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "ぼり",
+        "line": "置いてけぼりの僕だから",
+        "artist": "25時、ナイトコードで。",
+        "title": "飾って",
+        "songId": "25時ナイトコードで-飾って"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "僕|ぼく",
+    "word": "僕",
+    "reading": "ぼく",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "僕",
+        "line": "置いてけぼりの僕だから",
+        "artist": "25時、ナイトコードで。",
+        "title": "飾って",
+        "songId": "25時ナイトコードで-飾って"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "躓く|つまずき",
+    "word": "躓く",
+    "reading": "つまずき",
+    "translation": "",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "躓き",
+        "line": "躓きながら日々を歩く",
+        "artist": "25時、ナイトコードで。",
+        "title": "飾って",
+        "songId": "25時ナイトコードで-飾って"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "日々|ひび",
+    "word": "日々",
+    "reading": "ひび",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "日々",
+        "line": "躓きながら日々を歩く",
+        "artist": "25時、ナイトコードで。",
+        "title": "飾って",
+        "songId": "25時ナイトコードで-飾って"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "歩く|あるく",
+    "word": "歩く",
+    "reading": "あるく",
+    "translation": "",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "歩く",
+        "line": "躓きながら日々を歩く",
+        "artist": "25時、ナイトコードで。",
+        "title": "飾って",
+        "songId": "25時ナイトコードで-飾って"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "君|きみ",
+    "word": "君",
+    "reading": "きみ",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "君",
+        "line": "君の背中を追いかけながら",
+        "artist": "25時、ナイトコードで。",
+        "title": "飾って",
+        "songId": "25時ナイトコードで-飾って"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "背中|せなか",
+    "word": "背中",
+    "reading": "せなか",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "背中",
+        "line": "君の背中を追いかけながら",
+        "artist": "25時、ナイトコードで。",
+        "title": "飾って",
+        "songId": "25時ナイトコードで-飾って"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "追いかける|おいかけ",
+    "word": "追いかける",
+    "reading": "おいかけ",
+    "translation": "",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "追いかけ",
+        "line": "君の背中を追いかけながら",
+        "artist": "25時、ナイトコードで。",
+        "title": "飾って",
+        "songId": "25時ナイトコードで-飾って"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "立派|りっぱ",
+    "word": "立派",
+    "reading": "りっぱ",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "立派",
+        "line": "立派な人に 思い描く未来に",
+        "artist": "25時、ナイトコードで。",
+        "title": "飾って",
+        "songId": "25時ナイトコードで-飾って"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "人|ひと",
+    "word": "人",
+    "reading": "ひと",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "人",
+        "line": "立派な人に 思い描く未来に",
+        "artist": "25時、ナイトコードで。",
+        "title": "飾って",
+        "songId": "25時ナイトコードで-飾って"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "思い描く|おもいえがく",
+    "word": "思い描く",
+    "reading": "おもいえがく",
+    "translation": "",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "思い描く",
+        "line": "立派な人に 思い描く未来に",
+        "artist": "25時、ナイトコードで。",
+        "title": "飾って",
+        "songId": "25時ナイトコードで-飾って"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "未来|みらい",
+    "word": "未来",
+    "reading": "みらい",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "未来",
+        "line": "立派な人に 思い描く未来に",
+        "artist": "25時、ナイトコードで。",
+        "title": "飾って",
+        "songId": "25時ナイトコードで-飾って"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "見える|みえ",
+    "word": "見える",
+    "reading": "みえ",
+    "translation": "",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "見え",
+        "line": "見えない努力はどこか遠くへ",
+        "artist": "25時、ナイトコードで。",
+        "title": "飾って",
+        "songId": "25時ナイトコードで-飾って"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "努力|どりょく",
+    "word": "努力",
+    "reading": "どりょく",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "努力",
+        "line": "見えない努力はどこか遠くへ",
+        "artist": "25時、ナイトコードで。",
+        "title": "飾って",
+        "songId": "25時ナイトコードで-飾って"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "どこ|どこ",
+    "word": "どこ",
+    "reading": "どこ",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "どこ",
+        "line": "見えない努力はどこか遠くへ",
+        "artist": "25時、ナイトコードで。",
+        "title": "飾って",
+        "songId": "25時ナイトコードで-飾って"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "遠く|とおく",
+    "word": "遠く",
+    "reading": "とおく",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "遠く",
+        "line": "見えない努力はどこか遠くへ",
+        "artist": "25時、ナイトコードで。",
+        "title": "飾って",
+        "songId": "25時ナイトコードで-飾って"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "愛す|あいし",
+    "word": "愛す",
+    "reading": "あいし",
+    "translation": "",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "愛し",
+        "line": "愛してるも麻痺してる",
+        "artist": "25時、ナイトコードで。",
+        "title": "飾って",
+        "songId": "25時ナイトコードで-飾って"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "てる|てる",
+    "word": "てる",
+    "reading": "てる",
+    "translation": "",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "てる",
+        "line": "愛してるも麻痺してる",
+        "artist": "25時、ナイトコードで。",
+        "title": "飾って",
+        "songId": "25時ナイトコードで-飾って"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "麻痺|まひ",
+    "word": "麻痺",
+    "reading": "まひ",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "麻痺",
+        "line": "愛してるも麻痺してる",
+        "artist": "25時、ナイトコードで。",
+        "title": "飾って",
+        "songId": "25時ナイトコードで-飾って"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "する|し",
+    "word": "する",
+    "reading": "し",
+    "translation": "",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "し",
+        "line": "愛してるも麻痺してる",
+        "artist": "25時、ナイトコードで。",
+        "title": "飾って",
+        "songId": "25時ナイトコードで-飾って"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "一言|ひとこと",
+    "word": "一言",
+    "reading": "ひとこと",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "一言",
+        "line": "一言が難しくて 苦い",
+        "artist": "25時、ナイトコードで。",
+        "title": "飾って",
+        "songId": "25時ナイトコードで-飾って"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "難しい|むずかしく",
+    "word": "難しい",
+    "reading": "むずかしく",
+    "translation": "",
+    "origin": "",
+    "type": "形容詞",
+    "sources": [
+      {
+        "surface": "難しく",
+        "line": "一言が難しくて 苦い",
+        "artist": "25時、ナイトコードで。",
+        "title": "飾って",
+        "songId": "25時ナイトコードで-飾って"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "苦い|にがい",
+    "word": "苦い",
+    "reading": "にがい",
+    "translation": "",
+    "origin": "",
+    "type": "形容詞",
+    "sources": [
+      {
+        "surface": "苦い",
+        "line": "一言が難しくて 苦い",
+        "artist": "25時、ナイトコードで。",
+        "title": "飾って",
+        "songId": "25時ナイトコードで-飾って"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "贅沢|ぜいたく",
+    "word": "贅沢",
+    "reading": "ぜいたく",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "贅沢",
+        "line": "贅沢なんて言わないよ",
+        "artist": "25時、ナイトコードで。",
+        "title": "飾って",
+        "songId": "25時ナイトコードで-飾って"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "言う|いわ",
+    "word": "言う",
+    "reading": "いわ",
+    "translation": "",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "言わ",
+        "line": "贅沢なんて言わないよ",
+        "artist": "25時、ナイトコードで。",
+        "title": "飾って",
+        "songId": "25時ナイトコードで-飾って"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "優しい|やさしく",
+    "word": "優しい",
+    "reading": "やさしく",
+    "translation": "",
+    "origin": "",
+    "type": "形容詞",
+    "sources": [
+      {
+        "surface": "優しく",
+        "line": "ただ優しく手を握ってほしい",
+        "artist": "25時、ナイトコードで。",
+        "title": "飾って",
+        "songId": "25時ナイトコードで-飾って"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "手|て",
+    "word": "手",
+    "reading": "て",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "手",
+        "line": "ただ優しく手を握ってほしい",
+        "artist": "25時、ナイトコードで。",
+        "title": "飾って",
+        "songId": "25時ナイトコードで-飾って"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "握る|にぎっ",
+    "word": "握る",
+    "reading": "にぎっ",
+    "translation": "",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "握っ",
+        "line": "ただ優しく手を握ってほしい",
+        "artist": "25時、ナイトコードで。",
+        "title": "飾って",
+        "songId": "25時ナイトコードで-飾って"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "ほしい|ほしい",
+    "word": "ほしい",
+    "reading": "ほしい",
+    "translation": "",
+    "origin": "",
+    "type": "形容詞",
+    "sources": [
+      {
+        "surface": "ほしい",
+        "line": "ただ優しく手を握ってほしい",
+        "artist": "25時、ナイトコードで。",
+        "title": "飾って",
+        "songId": "25時ナイトコードで-飾って"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "波|なみ",
+    "word": "波",
+    "reading": "なみ",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "波",
+        "line": "波のように押し寄せては",
+        "artist": "25時、ナイトコードで。",
+        "title": "飾って",
+        "songId": "25時ナイトコードで-飾って"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "よう|よう",
+    "word": "よう",
+    "reading": "よう",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "よう",
+        "line": "波のように押し寄せては",
+        "artist": "25時、ナイトコードで。",
+        "title": "飾って",
+        "songId": "25時ナイトコードで-飾って"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "押し寄せる|おしよせ",
+    "word": "押し寄せる",
+    "reading": "おしよせ",
+    "translation": "",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "押し寄せ",
+        "line": "波のように押し寄せては",
+        "artist": "25時、ナイトコードで。",
+        "title": "飾って",
+        "songId": "25時ナイトコードで-飾って"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "感情|かんじょう",
+    "word": "感情",
+    "reading": "かんじょう",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "感情",
+        "line": "感情に溺れる",
+        "artist": "25時、ナイトコードで。",
+        "title": "飾って",
+        "songId": "25時ナイトコードで-飾って"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "溺れる|おぼれる",
+    "word": "溺れる",
+    "reading": "おぼれる",
+    "translation": "",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "溺れる",
+        "line": "感情に溺れる",
+        "artist": "25時、ナイトコードで。",
+        "title": "飾って",
+        "songId": "25時ナイトコードで-飾って"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "残す|のこし",
+    "word": "残す",
+    "reading": "のこし",
+    "translation": "",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "残し",
+        "line": "君が残した傷も今は",
+        "artist": "25時、ナイトコードで。",
+        "title": "飾って",
+        "songId": "25時ナイトコードで-飾って"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "傷|きず",
+    "word": "傷",
+    "reading": "きず",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "傷",
+        "line": "君が残した傷も今は",
+        "artist": "25時、ナイトコードで。",
+        "title": "飾って",
+        "songId": "25時ナイトコードで-飾って"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "今|いま",
+    "word": "今",
+    "reading": "いま",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "今",
+        "line": "君が残した傷も今は",
+        "artist": "25時、ナイトコードで。",
+        "title": "飾って",
+        "songId": "25時ナイトコードで-飾って"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "大切|たいせつ",
+    "word": "大切",
+    "reading": "たいせつ",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "大切",
+        "line": "大切な印になれたよ",
+        "artist": "25時、ナイトコードで。",
+        "title": "飾って",
+        "songId": "25時ナイトコードで-飾って"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "印|しるし",
+    "word": "印",
+    "reading": "しるし",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "印",
+        "line": "大切な印になれたよ",
+        "artist": "25時、ナイトコードで。",
+        "title": "飾って",
+        "songId": "25時ナイトコードで-飾って"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "なれる|なれ",
+    "word": "なれる",
+    "reading": "なれ",
+    "translation": "",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "なれ",
+        "line": "大切な印になれたよ",
+        "artist": "25時、ナイトコードで。",
+        "title": "飾って",
+        "songId": "25時ナイトコードで-飾って"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "嘆き|なげき",
+    "word": "嘆き",
+    "reading": "なげき",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "嘆き",
+        "line": "嘆きも 償いも 飾り付けて ハートで満たされますように",
+        "artist": "25時、ナイトコードで。",
+        "title": "飾って",
+        "songId": "25時ナイトコードで-飾って"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "償う|つぐない",
+    "word": "償う",
+    "reading": "つぐない",
+    "translation": "",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "償い",
+        "line": "嘆きも 償いも 飾り付けて ハートで満たされますように",
+        "artist": "25時、ナイトコードで。",
+        "title": "飾って",
+        "songId": "25時ナイトコードで-飾って"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "飾り付ける|かざりつけ",
+    "word": "飾り付ける",
+    "reading": "かざりつけ",
+    "translation": "",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "飾り付け",
+        "line": "嘆きも 償いも 飾り付けて ハートで満たされますように",
+        "artist": "25時、ナイトコードで。",
+        "title": "飾って",
+        "songId": "25時ナイトコードで-飾って"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "ハート|はーと",
+    "word": "ハート",
+    "reading": "はーと",
+    "translation": "",
+    "origin": "ハート",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "ハート",
+        "line": "嘆きも 償いも 飾り付けて ハートで満たされますように",
+        "artist": "25時、ナイトコードで。",
+        "title": "飾って",
+        "songId": "25時ナイトコードで-飾って"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "満たす|みたさ",
+    "word": "満たす",
+    "reading": "みたさ",
+    "translation": "",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "満たさ",
+        "line": "嘆きも 償いも 飾り付けて ハートで満たされますように",
+        "artist": "25時、ナイトコードで。",
+        "title": "飾って",
+        "songId": "25時ナイトコードで-飾って"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "れる|れ",
+    "word": "れる",
+    "reading": "れ",
+    "translation": "",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "れ",
+        "line": "嘆きも 償いも 飾り付けて ハートで満たされますように",
+        "artist": "25時、ナイトコードで。",
+        "title": "飾って",
+        "songId": "25時ナイトコードで-飾って"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "受け入れる|うけいれ",
+    "word": "受け入れる",
+    "reading": "うけいれ",
+    "translation": "",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "受け入れ",
+        "line": "受け入れた今日は少し綺麗だった",
+        "artist": "25時、ナイトコードで。",
+        "title": "飾って",
+        "songId": "25時ナイトコードで-飾って"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "今日|きょう",
+    "word": "今日",
+    "reading": "きょう",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "今日",
+        "line": "受け入れた今日は少し綺麗だった",
+        "artist": "25時、ナイトコードで。",
+        "title": "飾って",
+        "songId": "25時ナイトコードで-飾って"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "綺麗|きれい",
+    "word": "綺麗",
+    "reading": "きれい",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "綺麗",
+        "line": "受け入れた今日は少し綺麗だった",
+        "artist": "25時、ナイトコードで。",
+        "title": "飾って",
+        "songId": "25時ナイトコードで-飾って"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "お気に入り|おきにいり",
+    "word": "お気に入り",
+    "reading": "おきにいり",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "お気に入り",
+        "line": "お気に入りの香水を振って 扉を開けた",
+        "artist": "25時、ナイトコードで。",
+        "title": "飾って",
+        "songId": "25時ナイトコードで-飾って"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "香水|こうすい",
+    "word": "香水",
+    "reading": "こうすい",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "香水",
+        "line": "お気に入りの香水を振って 扉を開けた",
+        "artist": "25時、ナイトコードで。",
+        "title": "飾って",
+        "songId": "25時ナイトコードで-飾って"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "振る|ふっ",
+    "word": "振る",
+    "reading": "ふっ",
+    "translation": "",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "振っ",
+        "line": "お気に入りの香水を振って 扉を開けた",
+        "artist": "25時、ナイトコードで。",
+        "title": "飾って",
+        "songId": "25時ナイトコードで-飾って"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "扉|とびら",
+    "word": "扉",
+    "reading": "とびら",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "扉",
+        "line": "お気に入りの香水を振って 扉を開けた",
+        "artist": "25時、ナイトコードで。",
+        "title": "飾って",
+        "songId": "25時ナイトコードで-飾って"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "開ける|あけ",
+    "word": "開ける",
+    "reading": "あけ",
+    "translation": "",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "開け",
+        "line": "お気に入りの香水を振って 扉を開けた",
+        "artist": "25時、ナイトコードで。",
+        "title": "飾って",
+        "songId": "25時ナイトコードで-飾って"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "何気ない|なにげない",
+    "word": "何気ない",
+    "reading": "なにげない",
+    "translation": "",
+    "origin": "",
+    "type": "形容詞",
+    "sources": [
+      {
+        "surface": "何気ない",
+        "line": "何気ない一コマが色づいて 駆け足で",
+        "artist": "25時、ナイトコードで。",
+        "title": "飾って",
+        "songId": "25時ナイトコードで-飾って"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "一|いち",
+    "word": "一",
+    "reading": "いち",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "一",
+        "line": "何気ない一コマが色づいて 駆け足で",
+        "artist": "25時、ナイトコードで。",
+        "title": "飾って",
+        "songId": "25時ナイトコードで-飾って"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "コマ|こま",
+    "word": "コマ",
+    "reading": "こま",
+    "translation": "",
+    "origin": "コマ",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "コマ",
+        "line": "何気ない一コマが色づいて 駆け足で",
+        "artist": "25時、ナイトコードで。",
+        "title": "飾って",
+        "songId": "25時ナイトコードで-飾って"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "色づく|いろづい",
+    "word": "色づく",
+    "reading": "いろづい",
+    "translation": "",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "色づい",
+        "line": "何気ない一コマが色づいて 駆け足で",
+        "artist": "25時、ナイトコードで。",
+        "title": "飾って",
+        "songId": "25時ナイトコードで-飾って"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "駆け足|かけあし",
+    "word": "駆け足",
+    "reading": "かけあし",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "駆け足",
+        "line": "何気ない一コマが色づいて 駆け足で",
+        "artist": "25時、ナイトコードで。",
+        "title": "飾って",
+        "songId": "25時ナイトコードで-飾って"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "笑顔|えがお",
+    "word": "笑顔",
+    "reading": "えがお",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "笑顔",
+        "line": "どんな笑顔でどんな仕草で",
+        "artist": "25時、ナイトコードで。",
+        "title": "飾って",
+        "songId": "25時ナイトコードで-飾って"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "仕草|しぐさ",
+    "word": "仕草",
+    "reading": "しぐさ",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "仕草",
+        "line": "どんな笑顔でどんな仕草で",
+        "artist": "25時、ナイトコードで。",
+        "title": "飾って",
+        "songId": "25時ナイトコードで-飾って"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "着飾る|きかざっ",
+    "word": "着飾る",
+    "reading": "きかざっ",
+    "translation": "",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "着飾っ",
+        "line": "着飾って 守って 迷って 答え合わせの日々よ",
+        "artist": "25時、ナイトコードで。",
+        "title": "飾って",
+        "songId": "25時ナイトコードで-飾って"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "守る|まもっ",
+    "word": "守る",
+    "reading": "まもっ",
+    "translation": "",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "守っ",
+        "line": "着飾って 守って 迷って 答え合わせの日々よ",
+        "artist": "25時、ナイトコードで。",
+        "title": "飾って",
+        "songId": "25時ナイトコードで-飾って"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "迷う|まよっ",
+    "word": "迷う",
+    "reading": "まよっ",
+    "translation": "",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "迷っ",
+        "line": "着飾って 守って 迷って 答え合わせの日々よ",
+        "artist": "25時、ナイトコードで。",
+        "title": "飾って",
+        "songId": "25時ナイトコードで-飾って"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "答え|こたえ",
+    "word": "答え",
+    "reading": "こたえ",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "答え",
+        "line": "着飾って 守って 迷って 答え合わせの日々よ",
+        "artist": "25時、ナイトコードで。",
+        "title": "飾って",
+        "songId": "25時ナイトコードで-飾って"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "合わせ|あわせ",
+    "word": "合わせ",
+    "reading": "あわせ",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "合わせ",
+        "line": "着飾って 守って 迷って 答え合わせの日々よ",
+        "artist": "25時、ナイトコードで。",
+        "title": "飾って",
+        "songId": "25時ナイトコードで-飾って"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "愛せる|あいせる",
+    "word": "愛せる",
+    "reading": "あいせる",
+    "translation": "",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "愛せる",
+        "line": "愛せる自分になれたよ",
+        "artist": "25時、ナイトコードで。",
+        "title": "飾って",
+        "songId": "25時ナイトコードで-飾って"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "通り|とおり",
+    "word": "通り",
+    "reading": "とおり",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "通り",
+        "line": "いつも通りの朝に",
+        "artist": "25時、ナイトコードで。",
+        "title": "飾って",
+        "songId": "25時ナイトコードで-飾って"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "朝|あさ",
+    "word": "朝",
+    "reading": "あさ",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "朝",
+        "line": "いつも通りの朝に",
+        "artist": "25時、ナイトコードで。",
+        "title": "飾って",
+        "songId": "25時ナイトコードで-飾って"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "メイク|めいく",
+    "word": "メイク",
+    "reading": "めいく",
+    "translation": "",
+    "origin": "メイク",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "メイク",
+        "line": "いつも通りのメイクで",
+        "artist": "25時、ナイトコードで。",
+        "title": "飾って",
+        "songId": "25時ナイトコードで-飾って"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "会話|かいわ",
+    "word": "会話",
+    "reading": "かいわ",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "会話",
+        "line": "いつも通りの会話と",
+        "artist": "25時、ナイトコードで。",
+        "title": "飾って",
+        "songId": "25時ナイトコードで-飾って"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "幸せ|しあわせ",
+    "word": "幸せ",
+    "reading": "しあわせ",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "幸せ",
+        "line": "いつも通りの幸せ",
+        "artist": "25時、ナイトコードで。",
+        "title": "飾って",
+        "songId": "25時ナイトコードで-飾って"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "飾る|かざっ",
+    "word": "飾る",
+    "reading": "かざっ",
+    "translation": "",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "飾っ",
+        "line": "飾って 飾って 飾って 飾って",
+        "artist": "25時、ナイトコードで。",
+        "title": "飾って",
+        "songId": "25時ナイトコードで-飾って"
+      }
+    ],
+    "_new": true
+  }
+]
