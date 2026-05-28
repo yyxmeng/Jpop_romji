@@ -1,6 +1,6 @@
 // ── あたらよ / 今夜2人だけのダンスを ──
 addSong(`あたらよ`, {
-  id: `3042-2`, title: `今夜2人だけのダンスを`, sort: `今`,
+  id: `あたらよ-今夜2人だけのダンスを`, title: `今夜2人だけのダンスを`, sort: `今`,
   yt: `https://youtu.be/bPcdl4BZ7Rw?si=HdzZSpBdTP-_KCvW`,
   lines(){return[
     L([[`今夜`,`こんや`],[`2人`,`ふたり`],`だけのダンスを`]),
