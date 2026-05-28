@@ -1,6 +1,6 @@
 // ── tuki. / コトノハ - kotonoha ──
 addSong('tuki.', {
-  id: 'tuki-kotonoha', title: 'コトノハ - kotonoha', sort: 'コ',
+  id: 'tuki-コトノハ - kotonoha', title: 'コトノハ - kotonoha', sort: 'コ',
   yt: 'https://youtu.be/Tu_Zvj-TRFA?si=7L8EL5lDWrB45hG7',
   lines(){return[
     L(['ポケットに',['僕','ぼく'],'を',['隠','かく'],'したまま']),
