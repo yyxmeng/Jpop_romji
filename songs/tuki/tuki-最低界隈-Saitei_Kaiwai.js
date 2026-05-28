@@ -1,6 +1,6 @@
 // ── tuki. / 最低界隈 - Saitei Kaiwai ──
 addSong('tuki.', {
-  id: 'tuk-saiteikaiw', title: '最低界隈 - Saitei Kaiwai', sort: '最',
+  id: 'tuki-最低界隈 - Saitei Kaiwai', title: '最低界隈 - Saitei Kaiwai', sort: '最',
   yt: 'https://youtu.be/UAsdgWVwXlc?si=tFfb_oihHXgYAD02',
   lines(){return[
     L([[`満員電車`,`まんいんでんしゃ`],[`触`,`さわ`],`んなって`]),
