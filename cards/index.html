@@ -125,27 +125,7 @@
   line-height:1.2;
 }
 
-.translation{
-  font-size:16px;
-  color:var(--text2);
-  text-align:right;
-  font-weight:400;
-  line-height:1.4;
-}
 
-.back-grid{
-  width:100%;
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-}
-
-.back-row{
-  display:flex;
-  justify-content:space-between;
-  align-items:flex-end;
-  width:100%;
-}
 
 .back-row:last-child{
   margin-top:-4px;
@@ -212,6 +192,11 @@
 }
 
 .type{
+  font-size:18px;
+  color:var(--text2);
+}
+
+.back-translation{
   font-size:18px;
   color:var(--text2);
 }
@@ -623,49 +608,44 @@ ${frontSource.title}
 
   // ===== 背面 =====
 
-  qs('translation')
-  .innerHTML=
-
-`
-<div class="back-grid">
-
-<div class="back-row">
-
-<div class="reading">
-
-${card.reading||''}
-
-</div>
-
-<div class="origin">
-
-${card.origin||''}
-
-</div>
-
-</div>
-
-
-
-<div class="back-row">
-
-<div class="back-word">
-
-${card.word||''}
-
-</div>
-
-<div class="translation">
-
-${card.translation||'（未填寫翻譯）'}
-
-</div>
-
-</div>
-</div>
-
-</div>
-`;
+  qs('translation').innerHTML=
+  `
+  
+  <div class="row">
+  
+  <div class="reading left">
+  
+  ${card.reading||''}
+  
+  </div>
+  
+  <div class="origin right">
+  
+  ${card.origin||''}
+  
+  </div>
+  
+  </div>
+  
+  <br>
+  
+  <div class="row">
+  
+  <div class="word left">
+  
+  ${card.word||''}
+  
+  </div>
+  
+  <div class="back-translation right">
+  
+  ${card.translation||'（未填寫翻譯）'}
+  
+  </div>
+  
+  </div>
+  
+  `;
 
 
 
