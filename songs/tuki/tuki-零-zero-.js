@@ -1,6 +1,6 @@
 // ── tuki. / 零-zero- ──
 addSong(`tuki.`, {
-  id: `tuk-zero`, title: `零-zero-`, sort: `零`,
+  id: `tuki-零-zero-`, title: `零-zero-`, sort: `零`,
   yt: `https://youtu.be/iWeRglrNu6E?si=UBrZ138h-st7Bdnx`,
   lines(){return[
     L([[`再会`,`さいかい`],`が`,[`痛`,`いた`],`いくらい `,[`嫌`,`きら`],`いな`,[`次第`,`しだい`]]),
