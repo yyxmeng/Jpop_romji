@@ -478,41 +478,71 @@ function renderCard(){
   const sourcePool=
   buildDisplaySource(card);
 
-  const frontSources=
 
-  randomPick(
-    sourcePool,
-    3
-  );
 
-  const backSource=
+  // ===== 正面：1來源 =====
+
+  const frontSource=
 
   randomPick(
     sourcePool,
     1
   )[0];
 
+
+
   const frontHtml=
 
-  frontSources
+  frontSource
+
+  ?
+
+`
+${frontSource.line||''}
+
+<br><br>
+
+${frontSource.artist}
+—
+${frontSource.title}
+`
+
+  :
+
+  '';
+
+
+
+  // ===== 背面：1~3來源 =====
+
+  const backSources=
+
+  randomPick(
+    sourcePool,
+    3
+  );
+
+
+
+  const backHtml=
+
+  backSources
 
   .map(
 
     s=>
 
-    `${s.artist} — ${s.title}`
+`
+${s.artist}
+—
+${s.title}
+—
+${s.line||''}
+`
 
   )
 
-  .join('<br>');
-
-  const line=
-
-  sourcePool[0]?.line
-
-  ||
-
-  '';
+  .join('<br><br>');
 
 
 
@@ -521,21 +551,15 @@ function renderCard(){
   qs('word')
   .textContent=
 
-  card.word
+  card.word||'';
 
-  ||
 
-  '';
 
   qs('meta')
   .innerHTML=
 
 `
 ${card.type}
-
-<br><br>
-
-${line}
 
 <br><br>
 
@@ -594,27 +618,7 @@ card.origin
   qs('backSource')
   .innerHTML=
 
-  backSource
-
-  ?
-
-`
-
-${backSource.line}
-
-<br><br>
-
-${backSource.artist}
-
-—
-
-${backSource.title}
-
-`
-
-  :
-
-  '';
+  backHtml;
 
 
 
@@ -622,6 +626,8 @@ ${backSource.title}
   .textContent=
 
   current+1;
+
+
 
   qs('progressTotal')
   .textContent=
