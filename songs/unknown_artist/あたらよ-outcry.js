@@ -1,6 +1,6 @@
 // ── あたらよ / outcry ──
 addSong(`あたらよ`, {
-  id: `atarayo-outcry`, title: `outcry`, sort: `o`,
+  id: `あたらよ-outcry`, title: `outcry`, sort: `o`,
   yt: `https://youtu.be/Y2wZKacNue8?si=oRqjPHOZlsVIvrWb`,
   lines(){return[
     L([[`孤独`,`こどく`],`を`,[`飲`,`の`],`んで`]),
