@@ -1,6 +1,6 @@
 // ── あたらよ / アカネチル ──
 addSong(`あたらよ`, {
-  id: `3042-30a230ab`, title: `アカネチル`, sort: `ア`,
+  id: `あたらよ-アカネチル`, title: `アカネチル`, sort: `ア`,
   yt: `https://youtu.be/vRPgoGGevRc?si=d_WSF_nXe7ktaNXz`,
   lines(){return[
     L([[`雨`,`あま`],`ざらしのバス`,[`停`,`てい`],`で`]),
