@@ -1,6 +1,6 @@
 // ── ReoNa / 革命 ──
 addSong(`ReoNa`, {
-  id: `reo-9769547d`, title: `革命`, sort: `革`,
+  id: `ReoNa-革命`, title: `革命`, sort: `革`,
   yt: `https://youtu.be/Vm3mYkDEOZ8?si=SaOl7t53LINusiaM`,
   lines(){return[
     L([[`聖女`,`せいじょ`],`にはなれない `,[`普通`,`ふつう`],`のコにもなれない`]),
