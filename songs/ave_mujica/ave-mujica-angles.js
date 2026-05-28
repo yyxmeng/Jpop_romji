@@ -1,6 +1,6 @@
 // ── Ave Mujica / Angles ──
 addSong('Ave Mujica',{
-  id:'am-angles', title:'Angles', sort:'A',
+  id:'ave-mujica-angles', title:'Angles', sort:'A',
   yt: 'https://youtu.be/MbVgSM7Hhso?si=ykdQqFCWp8h_X3Ua',
   lines(){return[
     L([[`訪`,'おとず'],`れたの　いま　`,[`連`,'つ'],`れ`,[`出`,'だ'],`すため`]),
