@@ -1,6 +1,6 @@
 // ── ZUTOMAYO / 嘘じゃない ──
 addSong('ZUTOMAYO', {
-  id: 'ztmy-usojyanai', title: '嘘じゃない', sort: 'う',
+  id: 'ZUTOMAYO-嘘じゃない', title: '嘘じゃない', sort: 'う',
   yt: 'https://youtu.be/GfDXqY-V0EY?si=aXnSppleKfJVW4GP',
   lines(){return[
     L([[`嘘`,'うそ'],`じゃない　`,[`嗚呼`,'ああ'],`　`,[`初`,'はじ'],`めましての`,[`曲`,'きょく'],`を`]),
