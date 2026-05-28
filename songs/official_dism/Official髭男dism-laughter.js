@@ -1,6 +1,6 @@
 // ── Official髭男dism / Laughter ──
 addSong(`Official髭男dism`, {
-  id: `off-laughter`, title: `Laughter`, sort: `L`,
+  id: `Official髭男dism-laughter`, title: `Laughter`, sort: `L`,
   yt: `https://youtu.be/kff_DXor7jc?si=Fo8D1M_sHKorUmT5`,
   lines(){return[
     L([[`鏡`,`かがみ`],`の`,[`中`,`なか`],`を`,[`覗`,`のぞ`],`いても `,[`羽根`,`はね`],`ひとつも`,[`見`,`み`],`つからないけど`]),
