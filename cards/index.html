@@ -126,10 +126,11 @@
 }
 
 .translation{
-  font-size:18px;
+  font-size:16px;
   color:var(--text2);
   text-align:right;
   font-weight:400;
+  line-height:1.4;
 }
 
 .back-grid{
@@ -148,6 +149,14 @@
 
 .back-row:last-child{
   margin-top:-4px;
+}
+
+.back-word{
+  font-size:34px;
+  font-family:var(--font-jp);
+  color:var(--text);
+  margin:0;
+  line-height:1.15;
 }
 
 .origin{
@@ -640,7 +649,7 @@ ${card.origin||''}
 
 <div class="back-row">
 
-<div class="word">
+<div class="back-word">
 
 ${card.word||''}
 
