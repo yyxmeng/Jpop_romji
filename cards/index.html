@@ -161,6 +161,46 @@
   padding:80px 0;
 }
 
+.row{
+  width:100%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+}
+
+.left{
+  text-align:left;
+}
+
+.right{
+  text-align:right;
+}
+
+.center{
+  text-align:center;
+  width:100%;
+}
+
+.type{
+  font-size:18px;
+  color:var(--text2);
+}
+
+.back-grid{
+  width:100%;
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+}
+
+.back-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  width:100%;
+}
+
 @media(max-width:640px){
 
   .flashcard{
@@ -480,8 +520,6 @@ function renderCard(){
 
 
 
-  // ===== 正面：1來源 =====
-
   const frontSource=
 
   randomPick(
@@ -490,30 +528,6 @@ function renderCard(){
   )[0];
 
 
-
-  const frontHtml=
-
-  frontSource
-
-  ?
-
-`
-${frontSource.line||''}
-
-<br><br>
-
-${frontSource.artist}
-—
-${frontSource.title}
-`
-
-  :
-
-  '';
-
-
-
-  // ===== 背面：1~3來源 =====
 
   const backSources=
 
@@ -524,7 +538,109 @@ ${frontSource.title}
 
 
 
-  const backHtml=
+  // ===== 正面 =====
+
+  qs('word')
+  .innerHTML=
+
+`
+<div class="row">
+
+<div class="word left">
+
+${card.word||''}
+
+</div>
+
+<div class="type right">
+
+${card.type||''}
+
+</div>
+
+</div>
+`;
+
+
+
+  qs('meta')
+  .innerHTML=
+
+  frontSource
+
+  ?
+
+`
+
+<div class="center">
+
+${frontSource.line||''}
+
+<br><br>
+
+${frontSource.artist}
+—
+${frontSource.title}
+
+</div>
+
+`
+
+  :
+
+  '';
+
+
+
+  // ===== 背面 =====
+
+  qs('translation')
+  .innerHTML=
+
+`
+<div class="back-grid">
+
+<div class="back-row">
+
+<div class="reading">
+
+${card.reading||''}
+
+</div>
+
+<div class="origin">
+
+${card.origin||''}
+
+</div>
+
+</div>
+
+
+
+<div class="back-row">
+
+<div class="word">
+
+${card.word||''}
+
+</div>
+
+<div>
+
+${card.translation||'（未填寫翻譯）'}
+
+</div>
+
+</div>
+
+</div>
+`;
+
+
+
+  qs('backSource')
+  .innerHTML=
 
   backSources
 
@@ -546,92 +662,12 @@ ${s.line||''}
 
 
 
-  // ===== 正面 =====
-
-  qs('word')
-  .textContent=
-
-  card.word||'';
-
-
-
-  qs('meta')
-  .innerHTML=
-
-`
-${card.type}
-
-<br><br>
-
-${frontHtml}
-`;
-
-
-
-  // ===== 背面 =====
-
-  qs('translation')
-  .innerHTML=
-
-`
-<div class="word">
-
-${card.word||''}
-
-</div>
-
-<div class="reading">
-
-${card.reading||''}
-
-</div>
-
-<div>
-
-${card.translation||'（未填寫翻譯）'}
-
-</div>
-
-${
-card.origin
-
-?
-
-`
-
-<div class="origin">
-
-(${card.origin})
-
-</div>
-
-`
-
-:
-
-''
-}
-`;
-
-
-
-  qs('backSource')
-  .innerHTML=
-
-  backHtml;
-
-
-
   qs('progressNow')
   .textContent=
-
   current+1;
-
-
 
   qs('progressTotal')
   .textContent=
-
   cards.length;
 }
   
