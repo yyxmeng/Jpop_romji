@@ -1,6 +1,6 @@
 // ── あたらよ / realize ──
 addSong(`あたらよ`, {
-  id: `ata-realize`, title: `realize`, sort: `r`,
+  id: `あたらよ-realize`, title: `realize`, sort: `r`,
   yt: `https://youtu.be/2CtNogTz2e8?si=FMm2u7VITm-V7Tl-`,
   lines(){return[
     L([` まるで`,[`夢`,`ゆめ`],`を`,[`見`,`み`],`ているようだ`]),
