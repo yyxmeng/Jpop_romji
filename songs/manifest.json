@@ -22,7 +22,6 @@
     "songs/tuki/tuki-零-zero-.js",
     "songs/tuki/tuki-最低界隈-Saitei_Kaiwai.js",
     "songs/tuki/tuki-コトノハ-kotonoha.js",
-    "songs/reona/ReoNa-革命.js",
     "songs/nanaoakari/NANAOAKARI-ムリムリ進化論.js",
     "songs/official髭男dism/Official髭男-laughter.js",
     "songs/mrsgreenapple/mrs-green--circle.js",
@@ -32,10 +31,15 @@
     "songs/mrsgreenapple/mrs-green--春愁.js",
     "songs/avemujica/ave-mujica-ふたつの月-deep-into-the-forest.js",
     "songs/aimer/aimer-run-riot.js",
-    "songs/reona/ReoNa-革命.js",
     "songs/backnumber/back-number-冬と春.js",
     "songs/avemujica/ave-mujica-SymbolIVEarth.js",
     "songs/avemujica/ave-mujica-angles.js",
-    "songs/avemujica/ave-mujica-stheway.js"
+    "songs/avemujica/ave-mujica-stheway.js",
+    "songs/aimer/aimer-little-bouquet.js",
+    "songs/aimer/aimer-pastoral.js",
+    "songs/aimer/aimer-eclipse.js",
+    "songs/aimer/aimer-うつくしい世界.js",
+    "songs/aimer/aimer-月影.js",
+    "songs/aimer/aimer-wren.js"
   ]
 }
