@@ -689,90 +689,63 @@ async function translatePending(){
             try{
 
                 const context=
-                
-                card.sources?.[0]?.line
-                ||
-                card.word;
-                
-                const prompt=`
-                
-                單詞:${card.word}
-                
-                歌詞上下文:
-                ${context}
-                
-                請只翻譯「${card.word}」
-                在此歌詞中的中文意思。
-                
-                不要解釋。
-                不要例句。
-                只回覆簡短詞義。
-                
-                `;
-                
+
+                (card.sources||[])
+
+                .slice(0,5)
+
+                .map(
+                    s=>s.line
+                )
+
+                .join('\n');
+
                 const translation=
-                
+
                 await deepLTranslate(
-                    prompt,
-                
+
+                    card.word,
+
                     token,
-                
+
                     context
+
                 );
-                
+
                 card.translation=
                 translation;
 
                 if(
-                    isKatakana(card.word)
+
+                    isKatakana(
+                        card.word
+                    )
+
                     &&
+
                     !card.origin
+
                 ){
-                
-                    const originPrompt=`
-                
-                日文片假名:
-                
-                ${card.word}
-                
-                請推測外來語原文。
-                
-                只回答原始語言單字。
-                
-                `;
-                
-                    card.origin=
-                
-                    await deepLTranslate(
-                        originPrompt,
-                        token
-                    );
-                }
-                {
-
-                    const origin=
-
-                    await deepLTranslate(
-
-                        card.word,
-
-                        token
-                    );
 
                     card.origin=
-                    origin;
+                    card.word;
                 }
 
                 count++;
 
                 log(
-                `✓ ${card.word} → ${translation}`
+`✓ ${card.word} → ${translation}`
                 );
 
             }catch(e){
 
                 log(
 `翻譯失敗 ${card.word}`
+                );
+
+                console.error(
+                    card.word,
+                    e
                 );
             }
         }
