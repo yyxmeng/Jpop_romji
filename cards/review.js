@@ -700,17 +700,25 @@ async function translatePending(){
 
                 .join('\n');
 
-                const translation=
+                let translation=
 
                 await deepLTranslate(
-
+                
                     card.word,
-
+                
                     token,
-
+                
                     context
-
+                
                 );
+                
+                translation=
+                translation
+                .replace(/[。．.!！]/g,'')
+                .trim();
+                
+                card.translation=
+                translation;
 
                 card.translation=
                 translation;
