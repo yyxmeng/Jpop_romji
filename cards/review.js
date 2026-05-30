@@ -610,7 +610,7 @@ async function deepLTranslate(text,token){
 
     await fetch(
 
-        'https://api-free.deepl.com/v2/translate',
+        'https://wandering-wildflower-1aa1.aries02090001.workers.dev/',
 
         {
 
