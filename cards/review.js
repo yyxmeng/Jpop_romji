@@ -689,15 +689,19 @@ async function translatePending(){
             try{
 
                 const context=
-
+                
                 (card.sources||[])
-
-                .slice(0,5)
-
+                
+                .slice(0,3)
+                
                 .map(
-                    s=>s.line
+                s=>
+                
+                `單字:${card.word}
+                
+                歌詞:${s.line}`
                 )
-
+                
                 .join('\n');
 
                 let translation=
@@ -718,10 +722,10 @@ async function translatePending(){
                 .trim();
                 
                 card.translation=
-                translation;
-
-                card.translation=
-                translation;
+                
+                translation
+                .replace(/[。．]/g,'')
+                .trim();
 
                 if(
 
