@@ -685,25 +685,66 @@ async function translatePending(){
 
             try{
 
-                const zh=
-
+                const context=
+                
+                card.sources?.[0]?.line
+                ||
+                card.word;
+                
+                const prompt=`
+                
+                單詞:${card.word}
+                
+                歌詞上下文:
+                ${context}
+                
+                請只翻譯「${card.word}」
+                在此歌詞中的中文意思。
+                
+                不要解釋。
+                不要例句。
+                只回覆簡短詞義。
+                
+                `;
+                
+                const translation=
+                
                 await deepLTranslate(
-                    card.word,
+                    prompt,
                     token
                 );
+                
+                card.translation=
+                translation;
 
                 card.translation=zh;
 
                 if(
-
-                    isKatakana(
-                        card.word
-                    )
-
+                    isKatakana(card.word)
                     &&
-
                     !card.origin
                 ){
+                
+                    const originPrompt=`
+                
+                日文片假名:
+                
+                ${card.word}
+                
+                請推測外來語原文。
+                
+                只回答原始語言單字。
+                
+                `;
+                
+                    card.origin=
+                
+                    await deepLTranslate(
+                        originPrompt,
+                        token
+                    );
+                }
+                {
 
                     const origin=
 
