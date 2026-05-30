@@ -1,1 +1,2114 @@
-[]
+[
+  {
+    "key": "只|ただ",
+    "word": "只",
+    "reading": "ただ",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "只",
+        "line": "迷子迷子真っ只中 さあ",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "中|ちゅう",
+    "word": "中",
+    "reading": "ちゅう",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "中",
+        "line": "迷子迷子真っ只中 さあ",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "パ|ぱ",
+    "word": "パ",
+    "reading": "ぱ",
+    "translation": "",
+    "origin": "パ",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "パ",
+        "line": "パ パ パラ パーラノーイ「ア」",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "パラ|ぱら",
+    "word": "パラ",
+    "reading": "ぱら",
+    "translation": "",
+    "origin": "パラ",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "パラ",
+        "line": "パ パ パラ パーラノーイ「ア」",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "パーラノーイ|ぱーらのーい",
+    "word": "パーラノーイ",
+    "reading": "ぱーらのーい",
+    "translation": "",
+    "origin": "パーラノーイ",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "パーラノーイ",
+        "line": "パ パ パラ パーラノーイ「ア」",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      },
+      {
+        "surface": "パーラノーイ",
+        "line": "パーラノーイ「ア」",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      },
+      {
+        "surface": "パーラノーイ",
+        "line": "ぱ パーラノーイ「ア」",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      },
+      {
+        "surface": "パーラノーイ",
+        "line": "ぱ パーラノーイ「ア」 嫌嫌",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "ア|あ",
+    "word": "ア",
+    "reading": "あ",
+    "translation": "",
+    "origin": "ア",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "ア",
+        "line": "パ パ パラ パーラノーイ「ア」",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      },
+      {
+        "surface": "ア",
+        "line": "まあ！絶叫な感情落下 パッパラノーイ「ア」",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      },
+      {
+        "surface": "ア",
+        "line": "パーラノーイ「ア」",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      },
+      {
+        "surface": "ア",
+        "line": "ぱ パーラノーイ「ア」",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      },
+      {
+        "surface": "ア",
+        "line": "ぱ パーラノーイ「ア」 嫌嫌",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      },
+      {
+        "surface": "ア",
+        "line": "さあ 絶叫な感情落下 パッパラノーイ「ア」",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      },
+      {
+        "surface": "ア",
+        "line": "絶叫な感情落下 パッパラノーイ「ア」",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "ギコ|ぎこ",
+    "word": "ギコ",
+    "reading": "ぎこ",
+    "translation": "",
+    "origin": "ギコ",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "ギコ",
+        "line": "ギコ ギコ MY HEART剪定",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "MY|MY",
+    "word": "MY",
+    "reading": "MY",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "MY",
+        "line": "ギコ ギコ MY HEART剪定",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "HEART|HEART",
+    "word": "HEART",
+    "reading": "HEART",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "HEART",
+        "line": "ギコ ギコ MY HEART剪定",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "退路|たいろ",
+    "word": "退路",
+    "reading": "たいろ",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "退路",
+        "line": "退路退路断った絡まった",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "断る|ことわっ",
+    "word": "断る",
+    "reading": "ことわっ",
+    "translation": "",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "断っ",
+        "line": "退路退路断った絡まった",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "絡まる|からまっ",
+    "word": "絡まる",
+    "reading": "からまっ",
+    "translation": "",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "絡まっ",
+        "line": "退路退路断った絡まった",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "SAD|SAD",
+    "word": "SAD",
+    "reading": "SAD",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "SAD",
+        "line": "SAD SAD 突っ伏して「」",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "突っ伏す|つっぷし",
+    "word": "突っ伏す",
+    "reading": "つっぷし",
+    "translation": "",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "突っ伏し",
+        "line": "SAD SAD 突っ伏して「」",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "ぱ|ぱ",
+    "word": "ぱ",
+    "reading": "ぱ",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "ぱ",
+        "line": "ぱ ぱ ぱ La ぱーらのーい「ド」",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      },
+      {
+        "surface": "ぱ",
+        "line": "バ バ バグ ぱ ぱ ぱ La ぱ ぱ",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      },
+      {
+        "surface": "ぱ",
+        "line": "ぱ パーラノーイ「ア」",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      },
+      {
+        "surface": "ぱ",
+        "line": "ぱ パーラノーイ「ア」 嫌嫌",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "La|La",
+    "word": "La",
+    "reading": "La",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "La",
+        "line": "ぱ ぱ ぱ La ぱーらのーい「ド」",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      },
+      {
+        "surface": "La",
+        "line": "バ バ バグ ぱ ぱ ぱ La ぱ ぱ",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "ー|ー",
+    "word": "ー",
+    "reading": "ー",
+    "translation": "",
+    "origin": "ー",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "ー",
+        "line": "ぱ ぱ ぱ La ぱーらのーい「ド」",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      },
+      {
+        "surface": "ー",
+        "line": "狂狂 ぱっ かーん 警報待って無理 ぐるぐる せーので回れ",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      },
+      {
+        "surface": "ー",
+        "line": "ｱｱｱｱ ぱっ かーん 警報 やっぱ無理 ぐるぐる あんよに鎖",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "ら|ら",
+    "word": "ら",
+    "reading": "ら",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "ら",
+        "line": "ぱ ぱ ぱ La ぱーらのーい「ド」",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "いる|い",
+    "word": "いる",
+    "reading": "い",
+    "translation": "",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "い",
+        "line": "ぱ ぱ ぱ La ぱーらのーい「ド」",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "ド|ど",
+    "word": "ド",
+    "reading": "ど",
+    "translation": "",
+    "origin": "ド",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "ド",
+        "line": "ぱ ぱ ぱ La ぱーらのーい「ド」",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "バ|ば",
+    "word": "バ",
+    "reading": "ば",
+    "translation": "",
+    "origin": "バ",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "バ",
+        "line": "さあ バ バ バグさ バグバグ",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      },
+      {
+        "surface": "バ",
+        "line": "バ バ バグさ バグバグ",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      },
+      {
+        "surface": "バ",
+        "line": "バ バ バグ ぱ ぱ ぱ La ぱ ぱ",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "さ|さ",
+    "word": "さ",
+    "reading": "さ",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "さ",
+        "line": "さあ バ バ バグさ バグバグ",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      },
+      {
+        "surface": "さ",
+        "line": "バ バ バグさ バグバグ",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "タ|た",
+    "word": "タ",
+    "reading": "た",
+    "translation": "",
+    "origin": "タ",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "タ",
+        "line": "タ タ タグ 才能のタグ",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "タグ|たぐ",
+    "word": "タグ",
+    "reading": "たぐ",
+    "translation": "",
+    "origin": "タグ",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "タグ",
+        "line": "タ タ タグ 才能のタグ",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "才能|さいのう",
+    "word": "才能",
+    "reading": "さいのう",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "才能",
+        "line": "タ タ タグ 才能のタグ",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "ハ|は",
+    "word": "ハ",
+    "reading": "は",
+    "translation": "",
+    "origin": "ハ",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "ハ",
+        "line": "もう ハ ハ 剥グ 感情は剥グ",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "剥|剥",
+    "word": "剥",
+    "reading": "剥",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "剥",
+        "line": "もう ハ ハ 剥グ 感情は剥グ",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "グ|ぐ",
+    "word": "グ",
+    "reading": "ぐ",
+    "translation": "",
+    "origin": "グ",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "グ",
+        "line": "もう ハ ハ 剥グ 感情は剥グ",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "感情|かんじょう",
+    "word": "感情",
+    "reading": "かんじょう",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "感情",
+        "line": "もう ハ ハ 剥グ 感情は剥グ",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      },
+      {
+        "surface": "感情",
+        "line": "まあ！絶叫な感情落下 パッパラノーイ「ア」",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      },
+      {
+        "surface": "感情",
+        "line": "さあ 絶叫な感情落下 パッパラノーイ「ア」",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      },
+      {
+        "surface": "感情",
+        "line": "絶叫な感情落下 パッパラノーイ「ア」",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "クルシイ|くるしい",
+    "word": "クルシイ",
+    "reading": "くるしい",
+    "translation": "",
+    "origin": "クルシイ",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "クルシイ",
+        "line": "発症「クルシイ」は 嫌嫌嫌嫌嫌嫌",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "嫌嫌|いやいや",
+    "word": "嫌嫌",
+    "reading": "いやいや",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "嫌嫌",
+        "line": "発症「クルシイ」は 嫌嫌嫌嫌嫌嫌",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      },
+      {
+        "surface": "嫌嫌",
+        "line": "的ハズレズレ 慈愛嫌嫌",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      },
+      {
+        "surface": "嫌嫌",
+        "line": "解答絶え絶え 嫌嫌嫌嫌嫌嫌",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      },
+      {
+        "surface": "嫌嫌",
+        "line": "ぱ パーラノーイ「ア」 嫌嫌",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      },
+      {
+        "surface": "嫌嫌",
+        "line": "爛れ荒れ荒れ 悲哀嫌嫌",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      },
+      {
+        "surface": "嫌嫌",
+        "line": "暗闇マミレ理性嫌嫌嫌今今今嫌嫌嫌嫌嫌嫌嫌嫌嫌",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "落下|らっか",
+    "word": "落下",
+    "reading": "らっか",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "落下",
+        "line": "まあ！絶叫な感情落下 パッパラノーイ「ア」",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      },
+      {
+        "surface": "落下",
+        "line": "まあ！絶体絶命落下 やったラ滅多ラ",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      },
+      {
+        "surface": "落下",
+        "line": "さあ 絶叫な感情落下 パッパラノーイ「ア」",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      },
+      {
+        "surface": "落下",
+        "line": "絶叫な感情落下 パッパラノーイ「ア」",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "パッパラノーイ|ぱっぱらのーい",
+    "word": "パッパラノーイ",
+    "reading": "ぱっぱらのーい",
+    "translation": "",
+    "origin": "パッパラノーイ",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "パッパラノーイ",
+        "line": "まあ！絶叫な感情落下 パッパラノーイ「ア」",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      },
+      {
+        "surface": "パッパラノーイ",
+        "line": "さあ 絶叫な感情落下 パッパラノーイ「ア」",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      },
+      {
+        "surface": "パッパラノーイ",
+        "line": "絶叫な感情落下 パッパラノーイ「ア」",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "溺れる|おぼれ",
+    "word": "溺れる",
+    "reading": "おぼれ",
+    "translation": "",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "溺れ",
+        "line": "溺れ声上げては ぐるぐる",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "声|ごえ",
+    "word": "声",
+    "reading": "ごえ",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "声",
+        "line": "溺れ声上げては ぐるぐる",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "上げる|あげ",
+    "word": "上げる",
+    "reading": "あげ",
+    "translation": "",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "上げ",
+        "line": "溺れ声上げては ぐるぐる",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "やる|やっ",
+    "word": "やる",
+    "reading": "やっ",
+    "translation": "",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "やっ",
+        "line": "まあ！絶体絶命落下 やったラ滅多ラ",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      },
+      {
+        "surface": "やっ",
+        "line": "限界脳狂っちゃって やったラ滅多ラ",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "ラ|ら",
+    "word": "ラ",
+    "reading": "ら",
+    "translation": "",
+    "origin": "ラ",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "ラ",
+        "line": "まあ！絶体絶命落下 やったラ滅多ラ",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      },
+      {
+        "surface": "ラ",
+        "line": "ラ ラ ラグ ランタイム ラグ",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      },
+      {
+        "surface": "ラ",
+        "line": "限界脳狂っちゃって やったラ滅多ラ",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "滅多|めった",
+    "word": "滅多",
+    "reading": "めった",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "滅多",
+        "line": "まあ！絶体絶命落下 やったラ滅多ラ",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      },
+      {
+        "surface": "滅多",
+        "line": "限界脳狂っちゃって やったラ滅多ラ",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "沈める|しずめ",
+    "word": "沈める",
+    "reading": "しずめ",
+    "translation": "",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "沈め",
+        "line": "沈めユメユメ 嫌嫌嫌",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "ユメ|ゆめ",
+    "word": "ユメ",
+    "reading": "ゆめ",
+    "translation": "",
+    "origin": "ユメ",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "ユメ",
+        "line": "沈めユメユメ 嫌嫌嫌",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "嫌|いや",
+    "word": "嫌",
+    "reading": "いや",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "嫌",
+        "line": "沈めユメユメ 嫌嫌嫌",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      },
+      {
+        "surface": "嫌",
+        "line": "凍え枯れ果て 嫌嫌嫌",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      },
+      {
+        "surface": "嫌",
+        "line": "暗闇マミレ理性嫌嫌嫌今今今嫌嫌嫌嫌嫌嫌嫌嫌嫌",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "的|てき",
+    "word": "的",
+    "reading": "てき",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "的",
+        "line": "的ハズレズレ 慈愛嫌嫌",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "ハズレ|はずれ",
+    "word": "ハズレ",
+    "reading": "はずれ",
+    "translation": "",
+    "origin": "ハズレ",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "ハズレ",
+        "line": "的ハズレズレ 慈愛嫌嫌",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "ズレ|ずれ",
+    "word": "ズレ",
+    "reading": "ずれ",
+    "translation": "",
+    "origin": "ズレ",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "ズレ",
+        "line": "的ハズレズレ 慈愛嫌嫌",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "慈愛|じあい",
+    "word": "慈愛",
+    "reading": "じあい",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "慈愛",
+        "line": "的ハズレズレ 慈愛嫌嫌",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "解答|かいとう",
+    "word": "解答",
+    "reading": "かいとう",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "解答",
+        "line": "解答絶え絶え 嫌嫌嫌嫌嫌嫌",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "絶え絶え|たえだえ",
+    "word": "絶え絶え",
+    "reading": "たえだえ",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "絶え絶え",
+        "line": "解答絶え絶え 嫌嫌嫌嫌嫌嫌",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "狂|きょう",
+    "word": "狂",
+    "reading": "きょう",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "狂",
+        "line": "狂狂 ぱっ かーん 警報待って無理 ぐるぐる せーので回れ",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      },
+      {
+        "surface": "狂",
+        "line": "(狂狂狂狂)",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "ぱっ|ぱっ",
+    "word": "ぱっ",
+    "reading": "ぱっ",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "ぱっ",
+        "line": "狂狂 ぱっ かーん 警報待って無理 ぐるぐる せーので回れ",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      },
+      {
+        "surface": "ぱっ",
+        "line": "ｱｱｱｱ ぱっ かーん 警報 やっぱ無理 ぐるぐる あんよに鎖",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "警報|けいほう",
+    "word": "警報",
+    "reading": "けいほう",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "警報",
+        "line": "狂狂 ぱっ かーん 警報待って無理 ぐるぐる せーので回れ",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      },
+      {
+        "surface": "警報",
+        "line": "ｱｱｱｱ ぱっ かーん 警報 やっぱ無理 ぐるぐる あんよに鎖",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "待つ|まっ",
+    "word": "待つ",
+    "reading": "まっ",
+    "translation": "",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "待っ",
+        "line": "狂狂 ぱっ かーん 警報待って無理 ぐるぐる せーので回れ",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "無理|むり",
+    "word": "無理",
+    "reading": "むり",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "無理",
+        "line": "狂狂 ぱっ かーん 警報待って無理 ぐるぐる せーので回れ",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      },
+      {
+        "surface": "無理",
+        "line": "ｱｱｱｱ ぱっ かーん 警報 やっぱ無理 ぐるぐる あんよに鎖",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "する|せ",
+    "word": "する",
+    "reading": "せ",
+    "translation": "",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "せ",
+        "line": "狂狂 ぱっ かーん 警報待って無理 ぐるぐる せーので回れ",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "回れる|まわれ",
+    "word": "回れる",
+    "reading": "まわれ",
+    "translation": "",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "回れ",
+        "line": "狂狂 ぱっ かーん 警報待って無理 ぐるぐる せーので回れ",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "(|(",
+    "word": "(",
+    "reading": "(",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "(",
+        "line": "(狂狂狂狂)",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": ")|)",
+    "word": ")",
+    "reading": ")",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": ")",
+        "line": "(狂狂狂狂)",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "ｱｱｱｱ|ｱｱｱｱ",
+    "word": "ｱｱｱｱ",
+    "reading": "ｱｱｱｱ",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "ｱｱｱｱ",
+        "line": "ｱｱｱｱ ぱっ かーん 警報 やっぱ無理 ぐるぐる あんよに鎖",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "ある|あん",
+    "word": "ある",
+    "reading": "あん",
+    "translation": "",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "あん",
+        "line": "ｱｱｱｱ ぱっ かーん 警報 やっぱ無理 ぐるぐる あんよに鎖",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "よ|よ",
+    "word": "よ",
+    "reading": "よ",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "よ",
+        "line": "ｱｱｱｱ ぱっ かーん 警報 やっぱ無理 ぐるぐる あんよに鎖",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "鎖|くさり",
+    "word": "鎖",
+    "reading": "くさり",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "鎖",
+        "line": "ｱｱｱｱ ぱっ かーん 警報 やっぱ無理 ぐるぐる あんよに鎖",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "エン|えん",
+    "word": "エン",
+    "reading": "えん",
+    "translation": "",
+    "origin": "エン",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "エン",
+        "line": "エンドレス病み...？",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "ドレス|どれす",
+    "word": "ドレス",
+    "reading": "どれす",
+    "translation": "",
+    "origin": "ドレス",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "ドレス",
+        "line": "エンドレス病み...？",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "病む|やみ",
+    "word": "病む",
+    "reading": "やみ",
+    "translation": "",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "病み",
+        "line": "エンドレス病み...？",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "...？|...？",
+    "word": "...？",
+    "reading": "...？",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "...？",
+        "line": "エンドレス病み...？",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "抱っこ|だっこ",
+    "word": "抱っこ",
+    "reading": "だっこ",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "抱っこ",
+        "line": "抱っこ 抱っこ いらない子だ",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "いる|いら",
+    "word": "いる",
+    "reading": "いら",
+    "translation": "",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "いら",
+        "line": "抱っこ 抱っこ いらない子だ",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "子|こ",
+    "word": "子",
+    "reading": "こ",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "子",
+        "line": "抱っこ 抱っこ いらない子だ",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      },
+      {
+        "surface": "子",
+        "line": "いい子 いい子 「頑張れ」の氾濫",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "いい|いい",
+    "word": "いい",
+    "reading": "いい",
+    "translation": "",
+    "origin": "",
+    "type": "形容詞",
+    "sources": [
+      {
+        "surface": "いい",
+        "line": "いい子 いい子 「頑張れ」の氾濫",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "頑張る|がんばれ",
+    "word": "頑張る",
+    "reading": "がんばれ",
+    "translation": "",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "頑張れ",
+        "line": "いい子 いい子 「頑張れ」の氾濫",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "氾濫|はんらん",
+    "word": "氾濫",
+    "reading": "はんらん",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "氾濫",
+        "line": "いい子 いい子 「頑張れ」の氾濫",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "アドミニストレイター|あどみにすとれいたー",
+    "word": "アドミニストレイター",
+    "reading": "あどみにすとれいたー",
+    "translation": "",
+    "origin": "アドミニストレイター",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "アドミニストレイター",
+        "line": "アドミニストレイター 嗚呼",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "ラグ|らぐ",
+    "word": "ラグ",
+    "reading": "らぐ",
+    "translation": "",
+    "origin": "ラグ",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "ラグ",
+        "line": "ラ ラ ラグ ランタイム ラグ",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "ラン|らん",
+    "word": "ラン",
+    "reading": "らん",
+    "translation": "",
+    "origin": "ラン",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "ラン",
+        "line": "ラ ラ ラグ ランタイム ラグ",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "タイム|たいむ",
+    "word": "タイム",
+    "reading": "たいむ",
+    "translation": "",
+    "origin": "タイム",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "タイム",
+        "line": "ラ ラ ラグ ランタイム ラグ",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "ロ|ろ",
+    "word": "ロ",
+    "reading": "ろ",
+    "translation": "",
+    "origin": "ロ",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "ロ",
+        "line": "ロ ロ ログ 反抗のログ",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "ログ|ろぐ",
+    "word": "ログ",
+    "reading": "ろぐ",
+    "translation": "",
+    "origin": "ログ",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "ログ",
+        "line": "ロ ロ ログ 反抗のログ",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "反抗|はんこう",
+    "word": "反抗",
+    "reading": "はんこう",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "反抗",
+        "line": "ロ ロ ログ 反抗のログ",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "左右|さゆう",
+    "word": "左右",
+    "reading": "さゆう",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "左右",
+        "line": "左右行方も ぐるぐる 悲惨",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "行方|ゆくえ",
+    "word": "行方",
+    "reading": "ゆくえ",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "行方",
+        "line": "左右行方も ぐるぐる 悲惨",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "悲惨|ひさん",
+    "word": "悲惨",
+    "reading": "ひさん",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "悲惨",
+        "line": "左右行方も ぐるぐる 悲惨",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "限界|げんかい",
+    "word": "限界",
+    "reading": "げんかい",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "限界",
+        "line": "限界脳狂っちゃって やったラ滅多ラ",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "脳|のう",
+    "word": "脳",
+    "reading": "のう",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "脳",
+        "line": "限界脳狂っちゃって やったラ滅多ラ",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "狂う|くるっ",
+    "word": "狂う",
+    "reading": "くるっ",
+    "translation": "",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "狂っ",
+        "line": "限界脳狂っちゃって やったラ滅多ラ",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "ちゃう|ちゃっ",
+    "word": "ちゃう",
+    "reading": "ちゃっ",
+    "translation": "",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "ちゃっ",
+        "line": "限界脳狂っちゃって やったラ滅多ラ",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "ヤミ|やみ",
+    "word": "ヤミ",
+    "reading": "やみ",
+    "translation": "",
+    "origin": "ヤミ",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "ヤミ",
+        "line": "ヤミ迷え酔え イナイイナイばあ イナイイナイ✕点",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "迷う|まよえ",
+    "word": "迷う",
+    "reading": "まよえ",
+    "translation": "",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "迷え",
+        "line": "ヤミ迷え酔え イナイイナイばあ イナイイナイ✕点",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "酔う|よえ",
+    "word": "酔う",
+    "reading": "よえ",
+    "translation": "",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "酔え",
+        "line": "ヤミ迷え酔え イナイイナイばあ イナイイナイ✕点",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "イナイイナイ|いないいない",
+    "word": "イナイイナイ",
+    "reading": "いないいない",
+    "translation": "",
+    "origin": "イナイイナイ",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "イナイイナイ",
+        "line": "ヤミ迷え酔え イナイイナイばあ イナイイナイ✕点",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "✕|✕",
+    "word": "✕",
+    "reading": "✕",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "✕",
+        "line": "ヤミ迷え酔え イナイイナイばあ イナイイナイ✕点",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "点|てん",
+    "word": "点",
+    "reading": "てん",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "点",
+        "line": "ヤミ迷え酔え イナイイナイばあ イナイイナイ✕点",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "凍える|こごえ",
+    "word": "凍える",
+    "reading": "こごえ",
+    "translation": "",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "凍え",
+        "line": "凍え枯れ果て 嫌嫌嫌",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "枯れる|かれ",
+    "word": "枯れる",
+    "reading": "かれ",
+    "translation": "",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "枯れ",
+        "line": "凍え枯れ果て 嫌嫌嫌",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "果て|はて",
+    "word": "果て",
+    "reading": "はて",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "果て",
+        "line": "凍え枯れ果て 嫌嫌嫌",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "爛れ|ただれ",
+    "word": "爛れ",
+    "reading": "ただれ",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "爛れ",
+        "line": "爛れ荒れ荒れ 悲哀嫌嫌",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "荒れる|あれ",
+    "word": "荒れる",
+    "reading": "あれ",
+    "translation": "",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "荒れ",
+        "line": "爛れ荒れ荒れ 悲哀嫌嫌",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "悲哀|ひあい",
+    "word": "悲哀",
+    "reading": "ひあい",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "悲哀",
+        "line": "爛れ荒れ荒れ 悲哀嫌嫌",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "暗闇|くらやみ",
+    "word": "暗闇",
+    "reading": "くらやみ",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "暗闇",
+        "line": "暗闇マミレ理性嫌嫌嫌今今今嫌嫌嫌嫌嫌嫌嫌嫌嫌",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "マミ|まみ",
+    "word": "マミ",
+    "reading": "まみ",
+    "translation": "",
+    "origin": "マミ",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "マミ",
+        "line": "暗闇マミレ理性嫌嫌嫌今今今嫌嫌嫌嫌嫌嫌嫌嫌嫌",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "レ|れ",
+    "word": "レ",
+    "reading": "れ",
+    "translation": "",
+    "origin": "レ",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "レ",
+        "line": "暗闇マミレ理性嫌嫌嫌今今今嫌嫌嫌嫌嫌嫌嫌嫌嫌",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "理性|りせい",
+    "word": "理性",
+    "reading": "りせい",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "理性",
+        "line": "暗闇マミレ理性嫌嫌嫌今今今嫌嫌嫌嫌嫌嫌嫌嫌嫌",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  }
+]
