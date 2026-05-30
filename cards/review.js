@@ -661,7 +661,6 @@ async function translatePending(){
     try{
 
         const token=
-
         document
         .getElementById('deeplToken')
         .value
@@ -670,7 +669,6 @@ async function translatePending(){
         if(!token){
 
             alert('請輸入DeepL API Key');
-
             return;
         }
 
@@ -682,57 +680,53 @@ async function translatePending(){
         for(const card of pending){
 
             if(card.translation){
-
                 continue;
             }
 
             try{
 
                 const context=
-                
+
                 (card.sources||[])
-                
-                .slice(0,5)
-                
-                .map(
-                    s=>s.line
-                )
-                
+
+                .slice(0,3)
+
+                .map(s=>s.line)
+
                 .join('\n');
+
+                let sourceText=
+
+                context
+                ?
+                `${card.word}\n\n${context}`
+                :
+                card.word;
 
                 let translation=
 
                 await deepLTranslate(
-                
-                    card.word,
-                
-                    token,
-                
-                    context
-                
+
+                    sourceText,
+
+                    token
+
                 );
-                
+
                 translation=
+
                 translation
+                .split('\n')[0]
                 .replace(/[。．.!！]/g,'')
                 .trim();
-                
+
                 card.translation=
-                
-                translation
-                .replace(/[。．]/g,'')
-                .trim();
+                translation;
 
                 if(
-
-                    isKatakana(
-                        card.word
-                    )
-
+                    isKatakana(card.word)
                     &&
-
                     !card.origin
-
                 ){
 
                     card.origin=
