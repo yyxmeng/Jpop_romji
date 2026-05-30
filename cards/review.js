@@ -604,22 +604,24 @@ function katakanaToHiragana(str){
     );
 }
 
-async function deepLTranslate(text,token){
+async function deepLTranslate(
+
+    text,
+    token
+
+){
 
     const r=
 
     await fetch(
 
-        'https://wandering-wildflower-1aa1.aries02090001.workers.dev/',
+        'https://wandering-wildflower-1aa1.aries02090001.workers.dev',
 
         {
 
             method:'POST',
 
             headers:{
-
-                Authorization:
-                `DeepL-Auth-Key ${token}`,
 
                 'Content-Type':
                 'application/json'
@@ -629,11 +631,9 @@ async function deepLTranslate(text,token){
 
             JSON.stringify({
 
-                text:[text],
+                text,
 
-                source_lang:'JA',
-
-                target_lang:'ZH'
+                token
             })
         }
     );
