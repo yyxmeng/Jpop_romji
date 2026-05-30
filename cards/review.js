@@ -604,6 +604,148 @@ function katakanaToHiragana(str){
     );
 }
 
+async function deepLTranslate(text,token){
+
+    const r=
+
+    await fetch(
+
+        'https://api-free.deepl.com/v2/translate',
+
+        {
+
+            method:'POST',
+
+            headers:{
+
+                Authorization:
+                `DeepL-Auth-Key ${token}`,
+
+                'Content-Type':
+                'application/json'
+            },
+
+            body:
+
+            JSON.stringify({
+
+                text:[text],
+
+                source_lang:'JA',
+
+                target_lang:'ZH'
+            })
+        }
+    );
+
+    if(!r.ok){
+
+        throw new Error(
+            await r.text()
+        );
+    }
+
+    const data=
+    await r.json();
+
+    return data
+    .translations?.[0]
+    ?.text||'';
+}
+
+async function translatePending(){
+
+    try{
+
+        const token=
+
+        document
+        .getElementById('deeplToken')
+        .value
+        .trim();
+
+        if(!token){
+
+            alert('請輸入DeepL API Key');
+
+            return;
+        }
+
+        log('');
+        log('開始AI翻譯...');
+
+        let count=0;
+
+        for(const card of pending){
+
+            if(card.translation){
+
+                continue;
+            }
+
+            try{
+
+                const zh=
+
+                await deepLTranslate(
+                    card.word,
+                    token
+                );
+
+                card.translation=zh;
+
+                if(
+
+                    isKatakana(
+                        card.word
+                    )
+
+                    &&
+
+                    !card.origin
+                ){
+
+                    const origin=
+
+                    await deepLTranslate(
+
+                        card.word,
+
+                        token
+                    );
+
+                    card.origin=
+                    origin;
+                }
+
+                count++;
+
+                log(
+`✓ ${card.word} → ${zh}`
+                );
+
+            }catch(e){
+
+                log(
+`翻譯失敗 ${card.word}`
+                );
+            }
+        }
+
+        render();
+
+        log(
+`完成，共翻譯${count}張`
+        );
+
+    }catch(e){
+
+        console.error(e);
+
+        alert(e.message);
+    }
+}
+
 async function batchGenerate(){
 
     log('');
