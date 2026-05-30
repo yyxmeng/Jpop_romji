@@ -1,1 +1,138 @@
-[]
+[
+  {
+    "key": "迷子|まいご",
+    "word": "迷子",
+    "reading": "まいご",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "迷子",
+        "line": "迷子迷子真っ只中 さあ",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "剪定|せんてい",
+    "word": "剪定",
+    "reading": "せんてい",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "剪定",
+        "line": "ギコ ギコ MY HEART剪定",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "バグ|ばぐ",
+    "word": "バグ",
+    "reading": "ばぐ",
+    "translation": "",
+    "origin": "バグ",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "バグ",
+        "line": "さあ バ バ バグさ バグバグ",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      },
+      {
+        "surface": "バグ",
+        "line": "バ バ バグさ バグバグ",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      },
+      {
+        "surface": "バグ",
+        "line": "バ バ バグ ぱ ぱ ぱ La ぱ ぱ",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "発症|はっしょう",
+    "word": "発症",
+    "reading": "はっしょう",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "発症",
+        "line": "発症「クルシイ」は 嫌嫌嫌嫌嫌嫌",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "絶叫|ぜっきょう",
+    "word": "絶叫",
+    "reading": "ぜっきょう",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "絶叫",
+        "line": "まあ！絶叫な感情落下 パッパラノーイ「ア」",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      },
+      {
+        "surface": "絶叫",
+        "line": "さあ 絶叫な感情落下 パッパラノーイ「ア」",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      },
+      {
+        "surface": "絶叫",
+        "line": "絶叫な感情落下 パッパラノーイ「ア」",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "絶体絶命|ぜったいぜつめい",
+    "word": "絶体絶命",
+    "reading": "ぜったいぜつめい",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "絶体絶命",
+        "line": "まあ！絶体絶命落下 やったラ滅多ラ",
+        "artist": "25時、ナイトコードで。",
+        "title": "バグ",
+        "songId": "25時ナイトコードで-バグ"
+      }
+    ],
+    "_new": true
+  }
+]
