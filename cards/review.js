@@ -692,14 +692,10 @@ async function translatePending(){
                 
                 (card.sources||[])
                 
-                .slice(0,3)
+                .slice(0,5)
                 
                 .map(
-                s=>
-                
-                `單字:${card.word}
-                
-                歌詞:${s.line}`
+                    s=>s.line
                 )
                 
                 .join('\n');
