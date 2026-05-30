@@ -607,7 +607,8 @@ function katakanaToHiragana(str){
 async function deepLTranslate(
 
     text,
-    token
+    token,
+    context=''
 
 ){
 
@@ -630,10 +631,12 @@ async function deepLTranslate(
             body:
 
             JSON.stringify({
-
+            
                 text,
-
-                token
+            
+                token,
+            
+                context
             })
         }
     );
@@ -711,13 +714,14 @@ async function translatePending(){
                 
                 await deepLTranslate(
                     prompt,
-                    token
+                
+                    token,
+                
+                    context
                 );
                 
                 card.translation=
                 translation;
-
-                card.translation=zh;
 
                 if(
                     isKatakana(card.word)
@@ -762,7 +766,7 @@ async function translatePending(){
                 count++;
 
                 log(
-`✓ ${card.word} → ${zh}`
+                `✓ ${card.word} → ${translation}`
                 );
 
             }catch(e){
