@@ -811,7 +811,7 @@ async function batchGenerate(){
 
             const songRes=
             await fetch(
-                '../'+songPath
+                '/Jpop_romji/songs/'+songPath
             );
 
             const songCode=
