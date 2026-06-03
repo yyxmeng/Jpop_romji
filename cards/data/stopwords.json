@@ -1,1 +1,224 @@
-[]
+[
+  {
+    "key": "する|し",
+    "word": "する",
+    "reading": "し",
+    "translation": "",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "し",
+        "line": "約束した未来壊れない そう信じられた 幸せの記憶",
+        "artist": "Aimer",
+        "title": "Run Riot",
+        "songId": "aimer-run-riot"
+      },
+      {
+        "surface": "し",
+        "line": "孤独の香り 祝福してる そうさ迷わない",
+        "artist": "Aimer",
+        "title": "Run Riot",
+        "songId": "aimer-run-riot"
+      },
+      {
+        "surface": "し",
+        "line": "孤独の香り 祝福してる いいよ迷わない",
+        "artist": "Aimer",
+        "title": "Run Riot",
+        "songId": "aimer-run-riot"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "られる|られ",
+    "word": "られる",
+    "reading": "られ",
+    "translation": "",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "られ",
+        "line": "約束した未来壊れない そう信じられた 幸せの記憶",
+        "artist": "Aimer",
+        "title": "Run Riot",
+        "songId": "aimer-run-riot"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "そう|そう",
+    "word": "そう",
+    "reading": "そう",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "そう",
+        "line": "離れそうになる度に 繋がるそれは命綱のように強くて",
+        "artist": "Aimer",
+        "title": "Run Riot",
+        "songId": "aimer-run-riot"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "なる|なる",
+    "word": "なる",
+    "reading": "なる",
+    "translation": "",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "なる",
+        "line": "離れそうになる度に 繋がるそれは命綱のように強くて",
+        "artist": "Aimer",
+        "title": "Run Riot",
+        "songId": "aimer-run-riot"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "それ|それ",
+    "word": "それ",
+    "reading": "それ",
+    "translation": "那個",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "それ",
+        "line": "離れそうになる度に 繋がるそれは命綱のように強くて",
+        "artist": "Aimer",
+        "title": "Run Riot",
+        "songId": "aimer-run-riot"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "よう|よう",
+    "word": "よう",
+    "reading": "よう",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "よう",
+        "line": "離れそうになる度に 繋がるそれは命綱のように強くて",
+        "artist": "Aimer",
+        "title": "Run Riot",
+        "songId": "aimer-run-riot"
+      },
+      {
+        "surface": "よう",
+        "line": "花びら 燦々と 包まれて 目を閉じた 夢から醒めますように",
+        "artist": "Aimer",
+        "title": "Run Riot",
+        "songId": "aimer-run-riot"
+      },
+      {
+        "surface": "よう",
+        "line": "胸が奮い立つように",
+        "artist": "Aimer",
+        "title": "Run Riot",
+        "songId": "aimer-run-riot"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "く|く",
+    "word": "く",
+    "reading": "く",
+    "translation": "",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "く",
+        "line": "ただこの手をすり抜けて 舞い昇ってく風船みたいだ 空に溶けてく",
+        "artist": "Aimer",
+        "title": "Run Riot",
+        "songId": "aimer-run-riot"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "みたい|みたい",
+    "word": "みたい",
+    "reading": "みたい",
+    "translation": "",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "みたい",
+        "line": "ただこの手をすり抜けて 舞い昇ってく風船みたいだ 空に溶けてく",
+        "artist": "Aimer",
+        "title": "Run Riot",
+        "songId": "aimer-run-riot"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "てる|てる",
+    "word": "てる",
+    "reading": "てる",
+    "translation": "",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "てる",
+        "line": "孤独の香り 祝福してる そうさ迷わない",
+        "artist": "Aimer",
+        "title": "Run Riot",
+        "songId": "aimer-run-riot"
+      },
+      {
+        "surface": "てる",
+        "line": "声が響いてる 愛しい 誰かの声が響いてる",
+        "artist": "Aimer",
+        "title": "Run Riot",
+        "songId": "aimer-run-riot"
+      },
+      {
+        "surface": "てる",
+        "line": "孤独の香り 祝福してる いいよ迷わない",
+        "artist": "Aimer",
+        "title": "Run Riot",
+        "songId": "aimer-run-riot"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "いま|いま",
+    "word": "いま",
+    "reading": "いま",
+    "translation": "現在",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "いま",
+        "line": "いま錆び付いた時を 解いて",
+        "artist": "Aimer",
+        "title": "Run Riot",
+        "songId": "aimer-run-riot"
+      }
+    ],
+    "_new": true
+  }
+]
