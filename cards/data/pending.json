@@ -1,1 +1,1297 @@
-[]
+[
+  {
+    "key": "解く|とい",
+    "word": "解く",
+    "reading": "とい",
+    "translation": "撩开",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "解い",
+        "line": "いま錆び付いた時を 解いて",
+        "artist": "Aimer",
+        "title": "Run Riot",
+        "songId": "aimer-run-riot"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "築く|きずい",
+    "word": "築く",
+    "reading": "きずい",
+    "translation": "建立",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "築い",
+        "line": "築いた 帰る場所に 不変を求めた いつかの夢",
+        "artist": "Aimer",
+        "title": "Run Riot",
+        "songId": "aimer-run-riot"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "帰る|かえる",
+    "word": "帰る",
+    "reading": "かえる",
+    "translation": "走人",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "帰る",
+        "line": "築いた 帰る場所に 不変を求めた いつかの夢",
+        "artist": "Aimer",
+        "title": "Run Riot",
+        "songId": "aimer-run-riot"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "場所|ばしょ",
+    "word": "場所",
+    "reading": "ばしょ",
+    "translation": "地點",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "場所",
+        "line": "築いた 帰る場所に 不変を求めた いつかの夢",
+        "artist": "Aimer",
+        "title": "Run Riot",
+        "songId": "aimer-run-riot"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "不変|ふへん",
+    "word": "不変",
+    "reading": "ふへん",
+    "translation": "常量",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "不変",
+        "line": "築いた 帰る場所に 不変を求めた いつかの夢",
+        "artist": "Aimer",
+        "title": "Run Riot",
+        "songId": "aimer-run-riot"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "求める|もとめ",
+    "word": "求める",
+    "reading": "もとめ",
+    "translation": "需求",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "求め",
+        "line": "築いた 帰る場所に 不変を求めた いつかの夢",
+        "artist": "Aimer",
+        "title": "Run Riot",
+        "songId": "aimer-run-riot"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "いつか|いつか",
+    "word": "いつか",
+    "reading": "いつか",
+    "translation": "一天",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "いつか",
+        "line": "築いた 帰る場所に 不変を求めた いつかの夢",
+        "artist": "Aimer",
+        "title": "Run Riot",
+        "songId": "aimer-run-riot"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "夢|ゆめ",
+    "word": "夢",
+    "reading": "ゆめ",
+    "translation": "夢想",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "夢",
+        "line": "築いた 帰る場所に 不変を求めた いつかの夢",
+        "artist": "Aimer",
+        "title": "Run Riot",
+        "songId": "aimer-run-riot"
+      },
+      {
+        "surface": "夢",
+        "line": "花びら 燦々と 包まれて 目を閉じた 夢から醒めますように",
+        "artist": "Aimer",
+        "title": "Run Riot",
+        "songId": "aimer-run-riot"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "失う|うしなう",
+    "word": "失う",
+    "reading": "うしなう",
+    "translation": "失去",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "失う",
+        "line": "失うものなど 無いだろう 次の何かを 得るための衝動",
+        "artist": "Aimer",
+        "title": "Run Riot",
+        "songId": "aimer-run-riot"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "もの|もの",
+    "word": "もの",
+    "reading": "もの",
+    "translation": "事情",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "もの",
+        "line": "失うものなど 無いだろう 次の何かを 得るための衝動",
+        "artist": "Aimer",
+        "title": "Run Riot",
+        "songId": "aimer-run-riot"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "無い|ない",
+    "word": "無い",
+    "reading": "ない",
+    "translation": "表示否定、沒有經驗、不必要或不可能",
+    "origin": "",
+    "type": "形容詞",
+    "sources": [
+      {
+        "surface": "無い",
+        "line": "失うものなど 無いだろう 次の何かを 得るための衝動",
+        "artist": "Aimer",
+        "title": "Run Riot",
+        "songId": "aimer-run-riot"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "次|つぎ",
+    "word": "次",
+    "reading": "つぎ",
+    "translation": "下一個",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "次",
+        "line": "失うものなど 無いだろう 次の何かを 得るための衝動",
+        "artist": "Aimer",
+        "title": "Run Riot",
+        "songId": "aimer-run-riot"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "何|なに",
+    "word": "何",
+    "reading": "なに",
+    "translation": "哪些",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "何",
+        "line": "失うものなど 無いだろう 次の何かを 得るための衝動",
+        "artist": "Aimer",
+        "title": "Run Riot",
+        "songId": "aimer-run-riot"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "得る|える",
+    "word": "得る",
+    "reading": "える",
+    "translation": "得到",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "得る",
+        "line": "失うものなど 無いだろう 次の何かを 得るための衝動",
+        "artist": "Aimer",
+        "title": "Run Riot",
+        "songId": "aimer-run-riot"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "ため|ため",
+    "word": "ため",
+    "reading": "ため",
+    "translation": "好",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "ため",
+        "line": "失うものなど 無いだろう 次の何かを 得るための衝動",
+        "artist": "Aimer",
+        "title": "Run Riot",
+        "songId": "aimer-run-riot"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "衝動|しょうどう",
+    "word": "衝動",
+    "reading": "しょうどう",
+    "translation": "衝力",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "衝動",
+        "line": "失うものなど 無いだろう 次の何かを 得るための衝動",
+        "artist": "Aimer",
+        "title": "Run Riot",
+        "songId": "aimer-run-riot"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "手放せる|てばなせ",
+    "word": "手放せる",
+    "reading": "てばなせ",
+    "translation": "放得下",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "手放せ",
+        "line": "手放せなかったはずの 鎖が千切れた結末虚しくて",
+        "artist": "Aimer",
+        "title": "Run Riot",
+        "songId": "aimer-run-riot"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "はず|はず",
+    "word": "はず",
+    "reading": "はず",
+    "translation": "桅杆",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "はず",
+        "line": "手放せなかったはずの 鎖が千切れた結末虚しくて",
+        "artist": "Aimer",
+        "title": "Run Riot",
+        "songId": "aimer-run-riot"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "鎖|くさり",
+    "word": "鎖",
+    "reading": "くさり",
+    "translation": "鏈",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "鎖",
+        "line": "手放せなかったはずの 鎖が千切れた結末虚しくて",
+        "artist": "Aimer",
+        "title": "Run Riot",
+        "songId": "aimer-run-riot"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "千|せん",
+    "word": "千",
+    "reading": "せん",
+    "translation": "千",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "千",
+        "line": "手放せなかったはずの 鎖が千切れた結末虚しくて",
+        "artist": "Aimer",
+        "title": "Run Riot",
+        "songId": "aimer-run-riot"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "切れる|きれ",
+    "word": "切れる",
+    "reading": "きれ",
+    "translation": "断档",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "切れ",
+        "line": "手放せなかったはずの 鎖が千切れた結末虚しくて",
+        "artist": "Aimer",
+        "title": "Run Riot",
+        "songId": "aimer-run-riot"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "結末|けつまつ",
+    "word": "結末",
+    "reading": "けつまつ",
+    "translation": "結束",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "結末",
+        "line": "手放せなかったはずの 鎖が千切れた結末虚しくて",
+        "artist": "Aimer",
+        "title": "Run Riot",
+        "songId": "aimer-run-riot"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "虚しい|むなしく",
+    "word": "虚しい",
+    "reading": "むなしく",
+    "translation": "徒勞",
+    "origin": "",
+    "type": "形容詞",
+    "sources": [
+      {
+        "surface": "虚しく",
+        "line": "手放せなかったはずの 鎖が千切れた結末虚しくて",
+        "artist": "Aimer",
+        "title": "Run Riot",
+        "songId": "aimer-run-riot"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "去る|さり",
+    "word": "去る",
+    "reading": "さり",
+    "translation": "離開",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "去り",
+        "line": "ただ去りゆく人の背を 見送らずに歩き出すんだ だけど刹那",
+        "artist": "Aimer",
+        "title": "Run Riot",
+        "songId": "aimer-run-riot"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "ゆく|ゆく",
+    "word": "ゆく",
+    "reading": "ゆく",
+    "translation": "出現藥物引起的幻覺",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "ゆく",
+        "line": "ただ去りゆく人の背を 見送らずに歩き出すんだ だけど刹那",
+        "artist": "Aimer",
+        "title": "Run Riot",
+        "songId": "aimer-run-riot"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "人|ひと",
+    "word": "人",
+    "reading": "ひと",
+    "translation": "-意大利語",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "人",
+        "line": "ただ去りゆく人の背を 見送らずに歩き出すんだ だけど刹那",
+        "artist": "Aimer",
+        "title": "Run Riot",
+        "songId": "aimer-run-riot"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "背|せ",
+    "word": "背",
+    "reading": "せ",
+    "translation": "後",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "背",
+        "line": "ただ去りゆく人の背を 見送らずに歩き出すんだ だけど刹那",
+        "artist": "Aimer",
+        "title": "Run Riot",
+        "songId": "aimer-run-riot"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "見送る|みおくら",
+    "word": "見送る",
+    "reading": "みおくら",
+    "translation": "放球",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "見送ら",
+        "line": "ただ去りゆく人の背を 見送らずに歩き出すんだ だけど刹那",
+        "artist": "Aimer",
+        "title": "Run Riot",
+        "songId": "aimer-run-riot"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "歩く|あるき",
+    "word": "歩く",
+    "reading": "あるき",
+    "translation": "步行",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "歩き",
+        "line": "ただ去りゆく人の背を 見送らずに歩き出すんだ だけど刹那",
+        "artist": "Aimer",
+        "title": "Run Riot",
+        "songId": "aimer-run-riot"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "出す|だす",
+    "word": "出す",
+    "reading": "だす",
+    "translation": "呈交",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "出す",
+        "line": "ただ去りゆく人の背を 見送らずに歩き出すんだ だけど刹那",
+        "artist": "Aimer",
+        "title": "Run Riot",
+        "songId": "aimer-run-riot"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "ん|ん",
+    "word": "ん",
+    "reading": "ん",
+    "translation": "乃",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "ん",
+        "line": "ただ去りゆく人の背を 見送らずに歩き出すんだ だけど刹那",
+        "artist": "Aimer",
+        "title": "Run Riot",
+        "songId": "aimer-run-riot"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "刹那|せつな",
+    "word": "刹那",
+    "reading": "せつな",
+    "translation": "時刻",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "刹那",
+        "line": "ただ去りゆく人の背を 見送らずに歩き出すんだ だけど刹那",
+        "artist": "Aimer",
+        "title": "Run Riot",
+        "songId": "aimer-run-riot"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "立ち込める|たちこめる",
+    "word": "立ち込める",
+    "reading": "たちこめる",
+    "translation": "屏幕",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "立ち込める",
+        "line": "ひらひらと 立ち込める 面影が",
+        "artist": "Aimer",
+        "title": "Run Riot",
+        "songId": "aimer-run-riot"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "面影|おもかげ",
+    "word": "面影",
+    "reading": "おもかげ",
+    "translation": "残余",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "面影",
+        "line": "ひらひらと 立ち込める 面影が",
+        "artist": "Aimer",
+        "title": "Run Riot",
+        "songId": "aimer-run-riot"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "拭える|ぬぐえ",
+    "word": "拭える",
+    "reading": "ぬぐえ",
+    "translation": "全军覆没",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "拭え",
+        "line": "拭えない焦燥を 夜に断ち切って",
+        "artist": "Aimer",
+        "title": "Run Riot",
+        "songId": "aimer-run-riot"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "焦燥|しょうそう",
+    "word": "焦燥",
+    "reading": "しょうそう",
+    "translation": "刺激",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "焦燥",
+        "line": "拭えない焦燥を 夜に断ち切って",
+        "artist": "Aimer",
+        "title": "Run Riot",
+        "songId": "aimer-run-riot"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "夜|よる",
+    "word": "夜",
+    "reading": "よる",
+    "translation": "晚上",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "夜",
+        "line": "拭えない焦燥を 夜に断ち切って",
+        "artist": "Aimer",
+        "title": "Run Riot",
+        "songId": "aimer-run-riot"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "断ち切る|たちきっ",
+    "word": "断ち切る",
+    "reading": "たちきっ",
+    "translation": "截斷",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "断ち切っ",
+        "line": "拭えない焦燥を 夜に断ち切って",
+        "artist": "Aimer",
+        "title": "Run Riot",
+        "songId": "aimer-run-riot"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "野生|やせい",
+    "word": "野生",
+    "reading": "やせい",
+    "translation": "野生",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "野生",
+        "line": "野生の息吹響く鳴き声",
+        "artist": "Aimer",
+        "title": "Run Riot",
+        "songId": "aimer-run-riot"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "息吹|いぶき",
+    "word": "息吹",
+    "reading": "いぶき",
+    "translation": "呼氣",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "息吹",
+        "line": "野生の息吹響く鳴き声",
+        "artist": "Aimer",
+        "title": "Run Riot",
+        "songId": "aimer-run-riot"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "響く|ひびく",
+    "word": "響く",
+    "reading": "ひびく",
+    "translation": "回荡",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "響く",
+        "line": "野生の息吹響く鳴き声",
+        "artist": "Aimer",
+        "title": "Run Riot",
+        "songId": "aimer-run-riot"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "鳴き声|なきごえ",
+    "word": "鳴き声",
+    "reading": "なきごえ",
+    "translation": "喵",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "鳴き声",
+        "line": "野生の息吹響く鳴き声",
+        "artist": "Aimer",
+        "title": "Run Riot",
+        "songId": "aimer-run-riot"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "辿る|たどり",
+    "word": "辿る",
+    "reading": "たどり",
+    "translation": "跟隨",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "辿り",
+        "line": "辿り損ねた愛をもう悔やまないで",
+        "artist": "Aimer",
+        "title": "Run Riot",
+        "songId": "aimer-run-riot"
+      },
+      {
+        "surface": "辿り",
+        "line": "辿り損ねた愛をもう悔やまないで 笑って",
+        "artist": "Aimer",
+        "title": "Run Riot",
+        "songId": "aimer-run-riot"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "損ねる|そこね",
+    "word": "損ねる",
+    "reading": "そこね",
+    "translation": "害",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "損ね",
+        "line": "辿り損ねた愛をもう悔やまないで",
+        "artist": "Aimer",
+        "title": "Run Riot",
+        "songId": "aimer-run-riot"
+      },
+      {
+        "surface": "損ね",
+        "line": "辿り損ねた愛をもう悔やまないで 笑って",
+        "artist": "Aimer",
+        "title": "Run Riot",
+        "songId": "aimer-run-riot"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "愛|あい",
+    "word": "愛",
+    "reading": "あい",
+    "translation": "愛",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "愛",
+        "line": "辿り損ねた愛をもう悔やまないで",
+        "artist": "Aimer",
+        "title": "Run Riot",
+        "songId": "aimer-run-riot"
+      },
+      {
+        "surface": "愛",
+        "line": "辿り損ねた愛をもう悔やまないで 笑って",
+        "artist": "Aimer",
+        "title": "Run Riot",
+        "songId": "aimer-run-riot"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "悔やむ|くやま",
+    "word": "悔やむ",
+    "reading": "くやま",
+    "translation": "感慨",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "悔やま",
+        "line": "辿り損ねた愛をもう悔やまないで",
+        "artist": "Aimer",
+        "title": "Run Riot",
+        "songId": "aimer-run-riot"
+      },
+      {
+        "surface": "悔やま",
+        "line": "辿り損ねた愛をもう悔やまないで 笑って",
+        "artist": "Aimer",
+        "title": "Run Riot",
+        "songId": "aimer-run-riot"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "駆け出す|かけだし",
+    "word": "駆け出す",
+    "reading": "かけだし",
+    "translation": "撒脚",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "駆け出し",
+        "line": "駆け出して",
+        "artist": "Aimer",
+        "title": "Run Riot",
+        "songId": "aimer-run-riot"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "花びら|はなびら",
+    "word": "花びら",
+    "reading": "はなびら",
+    "translation": "花瓣",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "花びら",
+        "line": "花びら 燦々と 包まれて 目を閉じた 夢から醒めますように",
+        "artist": "Aimer",
+        "title": "Run Riot",
+        "songId": "aimer-run-riot"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "燦々|さんさん",
+    "word": "燦々",
+    "reading": "さんさん",
+    "translation": "明亮",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "燦々",
+        "line": "花びら 燦々と 包まれて 目を閉じた 夢から醒めますように",
+        "artist": "Aimer",
+        "title": "Run Riot",
+        "songId": "aimer-run-riot"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "包む|つつま",
+    "word": "包む",
+    "reading": "つつま",
+    "translation": "包裹",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "包ま",
+        "line": "花びら 燦々と 包まれて 目を閉じた 夢から醒めますように",
+        "artist": "Aimer",
+        "title": "Run Riot",
+        "songId": "aimer-run-riot"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "れる|れ",
+    "word": "れる",
+    "reading": "れ",
+    "translation": "表示自發性發生",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "れ",
+        "line": "花びら 燦々と 包まれて 目を閉じた 夢から醒めますように",
+        "artist": "Aimer",
+        "title": "Run Riot",
+        "songId": "aimer-run-riot"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "目|め",
+    "word": "目",
+    "reading": "め",
+    "translation": "-約",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "目",
+        "line": "花びら 燦々と 包まれて 目を閉じた 夢から醒めますように",
+        "artist": "Aimer",
+        "title": "Run Riot",
+        "songId": "aimer-run-riot"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "閉じる|とじ",
+    "word": "閉じる",
+    "reading": "とじ",
+    "translation": "親近",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "閉じ",
+        "line": "花びら 燦々と 包まれて 目を閉じた 夢から醒めますように",
+        "artist": "Aimer",
+        "title": "Run Riot",
+        "songId": "aimer-run-riot"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "醒める|さめ",
+    "word": "醒める",
+    "reading": "さめ",
+    "translation": "醒悟",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "醒め",
+        "line": "花びら 燦々と 包まれて 目を閉じた 夢から醒めますように",
+        "artist": "Aimer",
+        "title": "Run Riot",
+        "songId": "aimer-run-riot"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "声|こえ",
+    "word": "声",
+    "reading": "こえ",
+    "translation": "嗓音",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "声",
+        "line": "声が響いてる 愛しい 誰かの声が響いてる",
+        "artist": "Aimer",
+        "title": "Run Riot",
+        "songId": "aimer-run-riot"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "響く|ひびい",
+    "word": "響く",
+    "reading": "ひびい",
+    "translation": "回荡",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "響い",
+        "line": "声が響いてる 愛しい 誰かの声が響いてる",
+        "artist": "Aimer",
+        "title": "Run Riot",
+        "songId": "aimer-run-riot"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "愛しい|いとしい",
+    "word": "愛しい",
+    "reading": "いとしい",
+    "translation": "尊敬的",
+    "origin": "",
+    "type": "形容詞",
+    "sources": [
+      {
+        "surface": "愛しい",
+        "line": "声が響いてる 愛しい 誰かの声が響いてる",
+        "artist": "Aimer",
+        "title": "Run Riot",
+        "songId": "aimer-run-riot"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "誰|だれ",
+    "word": "誰",
+    "reading": "だれ",
+    "translation": "誰",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "誰",
+        "line": "声が響いてる 愛しい 誰かの声が響いてる",
+        "artist": "Aimer",
+        "title": "Run Riot",
+        "songId": "aimer-run-riot"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "引き留める|ひきとめる",
+    "word": "引き留める",
+    "reading": "ひきとめる",
+    "translation": "檢查",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "引き留める",
+        "line": "引き留める残響を 風よ連れ去って",
+        "artist": "Aimer",
+        "title": "Run Riot",
+        "songId": "aimer-run-riot"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "いい|いい",
+    "word": "いい",
+    "reading": "いい",
+    "translation": "足夠",
+    "origin": "",
+    "type": "形容詞",
+    "sources": [
+      {
+        "surface": "いい",
+        "line": "孤独の香り 祝福してる いいよ迷わない",
+        "artist": "Aimer",
+        "title": "Run Riot",
+        "songId": "aimer-run-riot"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "迷う|まよわ",
+    "word": "迷う",
+    "reading": "まよわ",
+    "translation": "困惑",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "迷わ",
+        "line": "孤独の香り 祝福してる いいよ迷わない",
+        "artist": "Aimer",
+        "title": "Run Riot",
+        "songId": "aimer-run-riot"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "胸|むね",
+    "word": "胸",
+    "reading": "むね",
+    "translation": "胸部",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "胸",
+        "line": "胸が奮い立つように",
+        "artist": "Aimer",
+        "title": "Run Riot",
+        "songId": "aimer-run-riot"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "奮い立つ|ふるいたつ",
+    "word": "奮い立つ",
+    "reading": "ふるいたつ",
+    "translation": "振作",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "奮い立つ",
+        "line": "胸が奮い立つように",
+        "artist": "Aimer",
+        "title": "Run Riot",
+        "songId": "aimer-run-riot"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "踊れる|おどれ",
+    "word": "踊れる",
+    "reading": "おどれ",
+    "translation": "能跳",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "踊れ",
+        "line": "ひらひらと 舞い踊れ 褪せるまで",
+        "artist": "Aimer",
+        "title": "Run Riot",
+        "songId": "aimer-run-riot"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "褪せる|あせる",
+    "word": "褪せる",
+    "reading": "あせる",
+    "translation": "褪色",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "褪せる",
+        "line": "ひらひらと 舞い踊れ 褪せるまで",
+        "artist": "Aimer",
+        "title": "Run Riot",
+        "songId": "aimer-run-riot"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "永遠|えいえん",
+    "word": "永遠",
+    "reading": "えいえん",
+    "translation": "永生",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "永遠",
+        "line": "永遠の淵覗いてみよう",
+        "artist": "Aimer",
+        "title": "Run Riot",
+        "songId": "aimer-run-riot"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "淵|ふち",
+    "word": "淵",
+    "reading": "ふち",
+    "translation": "潭",
+    "origin": "",
+    "type": "名詞",
+    "sources": [
+      {
+        "surface": "淵",
+        "line": "永遠の淵覗いてみよう",
+        "artist": "Aimer",
+        "title": "Run Riot",
+        "songId": "aimer-run-riot"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "覗く|のぞい",
+    "word": "覗く",
+    "reading": "のぞい",
+    "translation": "掠影",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "覗い",
+        "line": "永遠の淵覗いてみよう",
+        "artist": "Aimer",
+        "title": "Run Riot",
+        "songId": "aimer-run-riot"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "みる|みよ",
+    "word": "みる",
+    "reading": "みよ",
+    "translation": "看到",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "みよ",
+        "line": "永遠の淵覗いてみよう",
+        "artist": "Aimer",
+        "title": "Run Riot",
+        "songId": "aimer-run-riot"
+      }
+    ],
+    "_new": true
+  },
+  {
+    "key": "笑う|わらっ",
+    "word": "笑う",
+    "reading": "わらっ",
+    "translation": "笑",
+    "origin": "",
+    "type": "動詞",
+    "sources": [
+      {
+        "surface": "笑っ",
+        "line": "辿り損ねた愛をもう悔やまないで 笑って",
+        "artist": "Aimer",
+        "title": "Run Riot",
+        "songId": "aimer-run-riot"
+      }
+    ],
+    "_new": true
+  }
+]
