@@ -1,6 +1,6 @@
 // ── SawanoHiroyuki[nZk]:Aimer / s-AVE ──
-addSong(`SawanoHiroyuki[nZk]:Aimer`, {
-  id: `sawanohiro-s-ave`, title: `s-AVE`, sort: `s`,
+addSong(`Aimer`, {
+  id: `aimer-s-ave`, title: `s-AVE`, sort: `s`,
   yt: `https://youtu.be/XOdxawBFtno?si=2PQI7x9EpMVfFgkI`,
   lines(){return[
     L([` 0`,[`時`,`じ`],`の`,[`角`,`かど`],` こぼれ`,[`砕`,`くだ`],`けた この`,[`刺`,`とげ`],`は`,[`誰`,`だれ`],`を`,[`守`,`まも`],`ったの?`]),
