@@ -1,5 +1,5 @@
 // ── milet×Aimer×幾田りら / おもかげ ──
-addSong(`おもかげ`, {
+addSong(`aimer`, {
   id: `aimer-おもかげ`, title: `おもかげ`, sort: `お`,
   yt: `https://youtu.be/Z2Z9V-4DMGw?si=W_1zHjtamyJTruOg`,
   lines(){return[
