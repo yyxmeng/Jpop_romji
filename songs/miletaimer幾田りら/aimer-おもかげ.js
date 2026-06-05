@@ -1,6 +1,6 @@
 // ── milet×Aimer×幾田りら / おもかげ ──
-addSong(`milet×Aimer×幾田りら`, {
-  id: `miletaimer-おもかげ`, title: `おもかげ`, sort: `お`,
+addSong(`おもかげ`, {
+  id: `aimer-おもかげ`, title: `おもかげ`, sort: `お`,
   yt: `https://youtu.be/Z2Z9V-4DMGw?si=W_1zHjtamyJTruOg`,
   lines(){return[
     L([` Feel like leaving it to the flow.`]),
