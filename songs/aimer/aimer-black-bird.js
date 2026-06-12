@@ -1,7 +1,7 @@
 // ── Aimer / Black Bird ──
 addSong(`Aimer`, {
   id: `aimer-black-bird`, title: `Black Bird`, sort: `B`,
-  yt: `https://youtu.be/djSo-CcEw6k?si=c5fWYfKyzKIwjib-`,
+  yt: `https://youtu.be/DNCN1II0G-4?si=gIT4j09ZUZv4Jwsg`,
   lines(){return[
     L([[`小`,`ちい`],`さな`,[`頃`,`ころ`],`の`,[`小`,`ちい`],`さな`,[`願`,`ねが`],`いは`]),
     L([[`誰`,`だれ`],`のためにどんどん`,[`大`,`おお`],`きくなった?`]),
