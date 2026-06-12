@@ -1,6 +1,7 @@
 // ── 茉ひる / フレグランス ──
 addSong(`茉ひる`, {
   id: `茉ひる-フレグランス`, title: `フレグランス`, sort: `フ`,
+  yt: `https://youtu.be/P6WmLAMuaeM?si=BUbsKLmdnt_lzmuv`,
   lines(){return[
     L([` あなたに`,[`似`,`に`],`たようなこの`,[`香`,`かお`],`り`]),
     L([` もしかして`,[`近`,`ちか`],`くにいるの?ねえ`]),
