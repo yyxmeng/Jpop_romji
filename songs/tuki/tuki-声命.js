@@ -1,4 +1,4 @@
-// ── tuki. / 声命 ──
+// ── tuki. / 声命 ───
 addSong(`tuki.`, {
   id: `tuki-声命`, title: `声命`, sort: `声`,
   yt: `https://youtu.be/ylIJsx_RixY?si=Clx6fxc_5ju_xPUS`,
