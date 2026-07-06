@@ -1,4 +1,4 @@
-// ── tuki. / 純恋愛のインゴット ──
+// ── tuki. / 純恋愛のインゴット ───
 addSong(`tuki.`, {
   id: `tuki-純恋愛のインゴット`, title: `純恋愛のインゴット`, sort: `純`,
   yt: `https://youtu.be/goCvO7uJhu8?si=NYe61q5G9M1prdeU`,
