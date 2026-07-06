@@ -1,4 +1,4 @@
-// ── tuki. / アイモライモ ──
+// ── tuki. / アイモライモ ───
 addSong(`tuki.`, {
   id: `tuki-アイモライモ`, title: `アイモライモ`, sort: `ア`,
   yt: `https://www.youtube.com/watch?v=urh7DZp59WU`,
