@@ -1,4 +1,4 @@
-// ── tuki. / 星街の駅で ──
+// ── tuki. / 星街の駅で ───
 addSong(`tuki.`, {
   id: `tuki-星街の駅で`, title: `星街の駅で`, sort: `星`,
   yt: `https://youtu.be/EeSKlyhYp9w?si=0uYpS-I5TOKxfDED`,
