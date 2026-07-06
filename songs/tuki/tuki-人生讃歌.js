@@ -1,4 +1,4 @@
-// ── tuki. / 人生讃歌 ──
+// ── tuki. / 人生讃歌 ───
 addSong(`tuki.`, {
   id: `tuki-人生讃歌`, title: `人生讃歌`, sort: `人`,
   yt: `https://youtu.be/epFQODCxlxA?si=HVz9AM8mon_7QcoE`,
