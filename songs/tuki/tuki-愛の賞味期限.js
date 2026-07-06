@@ -1,4 +1,4 @@
-// ── tuki. / 愛の賞味期限 ──
+// ── tuki. / 愛の賞味期限 ───
 addSong(`tuki.`, {
   id: `tuki-愛の賞味期限`, title: `愛の賞味期限`, sort: `愛`,
   yt: `https://youtu.be/nmeccuUXs4Q?si=ZlJCjZt-kb0jMJAv`,
