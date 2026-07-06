@@ -1,4 +1,4 @@
-// ── tuki. / 月面着陸計画 ──
+// ── tuki. / 月面着陸計画 ───
 addSong(`tuki.`, {
   id: `tuki-月面着陸計画`, title: `月面着陸計画`, sort: `月`,
   yt: `https://youtu.be/mX9IJ7Urn28?si=FMvAoCmyPZVS014R`,
