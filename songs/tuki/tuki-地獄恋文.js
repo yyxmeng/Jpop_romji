@@ -1,4 +1,4 @@
-// ── tuki. / 地獄恋文 ──
+// ── tuki. / 地獄恋文 ───
 addSong(`tuki.`, {
   id: `tuki-地獄恋文`, title: `地獄恋文`, sort: `地`,
   yt: `https://youtu.be/Tghdn998C8w?si=zy00ghocRBdnN19c`,
