@@ -1,4 +1,4 @@
-// ── tuki. / 孤独の鯨 ──
+// ── tuki. / 孤独の鯨 ───
 addSong(`tuki.`, {
   id: `tuki-孤独の鯨`, title: `孤独の鯨`, sort: `孤`,
   yt: `https://youtu.be/agstsXgsxg4?si=Bz4rCxM6N6fzzVxn`,
