@@ -1,4 +1,4 @@
-// ── tuki. / 騙シ愛 ──
+// ── tuki. / 騙シ愛 ───
 addSong(`tuki.`, {
   id: `tuki-騙シ愛`, title: `騙シ愛`, sort: `騙`,
   yt: `https://youtu.be/4_Lc458W1EY?si=4mufcN1A6gmQHaoI`,
