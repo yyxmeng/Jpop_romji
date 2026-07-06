@@ -1,4 +1,4 @@
-// ── tuki. / シーソー ──
+// ── tuki. / シーソー ───
 addSong(`tuki.`, {
   id: `tuki-シーソー`, title: `シーソー`, sort: `シ`,
   yt: `https://youtu.be/Hmvjp4xw7dA?si=Zn36ImwSHka36ewh`,
